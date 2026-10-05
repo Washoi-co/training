@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="絵を見て英語を選び、声に出して3回。A-PUSHのスピーキング反復トレーニング。">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="canonical" href="https://training.apush.jp/">
+
+<!-- LINEやSNSでリンクを貼ったときのプレビュー -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://training.apush.jp/">
+<meta property="og:title" content="動詞チャンクトレーニング｜A-PUSH">
+<meta property="og:description" content="絵を見て英語を選び、声に出して3回。1回2分のスピーキング練習。">
+<meta property="og:image" content="https://training.apush.jp/ogp.png">
+<meta property="og:site_name" content="A-PUSH">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.png">
+
+<style>
+/* 公開用スケルトン（アーティファクト版では自動で付いていた分） */
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>動詞チャンクトレーニング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: 最上段に 使い方・面談・体験会 の3つ。その下は種目タブと1枚のカードだけ。開いた瞬間にドリルが動いている。 */
+:root{
+  --ink:#0B0B0C; --surface:#151517; --surface2:#1E1E22;
+  --line:rgba(255,255,255,.11); --line-strong:rgba(255,255,255,.24);
+  --fg:#F4F4F5; --muted:#8E8E96;
+  --red:#FF2D16; --red-deep:#D41B06; --ok:#49D68B; --ng:#FF6B5A;
+  --en:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--ink); color:var(--fg); font-family:var(--jp);
+  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  padding:0 16px 44px;
+}
+.wrap{max-width:600px;margin:0 auto}
+.en{font-family:var(--en)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---- 最上段の3つ ---- */
+.top{display:grid;grid-template-columns:auto 1fr 1fr;gap:7px;padding-block:14px 0}
+.tp{display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line-strong);border-radius:11px;padding:10px 13px;text-decoration:none;background:var(--surface);min-width:0}
+.tp:hover{border-color:var(--red)}
+.tp b{font-size:13.5px;font-weight:900;letter-spacing:-.01em;white-space:nowrap}
+.tp span{font-size:10.5px;color:var(--muted);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp.fill{background:var(--red);border-color:var(--red)}
+.tp.fill:hover{background:var(--red-deep);border-color:var(--red-deep)}
+.tp.fill span{color:rgba(255,255,255,.85)}
+.tp.ghost{background:transparent}
+.tp.ghost b{font-size:13px;color:var(--muted)}
+.tp.ghost[aria-expanded="true"]{border-color:var(--red)}
+.tp.ghost[aria-expanded="true"] b{color:var(--red)}
+@media (max-width:430px){
+  .top{grid-template-columns:1fr 1fr}
+  .tp.ghost{grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;padding:9px 13px}
+  .tp.ghost span{margin-top:0}
+}
+
+/* ---- 使い方パネル ---- */
+.how{background:var(--surface);border:1px solid var(--red);border-radius:13px;padding:18px 16px;margin-top:9px}
+.how h2{font-size:14.5px;font-weight:900;margin:0 0 3px}
+.how>p{margin:0;font-size:13px;color:var(--muted)}
+.steps{display:grid;gap:12px;margin:16px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:24px 1fr;gap:11px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--en);font-size:11.5px;font-weight:900;color:var(--red);border:1.5px solid var(--red);border-radius:50%;width:24px;height:24px;display:grid;place-items:center;margin-top:1px}
+.steps b{display:block;font-size:13.5px;font-weight:700}
+.steps span{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+.kinds{display:grid;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.kind{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline}
+.kind i{font-style:normal;font-size:11.5px;font-weight:900;color:var(--red);white-space:nowrap}
+.kind span{font-size:12px;color:var(--muted)}
+.kind span b{color:var(--fg);font-family:var(--en);font-weight:700}
+
+header{padding-block:16px 10px}
+.eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red);margin:0 0 4px}
+h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
+
+/* ---- 種目タブ ---- */
+.tabs{display:flex;gap:3px;background:var(--surface);padding:3px;border-radius:11px;border:1px solid var(--line)}
+.tabs button{flex:1;padding:10px 4px;border-radius:8px;font-size:13px;font-weight:700;color:var(--muted);min-width:0}
+.tabs button[aria-pressed="true"]{background:var(--red);color:#fff}
+
+/* ---- 設定チップ ---- */
+.chips{display:flex;gap:7px;overflow-x:auto;padding:11px 0;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line-strong);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:700;white-space:nowrap;color:var(--muted)}
+.chip.en{font-family:var(--en);font-size:14px;letter-spacing:-.01em}
+.chip:hover{border-color:var(--red);color:var(--red)}
+.chip[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ---- カード ---- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.timerbar{height:4px;background:rgba(255,255,255,.07)}
+.timerbar i{display:block;height:100%;background:var(--red);width:100%;transition:width .25s linear}
+.timerbar i.low{background:var(--ng)}
+.cardin{padding:14px 16px 20px}
+.qmeta{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--muted)}
+.qmeta .en{font-variant-numeric:tabular-nums}
+.pips{display:flex;gap:5px}
+.pip{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.16)}
+.pip.y{background:var(--ok)} .pip.n{background:var(--ng)}
+
+.ask{font-size:12.5px;color:var(--muted);margin:12px 0 0;text-align:center}
+.pic{display:grid;place-items:center;line-height:1;user-select:none;font-size:clamp(78px,24vw,116px);padding:10px 0 12px}
+.stem{font-family:var(--en);font-size:clamp(21px,5.4vw,28px);font-weight:900;letter-spacing:-.03em;margin:0 0 4px;line-height:1.15;text-align:center}
+.stem .blank{color:var(--red);border-bottom:3px solid var(--red);padding:0 .35em}
+.stemja{font-size:12px;color:var(--muted);margin:0 0 15px;text-align:center}
+.choices{display:grid;gap:8px}
+.ch{border:1px solid var(--line-strong);border-radius:10px;padding:13px 15px;text-align:left;font-family:var(--en);font-size:15.5px;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:11px}
+.ch:hover:not(:disabled){border-color:var(--red);color:var(--red)}
+.ch:disabled{cursor:default}
+.ch .k{font-size:11px;color:var(--muted);flex:none;width:14px}
+.ch.correct{border-color:var(--ok);background:rgba(73,214,139,.12);color:var(--ok)}
+.ch.wrong{border-color:var(--ng);background:rgba(255,107,90,.10);color:var(--ng)}
+.ch.dim{opacity:.4}
+
+/* ---- 復唱 ---- */
+.repeat{text-align:center}
+.verdict{font-size:13px;font-weight:700;margin:0}
+.verdict.y{color:var(--ok)} .verdict.n{color:var(--ng)}
+.answer{font-family:var(--en);font-size:clamp(21px,5.3vw,29px);font-weight:900;letter-spacing:-.03em;line-height:1.2;margin:12px 0 0;text-wrap:balance}
+.answerja{font-size:13.5px;color:var(--muted);margin:8px 0 0}
+.saylabel{font-size:12.5px;color:var(--muted);margin:18px 0 10px}
+.dots{display:flex;gap:12px;justify-content:center}
+.dot{width:56px;height:56px;border-radius:50%;border:2px solid var(--line-strong);display:grid;place-items:center;font-family:var(--en);font-size:16px;font-weight:900;color:var(--muted)}
+.dot:hover{border-color:var(--red)}
+.dot.on{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ---- 結果 ---- */
+.result{text-align:center}
+.big{font-family:var(--en);font-size:56px;font-weight:900;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;margin:0}
+.big em{font-style:normal;font-size:24px;color:var(--muted)}
+.resultja{font-size:13.5px;margin:9px 0 0}
+.recap{margin-top:18px;text-align:left;border-top:1px solid var(--line)}
+.rrow{display:flex;gap:11px;align-items:center;padding:10px 2px;border-bottom:1px solid var(--line);font-size:13.5px}
+.rrow .m{flex:none;font-size:19px;width:25px;text-align:center}
+.rrow .s{font-family:var(--en);font-weight:700;letter-spacing:-.01em;min-width:0;overflow-wrap:anywhere;flex:1}
+.rrow .v{flex:none;font-size:12px;font-weight:700}
+.rrow .v.y{color:var(--ok)} .rrow .v.n{color:var(--ng)}
+.nudge{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);text-align:left}
+.nudge b{display:block;color:var(--fg);font-size:13.5px;font-weight:700;margin-bottom:3px}
+
+.acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.acts button,.acts a{border:1px solid var(--line-strong);border-radius:9px;padding:11px 18px;font-size:13.5px;font-weight:700;text-decoration:none}
+.acts button:hover,.acts a:hover{border-color:var(--red);color:var(--red)}
+.acts .primary{background:var(--red);border-color:var(--red);color:#fff}
+.acts .primary:hover{background:var(--red-deep);border-color:var(--red-deep);color:#fff}
+.acts button:disabled{opacity:.35;cursor:default}
+.acts button:disabled:hover{border-color:var(--line-strong);color:inherit}
+
+.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:#64646C;line-height:1.7}
+.foot b{color:var(--muted);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <button class="tp ghost" id="btn-how" aria-expanded="false" aria-controls="how">
+      <b>使い方</b><span>30秒で読めます</span>
+    </button>
+    <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
+      <b>面談</b><span>学習の相談</span>
+    </a>
+    <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">
+      <b>体験会</b><span>3,000円／60分</span>
+    </a>
+  </div>
+
+  <div class="how" id="how" hidden>
+    <h2>話せないのは、話す回数が足りないからです。</h2>
+    <p>絵を見て英語を選び、声に出して3回言うだけ。1ラウンド5問、2分ほどです。</p>
+    <ol class="steps">
+      <li><div><b>絵を見て、20秒で選ぶ</b><span>絵が何をしているかを見て、合う英語を選びます。</span></div></li>
+      <li><div><b>声に出して3回</b><span>ここが本番です。丸を3つタップするまで次に進めません。</span></div></li>
+      <li><div><b>5問で結果</b><span>種目や型を変えると、すぐ次のラウンドが始まります。</span></div></li>
+    </ol>
+    <div class="kinds">
+      <div class="kind"><i>助動詞</i><span>できる・したい・しなければ。<b>I can / I want to / I have to</b> など6種類。</span></div>
+      <div class="kind"><i>疑問文</i><span>聞けないと会話が続きません。<b>Do you …? / Did you …?</b> など6種類。</span></div>
+      <div class="kind"><i>時制</i><span>昨日・毎日・明日・今。同じ動詞を4つの形で言い分けます。</span></div>
+    </div>
+  </div>
+
+  <header>
+    <p class="eyebrow en">A-PUSH ENGLISH SYSTEM</p>
+    <h1>動詞チャンクトレーニング</h1>
+  </header>
+
+  <div class="tabs" role="group" aria-label="種目">
+    <button id="t-modal" aria-pressed="true">助動詞</button>
+    <button id="t-question" aria-pressed="false">疑問文</button>
+    <button id="t-tense" aria-pressed="false">時制</button>
+  </div>
+
+  <div class="chips" id="chips" role="group" aria-label="型を選ぶ"></div>
+
+  <div class="card">
+    <div class="timerbar"><i id="tbar"></i></div>
+    <div class="cardin">
+
+      <div id="v-quiz">
+        <div class="qmeta">
+          <span class="pips" id="pips"></span>
+          <span class="en" id="qleft">20</span>
+        </div>
+        <p class="ask" id="ask">この絵に合うのは？</p>
+        <div class="pic" id="pic" role="img"></div>
+        <p class="stem en" id="stem"></p>
+        <p class="stemja" id="stemja"></p>
+        <div class="choices" id="choices"></div>
+      </div>
+
+      <div id="v-repeat" class="repeat" hidden>
+        <p class="verdict" id="verdict"></p>
+        <div class="pic" id="rpic" style="padding:12px 0 2px;font-size:clamp(52px,14vw,76px)"></div>
+        <p class="answer en" id="answer"></p>
+        <p class="answerja" id="answerja"></p>
+        <p class="saylabel">声に出して3回。タップすると音が鳴ります。</p>
+        <div class="dots" id="dots">
+          <button class="dot" data-d="0">1</button>
+          <button class="dot" data-d="1">2</button>
+          <button class="dot" data-d="2">3</button>
+        </div>
+        <div class="acts"><button class="primary" id="btn-next" disabled>次の絵へ</button></div>
+      </div>
+
+      <div id="v-result" class="result" hidden>
+        <p class="big en"><span id="rscore">0</span><em> / 5</em></p>
+        <p class="resultja" id="rmsg"></p>
+        <div class="recap" id="recap"></div>
+        <div class="nudge">
+          <b>次は、人を相手に話してみませんか。</b>
+          ここで作った文は、相手がいて初めて会話になります。ネイティブ講師とのマンツーマン体験は60分。学習の相談だけの面談もできます。
+        </div>
+        <div class="acts">
+          <button class="primary" id="btn-again">もう5問</button>
+          <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">体験会</a>
+          <a href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">面談</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="foot">
+    <b>音声について</b>　端末の読み上げ機能を使っています。端末や設定によっては鳴りません。<br>
+    <b>A-PUSH株式会社</b>　スピーキング特化の英会話スクール／目黒駅 徒歩1分　※体験会は有料（3,000円・税込／60分・オンライン可）です。学習効果には個人差があり、特定の成果を保証するものではありません。
+  </p>
+</div>
+
+<script>
+/* 動詞チャンク30：[絵, 原形, 日本語, 過去形] */
+const V=[
+["⏰","get up","起きる","got up"],
+["🛌","go to bed","寝る","went to bed"],
+["🚿","take a shower","シャワーを浴びる","took a shower"],
+["🪥","brush my teeth","歯をみがく","brushed my teeth"],
+["🧼","wash my hands","手を洗う","washed my hands"],
+["👕","get dressed","着替える","got dressed"],
+["🍳","eat breakfast","朝ごはんを食べる","ate breakfast"],
+["☕","drink coffee","コーヒーを飲む","drank coffee"],
+["👨‍🍳","cook dinner","夕飯を作る","cooked dinner"],
+["🍽️","do the dishes","皿を洗う","did the dishes"],
+["🧺","do the laundry","洗濯する","did the laundry"],
+["🧹","clean my room","部屋を掃除する","cleaned my room"],
+["🗑️","take out the trash","ゴミを出す","took out the trash"],
+["🚪","leave home","家を出る","left home"],
+["🚃","take the train","電車に乗る","took the train"],
+["🚗","drive a car","車を運転する","drove a car"],
+["💼","go to work","仕事に行く","went to work"],
+["📧","check my email","メールを確認する","checked my email"],
+["📞","make a phone call","電話をかける","made a phone call"],
+["📝","write a report","レポートを書く","wrote a report"],
+["🛒","go shopping","買い物に行く","went shopping"],
+["🎫","buy a ticket","チケットを買う","bought a ticket"],
+["💳","pay the bill","会計をする","paid the bill"],
+["🏋️","go to the gym","ジムに行く","went to the gym"],
+["🏃","run in the park","公園を走る","ran in the park"],
+["⚽","play soccer","サッカーをする","played soccer"],
+["🎬","watch a movie","映画を見る","watched a movie"],
+["📖","read a book","本を読む","read a book"],
+["🎧","listen to music","音楽を聴く","listened to music"],
+["📚","study English","英語を勉強する","studied English"]
+];
+
+const ING={get:"getting",go:"going",take:"taking",brush:"brushing",wash:"washing",eat:"eating",
+drink:"drinking",cook:"cooking",do:"doing",clean:"cleaning",leave:"leaving",drive:"driving",
+check:"checking",make:"making",write:"writing",buy:"buying",pay:"paying",run:"running",
+play:"playing",watch:"watching",read:"reading",listen:"listening",study:"studying"};
+function ing(base){const p=base.split(" ");p[0]=ING[p[0]]||p[0]+"ing";return p.join(" ");}
+
+const MODALS=[
+["I want to","〜したい","自分の希望を言うとき"],
+["I have to","〜しなければいけない","状況としてやる必要があるとき"],
+["I need to","〜する必要がある","必要性を伝えるとき"],
+["I can","〜できる","できることを伝えるとき"],
+["I should","〜した方がいい","助言・自分への方針"],
+["I must","〜しなければならない","強い義務・決意"]
+];
+const QUESTIONS=[
+["Do you","〜しますか？","いつもの習慣を聞く"],
+["Did you","〜しましたか？","過去のことを聞く"],
+["Can you","〜してくれますか？","頼む"],
+["Will you","〜してくれますか？","これからのことを頼む"],
+["Do you want to","〜したいですか？","誘う・確認する"],
+["Why don't you","〜したらどうですか？","すすめる"]
+];
+const TENSES=[
+["past","yesterday","昨日のこと"],
+["habit","every day","いつもの習慣"],
+["future","tomorrow","明日の予定"],
+["now","right now","今していること"],
+["mix","ミックス","4つをランダムに"]
+];
+function tenseSentence(vi,key){
+  const v=V[vi];
+  if(key==="past")   return "I "+v[3]+" yesterday.";
+  if(key==="habit")  return "I "+v[1]+" every day.";
+  if(key==="future") return "I will "+v[1]+" tomorrow.";
+  return "I'm "+ing(v[1])+" right now.";
+}
+const TENSE_JA={past:"昨日 〜した",habit:"毎日 〜する",future:"明日 〜する",now:"今 〜している"};
+const TENSE_EN={past:"yesterday",habit:"every day",future:"tomorrow",now:"right now"};
+
+const LIMIT=20;
+const $=id=>document.getElementById(id);
+let MODE="modal", SEL=4, queue=[], qi=0, score=0, log=[], taps=0, timer=null, left=LIMIT;
+
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function view(k){["quiz","repeat","result"].forEach(n=>$("v-"+n).hidden=(n!==k));}
+function speak(t){try{if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
+
+const SET=()=>MODE==="modal"?MODALS:MODE==="question"?QUESTIONS:TENSES;
+function sentenceOf(q){
+  if(MODE==="tense")return tenseSentence(q.vi,q.t);
+  const s=SET()[SEL];
+  return s[0]+" "+V[q.vi][1]+(MODE==="question"?"?":".");
+}
+
+/* 使い方の開閉 */
+$("btn-how").addEventListener("click",()=>{
+  const b=$("btn-how"), open=b.getAttribute("aria-expanded")==="true";
+  b.setAttribute("aria-expanded",String(!open));
+  $("how").hidden=open;
+});
+
+/* 種目タブ */
+["modal","question","tense"].forEach(k=>$("t-"+k).addEventListener("click",()=>{
+  MODE=k; SEL=(k==="tense")?0:(k==="modal"?4:0);
+  ["modal","question","tense"].forEach(n=>$("t-"+n).setAttribute("aria-pressed",String(n===k)));
+  renderChips(); startRound();
+}));
+
+function renderChips(){
+  $("chips").innerHTML=SET().map((x,i)=>{
+    const mix=(MODE==="tense"&&x[0]==="mix");
+    const label=MODE==="tense"?(mix?"ミックス":x[1]):x[0]+" …";
+    return '<button class="chip'+(mix?"":" en")+'" data-s="'+i+'" aria-pressed="'+(i===SEL)+'">'+esc(label)+'</button>';
+  }).join("");
+}
+$("chips").addEventListener("click",e=>{
+  const b=e.target.closest("[data-s]"); if(!b)return;
+  SEL=+b.dataset.s;
+  document.querySelectorAll("[data-s]").forEach(el=>el.setAttribute("aria-pressed",String(+el.dataset.s===SEL)));
+  startRound();
+});
+
+function startRound(){
+  const vs=shuffle(V.map((_,i)=>i)).slice(0,5);
+  const keys=["past","habit","future","now"];
+  queue=vs.map(vi=>{
+    let t=null;
+    if(MODE==="tense"){
+      const sel=TENSES[SEL][0];
+      t=(sel==="mix")?keys[Math.floor(Math.random()*4)]:sel;
+    }
+    return {vi,t};
+  });
+  qi=0;score=0;log=[];
+  askQuestion();
+}
+function paintPips(){
+  $("pips").innerHTML=[0,1,2,3,4].map(i=>{
+    const l=log[i];return '<span class="pip'+(l?(l.right?" y":" n"):"")+'"></span>';
+  }).join("");
+}
+function askQuestion(){
+  const q=queue[qi], v=V[q.vi];
+  paintPips();
+  $("pic").textContent=v[0];
+  $("pic").setAttribute("aria-label","絵："+v[2]);
+  if(MODE==="tense"){
+    $("ask").textContent="この時間の言い方は？";
+    $("stem").innerHTML='<span class="blank">'+esc(TENSE_EN[q.t])+'</span>';
+    $("stemja").textContent=TENSE_JA[q.t];
+    const others=shuffle(["past","habit","future","now"].filter(k=>k!==q.t)).slice(0,2);
+    $("choices").innerHTML=shuffle([q.t,...others]).map((k,n)=>
+      '<button class="ch" data-t="'+k+'"><span class="k en">'+(n+1)+'</span>'+esc(tenseSentence(q.vi,k))+'</button>').join("");
+  }else{
+    const s=SET()[SEL];
+    $("ask").textContent="この絵に合うのは？";
+    $("stem").innerHTML=esc(s[0])+' <span class="blank">?</span>';
+    $("stemja").textContent=s[1]+"　・"+s[2];
+    const wrong=shuffle(V.map((_,i)=>i).filter(i=>i!==q.vi)).slice(0,2);
+    $("choices").innerHTML=shuffle([q.vi,...wrong]).map((o,n)=>
+      '<button class="ch" data-v="'+o+'"><span class="k en">'+(n+1)+'</span>'+esc(V[o][1])+'</button>').join("");
+  }
+  view("quiz");
+  startTimer();
+}
+function startTimer(){
+  left=LIMIT;paintTimer();
+  clearInterval(timer);
+  timer=setInterval(()=>{left--;paintTimer();if(left<=0){clearInterval(timer);answer(null);}},1000);
+}
+function paintTimer(){
+  const bar=$("tbar");
+  bar.style.width=Math.max(0,left)/LIMIT*100+"%";
+  bar.classList.toggle("low",left<=5);
+  $("qleft").textContent=Math.max(0,left);
+}
+$("choices").addEventListener("click",e=>{
+  const b=e.target.closest(".ch"); if(!b||b.disabled)return;
+  clearInterval(timer);
+  answer(MODE==="tense"?b.dataset.t:+b.dataset.v);
+});
+function answer(chosen){
+  const q=queue[qi];
+  const correctKey=(MODE==="tense")?q.t:q.vi;
+  const right=(chosen===correctKey);
+  if(right)score++;
+  log.push({q,right,timeout:chosen===null});
+  document.querySelectorAll(".ch").forEach(el=>{
+    el.disabled=true;
+    const val=(MODE==="tense")?el.dataset.t:+el.dataset.v;
+    if(val===correctKey)el.classList.add("correct");
+    else if(chosen!==null&&val===chosen)el.classList.add("wrong");
+    else el.classList.add("dim");
+  });
+  setTimeout(()=>openRepeat(q,right,chosen===null),650);
+}
+function openRepeat(q,right,timedOut){
+  const s=sentenceOf(q), v=V[q.vi];
+  $("tbar").style.width="100%";$("tbar").classList.remove("low");
+  $("verdict").textContent=right?"正解":(timedOut?"時間切れ　正しい形はこちら":"おしい　正しい形はこちら");
+  $("verdict").className="verdict "+(right?"y":"n");
+  $("rpic").textContent=v[0];
+  $("answer").textContent=s;
+  $("answerja").textContent=MODE==="tense"?v[2]+"（"+TENSE_JA[q.t]+"）":v[2]+"（"+SET()[SEL][1]+"）";
+  taps=0;
+  document.querySelectorAll(".dot").forEach(d=>d.classList.remove("on"));
+  $("btn-next").disabled=true;
+  $("btn-next").textContent=(qi===4)?"結果を見る":"次の絵へ";
+  view("repeat");
+  speak(s);
+}
+$("dots").addEventListener("click",e=>{
+  const d=e.target.closest("[data-d]"); if(!d)return;
+  const n=+d.dataset.d; if(n>taps)return;
+  d.classList.add("on");taps=Math.max(taps,n+1);
+  speak(sentenceOf(queue[qi]));
+  if(taps>=3)$("btn-next").disabled=false;
+});
+$("btn-next").addEventListener("click",()=>{
+  if(qi>=4){showResult();return;}
+  qi++;askQuestion();
+});
+function showResult(){
+  $("rscore").textContent=score;
+  $("rmsg").textContent=
+    score===5?"全問正解。上の型を変えて、次の形へ。":
+    score>=3?"あと少し。もう5問いきましょう。":
+    "この形はまだ練習が要ります。もう5問。";
+  $("recap").innerHTML=log.map(l=>
+    '<div class="rrow"><span class="m">'+V[l.q.vi][0]+'</span>'+
+    '<span class="s">'+esc(sentenceOf(l.q))+'</span>'+
+    '<span class="v '+(l.right?"y":"n")+'">'+(l.right?"○":"×")+'</span></div>').join("");
+  view("result");
+}
+$("btn-again").addEventListener("click",startRound);
+
+renderChips();
+startRound();
+</script>
+</body>
+</html>
