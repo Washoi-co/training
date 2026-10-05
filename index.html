@@ -29,7 +29,7 @@ img{max-width:100%}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
 <style>
-/* Layout: 最上段に 使い方・面談・体験会 の3つ。その下は種目タブと1枚のカードだけ。開いた瞬間にドリルが動いている。 */
+/* Layout: 左上に小さな種目タブ、型チップ、1枚のカード。使い方・面談・体験会はカードの下。開いた瞬間にドリルが動いている。 */
 :root{
   --ink:#0B0B0C; --surface:#151517; --surface2:#1E1E22;
   --line:rgba(255,255,255,.11); --line-strong:rgba(255,255,255,.24);
@@ -53,8 +53,8 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ---- 最上段の3つ ---- */
-.top{display:grid;grid-template-columns:auto 1fr 1fr;gap:7px;padding-block:14px 0}
+/* ---- カード下の3つ ---- */
+.top{display:grid;grid-template-columns:auto 1fr 1fr;gap:7px;margin-top:22px}
 .tp{display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line-strong);border-radius:11px;padding:10px 13px;text-decoration:none;background:var(--surface);min-width:0}
 .tp:hover{border-color:var(--red)}
 .tp b{font-size:13.5px;font-weight:900;letter-spacing:-.01em;white-space:nowrap}
@@ -88,14 +88,13 @@ a{color:inherit}
 .kind span b{color:var(--fg);font-family:var(--en);font-weight:700}
 
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.tabs{margin-top:12px}
 .eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red);margin:0 0 4px}
 h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 
 /* ---- 種目タブ ---- */
-.tabs{display:flex;gap:3px;background:var(--surface);padding:3px;border-radius:11px;border:1px solid var(--line)}
-.tabs button{flex:1;padding:10px 4px;border-radius:8px;font-size:13px;font-weight:700;color:var(--muted);min-width:0}
-.tabs button[aria-pressed="true"]{background:var(--red);color:#fff}
+.tabs{display:flex;gap:6px;padding-top:14px}
+.tabs button{padding:5px 12px;border:1px solid var(--line-strong);border-radius:999px;font-size:12px;font-weight:700;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--ink)}
 
 /* ---- 設定チップ ---- */
 .chips{display:flex;gap:7px;overflow-x:auto;padding:11px 0;scrollbar-width:none}
@@ -192,33 +191,6 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 <body>
 <div class="wrap">
 
-  <div class="top">
-    <button class="tp ghost" id="btn-how" aria-expanded="false" aria-controls="how">
-      <b>使い方</b><span>30秒で読めます</span>
-    </button>
-    <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
-      <b>面談</b><span>学習の相談</span>
-    </a>
-    <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">
-      <b>体験会</b><span>3,000円／60分</span>
-    </a>
-  </div>
-
-  <div class="how" id="how" hidden>
-    <h2>話せないのは、話す回数が足りないからです。</h2>
-    <p>絵を見て英語を選び、声に出して3回言うだけ。1ラウンド5問、2分ほどです。</p>
-    <ol class="steps">
-      <li><div><b>絵を見て、20秒で選ぶ</b><span>絵が何をしているかを見て、合う英語を選びます。</span></div></li>
-      <li><div><b>声に出して3回</b><span>ここが本番です。丸を3つタップするまで次に進めません。</span></div></li>
-      <li><div><b>5問で結果</b><span>種目や型を変えると、すぐ次のラウンドが始まります。</span></div></li>
-    </ol>
-    <div class="kinds">
-      <div class="kind"><i>助動詞</i><span>できる・したい・しなければ。<b>I can / I want to / I have to</b> など6種類。</span></div>
-      <div class="kind"><i>疑問文</i><span>聞けないと会話が続きません。<b>Do you …? / Did you …?</b> など6種類。</span></div>
-      <div class="kind"><i>時制</i><span>昨日・毎日・明日・今。同じ動詞を4つの形で言い分けます。</span></div>
-    </div>
-  </div>
-
   <h1 class="sr">動詞チャンクトレーニング</h1>
 
   <div class="tabs" role="group" aria-label="種目">
@@ -274,6 +246,33 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <div class="top">
+    <button class="tp ghost" id="btn-how" aria-expanded="false" aria-controls="how">
+      <b>使い方</b><span>30秒で読めます</span>
+    </button>
+    <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
+      <b>面談</b><span>学習の相談</span>
+    </a>
+    <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">
+      <b>体験会</b><span>3,000円／60分</span>
+    </a>
+  </div>
+
+  <div class="how" id="how" hidden>
+    <h2>話せないのは、話す回数が足りないからです。</h2>
+    <p>絵を見て英語を選び、声に出して3回言うだけ。1ラウンド5問、2分ほどです。</p>
+    <ol class="steps">
+      <li><div><b>絵を見て、20秒で選ぶ</b><span>絵が何をしているかを見て、合う英語を選びます。</span></div></li>
+      <li><div><b>声に出して3回</b><span>ここが本番です。丸を3つタップするまで次に進めません。</span></div></li>
+      <li><div><b>5問で結果</b><span>種目や型を変えると、すぐ次のラウンドが始まります。</span></div></li>
+    </ol>
+    <div class="kinds">
+      <div class="kind"><i>助動詞</i><span>できる・したい・しなければ。<b>I can / I want to / I have to</b> など6種類。</span></div>
+      <div class="kind"><i>疑問文</i><span>聞けないと会話が続きません。<b>Do you …? / Did you …?</b> など6種類。</span></div>
+      <div class="kind"><i>時制</i><span>昨日・毎日・明日・今。同じ動詞を4つの形で言い分けます。</span></div>
     </div>
   </div>
 
