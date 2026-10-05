@@ -164,6 +164,26 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 .acts button:disabled{opacity:.35;cursor:default}
 .acts button:disabled:hover{border-color:var(--line-strong);color:inherit}
 
+/* ---- 本コース案内 ---- */
+.more{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 16px}
+.more h2{font-size:18px;font-weight:900;letter-spacing:-.02em;margin:0 0 6px}
+.more>p{margin:0;font-size:13px;color:var(--muted)}
+.more>p b{color:var(--fg)}
+.stairs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;align-items:end;margin:20px 0 0}
+.st{display:flex;flex-direction:column;gap:6px;min-width:0}
+.st ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.st li{border:1px solid var(--line-strong);border-radius:7px;padding:5px 6px;font-size:11.5px;font-weight:700;text-align:center;line-height:1.3}
+.st.here li{border-color:var(--red);color:var(--red)}
+.st .tag{align-self:center;font-size:10.5px;font-weight:900;color:#fff;background:var(--red);border-radius:999px;padding:2px 9px}
+.st .bar{border-radius:8px 8px 3px 3px;padding:8px 6px;font-size:11px;font-weight:700;text-align:center;line-height:1.35;background:var(--surface2);display:flex;flex-direction:column;justify-content:flex-end}
+.st .bar i{font-style:normal;font-family:var(--en);font-size:9.5px;letter-spacing:.14em;color:var(--muted)}
+.st.here .bar{background:var(--red);height:52px}
+.st.here .bar i{color:rgba(255,255,255,.8)}
+.st.s2 .bar{height:84px;background:rgba(255,45,22,.28)}
+.st.s3 .bar{height:116px;background:rgba(255,45,22,.42)}
+.base{height:2px;background:var(--line-strong);border-radius:2px}
+.more .cta{color:var(--fg);margin:18px 0 0;font-size:14px;font-weight:700;text-align:center}
+
 .foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:#64646C;line-height:1.7}
 .foot b{color:var(--muted);font-weight:700}
 </style>
@@ -258,6 +278,33 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 
     </div>
   </div>
+
+  <section class="more" aria-labelledby="more-h">
+    <p class="eyebrow en">A-PUSH MAIN COURSE</p>
+    <h2 id="more-h">このトレーニングは、まだ入口です。</h2>
+    <p>A-PUSH本コースでは、この3つのコースだけでなく、<b>完了形・過去完了形・不定詞・動名詞</b>など、たくさんの文法や言い回し、<b>ビジネスの言い回し</b>まで、同じチャンクトレーニングで練習できます。</p>
+    <div class="stairs" role="img" aria-label="このページは助動詞・疑問文・時制の3つ。本コースでは完了形・過去完了形・不定詞・動名詞などの文法と、日常やビジネスの言い回しまで広がります。">
+      <div class="st here">
+        <span class="tag">今ここ</span>
+        <ul><li>助動詞</li><li>疑問文</li><li>時制</li></ul>
+        <div class="bar"><i>NOW</i>このページ</div>
+      </div>
+      <div class="st s2">
+        <ul><li>完了形</li><li>過去完了形</li><li>不定詞</li><li>動名詞</li></ul>
+        <div class="bar"><i>COURSE</i>文法を広げる</div>
+      </div>
+      <div class="st s3">
+        <ul><li>日常の言い回し</li><li>ビジネスの言い回し</li><li>ほか多数</li></ul>
+        <div class="bar"><i>COURSE</i>使える言い回し</div>
+      </div>
+    </div>
+    <div class="base"></div>
+    <p class="cta">より詳しく、より深く学びたい方は、お問い合わせください。</p>
+    <div class="acts">
+      <a class="primary" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">面談で問い合わせる</a>
+      <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">体験会（3,000円）</a>
+    </div>
+  </section>
 
   <p class="foot">
     <b>音声について</b>　端末の読み上げ機能を使っています。端末や設定によっては鳴りません。<br>
