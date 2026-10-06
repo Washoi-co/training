@@ -36,6 +36,12 @@
 html,body{margin:0}
 body{background:var(--ink);color:var(--fg);font-family:var(--jp);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 16px 44px}
 .wrap{max-width:600px;margin:0 auto}
+@media(min-width:900px){
+  .wrap{max-width:1040px}
+  #v-home{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"prog tasks" "sync tasks" "a2hs cta";column-gap:20px;align-items:start}
+  #v-home .c-prog{grid-area:prog} #v-home .c-tasks{grid-area:tasks} #v-home .sync{grid-area:sync} #v-home .a2hs{grid-area:a2hs} #v-home .cta{grid-area:cta}
+  #v-learn,#v-test,#v-result,#v-set,#v-sync{max-width:600px;margin:0 auto}
+}
 .en{font-family:var(--en)}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 a{color:inherit}
@@ -128,25 +134,48 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
 /* A-PUSH式 単語の覚え方 */
 .howbtn{display:inline-block;margin-left:.4em;vertical-align:3px;border:1px solid var(--fg);border-radius:999px;padding:2px 10px;font-size:11px;font-weight:900;color:var(--fg);background:#fff}
 .howbtn:hover{border-color:var(--red);color:var(--red)}
-.howto h2{font-size:20px;font-weight:900;margin:0 0 6px}
-.ht{position:relative;padding:14px 0 14px 40px;border-top:1px solid var(--line)}
-.ht-n{position:absolute;left:0;top:16px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--en);font-weight:900;display:grid;place-items:center;font-size:14px}
-.ht h3{font-size:16.5px;font-weight:900;margin:0 0 4px;line-height:1.45}
-.ht h3 em{font-style:normal;color:var(--red)}
-.ht p{margin:6px 0 0;font-size:13.5px;line-height:1.85;color:#3A3A40}
-.ht b{color:var(--fg)}
-.curve{margin:10px 0 0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 8px 8px}
+.howto{margin-top:14px}
+.howto h2{font-size:clamp(20px,3vw,28px);font-weight:900;margin:0 0 14px}
+.hg{display:grid;grid-template-columns:1fr;gap:12px}
+.hc{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px;display:flex;flex-direction:column}
+.ht-n{position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--en);font-weight:900;display:grid;place-items:center;font-size:13px;z-index:1}
+.hc h3{font-size:clamp(17px,2.2vw,21px);font-weight:900;margin:14px 0 2px;line-height:1.4}
+.hc h3 em{font-style:normal;color:var(--red)}
+.hc p{margin:0;font-size:13px;color:var(--muted);line-height:1.7}
+.hv,.curve,.flow-d,.ladder{flex:1;min-height:150px;margin:0;display:flex;align-items:center;justify-content:center}
+/* 1：単語が消えていく */
+.forget{gap:10px;flex-wrap:wrap;font-family:var(--en);font-weight:900;font-size:clamp(18px,2.6vw,24px);letter-spacing:.02em}
+.forget span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.forget span:nth-child(2){opacity:.65}.forget span:nth-child(3){opacity:.4}.forget span:nth-child(4){opacity:.2}
+/* 2：忘却曲線 */
+.curve{flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px}
 .curve svg{display:block;width:100%;height:auto;font-family:var(--jp)}
-.curve figcaption{font-size:11px;color:var(--muted);text-align:center;margin-top:4px}
+.curve figcaption{font-size:11px;color:var(--muted);margin-top:2px}
 .lg{display:inline-block;width:16px;height:3px;vertical-align:3px;margin-right:4px}
 .lg.r{background:var(--red)} .lg.g{background:repeating-linear-gradient(90deg,#B5B5BB 0 5px,transparent 5px 9px);margin-left:6px}
-.flow-d{list-style:none;padding:0;margin:10px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.flow-d li{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 4px;text-align:center}
-.flow-d li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--red);font-weight:900;font-size:12px;z-index:1}
-.flow-d i{display:block;font-style:normal;font-size:22px;line-height:1.2}
-.flow-d b{display:block;font-size:12.5px;font-weight:900}
-.flow-d span{display:block;font-size:10.5px;color:var(--muted)}
-.howto .note{font-size:10.5px;color:var(--muted);line-height:1.7;margin:10px 0 0}
+/* 3：朝→夜→睡眠→翌日 */
+.flow-d{list-style:none;padding:0;gap:14px}
+.flow-d li{position:relative;width:66px;height:84px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.flow-d li:not(:last-child)::after{content:"→";position:absolute;right:-12px;color:var(--red);font-weight:900;font-size:13px}
+.flow-d li.z{background:var(--fg);border-color:var(--fg);color:#fff}
+.flow-d i{font-style:normal;font-size:26px;line-height:1.1}
+.flow-d b{font-size:12px;font-weight:900;margin-top:2px}
+.flow-d small{font-size:9.5px;color:var(--muted);margin-top:1px;white-space:nowrap}
+.flow-d li.z small{color:rgba(255,255,255,.75)}
+/* 4：間をあけて、習得へ */
+.ladder{list-style:none;padding:0;gap:6px;align-items:flex-end}
+.ladder li{width:46px;border-radius:8px 8px 4px 4px;background:rgba(232,50,31,.18);color:var(--red-deep);font-weight:700;font-size:9.5px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6px;line-height:1.25;text-align:center}
+.ladder li b{font-size:11px;font-weight:900}
+.ladder li:nth-child(1){height:42px}.ladder li:nth-child(2){height:52px}.ladder li:nth-child(3){height:70px}.ladder li:nth-child(4){height:88px}.ladder li:nth-child(5){height:106px}
+.ladder li.m{height:130px;background:var(--red);color:#fff;font-size:20px;justify-content:center;padding:0}
+.ladder li.m b{font-size:11px;color:#fff;margin-top:4px}
+.pts{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.pts li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.65;color:#3A3A40}
+.pts li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--red)}
+.pts .dot{color:var(--red)}
+.hc p{color:#3A3A40!important;font-size:13.5px!important}
+.howto .note{font-size:10.5px;color:var(--muted);line-height:1.7;margin:12px 0 0}
+@media(min-width:900px){ .hg{grid-template-columns:1fr 1fr;gap:16px} .hc{padding:22px 24px 24px} .hv,.curve,.flow-d,.ladder{min-height:190px} }
 /* 忘却曲線を活用する（ニックネーム登録） */
 .sync{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;margin-top:14px;background:#fff;border:1.5px solid var(--red);border-radius:12px;padding:12px 14px}
 .sync b{display:block;font-size:14px;font-weight:900}
@@ -191,7 +220,7 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
 
   <!-- ホーム -->
   <section id="v-home">
-    <div class="card">
+    <div class="card c-prog">
       <div class="prog"><span>覚えた単語</span><span><b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span></div>
       <div class="boxes" id="boxes"></div>
       <p class="boxnote">箱1 → 翌日／箱2 → 3日後／箱3 → 7日後／箱4 → 14日後／箱5 → 30日後に、また出てきます。間違えると箱1へ（箱5で間違えたら箱3へ）。</p>
@@ -204,7 +233,7 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
       <div><b>🧠 <span id="sync-id"></span> で記録中</b><span id="sync-st">別の端末では、このIDを入れると続きから学習できます。</span></div>
       <button id="sync-copy">IDをコピー</button>
     </div>
-    <div class="card">
+    <div class="card c-tasks">
       <div class="tasks" id="tasks"></div>
       <div class="msg" id="msg" hidden></div>
       <p class="boxnote" id="times"></p>
@@ -271,59 +300,62 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
     </div>
   </section>
 
-  <!-- A-PUSH式 単語の覚え方 -->
+  <!-- A-PUSH式 単語の覚え方（図で見せる） -->
   <section id="v-howto" hidden>
-    <div class="card howto">
+    <div class="howto">
       <p class="eyebrow">HOW TO MEMORIZE</p>
       <h2>A-PUSH式 単語の覚え方</h2>
+      <div class="hg">
 
-      <div class="ht">
-        <span class="ht-n">1</span>
-        <h3>単語は、<em>忘れるもの。</em></h3>
-        <p>覚えた単語は、1日たつと、その多くを忘れてしまいます（エビングハウスの忘却曲線）。忘れるのは、あなたのせいではありません。だから A-PUSH は、<b>「忘れること」を前提に</b>学習を組み立てます。</p>
+        <div class="hc">
+          <span class="ht-n">1</span>
+          <div class="hv forget" aria-hidden="true"><span>apple</span><span>appl_</span><span>ap___</span><span>_____</span></div>
+          <h3>単語は、<em>忘れるもの。</em></h3>
+          <p>覚えたばかりの単語は、1日たつと、その多くを忘れてしまいます。</p>
+          <ul class="pts"><li>忘れるのは、記憶力のせいではありません</li><li>だから「忘れる前提」で、思い出す回数を組み込みます</li></ul>
+        </div>
+
+        <div class="hc">
+          <span class="ht-n">2</span>
+          <figure class="curve" aria-label="復習しないと記憶はすぐ下がる。1日後・3日後・7日後・14日後に思い出すと、記憶が高いまま保たれるイメージ図">
+            <svg viewBox="0 0 330 160" role="img">
+              <line x1="20" y1="14" x2="20" y2="130" stroke="#D5D5D9"/><line x1="20" y1="130" x2="318" y2="130" stroke="#D5D5D9"/>
+              <g font-size="10" fill="#6B6B72" text-anchor="middle">
+                <text x="20" y="148">今日</text><text x="80" y="148">1日</text><text x="140" y="148">3日</text><text x="200" y="148">7日</text><text x="260" y="148">14日</text><text x="312" y="148">30日</text>
+              </g>
+              <path d="M20,18 C30,78 48,96 80,106 S210,126 316,128" fill="none" stroke="#B5B5BB" stroke-width="2.5" stroke-dasharray="5 4"/>
+              <path d="M20,18 C34,56 54,76 80,84 L80,18 C100,46 118,62 140,68 L140,18 C162,38 180,50 200,55 L200,18 C222,32 240,40 260,43 L260,18 C282,27 300,32 316,34" fill="none" stroke="#E8321F" stroke-width="3" stroke-linejoin="round"/>
+              <g fill="#E8321F"><circle cx="80" cy="18" r="4.5"/><circle cx="140" cy="18" r="4.5"/><circle cx="200" cy="18" r="4.5"/><circle cx="260" cy="18" r="4.5"/></g>
+            </svg>
+            <figcaption><span class="lg r"></span>思い出す　<span class="lg g"></span>思い出さない</figcaption>
+          </figure>
+          <h3>忘れかけたら、<em>思い出す。</em></h3>
+          <p>完全に忘れる前に思い出すと、記憶が戻り、前よりも下がりにくくなります。</p>
+          <ul class="pts"><li>赤い <b class="dot">●</b> が復習のタイミング（1日後・3日後・7日後・14日後）</li><li>思い出すたびに、次に忘れるまでの間が長くなります</li></ul>
+        </div>
+
+        <div class="hc">
+          <span class="ht-n">3</span>
+          <ol class="flow-d" aria-label="朝に覚える、夜にもう一度、眠る、翌日テスト">
+            <li><i>🌅</i><b>朝</b><small>覚える</small></li><li><i>🌙</i><b>夜</b><small>もう一度</small></li><li class="z"><i>💤</i><b>睡眠</b><small>整理される</small></li><li><i>📝</i><b>翌日</b><small>テスト</small></li>
+          </ol>
+          <h3>眠って、<em>定着させる。</em></h3>
+          <p>眠っている間に、その日に覚えたことが整理され、記憶に残りやすくなると言われています。</p>
+          <ul class="pts"><li>寝る前の「夜のもう一度」がポイント</li><li>次の日のテストで、本当に覚えたかを確かめます</li></ul>
+        </div>
+
+        <div class="hc">
+          <span class="ht-n">4</span>
+          <ol class="ladder" aria-label="箱1から箱5、そして習得へ">
+            <li><b>箱1</b>1日後</li><li><b>箱2</b>3日後</li><li><b>箱3</b>7日後</li><li><b>箱4</b>14日後</li><li><b>箱5</b>30日後</li><li class="m">🏆<b>習得</b></li>
+          </ol>
+          <h3>くり返して、<em>長期記憶へ。</em></h3>
+          <p>単語は5つの箱を順に進みます。正解するたびに、次に出てくるまでの間が長くなります。</p>
+          <ul class="pts"><li>正解 → 次の箱へ／間違い → 箱1に戻る（箱5で間違えたら箱3）</li><li>箱5も正解したら「習得」。ずっと使える記憶（長期記憶）です</li></ul>
+        </div>
+
       </div>
-
-      <div class="ht">
-        <span class="ht-n">2</span>
-        <h3>忘れかけたときに、<em>思い出す。</em></h3>
-        <p>忘れかけたタイミングで復習すると、思い出すたびに記憶が強くなり、次に忘れるまでの時間が長くなります。</p>
-        <figure class="curve">
-          <svg viewBox="0 0 330 190" role="img" aria-label="復習しないと記憶はすぐに下がるが、1日後・3日後・7日後・14日後に復習すると、記憶が高いまま保たれることを示したイメージ図">
-            <line x1="34" y1="18" x2="34" y2="150" stroke="#C6C6CB"/><line x1="34" y1="150" x2="318" y2="150" stroke="#C6C6CB"/>
-            <text x="12" y="84" font-size="10" fill="#6B6B72" transform="rotate(-90 12 84)" text-anchor="middle">覚えている量</text>
-            <g font-size="9.5" fill="#6B6B72" text-anchor="middle">
-              <text x="34" y="166">今日</text><text x="90" y="166">1日後</text><text x="146" y="166">3日後</text><text x="202" y="166">7日後</text><text x="258" y="166">14日後</text><text x="312" y="166">30日後</text>
-            </g>
-            <path d="M34,22 C44,85 60,104 90,114 S210,140 314,145" fill="none" stroke="#B5B5BB" stroke-width="2.5" stroke-dasharray="5 4"/>
-            <path d="M34,22 C48,62 66,84 90,94 L90,22 C110,52 126,70 146,78 L146,22 C168,44 184,58 202,64 L202,22 C224,38 240,48 258,52 L258,22 C280,32 298,38 314,40" fill="none" stroke="#E8321F" stroke-width="2.8" stroke-linejoin="round"/>
-            <g fill="#E8321F"><circle cx="90" cy="22" r="4"/><circle cx="146" cy="22" r="4"/><circle cx="202" cy="22" r="4"/><circle cx="258" cy="22" r="4"/></g>
-            <text x="174" y="13" font-size="10" font-weight="700" fill="#E8321F" text-anchor="middle">● ＝ 復習（忘れかけたタイミング）</text>
-            <text x="62" y="44" font-size="15" text-anchor="middle">🌙</text>
-          </svg>
-          <figcaption><span class="lg r"></span>復習する（A-PUSH 単語）　<span class="lg g"></span>復習しない</figcaption>
-        </figure>
-        <p>だから A-PUSH 単語は、<b>1日後 → 3日後 → 7日後 → 14日後 → 30日後</b>と、少しずつ間をあけて、また出てきます。間違えた単語は、忘れかけのサインなので、早めにもう一度出てきます。</p>
-      </div>
-
-      <div class="ht">
-        <span class="ht-n">3</span>
-        <h3>睡眠で、<em>記憶を定着させる。</em></h3>
-        <p>眠っている間に、その日に覚えたことが整理され、記憶に定着しやすくなると言われています。だから、1日の流れは次の順番です。</p>
-        <ol class="flow-d">
-          <li><i>🌅</i><b>朝</b><span>覚える</span></li>
-          <li><i>🌙</i><b>夜</b><span>もう一度</span></li>
-          <li><i>💤</i><b>睡眠</b><span>定着</span></li>
-          <li><i>📝</i><b>翌日</b><span>テスト</span></li>
-        </ol>
-      </div>
-
-      <div class="ht">
-        <span class="ht-n">4</span>
-        <h3>くり返して、<em>長期記憶へ。</em></h3>
-        <p><b>忘れる → 思い出す → 眠る</b>をくり返すうちに、単語は「すぐ忘れる記憶」から「ずっと使える記憶（長期記憶）」に変わっていきます。箱5を越えた単語が「習得」です。</p>
-      </div>
-
-      <p class="note">※ 図は考え方を説明するためのイメージです（実際の数値ではありません）。覚え方・効果には個人差があります。参考：Hermann Ebbinghaus（1885）の忘却曲線。</p>
+      <p class="note">※ 図は考え方のイメージです（実際の数値ではありません）。効果には個人差があります。参考：エビングハウスの忘却曲線（1885）。</p>
       <div class="acts"><button class="primary" id="howto-back">今日のメニューへ</button></div>
     </div>
   </section>

@@ -107,6 +107,9 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 .chip{border:0;border-radius:8px;padding:8px 2px;font-size:13px;font-weight:700;white-space:nowrap;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis}
 .chip.en{font-family:var(--en);letter-spacing:-.01em}
 .chip:hover{color:var(--fg)}
+.chip.num{display:flex;flex-direction:column;align-items:center;line-height:1.1;padding:6px 2px}
+.chip.num b{font-size:16px;font-weight:900}
+.chip.num small{font-size:10.5px;font-weight:700;opacity:.75;margin-top:1px}
 .chip[aria-pressed="true"]{background:#fff;color:var(--fg);box-shadow:0 1px 3px rgba(11,11,12,.14)}
 
 /* ---- カード ---- */
@@ -508,7 +511,9 @@ function renderChips(){
     const label=MODE==="tense"?(mix?"ミックス":x[1])
       :MODE==="modal"?x[0].replace(/^I /,"").replace(/ to$/,"").replace(/^have$/,"have to")
       :x[2].split("：")[0];
-    return '<button class="chip'+(MODE==="tense"?"":" en")+'" data-s="'+i+'" aria-pressed="'+(i===SEL)+'">'+esc(label)+'</button>';
+    // 関係代名詞は「1・2・3」＋下に小さく who / which / that
+    const inner = MODE==="relative" ? '<b>'+(i+1)+'</b><small>'+esc(label)+'</small>' : esc(label);
+    return '<button class="chip'+(MODE==="tense"?"":" en")+(MODE==="relative"?" num":"")+'" data-s="'+i+'" aria-pressed="'+(i===SEL)+'" aria-label="'+esc(label)+'">'+inner+'</button>';
   }).join("");
 }
 $("chips").addEventListener("click",e=>{
