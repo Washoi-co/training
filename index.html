@@ -103,12 +103,11 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 .tabs button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--ink)}
 
 /* ---- 設定チップ ---- */
-.chips{display:flex;gap:7px;overflow-x:auto;padding:11px 0;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1px solid var(--line-strong);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:700;white-space:nowrap;color:var(--muted)}
-.chip.en{font-family:var(--en);font-size:14px;letter-spacing:-.01em}
-.chip:hover{border-color:var(--red);color:var(--red)}
-.chip[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.chips{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:3px;margin:11px 0;padding:3px;background:var(--surface2);border-radius:10px}
+.chip{border:0;border-radius:8px;padding:8px 2px;font-size:13px;font-weight:700;white-space:nowrap;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis}
+.chip.en{font-family:var(--en);letter-spacing:-.01em}
+.chip:hover{color:var(--fg)}
+.chip[aria-pressed="true"]{background:#fff;color:var(--fg);box-shadow:0 1px 3px rgba(11,11,12,.14)}
 
 /* ---- カード ---- */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -505,7 +504,10 @@ $("btn-how").addEventListener("click",()=>{
 function renderChips(){
   $("chips").innerHTML=SET().map((x,i)=>{
     const mix=(MODE==="tense"&&x[0]==="mix");
-    const label=MODE==="tense"?(mix?"ミックス":x[1]):x[0]+" …";
+    // 短い名前だけ：助動詞は want / have to …、関係代名詞は who / which / that
+    const label=MODE==="tense"?(mix?"ミックス":x[1])
+      :MODE==="modal"?x[0].replace(/^I /,"").replace(/ to$/,"").replace(/^have$/,"have to")
+      :x[2].split("：")[0];
     return '<button class="chip'+(MODE==="tense"?"":" en")+'" data-s="'+i+'" aria-pressed="'+(i===SEL)+'">'+esc(label)+'</button>';
   }).join("");
 }
