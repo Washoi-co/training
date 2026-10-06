@@ -125,6 +125,39 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
 .set .hint{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:-8px}
 .danger{color:var(--ng)!important;border-color:rgba(217,48,30,.4)!important}
 
+/* A-PUSH式 単語の覚え方 */
+.howbtn{display:inline-block;margin-left:.4em;vertical-align:3px;border:1px solid var(--fg);border-radius:999px;padding:2px 10px;font-size:11px;font-weight:900;color:var(--fg);background:#fff}
+.howbtn:hover{border-color:var(--red);color:var(--red)}
+.howto h2{font-size:20px;font-weight:900;margin:0 0 6px}
+.ht{position:relative;padding:14px 0 14px 40px;border-top:1px solid var(--line)}
+.ht-n{position:absolute;left:0;top:16px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--en);font-weight:900;display:grid;place-items:center;font-size:14px}
+.ht h3{font-size:16.5px;font-weight:900;margin:0 0 4px;line-height:1.45}
+.ht h3 em{font-style:normal;color:var(--red)}
+.ht p{margin:6px 0 0;font-size:13.5px;line-height:1.85;color:#3A3A40}
+.ht b{color:var(--fg)}
+.curve{margin:10px 0 0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 8px 8px}
+.curve svg{display:block;width:100%;height:auto;font-family:var(--jp)}
+.curve figcaption{font-size:11px;color:var(--muted);text-align:center;margin-top:4px}
+.lg{display:inline-block;width:16px;height:3px;vertical-align:3px;margin-right:4px}
+.lg.r{background:var(--red)} .lg.g{background:repeating-linear-gradient(90deg,#B5B5BB 0 5px,transparent 5px 9px);margin-left:6px}
+.flow-d{list-style:none;padding:0;margin:10px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.flow-d li{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 4px;text-align:center}
+.flow-d li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--red);font-weight:900;font-size:12px;z-index:1}
+.flow-d i{display:block;font-style:normal;font-size:22px;line-height:1.2}
+.flow-d b{display:block;font-size:12.5px;font-weight:900}
+.flow-d span{display:block;font-size:10.5px;color:var(--muted)}
+.howto .note{font-size:10.5px;color:var(--muted);line-height:1.7;margin:10px 0 0}
+/* 忘却曲線を活用する（ニックネーム登録） */
+.sync{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;margin-top:14px;background:#fff;border:1.5px solid var(--red);border-radius:12px;padding:12px 14px}
+.sync b{display:block;font-size:14px;font-weight:900}
+.sync>div>span{display:block;font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:2px}
+.sync button{background:var(--red);color:#fff;border-radius:9px;padding:9px 14px;font-size:13px;font-weight:900;white-space:nowrap}
+.sync.on{border-color:var(--ok)}
+.sync.on button{background:#fff;color:var(--fg);border:1px solid var(--line-strong)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.seg button{border:1px solid var(--line-strong);border-radius:9px;padding:9px 6px;font-size:12.5px;font-weight:700;color:var(--muted);background:#fff}
+.seg button[aria-pressed="true"]{border-color:var(--red);color:var(--red)}
+.set input#sy-nick,.set input#sy-id{width:60%}
 /* ホーム画面に追加 */
 .a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;margin-top:14px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:11px 12px}
 .a2hs img{border-radius:10px}
@@ -154,7 +187,7 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
     <button class="gear" id="btn-set">⚙ 設定</button>
   </div>
   <p class="eyebrow">A-PUSH VOCABULARY</p>
-  <h1 id="title">TOEIC 700点を狙う単語<small>お試し版</small></h1>
+  <h1 id="title">TOEIC 700点を狙う単語<small>お試し版</small><button class="howbtn" id="btn-howto">A-PUSH式 単語の覚え方</button></h1>
 
   <!-- ホーム -->
   <section id="v-home">
@@ -162,6 +195,14 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
       <div class="prog"><span>覚えた単語</span><span><b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span></div>
       <div class="boxes" id="boxes"></div>
       <p class="boxnote">箱1 → 翌日／箱2 → 3日後／箱3 → 7日後／箱4 → 14日後／箱5 → 30日後に、また出てきます。間違えると箱1へ（箱5で間違えたら箱3へ）。</p>
+    </div>
+    <div class="sync" id="sync-off">
+      <div><b>🧠 忘却曲線を活用する</b><span>ニックネームを登録すると、記録が残り、別のスマホやパソコンでも続きから学習できます。</span></div>
+      <button id="sync-open">登録する</button>
+    </div>
+    <div class="sync on" id="sync-on" hidden>
+      <div><b>🧠 <span id="sync-id"></span> で記録中</b><span id="sync-st">別の端末では、このIDを入れると続きから学習できます。</span></div>
+      <button id="sync-copy">IDをコピー</button>
     </div>
     <div class="card">
       <div class="tasks" id="tasks"></div>
@@ -230,6 +271,89 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
     </div>
   </section>
 
+  <!-- A-PUSH式 単語の覚え方 -->
+  <section id="v-howto" hidden>
+    <div class="card howto">
+      <p class="eyebrow">HOW TO MEMORIZE</p>
+      <h2>A-PUSH式 単語の覚え方</h2>
+
+      <div class="ht">
+        <span class="ht-n">1</span>
+        <h3>単語は、<em>忘れるもの。</em></h3>
+        <p>覚えた単語は、1日たつと、その多くを忘れてしまいます（エビングハウスの忘却曲線）。忘れるのは、あなたのせいではありません。だから A-PUSH は、<b>「忘れること」を前提に</b>学習を組み立てます。</p>
+      </div>
+
+      <div class="ht">
+        <span class="ht-n">2</span>
+        <h3>忘れかけたときに、<em>思い出す。</em></h3>
+        <p>忘れかけたタイミングで復習すると、思い出すたびに記憶が強くなり、次に忘れるまでの時間が長くなります。</p>
+        <figure class="curve">
+          <svg viewBox="0 0 330 190" role="img" aria-label="復習しないと記憶はすぐに下がるが、1日後・3日後・7日後・14日後に復習すると、記憶が高いまま保たれることを示したイメージ図">
+            <line x1="34" y1="18" x2="34" y2="150" stroke="#C6C6CB"/><line x1="34" y1="150" x2="318" y2="150" stroke="#C6C6CB"/>
+            <text x="12" y="84" font-size="10" fill="#6B6B72" transform="rotate(-90 12 84)" text-anchor="middle">覚えている量</text>
+            <g font-size="9.5" fill="#6B6B72" text-anchor="middle">
+              <text x="34" y="166">今日</text><text x="90" y="166">1日後</text><text x="146" y="166">3日後</text><text x="202" y="166">7日後</text><text x="258" y="166">14日後</text><text x="312" y="166">30日後</text>
+            </g>
+            <path d="M34,22 C44,85 60,104 90,114 S210,140 314,145" fill="none" stroke="#B5B5BB" stroke-width="2.5" stroke-dasharray="5 4"/>
+            <path d="M34,22 C48,62 66,84 90,94 L90,22 C110,52 126,70 146,78 L146,22 C168,44 184,58 202,64 L202,22 C224,38 240,48 258,52 L258,22 C280,32 298,38 314,40" fill="none" stroke="#E8321F" stroke-width="2.8" stroke-linejoin="round"/>
+            <g fill="#E8321F"><circle cx="90" cy="22" r="4"/><circle cx="146" cy="22" r="4"/><circle cx="202" cy="22" r="4"/><circle cx="258" cy="22" r="4"/></g>
+            <text x="174" y="13" font-size="10" font-weight="700" fill="#E8321F" text-anchor="middle">● ＝ 復習（忘れかけたタイミング）</text>
+            <text x="62" y="44" font-size="15" text-anchor="middle">🌙</text>
+          </svg>
+          <figcaption><span class="lg r"></span>復習する（A-PUSH 単語）　<span class="lg g"></span>復習しない</figcaption>
+        </figure>
+        <p>だから A-PUSH 単語は、<b>1日後 → 3日後 → 7日後 → 14日後 → 30日後</b>と、少しずつ間をあけて、また出てきます。間違えた単語は、忘れかけのサインなので、早めにもう一度出てきます。</p>
+      </div>
+
+      <div class="ht">
+        <span class="ht-n">3</span>
+        <h3>睡眠で、<em>記憶を定着させる。</em></h3>
+        <p>眠っている間に、その日に覚えたことが整理され、記憶に定着しやすくなると言われています。だから、1日の流れは次の順番です。</p>
+        <ol class="flow-d">
+          <li><i>🌅</i><b>朝</b><span>覚える</span></li>
+          <li><i>🌙</i><b>夜</b><span>もう一度</span></li>
+          <li><i>💤</i><b>睡眠</b><span>定着</span></li>
+          <li><i>📝</i><b>翌日</b><span>テスト</span></li>
+        </ol>
+      </div>
+
+      <div class="ht">
+        <span class="ht-n">4</span>
+        <h3>くり返して、<em>長期記憶へ。</em></h3>
+        <p><b>忘れる → 思い出す → 眠る</b>をくり返すうちに、単語は「すぐ忘れる記憶」から「ずっと使える記憶（長期記憶）」に変わっていきます。箱5を越えた単語が「習得」です。</p>
+      </div>
+
+      <p class="note">※ 図は考え方を説明するためのイメージです（実際の数値ではありません）。覚え方・効果には個人差があります。参考：Hermann Ebbinghaus（1885）の忘却曲線。</p>
+      <div class="acts"><button class="primary" id="howto-back">今日のメニューへ</button></div>
+    </div>
+  </section>
+
+  <!-- 忘却曲線を活用する（ニックネーム登録） -->
+  <section id="v-sync" hidden>
+    <div class="card set">
+      <p style="margin:0;font-weight:900">🧠 忘却曲線を活用する</p>
+      <p class="hint" style="margin:0">ニックネームを登録すると、あなたの記録（どの単語を、いつ、どの箱で覚えたか）が保存されます。別のスマホやパソコンでも、続きから学習できます。</p>
+      <div class="seg" role="group">
+        <button id="sy-tab-new" aria-pressed="true">はじめて登録する</button>
+        <button id="sy-tab-old" aria-pressed="false">前に作ったIDで続きから</button>
+      </div>
+      <div id="sy-new">
+        <label>ニックネーム<input id="sy-nick" maxlength="12" placeholder="例：たろう" autocomplete="off"></label>
+        <p class="hint" style="margin-top:6px">本名・メールアドレス・電話番号は入れないでください。後ろに4ケタの番号をつけて、あなたのIDを作ります（例：たろう#4821）。</p>
+      </div>
+      <div id="sy-old" hidden>
+        <label>ID<input id="sy-id" placeholder="例：たろう#4821" autocomplete="off"></label>
+        <p class="hint" style="margin-top:6px">この端末の今の記録は、IDの記録に置き換わります。</p>
+      </div>
+      <p class="msg" id="sy-msg" hidden></p>
+      <div class="acts" style="margin-top:4px">
+        <button class="primary" id="sy-go">登録する</button>
+        <button id="sy-cancel">戻る</button>
+      </div>
+      <div class="acts" style="margin-top:0" id="sy-leave-row" hidden><button class="danger" id="sy-leave">この端末での記録の保存をやめる</button></div>
+    </div>
+  </section>
+
   <!-- 設定 -->
   <section id="v-set" hidden>
     <div class="card set">
@@ -251,7 +375,7 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
   <p class="foot">
     ※ 単語の選定・訳は A-PUSH が独自に行ったものです。700点レベルを目標にした単語で、スコアを保証するものではありません。<br>
     ※ TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。<br>
-    ※ 記録は、お使いの端末のブラウザに保存されます。別の端末やブラウザとは共有されません。
+    ※ 記録は、お使いの端末のブラウザに保存されます。「忘却曲線を活用する」でニックネームを登録した場合は、IDと学習の記録だけを A-PUSH のサーバー（Google スプレッドシート）にも保存し、別の端末から続きを学習できるようにします。
   </p>
 </div>
 
@@ -275,7 +399,36 @@ function yesterday(){ return addDays(today(),-1); }
 function fresh(){ return {settings:{per:20, am:"07:30", noon:"12:30", pm:"21:00"}, next:0, cards:{}, days:{}}; }
 var S = fresh();
 try{ var raw=localStorage.getItem(KEY); if(raw){ var o=JSON.parse(raw); if(o && o.cards) S=o; } }catch(e){}
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+function save(){ S.updatedAt=Date.now(); try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} queuePush(); }
+
+/* ---------- 忘却曲線を活用する：ニックネームの ID で、記録をスプレッドシートに保存 ---------- */
+// ✏️ Google Apps Script の「ウェブアプリの URL」を入れる（空のままだと登録できません）
+var SYNC_URL = "https://script.google.com/macros/s/AKfycbxFb0g6A2tabxluPos92mMQLU2pREAvqrwoZeflHXoOHPPf9rh5KufWlVkCX2rHs-pCvw/exec";
+var pushTimer=null;
+function syncPayload(){
+  var mastered=0; for(var id in S.cards){ if(S.cards[id].box>5) mastered++; }
+  return {action:"save", id:S.sync.id, course:C.id, learned:S.next, mastered:mastered, data:S};
+}
+function post(body){
+  return fetch(SYNC_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body),keepalive:true})
+    .then(function(r){ return r.json(); });
+}
+function queuePush(){
+  if(!SYNC_URL || !S.sync || !S.sync.id) return;
+  clearTimeout(pushTimer);
+  pushTimer=setTimeout(pushNow,1500);
+}
+function pushNow(){
+  if(!SYNC_URL || !S.sync || !S.sync.id) return;
+  clearTimeout(pushTimer); pushTimer=null;
+  post(syncPayload()).then(function(r){ setSyncNote(r && r.ok ? "" : "保存に失敗しました。電波の良いところで開き直してください。"); })
+    .catch(function(){ setSyncNote("オフラインのため、この端末にだけ保存しています。"); });
+}
+function pullById(id){
+  return fetch(SYNC_URL+"?id="+encodeURIComponent(id)).then(function(r){ return r.json(); });
+}
+function setSyncNote(t){ var el=document.getElementById("sync-st"); if(el) el.textContent = t || "別の端末では、このIDを入れると続きから学習できます。"; }
+document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="hidden" && pushTimer) pushNow(); });
 function day(d){ d=d||today(); if(!S.days[d]) S.days[d]={batch:[], am:false, pm:false}; return S.days[d]; }
 
 /* ---------- カード（意味ごと） ---------- */
@@ -299,10 +452,13 @@ function grade(id, right){
 function speak(t){ try{ if(!("speechSynthesis" in window)) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.9; speechSynthesis.speak(u); }catch(e){} }
 
 function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
-function view(k){ ["home","learn","test","result","set"].forEach(function(n){ $("v-"+n).hidden=(n!==k); }); window.scrollTo(0,0); }
+function view(k){ ["home","learn","test","result","set","sync","howto"].forEach(function(n){ $("v-"+n).hidden=(n!==k); }); window.scrollTo(0,0); }
 
 /* ---------- ホーム ---------- */
 function renderHome(){
+  var on=!!(S.sync && S.sync.id);
+  $("sync-off").hidden=on; $("sync-on").hidden=!on;
+  if(on) $("sync-id").textContent=S.sync.id;
   var counts=[0,0,0,0,0,0];
   for(var id in S.cards){ var b=S.cards[id].box; counts[Math.min(b,6)-1]++; }
   $("p-learn").textContent=S.next; $("p-total").textContent=W.length;
@@ -459,8 +615,72 @@ $("s-save").addEventListener("click",function(){
 $("s-cancel").addEventListener("click",renderHome);
 $("s-reset").addEventListener("click",function(){
   if(!confirm("これまでの記録をすべて消して、最初からやり直しますか？")) return;
-  S=fresh(); save(); renderHome();
+  var keep=S.sync; S=fresh(); if(keep) S.sync=keep; save(); renderHome();
 });
+
+/* ---------- A-PUSH式 単語の覚え方 ---------- */
+$("btn-howto").addEventListener("click",function(){ view("howto"); });
+$("howto-back").addEventListener("click",renderHome);
+
+/* ---------- 忘却曲線を活用する：登録画面 ---------- */
+var syMode="new";
+function syTab(m){ syMode=m; $("sy-tab-new").setAttribute("aria-pressed",m==="new"); $("sy-tab-old").setAttribute("aria-pressed",m==="old");
+  $("sy-new").hidden=m!=="new"; $("sy-old").hidden=m!=="old"; $("sy-go").textContent = m==="new" ? "登録する" : "続きから始める"; $("sy-msg").hidden=true; }
+function syMsg(t){ $("sy-msg").hidden=!t; $("sy-msg").textContent=t||""; }
+function openSync(){ syTab("new"); $("sy-leave-row").hidden=!(S.sync&&S.sync.id); view("sync"); }
+$("sync-open").addEventListener("click",openSync);
+$("sy-tab-new").addEventListener("click",function(){ syTab("new"); });
+$("sy-tab-old").addEventListener("click",function(){ syTab("old"); });
+$("sy-cancel").addEventListener("click",renderHome);
+$("sync-copy").addEventListener("click",function(){
+  var id=S.sync&&S.sync.id; if(!id) return;
+  (navigator.clipboard ? navigator.clipboard.writeText(id) : Promise.reject()).then(function(){ setSyncNote("IDをコピーしました："+id); },function(){ prompt("あなたのID（コピーして控えてください）",id); });
+});
+$("sync-on").addEventListener("dblclick",openSync);
+$("sy-go").addEventListener("click",function(){
+  if(!SYNC_URL){ syMsg("ただいま準備中です。もうしばらくお待ちください。"); return; }
+  var btn=$("sy-go"); btn.disabled=true;
+  if(syMode==="new"){
+    var nick=$("sy-nick").value.trim();
+    if(!nick){ syMsg("ニックネームを入れてください。"); btn.disabled=false; return; }
+    if(/@|\d{6,}/.test(nick)){ syMsg("メールアドレスや電話番号は入れないでください。"); btn.disabled=false; return; }
+    post({action:"create", nickname:nick, course:C.id}).then(function(r){
+      btn.disabled=false;
+      if(!r || !r.ok){ syMsg("登録できませんでした。時間をおいて、もう一度お試しください。"); return; }
+      S.sync={id:r.id}; save(); pushNow();
+      alert("登録しました。\nあなたのID：" + r.id + "\n\n別の端末では、このIDを入れると続きから学習できます。控えておいてください。");
+      renderHome();
+    }).catch(function(){ btn.disabled=false; syMsg("通信できませんでした。電波の良いところで、もう一度お試しください。"); });
+  } else {
+    var id=$("sy-id").value.trim().replace("＃","#");
+    if(!/.+#\d{4}$/.test(id)){ syMsg("IDは「ニックネーム#4ケタの番号」の形で入れてください（例：たろう#4821）。"); btn.disabled=false; return; }
+    pullById(id).then(function(r){
+      btn.disabled=false;
+      if(!r || !r.ok){ syMsg("このIDは見つかりませんでした。#のあとの番号まで、もう一度ご確認ください。"); return; }
+      if(S.next>0 && !confirm("この端末の今の記録を、「"+id+"」の記録に置き換えます。よろしいですか？")) return;
+      var d=r.data && r.data.cards ? r.data : fresh();
+      S=d; S.sync={id:id}; try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}
+      renderHome();
+    }).catch(function(){ btn.disabled=false; syMsg("通信できませんでした。電波の良いところで、もう一度お試しください。"); });
+  }
+});
+$("sy-leave").addEventListener("click",function(){
+  if(!confirm("この端末での記録の保存をやめますか？（これまでの記録は、IDに残ったままです）")) return;
+  delete S.sync; save(); renderHome();
+});
+
+/* 開いたときに、ほかの端末で進めた分を取り込む（新しいほうを使う） */
+(function(){
+  if(!SYNC_URL || !S.sync || !S.sync.id) return;
+  var mine=S.sync.id;
+  pullById(mine).then(function(r){
+    if(!r || !r.ok || !r.data || !r.data.cards) return;
+    if((r.data.updatedAt||0) > (S.updatedAt||0)){
+      S=r.data; S.sync={id:mine}; try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}
+      if(!$("v-home").hidden) renderHome();
+    }
+  }).catch(function(){});
+})();
 
 /* ---------- ホーム画面に追加 ---------- */
 (function(){
