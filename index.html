@@ -17,6 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <style>
 /* 公開用スケルトン（アーティファクト版では自動で付いていた分） */
@@ -54,6 +55,9 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* ---- 単語トレーニングへのリンク ---- */
+.wordlink{flex:none;padding:5px 12px;border:1px solid var(--red);border-radius:999px;font-size:12px;font-weight:900;color:var(--red);text-decoration:none;white-space:nowrap}
+.wordlink:hover{background:var(--red);color:#fff}
 /* ---- カード下の3つ ---- */
 .top{display:grid;grid-template-columns:auto 1fr 1fr;gap:7px;margin-top:22px}
 .tp{display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line-strong);border-radius:11px;padding:10px 13px;text-decoration:none;background:var(--surface);min-width:0}
@@ -117,9 +121,9 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 .pips{display:flex;gap:5px}
 .pip{width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
 .pip.y{background:var(--ok)} .pip.n{background:var(--ng)}
-.lvsel{display:flex;gap:2px;background:var(--ink);border:1px solid var(--line);border-radius:999px;padding:2px}
-.lvsel button{font-family:var(--en);font-size:11px;font-weight:700;color:var(--muted);padding:3px 9px;border-radius:999px}
-.lvsel button[aria-pressed="true"]{background:var(--fg);color:var(--ink)}
+.lvrow{display:block;margin-top:10px}
+.lvrow select{width:100%;appearance:none;-webkit-appearance:none;font:inherit;font-size:14px;font-weight:700;color:var(--fg);background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M0 0l6 7 6-7z' fill='%23E8321F'/%3E%3C/svg%3E") no-repeat right 14px center;border:1.5px solid var(--fg);border-radius:10px;padding:11px 36px 11px 13px;cursor:pointer;text-overflow:ellipsis}
+.lvrow select:hover{border-color:var(--red)}
 
 .ask{font-size:12.5px;color:var(--muted);margin:12px 0 0;text-align:center}
 .pic{display:grid;place-items:center;line-height:1;user-select:none;font-size:clamp(78px,24vw,116px);padding:10px 0 12px}
@@ -235,10 +239,16 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
       <button id="t-relative" aria-pressed="false">関係代名詞</button>
       <button id="t-tense" aria-pressed="false">時制</button>
     </div>
-    <span class="lvsel" id="lvsel" role="group" aria-label="レベル">
-      <button data-lv="1" aria-pressed="true">Lv1</button><button data-lv="2" aria-pressed="false">Lv2</button><button data-lv="3" aria-pressed="false">Lv3</button>
-    </span>
+    <a class="wordlink" href="/words/">📚 TOEIC単語</a>
   </div>
+  <label class="lvrow">
+    <span class="sr">レベル</span>
+    <select id="lvsel">
+      <option value="1">Level 1 ・ 短い文</option>
+      <option value="2">Level 2 ・ 長い文</option>
+      <option value="3">Level 3 ・ 英検2級くらい</option>
+    </select>
+  </label>
 
   <div class="chips" id="chips" role="group" aria-label="型を選ぶ"></div>
 
@@ -314,7 +324,7 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
       <div class="kind"><i>助動詞</i><span>できる・したい・しなければ。<b>I can / I want to / I have to</b> など6種類。</span></div>
       <div class="kind"><i>関係代名詞</i><span>人や物を、うしろから説明します。<b>who / which / that</b> の3つ。</span></div>
       <div class="kind"><i>時制</i><span>過去・現在・未来。同じ動詞を3つの形で言い分けます。</span></div>
-      <div class="kind"><i>レベル</i><span>右上の <b>Lv1</b> は短い文、<b>Lv2</b> は長い文、<b>Lv3</b> は英検2級くらいの言い回しです。</span></div>
+      <div class="kind"><i>レベル</i><span>上のプルダウンで選べます。<b>Level 1</b> は短い文、<b>Level 2</b> は長い文、<b>Level 3</b> は英検2級くらいの言い回しです。</span></div>
     </div>
   </div>
 
@@ -629,12 +639,7 @@ more.addEventListener("click",e=>{
 });
 
 /* レベル：1 短い文 ／ 2 長い文 ／ 3 英検2級くらい */
-$("lvsel").addEventListener("click",e=>{
-  const b=e.target.closest("[data-lv]"); if(!b)return;
-  LV=+b.dataset.lv;
-  document.querySelectorAll("[data-lv]").forEach(el=>el.setAttribute("aria-pressed",String(+el.dataset.lv===LV)));
-  startRound();
-});
+$("lvsel").addEventListener("change",()=>{LV=+$("lvsel").value;startRound();});
 
 renderChips();
 startRound();

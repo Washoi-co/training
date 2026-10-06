@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="TOEIC 700点を狙う単語を、絵と声で毎日20個。忘却曲線で、忘れかけた単語がまた出てきます。">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="https://training.apush.jp/words/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://training.apush.jp/words/">
+<meta property="og:title" content="A-PUSH 単語｜TOEIC 700点を狙う単語（お試し版）">
+<meta property="og:description" content="朝に覚えて、夜にもう一度、次の日にテスト。忘れかけた単語は、忘却曲線でまた出てきます。">
+<meta property="og:image" content="https://training.apush.jp/ogp.png">
+<link rel="icon" href="/favicon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="A-PUSH単語">
+<title>A-PUSH 単語｜TOEIC 700点を狙う単語（お試し版）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --ink:#FFFFFF; --surface:#F6F6F4; --surface2:#ECECE9;
+  --line:rgba(11,11,12,.10); --line-strong:rgba(11,11,12,.22);
+  --fg:#0B0B0C; --muted:#6B6B72;
+  --red:#E8321F; --red-deep:#C42612; --ok:#14935A; --ng:#D9301E;
+  --en:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--ink);color:var(--fg);font-family:var(--jp);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 16px 44px}
+.wrap{max-width:600px;margin:0 auto}
+.en{font-family:var(--en)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 0 6px}
+.back{font-size:12.5px;font-weight:700;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--red)}
+.gear{border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700;color:var(--muted)}
+.gear:hover{border-color:var(--red);color:var(--red)}
+.eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red);margin:10px 0 2px}
+h1{font-size:21px;font-weight:900;letter-spacing:-.02em;margin:0;line-height:1.35}
+h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;color:#fff;background:var(--red);border-radius:999px;padding:2px 9px;vertical-align:3px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin-top:14px}
+
+/* 進み具合 */
+.prog{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;color:var(--muted)}
+.prog b{font-family:var(--en);font-size:22px;color:var(--fg);font-weight:900}
+.boxes{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:12px}
+.boxes div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 4px 6px;text-align:center}
+.boxes span{display:block;font-size:10.5px;color:var(--muted);font-weight:700}
+.boxes b{display:block;font-family:var(--en);font-size:17px;font-weight:900}
+.boxes .m{border-color:var(--ok)} .boxes .m b{color:var(--ok)}
+.boxnote{font-size:11px;color:var(--muted);margin:8px 0 0}
+
+/* 今日のタスク */
+.tasks{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.task{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:13px 14px;text-align:left;width:100%}
+.task:not(:disabled):hover{border-color:var(--red)}
+.task:disabled{cursor:default;opacity:.55}
+.task .ic{font-size:24px;line-height:1}
+.task b{display:block;font-size:15px;font-weight:900}
+.task small{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.task .st{font-size:11.5px;font-weight:900;white-space:nowrap;color:var(--red)}
+.task.done .st{color:var(--ok)}
+.task.next{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.msg{font-size:12.5px;background:#FFF4F2;border:1px solid rgba(232,50,31,.35);border-radius:10px;padding:10px 12px;margin-top:10px}
+
+/* 学習カード */
+.meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)}
+.meta .en{font-variant-numeric:tabular-nums}
+.pics{display:flex;justify-content:center;gap:18px;font-size:clamp(54px,15vw,76px);line-height:1;padding:14px 0 6px;min-height:20px}
+.word{font-family:var(--en);font-size:clamp(30px,8vw,40px);font-weight:900;letter-spacing:-.03em;text-align:center;margin:6px 0 0;line-height:1.15}
+.say{display:block;margin:6px auto 0;border:1px solid var(--line-strong);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;color:var(--muted)}
+.say:hover{border-color:var(--red);color:var(--red)}
+.senses{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.senses li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-weight:700}
+.senses li i{font-style:normal;font-size:22px;width:1.3em;text-align:center}
+.reps{display:flex;justify-content:center;gap:12px;margin-top:16px}
+.reps button{width:46px;height:46px;border-radius:50%;border:2px solid var(--line-strong);font-family:var(--en);font-weight:900;color:var(--muted)}
+.reps button.on{background:var(--red);border-color:var(--red);color:#fff}
+.repsnote{text-align:center;font-size:12px;color:var(--muted);margin:8px 0 0}
+.acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.acts button{border:1px solid var(--line-strong);border-radius:9px;padding:11px 18px;font-size:14px;font-weight:700}
+.acts button:hover{border-color:var(--red);color:var(--red)}
+.acts .primary{background:var(--red);border-color:var(--red);color:#fff;min-width:180px}
+.acts .primary:hover{background:var(--red-deep);border-color:var(--red-deep);color:#fff}
+.acts button:disabled{opacity:.35;cursor:default}
+.acts button:disabled:hover{border-color:var(--line-strong);color:inherit}
+.acts .primary:disabled:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+/* テスト */
+.ask{text-align:center;font-size:13px;color:var(--muted);margin:10px 0 0}
+.choices{display:grid;gap:8px;margin-top:16px}
+.choices button{background:#fff;border:1px solid var(--line-strong);border-radius:11px;padding:13px 14px;text-align:left;font-weight:700;font-size:15px}
+.choices button.en{font-family:var(--en);font-size:17px}
+.choices button:not(:disabled):hover{border-color:var(--red)}
+.choices button.ok{border-color:var(--ok);background:#EAF7F0}
+.choices button.ng{border-color:var(--ng);background:#FDECEA}
+.verdict{text-align:center;font-weight:900;margin:14px 0 0}
+.verdict.y{color:var(--ok)} .verdict.n{color:var(--ng)}
+.verdict small{display:block;font-weight:700;font-size:12px;color:var(--muted)}
+
+/* 結果 */
+.big{font-family:var(--en);font-size:48px;font-weight:900;text-align:center;margin:6px 0 0;line-height:1}
+.big em{font-style:normal;font-size:20px;color:var(--muted)}
+.recap{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.recap div{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13.5px}
+.recap .en{font-weight:900}
+
+/* 設定 */
+.set{display:flex;flex-direction:column;gap:14px}
+.set label{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700}
+.set select,.set input{font:inherit;font-weight:700;border:1px solid var(--line-strong);border-radius:9px;padding:8px 10px;background:#fff}
+.set .hint{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:-8px}
+.danger{color:var(--ng)!important;border-color:rgba(217,48,30,.4)!important}
+
+/* ホーム画面に追加 */
+.a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;margin-top:14px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:11px 12px}
+.a2hs img{border-radius:10px}
+.a2hs b{display:block;font-size:13.5px;font-weight:900;line-height:1.4}
+.a2hs span{display:block;font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:2px}
+.a2hs #a2hs-btn{background:var(--red);color:#fff;border-radius:8px;padding:8px 12px;font-size:12.5px;font-weight:900;white-space:nowrap}
+.a2hs .x{font-size:18px;color:var(--muted);padding:2px 4px}
+/* 面談・体験 */
+.cta{margin-top:14px}
+.cta-h{font-size:12px;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.cta-b{display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line-strong);border-radius:11px;padding:11px 13px;text-decoration:none;background:var(--surface)}
+.cta-b:hover{border-color:var(--red)}
+.cta-b b{font-size:14px;font-weight:900}
+.cta-b span{font-size:11px;color:var(--muted)}
+.cta-b.fill{background:var(--red);border-color:var(--red);color:#fff}
+.cta-b.fill span{color:rgba(255,255,255,.85)}
+.cta-b.fill:hover{background:var(--red-deep)}
+.foot{font-size:10.5px;color:var(--muted);line-height:1.7;margin-top:22px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <a class="back" href="/">← トレーニングへ</a>
+    <button class="gear" id="btn-set">⚙ 設定</button>
+  </div>
+  <p class="eyebrow">A-PUSH VOCABULARY</p>
+  <h1 id="title">TOEIC 700点を狙う単語<small>お試し版</small></h1>
+
+  <!-- ホーム -->
+  <section id="v-home">
+    <div class="card">
+      <div class="prog"><span>覚えた単語</span><span><b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span></div>
+      <div class="boxes" id="boxes"></div>
+      <p class="boxnote">箱1 → 翌日／箱2 → 3日後／箱3 → 7日後／箱4 → 14日後／箱5 → 30日後に、また出てきます。間違えると箱1へ（箱5で間違えたら箱3へ）。</p>
+    </div>
+    <div class="card">
+      <div class="tasks" id="tasks"></div>
+      <div class="msg" id="msg" hidden></div>
+      <p class="boxnote" id="times"></p>
+    </div>
+    <div class="a2hs" id="a2hs" hidden>
+      <img src="/apple-touch-icon.png" alt="" width="44" height="44">
+      <div>
+        <b>ホーム画面に追加すると、毎日すぐ開けます</b>
+        <span id="a2hs-how"></span>
+      </div>
+      <button id="a2hs-btn" hidden>追加する</button>
+      <button class="x" id="a2hs-x" aria-label="閉じる">×</button>
+    </div>
+    <div class="cta">
+      <p class="cta-h">もっと話せるようになりたい方へ</p>
+      <div class="cta-row">
+        <a class="cta-b" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener"><b>面談</b><span>無料・学習の相談</span></a>
+        <a class="cta-b fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener"><b>マンツーマン体験</b><span>無料／60分</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 朝：覚える ／ 夜：もう一度 -->
+  <section id="v-learn" hidden>
+    <div class="card">
+      <div class="meta"><span id="l-label"></span><span class="en" id="l-count"></span></div>
+      <div class="pics" id="l-pics"></div>
+      <p class="word" id="l-word"></p>
+      <button class="say" id="l-say">🔊 発音を聞く</button>
+      <div id="l-front" hidden>
+        <div class="acts"><button class="primary" id="l-flip">意味を見る</button></div>
+      </div>
+      <div id="l-back">
+        <ul class="senses" id="l-senses"></ul>
+        <div class="reps" id="l-reps"><button>1</button><button>2</button><button>3</button></div>
+        <p class="repsnote" id="l-repsnote">声に出して3回。言うたびに押してください。</p>
+        <div class="acts"><button class="primary" id="l-next" disabled>次の単語へ</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- テスト・復習 -->
+  <section id="v-test" hidden>
+    <div class="card">
+      <div class="meta"><span id="t-label">テスト・復習</span><span class="en" id="t-count"></span></div>
+      <div class="pics" id="t-pics"></div>
+      <p class="word" id="t-word"></p>
+      <button class="say" id="t-say" hidden>🔊 発音を聞く</button>
+      <p class="ask" id="t-ask"></p>
+      <div class="choices" id="t-choices"></div>
+      <p class="verdict" id="t-verdict" hidden></p>
+      <div class="acts"><button class="primary" id="t-next" hidden>次へ</button></div>
+    </div>
+  </section>
+
+  <!-- 結果 -->
+  <section id="v-result" hidden>
+    <div class="card">
+      <p class="eyebrow" style="text-align:center" id="r-head">RESULT</p>
+      <p class="big"><span id="r-score">0</span><em> / <span id="r-total">0</span></em></p>
+      <p style="text-align:center;margin:8px 0 0;font-weight:700" id="r-msg"></p>
+      <div class="recap" id="r-recap"></div>
+      <div class="acts"><button class="primary" id="r-home">今日のメニューへ</button></div>
+    </div>
+  </section>
+
+  <!-- 設定 -->
+  <section id="v-set" hidden>
+    <div class="card set">
+      <label>1回に覚える単語の数
+        <select id="s-per"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select>
+      </label>
+      <label>朝（新しい単語）<input type="time" id="s-am"></label>
+      <label>昼（テスト・復習）<input type="time" id="s-noon"></label>
+      <label>夜（もう一度）<input type="time" id="s-pm"></label>
+      <p class="hint">公式LINEでのお知らせは準備中です。今は、この時間を目安に開いてください。</p>
+      <div class="acts" style="margin-top:4px">
+        <button class="primary" id="s-save">保存する</button>
+        <button id="s-cancel">戻る</button>
+      </div>
+      <div class="acts" style="margin-top:0"><button class="danger" id="s-reset">記録をすべて消す</button></div>
+    </div>
+  </section>
+
+  <p class="foot">
+    ※ 単語の選定・訳は A-PUSH が独自に行ったものです。700点レベルを目標にした単語で、スコアを保証するものではありません。<br>
+    ※ TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。<br>
+    ※ 記録は、お使いの端末のブラウザに保存されます。別の端末やブラウザとは共有されません。
+  </p>
+</div>
+
+<script src="toeic700.js"></script>
+<script>
+(function(){
+"use strict";
+var C = window.APW_COURSE, W = C.words;
+var KEY = "apush-words-" + C.id + "-v1";
+var CAP = 40;                                   // 1日の復習の上限（これを超えたら新しい単語はお休み）
+var INT = {1:1, 2:3, 3:7, 4:14, 5:30};          // 箱ごとの次の出題までの日数
+var $ = function(id){ return document.getElementById(id); };
+
+/* ---------- 日付 ---------- */
+function ymd(d){ var p=function(n){return (n<10?"0":"")+n;}; return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate()); }
+function today(){ return ymd(new Date()); }
+function addDays(s,n){ var a=s.split("-"); var d=new Date(+a[0],+a[1]-1,+a[2]); d.setDate(d.getDate()+n); return ymd(d); }
+function yesterday(){ return addDays(today(),-1); }
+
+/* ---------- 保存 ---------- */
+function fresh(){ return {settings:{per:20, am:"07:30", noon:"12:30", pm:"21:00"}, next:0, cards:{}, days:{}}; }
+var S = fresh();
+try{ var raw=localStorage.getItem(KEY); if(raw){ var o=JSON.parse(raw); if(o && o.cards) S=o; } }catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+function day(d){ d=d||today(); if(!S.days[d]) S.days[d]={batch:[], am:false, pm:false}; return S.days[d]; }
+
+/* ---------- カード（意味ごと） ---------- */
+function cid(wi,si){ return wi+":"+si; }
+function parse(id){ var a=id.split(":"); return {wi:+a[0], si:+a[1]}; }
+function dueList(){
+  var t=today(), out=[];
+  for(var id in S.cards){ var c=S.cards[id]; if(c.box<=5 && c.due<=t) out.push(id); }
+  out.sort(function(a,b){ return S.cards[a].due<S.cards[b].due?-1:S.cards[a].due>S.cards[b].due?1:0; });
+  return out;
+}
+function grade(id, right){
+  var c=S.cards[id];
+  if(right){ c.box = c.box>=5 ? 6 : c.box+1; }
+  else{ c.box = c.box===5 ? 3 : 1; }
+  if(c.box<=5) c.due = addDays(today(), INT[c.box]);
+  save();
+}
+
+/* ---------- 発音 ---------- */
+function speak(t){ try{ if(!("speechSynthesis" in window)) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.9; speechSynthesis.speak(u); }catch(e){} }
+
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function view(k){ ["home","learn","test","result","set"].forEach(function(n){ $("v-"+n).hidden=(n!==k); }); window.scrollTo(0,0); }
+
+/* ---------- ホーム ---------- */
+function renderHome(){
+  var counts=[0,0,0,0,0,0];
+  for(var id in S.cards){ var b=S.cards[id].box; counts[Math.min(b,6)-1]++; }
+  $("p-learn").textContent=S.next; $("p-total").textContent=W.length;
+  $("boxes").innerHTML = ["箱1","箱2","箱3","箱4","箱5","習得"].map(function(l,i){
+    return '<div'+(i===5?' class="m"':'')+'><span>'+l+'</span><b>'+counts[i]+'</b></div>'; }).join("");
+
+  var d=day(), due=dueList(), backlog=due.length>CAP, finished=S.next>=W.length && !d.batch.length;
+  var per=S.settings.per;
+  var tasks=[], msg="";
+
+  // ① 朝：新しい単語
+  var amState, amOn=false;
+  if(d.am){ amState="済み"; }
+  else if(finished){ amState="全部覚えた"; }
+  else if(backlog){ amState="お休み"; msg="復習がたまっています（"+due.length+"問）。今日は新しい単語をお休みにして、先にテスト・復習をしましょう。"; }
+  else { amState="スタート"; amOn=true; }
+  tasks.push({id:"am", ic:"🌅", t:"朝：新しい単語", s:(d.am?d.batch.length:Math.min(per,W.length-S.next))+"個を、絵と声で覚える", st:amState, on:amOn, done:d.am});
+
+  // ② 昼：テスト・復習
+  var tn=Math.min(due.length,CAP);
+  tasks.push({id:"test", ic:"📝", t:"昼：テスト・復習", s: tn ? "昨日の単語＋忘れかけた単語 "+tn+"問" : "今日の分はありません", st: tn?"スタート":"済み", on: tn>0, done: tn===0});
+
+  // ③ 夜：もう一度
+  var pmOn=d.am && !d.pm;
+  tasks.push({id:"pm", ic:"🌙", t:"夜：もう一度", s:"今朝の"+(d.batch.length||per)+"個を、意味を思い出しながら", st: d.pm?"済み":(d.am?"スタート":"朝のあと"), on:pmOn, done:d.pm});
+
+  var nextIdx = tasks.findIndex(function(x){ return x.on; });
+  $("tasks").innerHTML = tasks.map(function(x,i){
+    return '<button class="task'+(x.done?' done':'')+(i===nextIdx?' next':'')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'
+      +'<span class="ic">'+x.ic+'</span><span><b>'+x.t+'</b><small>'+x.s+'</small></span><span class="st">'+x.st+'</span></button>'; }).join("");
+  $("msg").hidden=!msg; $("msg").textContent=msg;
+  var st=S.settings; $("times").textContent="目安の時間：朝 "+st.am+"／昼 "+st.noon+"／夜 "+st.pm+"（⚙ 設定で変更できます）";
+  view("home");
+}
+$("tasks").addEventListener("click",function(e){
+  var b=e.target.closest("[data-t]"); if(!b||b.disabled) return;
+  if(b.dataset.t==="am") startLearn("am");
+  if(b.dataset.t==="pm") startLearn("pm");
+  if(b.dataset.t==="test") startTest();
+});
+
+/* ---------- 朝：覚える／夜：もう一度 ---------- */
+var L={mode:"am", list:[], i:0, reps:0};
+function startLearn(mode){
+  var d=day();
+  if(mode==="am" && !d.batch.length){
+    var n=Math.min(S.settings.per, W.length-S.next), b=[];
+    for(var k=0;k<n;k++) b.push(S.next+k);
+    d.batch=b; save();
+  }
+  L={mode:mode, list:d.batch.slice(), i:0, reps:0};
+  showLearn(); view("learn");
+}
+function showLearn(){
+  var wi=L.list[L.i], w=W[wi], senses=w[1];
+  $("l-label").textContent = L.mode==="am" ? "🌅 朝：新しい単語" : "🌙 夜：もう一度";
+  $("l-count").textContent=(L.i+1)+" / "+L.list.length;
+  $("l-word").textContent=w[0];
+  var pics=senses.map(function(s){return s[1];}).filter(Boolean);
+  $("l-pics").textContent=pics.join(" ");
+  $("l-senses").innerHTML=senses.map(function(s){ return '<li><i>'+(s[1]||"")+'</i><span>'+s[0]+'</span></li>'; }).join("");
+  L.reps=0; paintReps();
+  var night=L.mode==="pm";
+  $("l-front").hidden=!night; $("l-back").hidden=night; $("l-pics").hidden=night;
+  $("l-next").textContent = L.i===L.list.length-1 ? (night?"夜の分を終える":"朝の分を終える") : "次の単語へ";
+  speak(w[0]);
+}
+function paintReps(){
+  Array.prototype.forEach.call($("l-reps").children,function(b,i){ b.classList.toggle("on", i<L.reps); });
+  $("l-next").disabled = L.reps<3;
+}
+$("l-flip").addEventListener("click",function(){ $("l-front").hidden=true; $("l-back").hidden=false; $("l-pics").hidden=false; });
+$("l-say").addEventListener("click",function(){ speak(W[L.list[L.i]][0]); });
+$("l-reps").addEventListener("click",function(e){ if(e.target.tagName!=="BUTTON") return; if(L.reps<3){ L.reps++; paintReps(); } });
+$("l-next").addEventListener("click",function(){
+  if(L.i<L.list.length-1){ L.i++; showLearn(); return; }
+  var d=day();
+  if(L.mode==="am"){
+    // 覚えた単語は、意味ごとに箱1へ（翌日のテストで出る）
+    var t=addDays(today(),1);
+    d.batch.forEach(function(wi){ W[wi][1].forEach(function(_,si){ var id=cid(wi,si); if(!S.cards[id]) S.cards[id]={box:1, due:t}; }); });
+    S.next=Math.max(S.next, d.batch[d.batch.length-1]+1);
+    d.am=true;
+  } else { d.pm=true; }
+  save(); renderHome();
+});
+
+/* ---------- テスト・復習 ---------- */
+var T={q:[], i:0, right:0, miss:[]};
+function startTest(){
+  T={q:shuffle(dueList().slice(0,CAP)), i:0, right:0, miss:[]};
+  if(!T.q.length){ renderHome(); return; }
+  askTest(); view("test");
+}
+function pick(arr,n,not){ var out=[], pool=shuffle(arr.slice()); for(var i=0;i<pool.length && out.length<n;i++){ if(not.indexOf(pool[i])<0 && out.indexOf(pool[i])<0) out.push(pool[i]); } return out; }
+function askTest(){
+  var id=T.q[T.i], p=parse(id), w=W[p.wi], s=w[1][p.si];
+  $("t-count").textContent=(T.i+1)+" / "+T.q.length;
+  $("t-verdict").hidden=true; $("t-next").hidden=true;
+  var picQ = !!s[1] && Math.random()<.5;        // 絵がある意味は、半分は「絵 → 英単語」
+  var opts, correct;
+  if(picQ){
+    $("t-pics").textContent=s[1]; $("t-pics").hidden=false;
+    $("t-word").textContent=""; $("t-say").hidden=true;
+    $("t-ask").textContent="この絵に合う英単語は？（"+s[0]+"）";
+    correct=w[0];
+    opts=shuffle([correct].concat(pick(W.map(function(x){return x[0];}),3,[correct])));
+  } else {
+    $("t-pics").hidden=true;
+    $("t-word").textContent=w[0]; $("t-say").hidden=false; speak(w[0]);
+    $("t-ask").textContent = w[1].length>1 ? "この単語の意味は？（意味は"+w[1].length+"つあります。どれか1つを選んでください）" : "この単語の意味は？";
+    correct=s[0];
+    var others=[]; W.forEach(function(x,i){ if(i!==p.wi) x[1].forEach(function(y){ others.push(y[0]); }); });
+    opts=shuffle([correct].concat(pick(others,3,[correct])));
+  }
+  $("t-choices").innerHTML=opts.map(function(o){ return '<button class="'+(picQ?'en':'')+'">'+o+'</button>'; }).join("");
+  Array.prototype.forEach.call($("t-choices").children,function(b){
+    b.addEventListener("click",function(){ answerTest(b, b.textContent===correct, correct); });
+  });
+}
+function answerTest(btn,right,correct){
+  var id=T.q[T.i], p=parse(id), w=W[p.wi], s=w[1][p.si];
+  Array.prototype.forEach.call($("t-choices").children,function(b){ b.disabled=true; if(b.textContent===correct) b.classList.add("ok"); });
+  if(!right) btn.classList.add("ng");
+  var before=S.cards[id].box;
+  grade(id,right);
+  if(right) T.right++; else T.miss.push(id);
+  var after=S.cards[id].box;
+  var v=$("t-verdict"); v.hidden=false; v.className="verdict "+(right?"y":"n");
+  v.innerHTML=(right?"正解！":"もう一度、覚え直し")+"<small>"+w[0]+"　"+(s[1]?s[1]+" ":"")+s[0]+"　／　"+(after===6?"習得しました 🎉":"箱"+before+" → 箱"+after+"（"+INT[after]+"日後にまた出ます）")+"</small>";
+  speak(w[0]);
+  $("t-next").hidden=false; $("t-next").textContent = T.i===T.q.length-1 ? "結果を見る" : "次へ";
+}
+$("t-say").addEventListener("click",function(){ speak(W[parse(T.q[T.i]).wi][0]); });
+$("t-next").addEventListener("click",function(){
+  if(T.i<T.q.length-1){ T.i++; askTest(); return; }
+  $("r-score").textContent=T.right; $("r-total").textContent=T.q.length;
+  $("r-msg").textContent = T.miss.length ? "間違えた単語は、明日また出てきます。" : "全問正解！ 次は、もっと先の日に出てきます。";
+  $("r-recap").innerHTML=T.miss.map(function(id){ var p=parse(id), w=W[p.wi], s=w[1][p.si];
+    return '<div><span class="en">'+w[0]+'</span><span>'+(s[1]||"")+' '+s[0]+'</span></div>'; }).join("");
+  view("result");
+});
+$("r-home").addEventListener("click",renderHome);
+
+/* ---------- 設定 ---------- */
+$("btn-set").addEventListener("click",function(){
+  $("s-per").value=String(S.settings.per); $("s-am").value=S.settings.am; $("s-noon").value=S.settings.noon; $("s-pm").value=S.settings.pm;
+  view("set");
+});
+$("s-save").addEventListener("click",function(){
+  S.settings={per:+$("s-per").value, am:$("s-am").value||"07:30", noon:$("s-noon").value||"12:30", pm:$("s-pm").value||"21:00"};
+  save(); renderHome();
+});
+$("s-cancel").addEventListener("click",renderHome);
+$("s-reset").addEventListener("click",function(){
+  if(!confirm("これまでの記録をすべて消して、最初からやり直しますか？")) return;
+  S=fresh(); save(); renderHome();
+});
+
+/* ---------- ホーム画面に追加 ---------- */
+(function(){
+  var standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
+  var closed=false; try{ closed = localStorage.getItem("apush-a2hs-closed")==="1"; }catch(e){}
+  if(standalone || closed) return;
+  var ua=navigator.userAgent, ios=/iPhone|iPad|iPod/.test(ua), android=/Android/.test(ua);
+  if(!ios && !android) return;                    // パソコンでは出さない
+  var box=$("a2hs"), how=$("a2hs-how"), btn=$("a2hs-btn"), deferred=null;
+  how.textContent = ios ? "Safariの下の共有ボタン（□↑）→「ホーム画面に追加」" : "右上のメニュー（⋮）→「ホーム画面に追加」";
+  box.hidden=false;
+  window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; btn.hidden=false; how.textContent="ボタンを押すだけで追加できます"; });
+  btn.addEventListener("click",function(){ if(!deferred) return; deferred.prompt(); deferred.userChoice.then(function(){ deferred=null; box.hidden=true; }); });
+  $("a2hs-x").addEventListener("click",function(){ box.hidden=true; try{ localStorage.setItem("apush-a2hs-closed","1"); }catch(e){} });
+})();
+
+renderHome();
+})();
+</script>
+</body>
+</html>
