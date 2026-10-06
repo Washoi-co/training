@@ -155,16 +155,25 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
 .lg.r{background:var(--red)} .lg.g{background:repeating-linear-gradient(90deg,#B5B5BB 0 5px,transparent 5px 9px);margin-left:6px}
 /* 3：朝→夜→睡眠→翌日 */
 .flow-d{list-style:none;padding:0;gap:14px}
-.flow-d li{position:relative;width:62px;height:72px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.flow-d li{position:relative;width:66px;height:84px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .flow-d li:not(:last-child)::after{content:"→";position:absolute;right:-12px;color:var(--red);font-weight:900;font-size:13px}
 .flow-d li.z{background:var(--fg);border-color:var(--fg);color:#fff}
 .flow-d i{font-style:normal;font-size:26px;line-height:1.1}
 .flow-d b{font-size:12px;font-weight:900;margin-top:2px}
+.flow-d small{font-size:9.5px;color:var(--muted);margin-top:1px;white-space:nowrap}
+.flow-d li.z small{color:rgba(255,255,255,.75)}
 /* 4：間をあけて、習得へ */
 .ladder{list-style:none;padding:0;gap:6px;align-items:flex-end}
-.ladder li{width:40px;border-radius:8px 8px 4px 4px;background:rgba(232,50,31,.18);color:var(--red-deep);font-family:var(--en);font-weight:900;font-size:11px;display:flex;align-items:flex-start;justify-content:center;padding-top:6px}
-.ladder li:nth-child(1){height:34px}.ladder li:nth-child(2){height:52px}.ladder li:nth-child(3){height:70px}.ladder li:nth-child(4){height:88px}.ladder li:nth-child(5){height:106px}
-.ladder li.m{height:124px;background:var(--red);color:#fff;font-size:20px;align-items:center;padding:0}
+.ladder li{width:46px;border-radius:8px 8px 4px 4px;background:rgba(232,50,31,.18);color:var(--red-deep);font-weight:700;font-size:9.5px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6px;line-height:1.25;text-align:center}
+.ladder li b{font-size:11px;font-weight:900}
+.ladder li:nth-child(1){height:42px}.ladder li:nth-child(2){height:52px}.ladder li:nth-child(3){height:70px}.ladder li:nth-child(4){height:88px}.ladder li:nth-child(5){height:106px}
+.ladder li.m{height:130px;background:var(--red);color:#fff;font-size:20px;justify-content:center;padding:0}
+.ladder li.m b{font-size:11px;color:#fff;margin-top:4px}
+.pts{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.pts li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.65;color:#3A3A40}
+.pts li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--red)}
+.pts .dot{color:var(--red)}
+.hc p{color:#3A3A40!important;font-size:13.5px!important}
 .howto .note{font-size:10.5px;color:var(--muted);line-height:1.7;margin:12px 0 0}
 @media(min-width:900px){ .hg{grid-template-columns:1fr 1fr;gap:16px} .hc{padding:22px 24px 24px} .hv,.curve,.flow-d,.ladder{min-height:190px} }
 /* 忘却曲線を活用する（ニックネーム登録） */
@@ -302,7 +311,8 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
           <span class="ht-n">1</span>
           <div class="hv forget" aria-hidden="true"><span>apple</span><span>appl_</span><span>ap___</span><span>_____</span></div>
           <h3>単語は、<em>忘れるもの。</em></h3>
-          <p>1日たつと、多くを忘れます。それが普通です。</p>
+          <p>覚えたばかりの単語は、1日たつと、その多くを忘れてしまいます。</p>
+          <ul class="pts"><li>忘れるのは、記憶力のせいではありません</li><li>だから「忘れる前提」で、思い出す回数を組み込みます</li></ul>
         </div>
 
         <div class="hc">
@@ -320,25 +330,28 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
             <figcaption><span class="lg r"></span>思い出す　<span class="lg g"></span>思い出さない</figcaption>
           </figure>
           <h3>忘れかけたら、<em>思い出す。</em></h3>
-          <p>思い出すたびに、忘れにくくなります。</p>
+          <p>完全に忘れる前に思い出すと、記憶が戻り、前よりも下がりにくくなります。</p>
+          <ul class="pts"><li>赤い <b class="dot">●</b> が復習のタイミング（1日後・3日後・7日後・14日後）</li><li>思い出すたびに、次に忘れるまでの間が長くなります</li></ul>
         </div>
 
         <div class="hc">
           <span class="ht-n">3</span>
           <ol class="flow-d" aria-label="朝に覚える、夜にもう一度、眠る、翌日テスト">
-            <li><i>🌅</i><b>朝</b></li><li><i>🌙</i><b>夜</b></li><li class="z"><i>💤</i><b>睡眠</b></li><li><i>📝</i><b>翌日</b></li>
+            <li><i>🌅</i><b>朝</b><small>覚える</small></li><li><i>🌙</i><b>夜</b><small>もう一度</small></li><li class="z"><i>💤</i><b>睡眠</b><small>整理される</small></li><li><i>📝</i><b>翌日</b><small>テスト</small></li>
           </ol>
           <h3>眠って、<em>定着させる。</em></h3>
-          <p>眠っている間に、記憶が整理されると言われています。</p>
+          <p>眠っている間に、その日に覚えたことが整理され、記憶に残りやすくなると言われています。</p>
+          <ul class="pts"><li>寝る前の「夜のもう一度」がポイント</li><li>次の日のテストで、本当に覚えたかを確かめます</li></ul>
         </div>
 
         <div class="hc">
           <span class="ht-n">4</span>
           <ol class="ladder" aria-label="箱1から箱5、そして習得へ">
-            <li>1日</li><li>3日</li><li>7日</li><li>14日</li><li>30日</li><li class="m">🏆</li>
+            <li><b>箱1</b>1日後</li><li><b>箱2</b>3日後</li><li><b>箱3</b>7日後</li><li><b>箱4</b>14日後</li><li><b>箱5</b>30日後</li><li class="m">🏆<b>習得</b></li>
           </ol>
           <h3>くり返して、<em>長期記憶へ。</em></h3>
-          <p>間をあけて出てくる単語が、ずっと使える記憶になります。</p>
+          <p>単語は5つの箱を順に進みます。正解するたびに、次に出てくるまでの間が長くなります。</p>
+          <ul class="pts"><li>正解 → 次の箱へ／間違い → 箱1に戻る（箱5で間違えたら箱3）</li><li>箱5も正解したら「習得」。ずっと使える記憶（長期記憶）です</li></ul>
         </div>
 
       </div>
