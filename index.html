@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="絵を見て英語を選び、声に出して3回。A-PUSHのスピーキング反復トレーニング。">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://training.apush.jp/">
 
 <!-- LINEやSNSでリンクを貼ったときのプレビュー -->
@@ -31,13 +31,14 @@ img{max-width:100%}
 <style>
 /* Layout: 左上に小さな種目タブ、型チップ、1枚のカード。使い方・面談・体験会はカードの下。開いた瞬間にドリルが動いている。 */
 :root{
-  --ink:#0B0B0C; --surface:#151517; --surface2:#1E1E22;
-  --line:rgba(255,255,255,.11); --line-strong:rgba(255,255,255,.24);
-  --fg:#F4F4F5; --muted:#8E8E96;
-  --red:#FF2D16; --red-deep:#D41B06; --ok:#49D68B; --ng:#FF6B5A;
+  --ink:#FFFFFF; --surface:#F6F6F4; --surface2:#ECECE9;
+  --line:rgba(11,11,12,.10); --line-strong:rgba(11,11,12,.22);
+  --fg:#0B0B0C; --muted:#6B6B72;
+  --red:#E8321F; --red-deep:#C42612; --ok:#14935A; --green:#14935A; --ng:#D9301E;
+  --black:#0B0B0C;
   --en:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
   --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -92,7 +93,8 @@ a{color:inherit}
 h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 
 /* ---- 種目タブ ---- */
-.tabs{display:flex;gap:6px;padding-top:14px}
+.tabrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:14px}
+.tabs{display:flex;gap:6px}
 .tabs button{padding:5px 12px;border:1px solid var(--line-strong);border-radius:999px;font-size:12px;font-weight:700;color:var(--muted)}
 .tabs button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--ink)}
 
@@ -106,15 +108,18 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 
 /* ---- カード ---- */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.timerbar{height:4px;background:rgba(255,255,255,.07)}
+.timerbar{height:4px;background:var(--surface2)}
 .timerbar i{display:block;height:100%;background:var(--red);width:100%;transition:width .25s linear}
 .timerbar i.low{background:var(--ng)}
 .cardin{padding:14px 16px 20px}
 .qmeta{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--muted)}
 .qmeta .en{font-variant-numeric:tabular-nums}
 .pips{display:flex;gap:5px}
-.pip{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.16)}
+.pip{width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
 .pip.y{background:var(--ok)} .pip.n{background:var(--ng)}
+.lvsel{display:flex;gap:2px;background:var(--ink);border:1px solid var(--line);border-radius:999px;padding:2px}
+.lvsel button{font-family:var(--en);font-size:11px;font-weight:700;color:var(--muted);padding:3px 9px;border-radius:999px}
+.lvsel button[aria-pressed="true"]{background:var(--fg);color:var(--ink)}
 
 .ask{font-size:12.5px;color:var(--muted);margin:12px 0 0;text-align:center}
 .pic{display:grid;place-items:center;line-height:1;user-select:none;font-size:clamp(78px,24vw,116px);padding:10px 0 12px}
@@ -126,8 +131,8 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 .ch:hover:not(:disabled){border-color:var(--red);color:var(--red)}
 .ch:disabled{cursor:default}
 .ch .k{font-size:11px;color:var(--muted);flex:none;width:14px}
-.ch.correct{border-color:var(--ok);background:rgba(73,214,139,.12);color:var(--ok)}
-.ch.wrong{border-color:var(--ng);background:rgba(255,107,90,.10);color:var(--ng)}
+.ch.correct{border-color:var(--ok);background:rgba(20,147,90,.08);color:var(--ok)}
+.ch.wrong{border-color:var(--ng);background:rgba(217,48,30,.07);color:var(--ng)}
 .ch.dim{opacity:.4}
 
 /* ---- 復唱 ---- */
@@ -164,27 +169,58 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 .acts button:disabled{opacity:.35;cursor:default}
 .acts button:disabled:hover{border-color:var(--line-strong);color:inherit}
 
-/* ---- 本コース案内 ---- */
-.more{position:sticky;z-index:5;box-shadow:0 -14px 30px rgba(0,0,0,.65);margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 16px}
-.more h2{font-size:18px;font-weight:900;letter-spacing:-.02em;margin:0 0 6px}
-.more>p{margin:0;font-size:13px;color:var(--muted)}
-.more>p b{color:var(--fg)}
-.stairs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;align-items:end;margin:20px 0 0}
-.st{display:flex;flex-direction:column;gap:6px;min-width:0}
-.st ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
-.st li{border:1px solid var(--line-strong);border-radius:7px;padding:5px 6px;font-size:11.5px;font-weight:700;text-align:center;line-height:1.3}
-.st.here li{border-color:var(--red);color:var(--red)}
-.st .tag{align-self:center;font-size:10.5px;font-weight:900;color:#fff;background:var(--red);border-radius:999px;padding:2px 9px}
-.st .bar{border-radius:8px 8px 3px 3px;padding:8px 6px;font-size:11px;font-weight:700;text-align:center;line-height:1.35;background:var(--surface2);display:flex;flex-direction:column;justify-content:flex-end}
-.st .bar i{font-style:normal;font-family:var(--en);font-size:9.5px;letter-spacing:.14em;color:var(--muted)}
-.st.here .bar{background:var(--red);height:52px}
-.st.here .bar i{color:rgba(255,255,255,.8)}
-.st.s2 .bar{height:84px;background:rgba(255,45,22,.28)}
-.st.s3 .bar{height:116px;background:rgba(255,45,22,.42)}
-.base{height:2px;background:var(--line-strong);border-radius:2px}
-.more .cta{color:var(--fg);margin:18px 0 0;font-size:14px;font-weight:700;text-align:center}
+/* ---- 本コース案内：黒いカードに「マンツーマン×コーチング＋管理＋トレーニング」の足し算 ---- */
+.more{position:sticky;z-index:5;box-shadow:0 -10px 30px rgba(0,0,0,.18);margin-top:28px;background:var(--black);color:#fff;border-radius:16px;padding:20px 16px 22px;--m:rgba(255,255,255,.62);--l:rgba(255,255,255,.14);--l2:rgba(255,255,255,.28)}
+.more .eyebrow{color:var(--red)}
+.more h2{font-size:19px;font-weight:900;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
+.more>p{margin:0;font-size:13px;color:var(--m)}
+.formula{margin-top:18px;display:grid;gap:0}
+.op{font-family:var(--en);font-size:20px;font-weight:900;color:var(--red);text-align:center;line-height:1;padding:6px 0}
+.duo{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch}
+.duo .op{display:grid;place-items:center;padding:0 8px}
+.blk{background:#fff;color:var(--black);border-radius:12px;padding:12px 13px}
+.blk i{display:block;font-style:normal;font-family:var(--en);font-size:9.5px;font-weight:700;letter-spacing:.16em;color:var(--red)}
+.blk b{display:block;font-size:15px;font-weight:900;letter-spacing:-.01em;line-height:1.35;margin-top:2px}
+.blk span{display:block;font-size:11.5px;color:#6B6B72;margin-top:2px;line-height:1.5}
+.blk.dark{background:transparent;color:#fff;border:1px solid var(--l2)}
+.blk.dark span{color:var(--m)}
+.train{border:1px solid var(--l2);border-radius:12px;padding:12px 13px}
+.train>i{font-style:normal;font-family:var(--en);font-size:9.5px;font-weight:700;letter-spacing:.16em;color:var(--red)}
+.tr{padding:13px 0;border-top:1px solid var(--l)}
+.tr::after{content:"";display:block;clear:both}
+.tr:first-of-type{border-top:0;padding-top:8px}
+.tr .no{float:left;font-family:var(--en);font-size:22px;font-weight:900;color:var(--red);line-height:1;margin:-1px 10px 0 0}
+.tr h3{margin:0;font-size:15px;font-weight:900;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.tr h3 small{font-size:11.5px;font-weight:500;color:var(--m)}
+.tr p{margin:4px 0 0;font-size:12px;color:var(--m);line-height:1.6}
+.pre{font-family:var(--en);font-size:9.5px;font-weight:700;letter-spacing:.1em;color:#fff;border:1px solid var(--l2);border-radius:999px;padding:1px 8px}
+.lvls{display:grid;gap:8px;margin-top:10px}
+.lvl{border-radius:10px;background:rgba(255,255,255,.05);padding:10px 11px}
+.lvh{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
+.lvh b{font-family:var(--en);font-size:13px;font-weight:900;color:var(--red)}
+.lvh span{font-size:12px;font-weight:700}
+.lvh em{flex-basis:100%;font-style:normal;font-family:var(--en);font-size:11.5px;color:var(--m)}
+.cs{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.cs span{font-family:var(--en);font-size:11.5px;font-weight:700;border:1px solid var(--l2);border-radius:6px;padding:2px 7px;line-height:1.4}
+.cs span.j{font-family:var(--jp)}
+.cs span.g{border-color:var(--green);color:#3FCB86}
+.legend{font-size:11px;color:var(--m);margin:10px 0 0;display:flex;align-items:center;gap:6px}
+.legend::before{content:"";width:10px;height:10px;border-radius:3px;border:1px solid var(--green)}
+.count{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.count span{font-size:11px;font-weight:700;background:rgba(255,255,255,.08);border-radius:999px;padding:3px 10px}
+.count span b{font-family:var(--en);color:#fff}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.tags span{font-family:var(--en);font-size:11.5px;font-weight:700;background:#fff;color:var(--black);border-radius:6px;padding:2px 8px}
+.tags span.g{background:var(--green);color:#fff;font-family:var(--jp)}
+.etc{text-align:center;font-size:13px;font-weight:700;color:var(--m);border:1px dashed var(--l2);border-radius:12px;padding:10px}
+.more .cta{color:#fff;margin:20px 0 0;font-size:14px;font-weight:700;text-align:center}
+.more .acts a{border-color:var(--l2);color:#fff}
+.more .acts a:hover{border-color:var(--red);color:#fff}
+.more .lp{display:block;text-align:center;margin-top:14px;font-size:12.5px;font-weight:700;color:#fff}
+.more .lp:hover{color:var(--red)}
 
-.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:#64646C;line-height:1.7}
+.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);line-height:1.7}
+.foot a{color:var(--fg);font-weight:700}
 .foot b{color:var(--muted);font-weight:700}
 </style>
 </head>
@@ -193,10 +229,15 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 
   <h1 class="sr">動詞チャンクトレーニング</h1>
 
-  <div class="tabs" role="group" aria-label="種目">
-    <button id="t-modal" aria-pressed="true">助動詞</button>
-    <button id="t-question" aria-pressed="false">疑問文</button>
-    <button id="t-tense" aria-pressed="false">時制</button>
+  <div class="tabrow">
+    <div class="tabs" role="group" aria-label="種目">
+      <button id="t-modal" aria-pressed="true">助動詞</button>
+      <button id="t-relative" aria-pressed="false">関係代名詞</button>
+      <button id="t-tense" aria-pressed="false">時制</button>
+    </div>
+    <span class="lvsel" id="lvsel" role="group" aria-label="レベル">
+      <button data-lv="1" aria-pressed="true">Lv1</button><button data-lv="2" aria-pressed="false">Lv2</button><button data-lv="3" aria-pressed="false">Lv3</button>
+    </span>
   </div>
 
   <div class="chips" id="chips" role="group" aria-label="型を選ぶ"></div>
@@ -237,11 +278,11 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
         <div class="recap" id="recap"></div>
         <div class="nudge">
           <b>次は、人を相手に話してみませんか。</b>
-          ここで作った文は、相手がいて初めて会話になります。ネイティブ講師とのマンツーマン体験は60分。学習の相談だけの面談もできます。
+          ここで作った文は、相手がいて初めて会話になります。ネイティブ講師とのマンツーマン体験は無料・60分。学習の相談だけの無料面談もできます。
         </div>
         <div class="acts">
           <button class="primary" id="btn-again">もう5問</button>
-          <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">体験会</a>
+          <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">体験会</a>
           <a href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">面談</a>
         </div>
       </div>
@@ -254,10 +295,10 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
       <b>使い方</b><span>30秒で読めます</span>
     </button>
     <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
-      <b>面談</b><span>学習の相談</span>
+      <b>面談</b><span>無料・学習の相談</span>
     </a>
-    <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">
-      <b>体験会</b><span>3,000円／60分</span>
+    <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">
+      <b>体験会</b><span>無料／60分</span>
     </a>
   </div>
 
@@ -267,88 +308,131 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
     <ol class="steps">
       <li><div><b>絵を見て、20秒で選ぶ</b><span>絵が何をしているかを見て、合う英語を選びます。</span></div></li>
       <li><div><b>声に出して3回</b><span>ここが本番です。丸を3つタップするまで次に進めません。</span></div></li>
-      <li><div><b>5問で結果</b><span>種目や型を変えると、すぐ次のラウンドが始まります。</span></div></li>
+      <li><div><b>5問で結果</b><span>種目・型・レベルを変えると、すぐ次のラウンドが始まります。</span></div></li>
     </ol>
     <div class="kinds">
       <div class="kind"><i>助動詞</i><span>できる・したい・しなければ。<b>I can / I want to / I have to</b> など6種類。</span></div>
-      <div class="kind"><i>疑問文</i><span>聞けないと会話が続きません。<b>Do you …? / Did you …?</b> など6種類。</span></div>
-      <div class="kind"><i>時制</i><span>昨日・毎日・明日・今。同じ動詞を4つの形で言い分けます。</span></div>
+      <div class="kind"><i>関係代名詞</i><span>人や物を、うしろから説明します。<b>who / which / that</b> の3つ。</span></div>
+      <div class="kind"><i>時制</i><span>過去・現在・未来。同じ動詞を3つの形で言い分けます。</span></div>
+      <div class="kind"><i>レベル</i><span>右上の <b>Lv1</b> は短い文、<b>Lv2</b> は長い文、<b>Lv3</b> は英検2級くらいの言い回しです。</span></div>
     </div>
   </div>
 
   <section class="more" aria-labelledby="more-h">
     <p class="eyebrow en">A-PUSH MAIN COURSE</p>
     <h2 id="more-h">このトレーニングは、まだ入口です。</h2>
-    <p>A-PUSH本コースでは、この3つのコースだけでなく、<b>完了形・過去完了形・不定詞・動名詞</b>など、たくさんの文法や言い回し、<b>ビジネスの言い回し</b>まで、同じチャンクトレーニングで練習できます。</p>
-    <div class="stairs" role="img" aria-label="このページは助動詞・疑問文・時制の3つ。本コースでは完了形・過去完了形・不定詞・動名詞などの文法と、日常やビジネスの言い回しまで広がります。">
-      <div class="st here">
-        <span class="tag">今ここ</span>
-        <ul><li>助動詞</li><li>疑問文</li><li>時制</li></ul>
-        <div class="bar"><i>NOW</i>このページ</div>
+    <p>本コースで受けられるものを、まとめました。</p>
+
+    <div class="formula">
+      <div class="duo">
+        <div class="blk"><i>LESSON</i><b>ネイティブ<br>マンツーマン</b></div>
+        <span class="op" aria-label="かける">×</span>
+        <div class="blk"><i>COACHING</i><b>コーチング</b></div>
       </div>
-      <div class="st s2">
-        <ul><li>完了形</li><li>過去完了形</li><li>不定詞</li><li>動名詞</li></ul>
-        <div class="bar"><i>COURSE</i>文法を広げる</div>
+      <span class="op" aria-label="たす">＋</span>
+      <div class="blk dark"><i>SYSTEM</i><b>学習管理システム</b></div>
+      <span class="op" aria-label="たす">＋</span>
+
+      <div class="train">
+        <i>TRAINING</i>
+
+        <div class="tr">
+          <span class="no">1</span>
+          <div>
+            <h3>チャンクトレーニング<small>このページと同じ形</small></h3>
+            <div class="lvls">
+              <div class="lvl">
+                <p class="lvh"><b>Level 1</b><span>短い文</span><em>I can get up.</em></p>
+                <div class="cs"><span>this / that</span><span class="j">色・数</span><span class="j">人・職業</span><span>whose</span><span class="j">形容詞</span><span class="j g">現在形</span><span class="j">現在進行形</span><span class="j">頻度の副詞</span><span class="g">can</span><span>What</span><span>Who</span><span>Where</span><span>When</span></div>
+              </div>
+              <div class="lvl">
+                <p class="lvh"><b>Level 2</b><span>長い文</span><em>I can get up early.</em></p>
+                <div class="cs"><span class="j g">過去形</span><span class="j">過去進行形</span><span class="g">will</span><span>be going to</span><span>Why</span><span>How</span><span class="j">比較級</span><span class="j">最上級</span><span class="g">should</span><span class="g">must</span><span class="g">have to</span><span>must not</span><span>don't have to</span><span>and / but</span><span>so / because</span><span>although / though</span></div>
+              </div>
+              <div class="lvl">
+                <p class="lvh"><b>Level 3</b><span>英検2級くらい</span><em>I have a coach who helps me study English to prepare for the Eiken exam.</em></p>
+                <div class="cs"><span class="j">現在完了</span><span class="g">who</span><span class="g">which</span><span class="g">that</span><span class="j">不定詞</span><span class="j">動名詞</span><span>if / whether</span><span>when / while</span><span>before / after</span><span>as soon as</span><span>as long as</span><span>in case</span><span>even if</span></div>
+              </div>
+            </div>
+            <p class="legend">緑は、このページで体験できるもの（助動詞・関係代名詞・時制）</p>
+            <div class="count"><span>Beginner <b>24</b>章</span><span>Intermediate <b>26</b>章</span><span>全 <b>300</b>問</span></div>
+          </div>
+        </div>
+
+        <div class="tr">
+          <span class="no">2</span>
+          <div>
+            <h3>シャドーイング<span class="pre">PRE-RELEASE</span></h3>
+            <p>ネイティブの音声のすぐ後を追って声に出し、音のつながりとリズムを体で覚えます。</p>
+          </div>
+        </div>
+
+        <div class="tr">
+          <span class="no">3</span>
+          <div>
+            <h3>単語トレーニング<span class="pre">PRE-RELEASE</span></h3>
+            <p>試験や目的に合わせた英単語と、あなたの専門分野の単語を練習できます。</p>
+            <div class="tags"><span>TOEIC</span><span>IELTS</span><span>TOEFL</span><span class="g">英検</span><span class="g">目的別</span><span class="g">あなたの専門分野</span></div>
+          </div>
+        </div>
       </div>
-      <div class="st s3">
-        <ul><li>日常の言い回し</li><li>ビジネスの言い回し</li><li>ほか多数</li></ul>
-        <div class="bar"><i>COURSE</i>使える言い回し</div>
-      </div>
+
+      <span class="op" aria-label="たす">＋</span>
+      <div class="etc">その他にも、いろいろ付いてきます</div>
     </div>
-    <div class="base"></div>
+
     <p class="cta">より詳しく、より深く学びたい方は、お問い合わせください。</p>
     <div class="acts">
-      <a class="primary" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">面談で問い合わせる</a>
-      <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=9deJwzNTUwNzUBAARQATs" target="_blank" rel="noopener">体験会（3,000円）</a>
+      <a class="primary" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">無料面談で問い合わせる</a>
+      <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">体験会（無料）</a>
     </div>
+    <a class="lp" href="https://lp.apush.jp/" target="_blank" rel="noopener">A-PUSHのコースを詳しく見る →</a>
   </section>
 
   <p class="foot">
     <b>音声について</b>　端末の読み上げ機能を使っています。端末や設定によっては鳴りません。<br>
-    <b>A-PUSH株式会社</b>　スピーキング特化の英会話スクール／目黒駅 徒歩1分　※体験会は有料（3,000円・税込／60分・オンライン可）です。学習効果には個人差があり、特定の成果を保証するものではありません。
+    <a href="https://lp.apush.jp/" target="_blank" rel="noopener">A-PUSH株式会社</a>　スピーキング特化の英会話スクール／目黒駅 徒歩1分　※体験会（60分・オンライン可）と面談は無料です。学習効果には個人差があり、特定の成果を保証するものではありません。
   </p>
 </div>
 
 <script>
-/* 動詞チャンク30：[絵, 原形, 日本語, 過去形] */
+/* 動詞チャンク30：[絵, Lv1 原形, 日本語, 過去形, Lv2 原形, 日本語, 過去形, Lv3 原形, 日本語, 過去形]
+   Lv1 短い文 ／ Lv2 長い文 ／ Lv3 英検2級くらいの単語と言い回し */
 const V=[
-["⏰","get up","起きる","got up"],
-["🛌","go to bed","寝る","went to bed"],
-["🚿","take a shower","シャワーを浴びる","took a shower"],
-["🪥","brush my teeth","歯をみがく","brushed my teeth"],
-["🧼","wash my hands","手を洗う","washed my hands"],
-["👕","get dressed","着替える","got dressed"],
-["🍳","eat breakfast","朝ごはんを食べる","ate breakfast"],
-["☕","drink coffee","コーヒーを飲む","drank coffee"],
-["👨‍🍳","cook dinner","夕飯を作る","cooked dinner"],
-["🍽️","do the dishes","皿を洗う","did the dishes"],
-["🧺","do the laundry","洗濯する","did the laundry"],
-["🧹","clean my room","部屋を掃除する","cleaned my room"],
-["🗑️","take out the trash","ゴミを出す","took out the trash"],
-["🚪","leave home","家を出る","left home"],
-["🚃","take the train","電車に乗る","took the train"],
-["🚗","drive a car","車を運転する","drove a car"],
-["💼","go to work","仕事に行く","went to work"],
-["📧","check my email","メールを確認する","checked my email"],
-["📞","make a phone call","電話をかける","made a phone call"],
-["📝","write a report","レポートを書く","wrote a report"],
-["🛒","go shopping","買い物に行く","went shopping"],
-["🎫","buy a ticket","チケットを買う","bought a ticket"],
-["💳","pay the bill","会計をする","paid the bill"],
-["🏋️","go to the gym","ジムに行く","went to the gym"],
-["🏃","run in the park","公園を走る","ran in the park"],
-["⚽","play soccer","サッカーをする","played soccer"],
-["🎬","watch a movie","映画を見る","watched a movie"],
-["📖","read a book","本を読む","read a book"],
-["🎧","listen to music","音楽を聴く","listened to music"],
-["📚","study English","英語を勉強する","studied English"]
+["⏰","get up","起きる","got up","get up early","早く起きる","got up early","get up before sunrise","日の出前に起きる","got up before sunrise"],
+["🛌","go to bed","寝る","went to bed","go to bed before midnight","夜12時前に寝る","went to bed before midnight","go to bed early to recover from jet lag","時差ボケを治すために早く寝る","went to bed early to recover from jet lag"],
+["🚿","take a shower","シャワーを浴びる","took a shower","take a quick shower","さっとシャワーを浴びる","took a quick shower","take a shower to refresh myself after work","仕事のあとシャワーで気分をすっきりさせる","took a shower to refresh myself after work"],
+["🪥","brush my teeth","歯をみがく","brushed my teeth","brush my teeth after lunch","昼ごはんのあと歯をみがく","brushed my teeth after lunch","brush my teeth thoroughly before the dental checkup","歯の検診の前に、念入りに歯をみがく","brushed my teeth thoroughly before the dental checkup"],
+["🧼","wash my hands","手を洗う","washed my hands","wash my hands with soap","せっけんで手を洗う","washed my hands with soap","wash my hands carefully to avoid catching a cold","風邪をひかないように、しっかり手を洗う","washed my hands carefully to avoid catching a cold"],
+["👕","get dressed","着替える","got dressed","get dressed for the party","パーティー用に着替える","got dressed for the party","get dressed appropriately for the job interview","面接にふさわしい服に着替える","got dressed appropriately for the job interview"],
+["🍳","eat breakfast","朝ごはんを食べる","ate breakfast","eat breakfast with my family","家族と朝ごはんを食べる","ate breakfast with my family","eat a balanced breakfast to stay healthy","健康のために、バランスのいい朝ごはんを食べる","ate a balanced breakfast to stay healthy"],
+["☕","drink coffee","コーヒーを飲む","drank coffee","drink a cup of coffee","コーヒーを1杯飲む","drank a cup of coffee","drink less coffee to reduce my caffeine intake","カフェインをとりすぎないよう、コーヒーを減らす","drank less coffee to reduce my caffeine intake"],
+["👨‍🍳","cook dinner","夕飯を作る","cooked dinner","cook dinner for my family","家族に夕飯を作る","cooked dinner for my family","cook dinner with fresh local ingredients","地元の新鮮な食材で夕飯を作る","cooked dinner with fresh local ingredients"],
+["🍽️","do the dishes","皿を洗う","did the dishes","do the dishes after dinner","夕飯のあと皿を洗う","did the dishes after dinner","do the dishes without being asked","言われる前に皿を洗う","did the dishes without being asked"],
+["🧺","do the laundry","洗濯する","did the laundry","do the laundry before work","仕事の前に洗濯する","did the laundry before work","do the laundry and fold all the clothes","洗濯して、服を全部たたむ","did the laundry and folded all the clothes"],
+["🧹","clean my room","部屋を掃除する","cleaned my room","clean my room and the kitchen","部屋とキッチンを掃除する","cleaned my room and the kitchen","clean my room and throw away unnecessary things","部屋を掃除して、いらない物を捨てる","cleaned my room and threw away unnecessary things"],
+["🗑️","take out the trash","ゴミを出す","took out the trash","take out the trash in the morning","朝ゴミを出す","took out the trash in the morning","take out the trash and separate the recyclables","ゴミを出して、資源ごみを分別する","took out the trash and separated the recyclables"],
+["🚪","leave home","家を出る","left home","leave home at seven","7時に家を出る","left home at seven","leave home early to avoid the rush hour","ラッシュアワーを避けるために早く家を出る","left home early to avoid the rush hour"],
+["🚃","take the train","電車に乗る","took the train","take the train to work","電車で仕事に行く","took the train to work","take an earlier train to arrive on time","時間どおりに着くよう、早めの電車に乗る","took an earlier train to arrive on time"],
+["🚗","drive a car","車を運転する","drove a car","drive my car to the station","駅まで車を運転する","drove my car to the station","drive carefully in heavy traffic","渋滞の中を慎重に運転する","drove carefully in heavy traffic"],
+["💼","go to work","仕事に行く","went to work","go to work by bike","自転車で仕事に行く","went to work by bike","go to work early to prepare for the presentation","プレゼンの準備のために早く出社する","went to work early to prepare for the presentation"],
+["📧","check my email","メールを確認する","checked my email","check my email on my phone","スマホでメールを確認する","checked my email on my phone","check my email and reply to my clients","メールを確認して、取引先に返信する","checked my email and replied to my clients"],
+["📞","make a phone call","電話をかける","made a phone call","make a phone call to my mother","母に電話をかける","made a phone call to my mother","make a phone call to confirm the reservation","予約を確認するために電話をかける","made a phone call to confirm the reservation"],
+["📝","write a report","レポートを書く","wrote a report","write a report for my boss","上司にレポートを書く","wrote a report for my boss","write a report on the results of the survey","調査の結果についてレポートを書く","wrote a report on the results of the survey"],
+["🛒","go shopping","買い物に行く","went shopping","go shopping at the mall","ショッピングモールで買い物する","went shopping at the mall","go shopping for groceries on a tight budget","限られた予算で食料品を買いに行く","went shopping for groceries on a tight budget"],
+["🎫","buy a ticket","チケットを買う","bought a ticket","buy a ticket for the concert","コンサートのチケットを買う","bought a ticket for the concert","buy a ticket in advance to get a discount","割引を受けるために前もってチケットを買う","bought a ticket in advance to get a discount"],
+["💳","pay the bill","会計をする","paid the bill","pay the bill by card","カードで会計をする","paid the bill by card","pay the bill before the due date","期限の前に請求書を支払う","paid the bill before the due date"],
+["🏋️","go to the gym","ジムに行く","went to the gym","go to the gym after work","仕事のあとジムに行く","went to the gym after work","go to the gym to build muscle and stay in shape","筋肉をつけて体型を保つためにジムに行く","went to the gym to build muscle and stay in shape"],
+["🏃","run in the park","公園を走る","ran in the park","run in the park with my dog","犬と公園を走る","ran in the park with my dog","run in the park to prepare for the marathon","マラソンに備えて公園を走る","ran in the park to prepare for the marathon"],
+["⚽","play soccer","サッカーをする","played soccer","play soccer with my friends","友達とサッカーをする","played soccer with my friends","play soccer in a local tournament","地元の大会でサッカーをする","played soccer in a local tournament"],
+["🎬","watch a movie","映画を見る","watched a movie","watch a movie at home","家で映画を見る","watched a movie at home","watch a movie without Japanese subtitles","日本語字幕なしで映画を見る","watched a movie without Japanese subtitles"],
+["📖","read a book","本を読む","read a book","read a book on the train","電車で本を読む","read a book on the train","read a book about economics","経済についての本を読む","read a book about economics"],
+["🎧","listen to music","音楽を聴く","listened to music","listen to music on the way to work","通勤中に音楽を聴く","listened to music on the way to work","listen to an English podcast to improve my listening skills","リスニング力を上げるために英語のポッドキャストを聞く","listened to an English podcast to improve my listening skills"],
+["📚","study English","英語を勉強する","studied English","study English for an hour","英語を1時間勉強する","studied English for an hour","study English to prepare for the Eiken exam","英検に備えて英語を勉強する","studied English to prepare for the Eiken exam"]
 ];
+let LV=1;
+const ph=vi=>{const v=V[vi],o=1+(LV-1)*3;return {b:v[o],j:v[o+1],p:v[o+2]};};
 
-const ING={get:"getting",go:"going",take:"taking",brush:"brushing",wash:"washing",eat:"eating",
-drink:"drinking",cook:"cooking",do:"doing",clean:"cleaning",leave:"leaving",drive:"driving",
-check:"checking",make:"making",write:"writing",buy:"buying",pay:"paying",run:"running",
-play:"playing",watch:"watching",read:"reading",listen:"listening",study:"studying"};
-function ing(base){const p=base.split(" ");p[0]=ING[p[0]]||p[0]+"ing";return p.join(" ");}
 
 const MODALS=[
 ["I want to","〜したい","自分の希望を言うとき"],
@@ -358,45 +442,40 @@ const MODALS=[
 ["I should","〜した方がいい","助言・自分への方針"],
 ["I must","〜しなければならない","強い義務・決意"]
 ];
-const QUESTIONS=[
-["Do you","〜しますか？","いつもの習慣を聞く"],
-["Did you","〜しましたか？","過去のことを聞く"],
-["Can you","〜してくれますか？","頼む"],
-["Will you","〜してくれますか？","これからのことを頼む"],
-["Do you want to","〜したいですか？","誘う・確認する"],
-["Why don't you","〜したらどうですか？","すすめる"]
+const RELATIVES=[
+["I have a coach who helps me","〜するのを手伝ってくれるコーチがいます","who：人を説明する"],
+["I use an app which helps me","〜するのを助けてくれるアプリを使っています","which：物を説明する"],
+["I need a plan that helps me","〜するための計画が必要です","that：人にも物にも使える"]
 ];
 const TENSES=[
-["past","yesterday","昨日のこと"],
-["habit","every day","いつもの習慣"],
-["future","tomorrow","明日の予定"],
-["now","right now","今していること"],
-["mix","ミックス","4つをランダムに"]
+["past","過去","昨日のこと"],
+["habit","現在","いつもの習慣"],
+["future","未来","明日の予定"],
+["mix","ミックス","3つをランダムに"]
 ];
+const TENSE_KEYS=["past","habit","future"];
 function tenseSentence(vi,key){
-  const v=V[vi];
-  if(key==="past")   return "I "+v[3]+" yesterday.";
-  if(key==="habit")  return "I "+v[1]+" every day.";
-  if(key==="future") return "I will "+v[1]+" tomorrow.";
-  return "I'm "+ing(v[1])+" right now.";
+  const x=ph(vi);
+  if(key==="past")   return "I "+x.p+" yesterday.";
+  if(key==="habit")  return "I "+x.b+" every day.";
+  return "I will "+x.b+" tomorrow.";
 }
-const TENSE_JA={past:"昨日 〜した",habit:"毎日 〜する",future:"明日 〜する",now:"今 〜している"};
-const TENSE_EN={past:"yesterday",habit:"every day",future:"tomorrow",now:"right now"};
+const TENSE_JA={past:"昨日 〜した",habit:"毎日 〜する",future:"明日 〜する"};
+const TENSE_EN={past:"yesterday",habit:"every day",future:"tomorrow"};
 
-const LIMIT=20;
+const LIMITS={1:20,2:25,3:30}, LIMIT_OF=()=>LIMITS[LV];
 const $=id=>document.getElementById(id);
-let MODE="modal", SEL=4, queue=[], qi=0, score=0, log=[], taps=0, timer=null, left=LIMIT;
+let MODE="modal", SEL=4, queue=[], qi=0, score=0, log=[], taps=0, timer=null, left=0;
 
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function view(k){["quiz","repeat","result"].forEach(n=>$("v-"+n).hidden=(n!==k));}
 function speak(t){try{if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
 
-const SET=()=>MODE==="modal"?MODALS:MODE==="question"?QUESTIONS:TENSES;
+const SET=()=>MODE==="modal"?MODALS:MODE==="relative"?RELATIVES:TENSES;
 function sentenceOf(q){
   if(MODE==="tense")return tenseSentence(q.vi,q.t);
-  const s=SET()[SEL];
-  return s[0]+" "+V[q.vi][1]+(MODE==="question"?"?":".");
+  return SET()[SEL][0]+" "+ph(q.vi).b+".";
 }
 
 /* 使い方の開閉 */
@@ -407,9 +486,9 @@ $("btn-how").addEventListener("click",()=>{
 });
 
 /* 種目タブ */
-["modal","question","tense"].forEach(k=>$("t-"+k).addEventListener("click",()=>{
+["modal","relative","tense"].forEach(k=>$("t-"+k).addEventListener("click",()=>{
   MODE=k; SEL=(k==="tense")?0:(k==="modal"?4:0);
-  ["modal","question","tense"].forEach(n=>$("t-"+n).setAttribute("aria-pressed",String(n===k)));
+  ["modal","relative","tense"].forEach(n=>$("t-"+n).setAttribute("aria-pressed",String(n===k)));
   renderChips(); startRound();
 }));
 
@@ -417,7 +496,7 @@ function renderChips(){
   $("chips").innerHTML=SET().map((x,i)=>{
     const mix=(MODE==="tense"&&x[0]==="mix");
     const label=MODE==="tense"?(mix?"ミックス":x[1]):x[0]+" …";
-    return '<button class="chip'+(mix?"":" en")+'" data-s="'+i+'" aria-pressed="'+(i===SEL)+'">'+esc(label)+'</button>';
+    return '<button class="chip'+(MODE==="tense"?"":" en")+'" data-s="'+i+'" aria-pressed="'+(i===SEL)+'">'+esc(label)+'</button>';
   }).join("");
 }
 $("chips").addEventListener("click",e=>{
@@ -429,12 +508,12 @@ $("chips").addEventListener("click",e=>{
 
 function startRound(){
   const vs=shuffle(V.map((_,i)=>i)).slice(0,5);
-  const keys=["past","habit","future","now"];
+  const keys=TENSE_KEYS;
   queue=vs.map(vi=>{
     let t=null;
     if(MODE==="tense"){
       const sel=TENSES[SEL][0];
-      t=(sel==="mix")?keys[Math.floor(Math.random()*4)]:sel;
+      t=(sel==="mix")?keys[Math.floor(Math.random()*keys.length)]:sel;
     }
     return {vi,t};
   });
@@ -450,12 +529,12 @@ function askQuestion(){
   const q=queue[qi], v=V[q.vi];
   paintPips();
   $("pic").textContent=v[0];
-  $("pic").setAttribute("aria-label","絵："+v[2]);
+  $("pic").setAttribute("aria-label","絵："+ph(q.vi).j);
   if(MODE==="tense"){
     $("ask").textContent="この時間の言い方は？";
     $("stem").innerHTML='<span class="blank">'+esc(TENSE_EN[q.t])+'</span>';
     $("stemja").textContent=TENSE_JA[q.t];
-    const others=shuffle(["past","habit","future","now"].filter(k=>k!==q.t)).slice(0,2);
+    const others=TENSE_KEYS.filter(k=>k!==q.t);
     $("choices").innerHTML=shuffle([q.t,...others]).map((k,n)=>
       '<button class="ch" data-t="'+k+'"><span class="k en">'+(n+1)+'</span>'+esc(tenseSentence(q.vi,k))+'</button>').join("");
   }else{
@@ -465,19 +544,19 @@ function askQuestion(){
     $("stemja").textContent=s[1]+"　・"+s[2];
     const wrong=shuffle(V.map((_,i)=>i).filter(i=>i!==q.vi)).slice(0,2);
     $("choices").innerHTML=shuffle([q.vi,...wrong]).map((o,n)=>
-      '<button class="ch" data-v="'+o+'"><span class="k en">'+(n+1)+'</span>'+esc(V[o][1])+'</button>').join("");
+      '<button class="ch" data-v="'+o+'"><span class="k en">'+(n+1)+'</span>'+esc(ph(o).b)+'</button>').join("");
   }
   view("quiz");
   startTimer();
 }
 function startTimer(){
-  left=LIMIT;paintTimer();
+  left=LIMIT_OF();paintTimer();
   clearInterval(timer);
   timer=setInterval(()=>{left--;paintTimer();if(left<=0){clearInterval(timer);answer(null);}},1000);
 }
 function paintTimer(){
   const bar=$("tbar");
-  bar.style.width=Math.max(0,left)/LIMIT*100+"%";
+  bar.style.width=Math.max(0,left)/LIMIT_OF()*100+"%";
   bar.classList.toggle("low",left<=5);
   $("qleft").textContent=Math.max(0,left);
 }
@@ -508,7 +587,7 @@ function openRepeat(q,right,timedOut){
   $("verdict").className="verdict "+(right?"y":"n");
   $("rpic").textContent=v[0];
   $("answer").textContent=s;
-  $("answerja").textContent=MODE==="tense"?v[2]+"（"+TENSE_JA[q.t]+"）":v[2]+"（"+SET()[SEL][1]+"）";
+  $("answerja").textContent=ph(q.vi).j+"（"+(MODE==="tense"?TENSE_JA[q.t]:SET()[SEL][1])+"）";
   taps=0;
   document.querySelectorAll(".dot").forEach(d=>d.classList.remove("on"));
   $("btn-next").disabled=true;
@@ -547,6 +626,14 @@ new ResizeObserver(()=>more.style.bottom=(PEEK-more.offsetHeight)+"px").observe(
 more.addEventListener("click",e=>{
   if(e.target.closest("a"))return;
   if(more.getBoundingClientRect().top>innerHeight-PEEK-4)more.scrollIntoView({behavior:"smooth",block:"end"});
+});
+
+/* レベル：1 短い文 ／ 2 長い文 ／ 3 英検2級くらい */
+$("lvsel").addEventListener("click",e=>{
+  const b=e.target.closest("[data-lv]"); if(!b)return;
+  LV=+b.dataset.lv;
+  document.querySelectorAll("[data-lv]").forEach(el=>el.setAttribute("aria-pressed",String(+el.dataset.lv===LV)));
+  startRound();
 });
 
 renderChips();
