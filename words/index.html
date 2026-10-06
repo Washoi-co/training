@@ -12,6 +12,10 @@
 <meta property="og:description" content="朝に覚えて、夜にもう一度、次の日にテスト。忘れかけた単語は、忘却曲線でまた出てきます。">
 <meta property="og:image" content="https://training.apush.jp/ogp.png">
 <link rel="icon" href="/favicon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="A-PUSH単語">
 <title>A-PUSH 単語｜TOEIC 700点を狙う単語（お試し版）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,6 +125,24 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
 .set .hint{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:-8px}
 .danger{color:var(--ng)!important;border-color:rgba(217,48,30,.4)!important}
 
+/* ホーム画面に追加 */
+.a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;margin-top:14px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:11px 12px}
+.a2hs img{border-radius:10px}
+.a2hs b{display:block;font-size:13.5px;font-weight:900;line-height:1.4}
+.a2hs span{display:block;font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:2px}
+.a2hs #a2hs-btn{background:var(--red);color:#fff;border-radius:8px;padding:8px 12px;font-size:12.5px;font-weight:900;white-space:nowrap}
+.a2hs .x{font-size:18px;color:var(--muted);padding:2px 4px}
+/* 面談・体験 */
+.cta{margin-top:14px}
+.cta-h{font-size:12px;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.cta-b{display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line-strong);border-radius:11px;padding:11px 13px;text-decoration:none;background:var(--surface)}
+.cta-b:hover{border-color:var(--red)}
+.cta-b b{font-size:14px;font-weight:900}
+.cta-b span{font-size:11px;color:var(--muted)}
+.cta-b.fill{background:var(--red);border-color:var(--red);color:#fff}
+.cta-b.fill span{color:rgba(255,255,255,.85)}
+.cta-b.fill:hover{background:var(--red-deep)}
 .foot{font-size:10.5px;color:var(--muted);line-height:1.7;margin-top:22px}
 </style>
 </head>
@@ -145,6 +167,22 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
       <div class="tasks" id="tasks"></div>
       <div class="msg" id="msg" hidden></div>
       <p class="boxnote" id="times"></p>
+    </div>
+    <div class="a2hs" id="a2hs" hidden>
+      <img src="/apple-touch-icon.png" alt="" width="44" height="44">
+      <div>
+        <b>ホーム画面に追加すると、毎日すぐ開けます</b>
+        <span id="a2hs-how"></span>
+      </div>
+      <button id="a2hs-btn" hidden>追加する</button>
+      <button class="x" id="a2hs-x" aria-label="閉じる">×</button>
+    </div>
+    <div class="cta">
+      <p class="cta-h">もっと話せるようになりたい方へ</p>
+      <div class="cta-row">
+        <a class="cta-b" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener"><b>面談</b><span>無料・学習の相談</span></a>
+        <a class="cta-b fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener"><b>マンツーマン体験</b><span>無料／60分</span></a>
+      </div>
     </div>
   </section>
 
@@ -423,6 +461,21 @@ $("s-reset").addEventListener("click",function(){
   if(!confirm("これまでの記録をすべて消して、最初からやり直しますか？")) return;
   S=fresh(); save(); renderHome();
 });
+
+/* ---------- ホーム画面に追加 ---------- */
+(function(){
+  var standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
+  var closed=false; try{ closed = localStorage.getItem("apush-a2hs-closed")==="1"; }catch(e){}
+  if(standalone || closed) return;
+  var ua=navigator.userAgent, ios=/iPhone|iPad|iPod/.test(ua), android=/Android/.test(ua);
+  if(!ios && !android) return;                    // パソコンでは出さない
+  var box=$("a2hs"), how=$("a2hs-how"), btn=$("a2hs-btn"), deferred=null;
+  how.textContent = ios ? "Safariの下の共有ボタン（□↑）→「ホーム画面に追加」" : "右上のメニュー（⋮）→「ホーム画面に追加」";
+  box.hidden=false;
+  window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; btn.hidden=false; how.textContent="ボタンを押すだけで追加できます"; });
+  btn.addEventListener("click",function(){ if(!deferred) return; deferred.prompt(); deferred.userChoice.then(function(){ deferred=null; box.hidden=true; }); });
+  $("a2hs-x").addEventListener("click",function(){ box.hidden=true; try{ localStorage.setItem("apush-a2hs-closed","1"); }catch(e){} });
+})();
 
 renderHome();
 })();

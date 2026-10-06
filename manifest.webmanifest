@@ -1,0 +1,16 @@
+{
+  "name": "A-PUSH 単語トレーニング",
+  "short_name": "A-PUSH単語",
+  "description": "TOEIC 700点を狙う単語を、絵と声で毎日。忘却曲線で、忘れかけた単語がまた出てきます。",
+  "start_url": "/words/?from=home",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "lang": "ja",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
