@@ -324,7 +324,7 @@ function save(){ S.updatedAt=Date.now(); try{ localStorage.setItem(KEY, JSON.str
 
 /* ---------- 忘却曲線を活用する：ニックネームの ID で、記録をスプレッドシートに保存 ---------- */
 // ✏️ Google Apps Script の「ウェブアプリの URL」を入れる（空のままだと登録できません）
-var SYNC_URL = "";
+var SYNC_URL = "https://script.google.com/macros/s/AKfycbxFb0g6A2tabxluPos92mMQLU2pREAvqrwoZeflHXoOHPPf9rh5KufWlVkCX2rHs-pCvw/exec";
 var pushTimer=null;
 function syncPayload(){
   var mastered=0; for(var id in S.cards){ if(S.cards[id].box>5) mastered++; }
