@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="字幕あり→字幕なしの順で、短い英語の動画をシャドーイング。A-PUSHの無料トレーニング。">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="https://training.apush.jp/shadowing/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://training.apush.jp/shadowing/">
+<meta property="og:title" content="シャドーイング｜A-PUSH">
+<meta property="og:description" content="字幕あり→字幕なしの順で、短い英語の動画をシャドーイング。">
+<meta property="og:image" content="https://training.apush.jp/ogp.png">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>シャドーイング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --ink:#FFFFFF; --surface:#F6F6F4; --surface2:#ECECE9;
+  --line:rgba(11,11,12,.10); --line-strong:rgba(11,11,12,.22);
+  --fg:#0B0B0C; --muted:#6B6B72; --red:#E8321F; --red-deep:#C42612; --ok:#14935A; --ng:#D9301E;
+  --en:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+  color-scheme:light;
+}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ink);color:var(--fg);font-family:var(--jp);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 16px 44px}
+.wrap{max-width:600px;margin:0 auto}
+.en{font-family:var(--en)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
+.top{display:flex;justify-content:space-between;align-items:center;padding-top:14px}
+.back{font-size:12.5px;font-weight:700;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--red)}
+.eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red);margin:18px 0 4px}
+h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
+h2{font-size:15px;font-weight:900;margin:0 0 6px}
+.muted{color:var(--muted);font-size:12.5px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:3px;padding:3px;background:var(--surface2);border-radius:10px;margin:12px 0}
+.seg button{border-radius:8px;padding:7px 2px;font-size:12.5px;font-weight:700;color:var(--muted);line-height:1.25}
+.seg button small{display:block;font-size:10px;font-weight:500}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--fg);box-shadow:0 1px 3px rgba(11,11,12,.14)}
+.list{display:grid;gap:8px}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.item:hover{border-color:var(--red)}
+.item b{display:block;font-family:var(--en);font-size:14.5px}
+.item span{font-size:11.5px;color:var(--muted)}
+.item i{font-style:normal;font-size:11px;font-weight:900;color:var(--ok);white-space:nowrap}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px 18px;margin-top:12px}
+.stepbar{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 6px}
+.stepbar b{font-size:14px;font-weight:900}
+.stepbar span{font-family:var(--en);font-size:12px;font-weight:700;color:var(--red)}
+.player{position:relative;background:#000;border-radius:12px;overflow:hidden;aspect-ratio:16/9}
+.player video{display:block;width:100%;height:100%}
+.bar{display:flex;align-items:center;gap:10px;margin-top:8px}
+.bar button{width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font-size:16px;flex:none}
+.bar input{flex:1;accent-color:var(--red)}
+.bar span{font-size:12px;color:var(--muted);min-width:5.5em;text-align:right}
+.cover{position:absolute;left:0;right:0;bottom:0;background:#000;pointer-events:none}
+.sub{min-height:3.4em;margin-top:8px;padding:8px 12px;background:var(--fg);color:#fff;border-radius:10px;font-size:14.5px;line-height:1.45}
+.sub .e{font-family:var(--en);font-weight:500}
+.sub .j{font-size:12.5px;opacity:.8;margin-top:2px}
+.ctrls{display:grid;gap:6px;margin-top:8px}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row>span{font-size:11px;color:var(--muted);width:3.2em}
+.pill{padding:5px 11px;border:1px solid var(--line-strong);border-radius:999px;font-size:12px;font-weight:700;color:var(--muted)}
+.pill[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:#fff}
+.btn{display:block;width:100%;text-align:center;padding:12px;border-radius:11px;background:var(--red);color:#fff;font-weight:900;text-decoration:none;margin-top:12px}
+.btn:hover{background:var(--red-deep)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line-strong)}
+.btn.ghost:hover{border-color:var(--red);color:var(--red)}
+.pct{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:8px}
+.pct button{border:1px solid var(--line-strong);border-radius:9px;padding:9px 0;font-family:var(--en);font-weight:900}
+.pct button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.script{display:grid;gap:8px;margin:8px 0 0;padding:0;list-style:none;max-height:340px;overflow:auto}
+.script li{border-bottom:1px solid var(--line);padding-bottom:6px}
+.script .e{font-family:var(--en);font-size:14px}
+.script .j{font-size:12px;color:var(--muted)}
+.vocab{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px;margin-top:6px}
+.vocab b{font-family:var(--en)}
+.tip{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.q{margin-top:14px}
+.q p{margin:0 0 6px;font-weight:700;font-size:14px}
+.q button{display:block;width:100%;text-align:left;border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;margin-top:5px;font-size:13.5px;background:#fff}
+.q button.ok{border-color:var(--ok);background:#E9F6EF}
+.q button.ng{border-color:var(--ng);background:#FCECEA}
+.q .ex{font-size:12px;color:var(--muted);margin-top:5px}
+.compare{display:flex;justify-content:center;gap:18px;align-items:baseline;margin:10px 0}
+.compare div{text-align:center}
+.compare b{display:block;font-family:var(--en);font-size:40px;font-weight:900;line-height:1}
+.compare span{font-size:11px;color:var(--muted)}
+.credit{font-size:10.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+.modal{position:fixed;inset:0;background:rgba(11,11,12,.55);display:grid;place-items:center;padding:16px;z-index:9}
+.modal .card{max-width:420px;margin:0}
+.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="/">← トレーニングへ</a><a class="back" href="/words/">📚 TOEIC単語</a></div>
+
+  <!-- 一覧 -->
+  <section id="home">
+    <p class="eyebrow">SHADOWING</p>
+    <h1>🎧 シャドーイング</h1>
+    <p class="muted">字幕ありで2〜3回 → 字幕なしでまねる。最初と最後に「何割聞き取れたか」を比べます。</p>
+    <div class="seg" id="levels" role="group" aria-label="レベル"></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <!-- 練習 -->
+  <section id="lesson" hidden>
+    <div class="stepbar"><b id="stitle"></b><span id="snum"></span></div>
+    <div class="player">
+      <video id="v" playsinline webkit-playsinline preload="metadata" disablepictureinpicture></video>
+      <div class="cover" id="cover" hidden></div>
+    </div>
+    <div class="sub" id="sub" hidden><div class="e" id="se"></div><div class="j" id="sj"></div></div>
+    <div class="bar"><button id="pp" aria-label="再生">▶</button><input id="seek" type="range" min="0" step="0.1" value="0" aria-label="再生位置"><span id="tm" class="en">0:00</span></div>
+    <div class="ctrls">
+      <div class="row"><span>字幕</span>
+        <button class="pill" data-subs="en">英</button><button class="pill" data-subs="both">英＋日</button><button class="pill" data-subs="off">なし</button></div>
+      <div class="row"><span>速さ</span>
+        <button class="pill" data-rate="0.75">0.75</button><button class="pill" data-rate="0.9">0.9</button><button class="pill" data-rate="1">1.0</button></div>
+      <div class="row" id="rep"></div>
+    </div>
+    <div class="card" id="panel"></div>
+    <p class="credit" id="credit"></p>
+  </section>
+
+  <div class="foot">
+    <span id="credits"></span><br>
+    英検®は公益財団法人 日本英語検定協会の登録商標です。本教材は同協会の承認を受けたものではありません。<br>
+    進み具合や結果はこの端末の中だけに保存し、どこにも送りません。
+  </div>
+</div>
+
+<div class="modal" id="intro" hidden>
+  <div class="card">
+    <h2>なぜシャドーイング？</h2>
+    <p style="font-size:13.5px;margin:0">知っている単語でも、音がつながると別の音に聞こえます（I am →「アム」）。まず意味と単語を先に分かっておき、字幕を見ながら聞いて真似し、最後に字幕なしで真似します。口が追いつかない所が、まだ聞き取れていない所です。</p>
+    <button class="btn" id="introOk">はじめる</button>
+  </div>
+</div>
+
+<script>
+const LEVELS = {1: "英検®4級程度", 2: "英検®3級程度", 3: "英検®2級〜準1級程度"};
+const STEPS = [
+  {t: "まず字幕なしで1回見る", subs: "off", ask: "before", tip: "分からなくて大丈夫。最後まで見たら、何割くらい聞き取れたかを押してください。"},
+  {t: "英文と訳・単語を読む", script: true, tip: "意味と知らない単語を先に分かっておきます。動画は止めたままでOK。"},
+  {t: "字幕ありで聞く", subs: "en", tip: "文字を目で追いながら、1回聞きます。"},
+  {t: "字幕を見ながら一緒に言う", subs: "en", rate: 0.75, tip: "0.75倍から。1〜2回、字幕を見ながら声に出してまねます。慣れたら速さを上げます。"},
+  {t: "字幕なしでシャドーイング", subs: "off", tip: "字幕なしで1〜3回。少し遅れて、聞こえた音をそのまままねます。口が止まった所を「この文をもう一回」で練習。"},
+  {t: "字幕なしでもう一度見る", subs: "off", ask: "after", tip: "最後にもう一度。何割聞き取れたかを押すと、最初と比べられます。"},
+  {t: "内容クイズ", quiz: true},
+];
+const $ = s => document.querySelector(s);
+const v = $("#v");
+let DB, L, step = 0, subs = "off", stopAt = null, loopSeg = null;
+
+const store = {
+  get() { try { return JSON.parse(localStorage.getItem("shadowing:v1")) || {}; } catch (e) { return {}; } },
+  set(f) { try { const s = store.get(); f(s); localStorage.setItem("shadowing:v1", JSON.stringify(s)); } catch (e) {} },
+};
+const prog = id => store.get()[id] || {};
+const setProg = (id, k, val) => store.set(s => { s[id] = Object.assign(s[id] || {}, {[k]: val}); });
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+fetch("data/lessons.json").then(r => r.json()).then(d => {
+  DB = d; DB.lessons = DB.lessons.filter(x => x.active);
+  $("#credits").textContent = [...new Set(DB.lessons.map(x => x.credit))].join(" / ");
+  let lv = +(store.get().level || 1);
+  $("#levels").innerHTML = [1, 2, 3].map(n => `<button data-lv="${n}">レベル${n}<small>${LEVELS[n]}</small></button>`).join("");
+  $("#levels").onclick = e => { const b = e.target.closest("button"); if (b) { lv = +b.dataset.lv; store.set(s => s.level = lv); home(lv); } };
+  route(); window.onhashchange = route;
+  function route() { const id = location.hash.slice(1); const x = DB.lessons.find(l => l.id === id); x ? open(x) : home(lv); }
+  if (!store.get().intro) $("#intro").hidden = false;
+});
+$("#introOk").onclick = () => { $("#intro").hidden = true; store.set(s => s.intro = 1); };
+
+function home(lv) {
+  v.pause(); $("#lesson").hidden = true; $("#home").hidden = false;
+  document.querySelectorAll("#levels button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.lv === lv));
+  $("#list").innerHTML = DB.lessons.filter(x => x.level === lv).map(x => {
+    const p = prog(x.id), mins = Math.round((x.lines.at(-1).end - x.lines[0].start) / 60 * 10) / 10;
+    return `<button class="item" onclick="location.hash='${x.id}'"><div><b>${esc(x.title)}</b><span>${x.source === "nasa" ? "NASA" : x.source === "apush" ? "A-PUSH講師" : "VOA"} ・ 約${mins}分</span></div><i>${p.done ? "✓ 完了" : p.step ? `${p.step} / 6` : ""}</i></button>`;
+  }).join("");
+}
+
+function open(x) {
+  L = x; $("#home").hidden = true; $("#lesson").hidden = false;
+  v.src = L.video; $("#credit").textContent = L.credit;
+  const rep = $("#rep");
+  if (L.repeat === "minute") {
+    const n = Math.ceil((L.lines.at(-1).end) / 60);
+    rep.innerHTML = `<span>区間</span><button class="pill" data-seg="-1" aria-pressed="true">全部</button>` +
+      Array.from({length: n}, (_, i) => `<button class="pill" data-seg="${i}">${i}〜${i + 1}分</button>`).join("");
+  } else rep.innerHTML = `<span>練習</span><button class="pill" id="again">↺ この文をもう一回</button>`;
+  go(Math.min(prog(L.id).step || 0, 6)); window.scrollTo(0, 0);
+}
+
+function go(n) {
+  step = n; setProg(L.id, "step", n); const S = STEPS[n];
+  $("#stitle").textContent = `${L.title}`; $("#snum").textContent = `${n} / 6 ・ ${S.t}`;
+  if (S.subs) setSubs(S.subs);
+  setRate(S.rate || (n >= 4 ? 1 : +(v.playbackRate || 1)));
+  const p = prog(L.id);
+  let h = `<h2>${n}. ${S.t}</h2>` + (S.tip ? `<p class="tip">${S.tip}</p>` : "");
+  if (n === 0 && L.synopsis) h += `<p class="tip"><b>ここまでのあらすじ：</b>${esc(L.synopsis)}</p>`;
+  if (S.ask) h += `<div class="pct" id="pct">${[0, 25, 50, 75, 100].map(x => `<button data-p="${x}" aria-pressed="${p[S.ask] === x}">${x}%</button>`).join("")}</div>`;
+  if (S.ask === "after" && p.after != null) h += compare(p);
+  if (S.script) {
+    h += `<div class="vocab">${L.vocab.map(w => `<b>${esc(w.en)}</b><span>${esc(w.ja)}</span>`).join("")}</div>`;
+    h += `<ol class="script">${L.lines.map((l, i) => `<li><button style="text-align:left" onclick="seekLine(${i})"><div class="e">${esc(l.en)}</div><div class="j">${esc(l.ja)}</div></button></li>`).join("")}</ol>`;
+  }
+  if (S.quiz) h += quiz();
+  else h += `<button class="btn" id="next">次へ（${n + 1} / 6）</button>`;
+  if (n > 0) h += `<button class="btn ghost" id="prev">← 前の段へ</button>`;
+  $("#panel").innerHTML = h;
+  const nx = $("#next"); if (nx) nx.onclick = () => { go(n + 1); $("#lesson").scrollIntoView(); };
+  const pv = $("#prev"); if (pv) pv.onclick = () => go(n - 1);
+  const pc = $("#pct"); if (pc) pc.onclick = e => { const b = e.target.closest("button"); if (b) { setProg(L.id, S.ask, +b.dataset.p); go(n); } };
+}
+
+function compare(p) {
+  return `<div class="compare"><div><b>${p.before ?? "–"}%</b><span>最初</span></div><div>→</div><div><b style="color:var(--red)">${p.after}%</b><span>今</span></div></div>`;
+}
+
+function quiz() {
+  const res = prog(L.id).quiz || [];
+  let h = L.quiz.map((q, i) => `<div class="q" data-q="${i}"><p>Q${i + 1}. ${esc(q.q)}</p>${q.choices.map((c, j) => {
+    const cls = res[i] == null ? "" : j === q.answer ? "ok" : j === res[i] ? "ng" : "";
+    return `<button class="${cls}" data-c="${j}" ${res[i] != null ? "disabled" : ""}>${esc(c)}</button>`;
+  }).join("")}${res[i] != null ? `<div class="ex">${res[i] === q.answer ? "⭕ 正解。" : "✕ "}${esc(q.explain)}</div>` : ""}</div>`).join("");
+  if (res.filter(x => x != null).length === L.quiz.length) {
+    const ok = L.quiz.filter((q, i) => res[i] === q.answer).length;
+    setProg(L.id, "done", 1);
+    const all = DB.lessons, k = all.indexOf(L), nxt = all[k + 1];
+    h += `<div class="card" style="background:#fff"><h2>おつかれさまでした</h2><p class="tip">クイズ ${ok} / ${L.quiz.length} 問正解</p>${compare(prog(L.id))}
+      ${nxt ? `<a class="btn" href="#${nxt.id}">次の動画へ：${esc(nxt.title)}</a>` : ""}
+      <a class="btn ghost" href="${DB.links.line}" target="_blank" rel="noopener">新しい動画をLINEで受け取る</a>
+      <a class="btn ghost" href="${DB.links.trial}" target="_blank" rel="noopener">講師に発音を見てもらう（体験レッスン）</a></div>`;
+  }
+  setTimeout(() => document.querySelectorAll(".q").forEach(d => d.onclick = e => {
+    const b = e.target.closest("button[data-c]"); if (!b || b.disabled) return;
+    const r = prog(L.id).quiz || []; r[+d.dataset.q] = +b.dataset.c; setProg(L.id, "quiz", r); go(6);
+  }));
+  return h;
+}
+
+/* ---- プレーヤー ---- */
+function setSubs(m) {
+  subs = m;
+  document.querySelectorAll("[data-subs]").forEach(b => b.setAttribute("aria-pressed", b.dataset.subs === m));
+  const off = m === "off";
+  $("#cover").hidden = !(off && L.cover_height > 0); $("#cover").style.height = (L.cover_height * 100) + "%";
+  $("#sub").hidden = off;
+  if (L.audio_only) { // 文字だけの動画：字幕なしの段は音声＋静止画に替える
+    const want = off ? L.audio_only : L.video;
+    if (!v.src.endsWith(want)) { const t = v.currentTime, play = !v.paused, r = v.playbackRate; v.src = want; v.addEventListener("loadedmetadata", () => { v.currentTime = t; v.playbackRate = r; if (play) v.play(); }, {once: true}); }
+  }
+  tick();
+}
+function setRate(r) { v.playbackRate = r; v.defaultPlaybackRate = r; document.querySelectorAll("[data-rate]").forEach(b => b.setAttribute("aria-pressed", +b.dataset.rate === r)); }
+document.querySelectorAll("[data-subs]").forEach(b => b.onclick = () => setSubs(b.dataset.subs));
+document.querySelectorAll("[data-rate]").forEach(b => b.onclick = () => setRate(+b.dataset.rate));
+
+const curLine = () => { const t = v.currentTime; let k = -1; L.lines.forEach((l, i) => { if (l.start <= t + 0.05) k = i; }); return k; };
+function seekLine(i) { v.currentTime = L.lines[i].start; stopAt = L.lines[i].end; v.play(); }
+$("#rep").onclick = e => {
+  if (e.target.id === "again") { const k = curLine(); if (k >= 0) seekLine(k); return; }
+  const b = e.target.closest("[data-seg]"); if (!b) return;
+  const s = +b.dataset.seg; loopSeg = s < 0 ? null : s;
+  document.querySelectorAll("[data-seg]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  if (loopSeg != null) { v.currentTime = loopSeg * 60; v.play(); }
+};
+function tick() {
+  if (!L) return;
+  const t = v.currentTime;
+  if (stopAt != null && t >= stopAt) { v.pause(); stopAt = null; }
+  if (loopSeg != null && (t >= (loopSeg + 1) * 60 || t >= v.duration - 0.2)) v.currentTime = loopSeg * 60;
+  const l = L.lines.find(x => x.start <= t && t <= x.end + 0.3);
+  $("#se").textContent = l ? l.en : ""; $("#sj").textContent = l && subs === "both" ? l.ja : "";
+}
+v.addEventListener("timeupdate", tick);
+const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+$("#pp").onclick = () => v.paused ? v.play() : v.pause();
+v.addEventListener("play", () => $("#pp").textContent = "❚❚");
+v.addEventListener("pause", () => $("#pp").textContent = "▶");
+v.addEventListener("loadedmetadata", () => $("#seek").max = v.duration);
+v.addEventListener("timeupdate", () => { $("#seek").value = v.currentTime; $("#tm").textContent = `${fmt(v.currentTime)} / ${fmt(v.duration || 0)}`; });
+$("#seek").oninput = e => { v.currentTime = +e.target.value; };
+v.onclick = () => $("#pp").click();
+v.addEventListener("seeking", () => { if (stopAt != null && (v.currentTime < stopAt - 30 || v.currentTime > stopAt)) stopAt = null; });
+</script>
+</body>
+</html>

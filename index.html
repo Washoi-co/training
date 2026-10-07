@@ -97,7 +97,8 @@ a{color:inherit}
 h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
 
 /* ---- 種目タブ ---- */
-.tabrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:14px}
+.tabrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:14px}
+.links{display:flex;gap:6px;margin-left:auto}
 .tabs{display:flex;gap:6px}
 .tabs button{padding:5px 12px;border:1px solid var(--line-strong);border-radius:999px;font-size:12px;font-weight:700;color:var(--muted)}
 .tabs button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--ink)}
@@ -241,7 +242,10 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
       <button id="t-relative" aria-pressed="false">関係代名詞</button>
       <button id="t-tense" aria-pressed="false">時制</button>
     </div>
-    <a class="wordlink" href="/words/">📚 TOEIC単語</a>
+    <div class="links">
+      <a class="wordlink" href="/words/">📚 TOEIC単語</a>
+      <a class="wordlink" href="/shadowing/">🎧 シャドーイング</a>
+    </div>
   </div>
   <label class="lvrow">
     <span class="sr">レベル</span>

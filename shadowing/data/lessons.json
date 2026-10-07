@@ -1,0 +1,3713 @@
+{
+ "links": {
+  "line": "https://lin.ee/Wxep7BH",
+  "trial": "https://reserva.be/washoiii/reserve?mode=service_staff&search_evt_no=95eJwzNbY0tbQEAARxAUk&utm_source=training&utm_medium=shadowing&utm_content=trial"
+ },
+ "lessons": [
+  {
+   "id": "L1-1",
+   "level": 1,
+   "title": "Hello, I'm Anna!",
+   "source": "voa",
+   "source_url": "https://learningenglish.voanews.com/a/lets-learn-english-lesson-2-hello/3113733.html",
+   "video": "media/L1-1.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L1-1.en.vtt",
+   "subs_ja": "subs/L1-1.ja.vtt",
+   "clip_start": 170.18,
+   "clip_end": 214.03,
+   "cover_height": 0.22,
+   "repeat": "line",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "new to D.C.",
+     "ja": "D.C.に来たばかりの"
+    },
+    {
+     "en": "small town",
+     "ja": "小さな町"
+    },
+    {
+     "en": "apartment",
+     "ja": "アパート、マンションの一室"
+    },
+    {
+     "en": "roommate",
+     "ja": "ルームメイト、同じ部屋に住む人"
+    },
+    {
+     "en": "I have to go now.",
+     "ja": "もう行かないといけません"
+    },
+    {
+     "en": "Remember to ~",
+     "ja": "~するのを忘れないでね"
+    },
+    {
+     "en": "Nice to meet you.",
+     "ja": "お会いできてうれしいです（初対面のあいさつ）"
+    },
+    {
+     "en": "here I come",
+     "ja": "今行くよ、さあ行こう"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "アンナはどこから来ましたか？",
+     "choices": [
+      "大きな町",
+      "小さな町",
+      "ワシントンD.C.",
+      "他の国"
+     ],
+     "answer": 1,
+     "explain": "アンナは “I am from a small town.” と言っています。"
+    },
+    {
+     "q": "ジョナサンはどの部屋に住んでいますか？",
+     "choices": [
+      "C2号室",
+      "D7号室",
+      "B4号室",
+      "A1号室"
+     ],
+     "answer": 2,
+     "explain": "ジョナサンは “I am in apartment B4.” と自己紹介しています。"
+    },
+    {
+     "q": "マーシャはアンナにとってどんな人ですか？",
+     "choices": [
+      "先生",
+      "ルームメイト",
+      "上司",
+      "隣の人"
+     ],
+     "answer": 1,
+     "explain": "アンナは “Marsha is my roommate.” と言っています。"
+    },
+    {
+     "q": "ピートはこれからどうしなければならないと言っていますか？",
+     "choices": [
+      "アンナを駅まで送る",
+      "ジョナサンに電話する",
+      "今行かないといけない",
+      "買い物に行く"
+     ],
+     "answer": 2,
+     "explain": "ピートは “I have to go now.” と言っています。"
+    },
+    {
+     "q": "ピートがアンナにお願いしたことはどれですか？",
+     "choices": [
+      "部屋をそうじすること",
+      "ジョナサンにあいさつすること",
+      "マーシャにメールを送ること",
+      "職場のマーシャに電話して、来たと伝えること"
+     ],
+     "answer": 3,
+     "explain": "ピートは “Remember to call Marsha at work. Tell her you’re here.” と言っています。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 9,
+     "why": "“And I am in Apartment D7.” を「それから」と訳しており、会話のつながりを自然にするための補い方が適切か少し迷いました。"
+    },
+    {
+     "line": 11,
+     "why": "“Remember to call Marsha at work.” の “at work” を「職場のマーシャ」と名詞的に訳し、字幕用に短くしたので、ニュアンスがどこまで伝わるかやや不安です。"
+    },
+    {
+     "line": 14,
+     "why": "“here I come!” を「さあ行こう！」と訳し、意気込みを出すために少し意訳しているので、直訳を好む学習者にはずれる可能性があります。"
+    }
+   ],
+   "credit": "Video: VOA Learning English (learningenglish.voanews.com) — public domain",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.4,
+     "end": 2.21,
+     "en": "Hey, Pete! Who’s your friend?",
+     "ja": "やあ、ピート。その人はだれ？"
+    },
+    {
+     "start": 2.94,
+     "end": 4.63,
+     "en": "She is Anna. She is new to D.C.",
+     "ja": "彼女はアンナだよ。ワシントンD.C.には来たばかりなんだ。"
+    },
+    {
+     "start": 5.54,
+     "end": 6.59,
+     "en": "Where are you from?",
+     "ja": "どこの出身なの？"
+    },
+    {
+     "start": 6.44,
+     "end": 8.73,
+     "en": "I am from a small town.",
+     "ja": "小さな町の出身です。"
+    },
+    {
+     "start": 9.94,
+     "end": 10.41,
+     "en": "Well, welcome to D.C.",
+     "ja": "そうなんだ、D.C.へようこそ。"
+    },
+    {
+     "start": 10.88,
+     "end": 11.71,
+     "en": "Thank you.",
+     "ja": "ありがとう。"
+    },
+    {
+     "start": 12.14,
+     "end": 14.81,
+     "en": "I am Jonathan. I am in apartment B4.",
+     "ja": "僕はジョナサン。B4号室に住んでるよ。"
+    },
+    {
+     "start": 15.56,
+     "end": 19.53,
+     "en": "I am in apartment C2. Marsha is my roommate.",
+     "ja": "私はC2号室よ。マーシャが私のルームメイトなの。"
+    },
+    {
+     "start": 20.32,
+     "end": 22.81,
+     "en": "I know Marsha. She is nice.",
+     "ja": "マーシャのこと知ってるよ。いい人だよね。"
+    },
+    {
+     "start": 23.88,
+     "end": 28.81,
+     "en": "And I am in Apartment D7. I have to go now.",
+     "ja": "それから、僕はD7号室なんだ。そろそろ行かなくちゃ。"
+    },
+    {
+     "start": 29.14,
+     "end": 29.65,
+     "en": "Oh!",
+     "ja": "あ、そうなんだ。"
+    },
+    {
+     "start": 30.36,
+     "end": 33.63,
+     "en": "Remember to call Marsha at work. Tell her you’re here.",
+     "ja": "職場のマーシャに電話するのを忘れないで。ここに着いたって伝えてね。"
+    },
+    {
+     "start": 33.74,
+     "end": 36.79,
+     "en": "Right, thanks, Pete. Nice to meet you!",
+     "ja": "わかったわ。ありがとう、ピート。会えてうれしかった！"
+    },
+    {
+     "start": 36.88,
+     "end": 38.07,
+     "en": "You too, Bye.",
+     "ja": "こちらこそ。じゃあね。"
+    },
+    {
+     "start": 40.64,
+     "end": 43.4,
+     "en": "Apartment C2, here I come!",
+     "ja": "C2号室、さあ行こう！"
+    }
+   ]
+  },
+  {
+   "id": "L1-2",
+   "level": 1,
+   "title": "Are You Busy?",
+   "source": "voa",
+   "source_url": "https://learningenglish.voanews.com/a/lets-learn-english-lesson-8-are-you-busy/3253185.html",
+   "video": "media/L1-2.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L1-2.en.vtt",
+   "subs_ja": "subs/L1-2.ja.vtt",
+   "clip_start": 20.14,
+   "clip_end": 153.08,
+   "cover_height": 0.22,
+   "repeat": "line",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "new job",
+     "ja": "新しい仕事・新しい職場"
+    },
+    {
+     "en": "first day of work",
+     "ja": "初出勤の日"
+    },
+    {
+     "en": "let’s not talk about ~",
+     "ja": "~の話はやめておこう"
+    },
+    {
+     "en": "apologize",
+     "ja": "謝る"
+    },
+    {
+     "en": "co-workers",
+     "ja": "同僚"
+    },
+    {
+     "en": "morning show",
+     "ja": "朝の番組"
+    },
+    {
+     "en": "studio light",
+     "ja": "スタジオのランプ"
+    },
+    {
+     "en": "evening show",
+     "ja": "夕方の番組"
+    },
+    {
+     "en": "No worries.",
+     "ja": "大丈夫・気にしないで"
+    },
+    {
+     "en": "Come by ~",
+     "ja": "~に立ち寄る・寄ってくる"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "アンナは「昨日」のことについて、今日どうしたいと言っていますか？",
+     "choices": [
+      "もう一度同じことをしたい",
+      "同僚に謝りたい",
+      "上司に報告したい",
+      "家族に話したい"
+     ],
+     "answer": 1,
+     "explain": "アンナは「Today I want to apologize to my co-workers.」と言っており、同僚に謝りたいと話しています。"
+    },
+    {
+     "q": "アンは午前10時に何をしていると言いましたか？",
+     "choices": [
+      "会議をしている",
+      "朝ごはんを食べている",
+      "原稿を書いている",
+      "テレビを見ている"
+     ],
+     "answer": 2,
+     "explain": "アンは「At 10 a.m. I am writing.」と言っており、書き仕事をしていると言っています。"
+    },
+    {
+     "q": "ジョナサンが忙しい理由はどれですか？",
+     "choices": [
+      "電話をしているから",
+      "会議の準備をしているから",
+      "夕方の番組を録画しているから",
+      "出張に行くから"
+     ],
+     "answer": 2,
+     "explain": "彼は「I am recording my evening show.」と話し、夕方の番組の録画中なので忙しいと言っています。"
+    },
+    {
+     "q": "アメリアは自分の忙しさについてどう言いましたか？",
+     "choices": [
+      "とても忙しい",
+      "少し忙しい",
+      "まったく暇だ",
+      "今日は休みだ"
+     ],
+     "answer": 1,
+     "explain": "アメリアは「I’m a little busy.」と言っており、「ちょっと忙しい」という意味です。"
+    },
+    {
+     "q": "アメリアは最後にアンナに何をするように言いましたか？",
+     "choices": [
+      "明日の朝に来るように",
+      "午後に電話するように",
+      "今日の午後に寄るように",
+      "メールを書くように"
+     ],
+     "answer": 2,
+     "explain": "アメリアは「Come by this afternoon.」と言い、今日の午後に来てほしいと伝えています。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 0,
+     "why": "「Here I am at my new job!」を「来ています」としており、臨場感を出すため意訳気味。"
+    },
+    {
+     "line": 1,
+     "why": "「Well, let’s not talk about yesterday.」を「その話はやめておきましょう」と柔らかく訳しており、ニュアンス重視の意訳。"
+    },
+    {
+     "line": 6,
+     "why": "「Every day I do my morning show.」を「朝の番組をやっている」としており、「担当している」など別訳も考えられる。"
+    },
+    {
+     "line": 12,
+     "why": "「recording my evening show」を「録画している」と訳したが、ラジオ番組なら「収録している」のほうが自然な可能性がある。"
+    },
+    {
+     "line": 16,
+     "why": "「Maybe another time?」を「また今度にしてくれる？」とかなり会話的に訳している。"
+    },
+    {
+     "line": 22,
+     "why": "「I want to say I’m sorry for yesterday.」を「ちゃんと謝りたい」としており、「と言いたい」より自然さを優先した意訳。"
+    }
+   ],
+   "credit": "Video: VOA Learning English (learningenglish.voanews.com) — public domain",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.4,
+     "end": 4.05,
+     "en": "Hello, everyone. Here I am at my new job!",
+     "ja": "みなさん、こんにちは。新しい職場に来ています。"
+    },
+    {
+     "start": 4.74,
+     "end": 19.95,
+     "en": "Yesterday at my first day of work … Well, let’s not talk about yesterday.",
+     "ja": "昨日の初出勤は… まあ、その話はやめておきましょう。"
+    },
+    {
+     "start": 20.48,
+     "end": 21.99,
+     "en": "Today is a new day!",
+     "ja": "今日は新しい一日です！"
+    },
+    {
+     "start": 22.46,
+     "end": 25.25,
+     "en": "Today I want to apologize to my co-workers.",
+     "ja": "今日は職場のみんなに謝りに行きます。"
+    },
+    {
+     "start": 29.44,
+     "end": 31.77,
+     "en": "Hi, Anne. Are you busy?",
+     "ja": "やあ、アン。いま忙しい？"
+    },
+    {
+     "start": 31.62,
+     "end": 36.45,
+     "en": "Hi, Anna. Yes. At 10 a.m. I am writing.",
+     "ja": "こんにちは、アナ。忙しいわ。10時は原稿を書いているの。"
+    },
+    {
+     "start": 37.02,
+     "end": 39.77,
+     "en": "Every day I do my morning show.",
+     "ja": "毎朝、朝の番組をやっているのよ。"
+    },
+    {
+     "start": 40.46,
+     "end": 41.13,
+     "en": "Sorry!",
+     "ja": "ごめんなさいね。"
+    },
+    {
+     "start": 41.92,
+     "end": 45.61,
+     "en": "Okay. See you later, maybe.",
+     "ja": "そっか。またあとで、会えたらね。"
+    },
+    {
+     "start": 46.72,
+     "end": 48.19,
+     "en": "Maybe I’ll see you later.",
+     "ja": "たぶん、またあとで会いましょう。"
+    },
+    {
+     "start": 63.08,
+     "end": 65.49,
+     "en": "Hi, Jonathan. Are you busy?",
+     "ja": "やあ、ジョナサン。忙しい？"
+    },
+    {
+     "start": 65.94,
+     "end": 67.13,
+     "en": "Yes, I’m busy.",
+     "ja": "ああ、忙しいよ。"
+    },
+    {
+     "start": 67.52,
+     "end": 71.73,
+     "en": "When the studio light is on, I am recording my evening show.",
+     "ja": "スタジオのランプがついているときは、夕方の番組を録画しているんだ。"
+    },
+    {
+     "start": 72.12,
+     "end": 74.07,
+     "en": "Right. Sorry about yesterday.",
+     "ja": "そっか。昨日のことはごめんね。"
+    },
+    {
+     "start": 74.52,
+     "end": 75.29,
+     "en": "No worries.",
+     "ja": "気にしないで。"
+    },
+    {
+     "start": 75.74,
+     "end": 76.89,
+     "en": "May I see the studio?",
+     "ja": "スタジオを見てもいい？"
+    },
+    {
+     "start": 76.88,
+     "end": 78.27,
+     "en": "Um, maybe another time?",
+     "ja": "うーん、また今度にしてくれる？"
+    },
+    {
+     "start": 78.58,
+     "end": 80.31,
+     "en": "Right now I am busy.",
+     "ja": "今は忙しくてね。"
+    },
+    {
+     "start": 81.12,
+     "end": 83.67,
+     "en": "Sure. Okay, ’bye.",
+     "ja": "わかった。じゃあ、またね。"
+    },
+    {
+     "start": 84.02,
+     "end": 84.43,
+     "en": "‘Bye.",
+     "ja": "またね。"
+    },
+    {
+     "start": 116.4,
+     "end": 119.39,
+     "en": "Hi, Amelia! Are you busy?",
+     "ja": "やあ、アメリア。忙しい？"
+    },
+    {
+     "start": 119.72,
+     "end": 120.79,
+     "en": "I’m a little busy.",
+     "ja": "ちょっとだけ忙しいかな。"
+    },
+    {
+     "start": 120.64,
+     "end": 125.29,
+     "en": "I want to say I’m sorry for yesterday.",
+     "ja": "昨日のことを、ちゃんと謝りたいの。"
+    },
+    {
+     "start": 125.66,
+     "end": 126.79,
+     "en": "It’s okay, Anna.",
+     "ja": "大丈夫よ、アナ。"
+    },
+    {
+     "start": 127.16,
+     "end": 128.45,
+     "en": "Well, I am sorry.",
+     "ja": "でも、本当に悪かったと思ってるの。"
+    },
+    {
+     "start": 128.82,
+     "end": 131.27,
+     "en": "It’s okay, Anna. Come by this afternoon.",
+     "ja": "気にしないで、アナ。今日の午後、寄ってちょうだい。"
+    },
+    {
+     "start": 131.92,
+     "end": 132.49,
+     "en": "Okay.",
+     "ja": "わかった。"
+    }
+   ]
+  },
+  {
+   "id": "L1-3",
+   "level": 1,
+   "title": "What Can You Do?",
+   "source": "voa",
+   "source_url": "https://learningenglish.voanews.com/a/lets-learn-english-lesson-20-what-can-you-do/3384429.html",
+   "video": "media/L1-3.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L1-3.en.vtt",
+   "subs_ja": "subs/L1-3.ja.vtt",
+   "clip_start": 87.18,
+   "clip_end": 232.22,
+   "cover_height": 0.22,
+   "repeat": "line",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "ask questions",
+     "ja": "質問をする"
+    },
+    {
+     "en": "write code",
+     "ja": "コードを書く（プログラムを書く）"
+    },
+    {
+     "en": "apps",
+     "ja": "アプリ（スマホなどのアプリケーション）"
+    },
+    {
+     "en": "websites",
+     "ja": "ウェブサイト"
+    },
+    {
+     "en": "tons of money",
+     "ja": "たくさんのお金"
+    },
+    {
+     "en": "race car driver",
+     "ja": "レースカーのドライバー、レーサー"
+    },
+    {
+     "en": "chef",
+     "ja": "シェフ、料理人"
+    },
+    {
+     "en": "blog",
+     "ja": "ブログ"
+    },
+    {
+     "en": "followers",
+     "ja": "フォロワー（SNSやブログの読者）"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "アナは最初に、ピートが得意かどうか聞いたことは何ですか？",
+     "choices": [
+      "教えること",
+      "コードを書くこと",
+      "料理をすること",
+      "車を運転すること"
+     ],
+     "answer": 1,
+     "explain": "最初の質問は「Can you write code?」なので、コードを書くことについて聞いています。"
+    },
+    {
+     "q": "ピートは「code」をどう聞き間違えましたか？",
+     "choices": [
+      "cold",
+      "call",
+      "card",
+      "cook"
+     ],
+     "answer": 0,
+     "explain": "ピートは「code」を「c-o-l-d」と、cold（寒い／冷たい）だと思ってスペルを言っています。"
+    },
+    {
+     "q": "アナが「Can you drive?」と聞いたとき、ピートは何の運転だと思いましたか？",
+     "choices": [
+      "タクシー",
+      "バス",
+      "レースカー",
+      "トラック"
+     ],
+     "answer": 2,
+     "explain": "ピートは「Do you mean drive a race car?」と言い、レースカーのことだと思っています。"
+    },
+    {
+     "q": "ピートがタクシーやバスを運転できない理由は何ですか？",
+     "choices": [
+      "免許がないから",
+      "車が嫌いだから",
+      "いつも迷子になるから",
+      "運転すると眠くなってしまうから"
+     ],
+     "answer": 3,
+     "explain": "ピートは「I always fall asleep when I drive.」と言い、運転中に眠くなると言っています。"
+    },
+    {
+     "q": "アナは最後に、ピートがお金を稼げると言ったのはどんな仕事ですか？",
+     "choices": [
+      "先生",
+      "料理人",
+      "タクシー運転手",
+      "書く仕事（ライター）"
+     ],
+     "answer": 3,
+     "explain": "アナは「You can make money writing!」と言い、書くことでお金を得られると言っています。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [],
+   "credit": "Video: VOA Learning English (learningenglish.voanews.com) — public domain",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.4,
+     "end": 4.89,
+     "en": "Pete, I am good at asking questions. Let me ask you some.",
+     "ja": "ピート、私は質問をするのが得意なの。いくつか聞かせてね。"
+    },
+    {
+     "start": 5.84,
+     "end": 8.37,
+     "en": "Really, Anna? Can you help me?",
+     "ja": "本当に、アナ？　ぼくを助けてくれる？"
+    },
+    {
+     "start": 16.4,
+     "end": 19.11,
+     "en": "Yes, I can. Let me help.",
+     "ja": "うん、できるよ。任せて。"
+    },
+    {
+     "start": 19.82,
+     "end": 22.33,
+     "en": "Sure, Anna. Maybe you can help.",
+     "ja": "わかったよ、アナ。もしかしたら助かるかも。"
+    },
+    {
+     "start": 22.44,
+     "end": 25.05,
+     "en": "Can you write code?",
+     "ja": "コードは書ける？"
+    },
+    {
+     "start": 26.7,
+     "end": 32.55,
+     "en": "Sure, c-o-l-d. How is this going to help?",
+     "ja": "もちろん。C-O-L-D。これがどう役に立つの？"
+    },
+    {
+     "start": 33.2,
+     "end": 43.19,
+     "en": "No, not “cold.” Code; you know, for making phone apps, or websites. You can make tons of money writing code.",
+     "ja": "違うよ、“cold”じゃなくて “code”。スマホのアプリやウェブサイトを作るためのもの。コードが書けると、たくさんお金を稼げるよ。"
+    },
+    {
+     "start": 44.1,
+     "end": 46.69,
+     "en": "Tons of money? But I can’t code.",
+     "ja": "そんなにお金？　でも、ぼくはコードは書けないよ。"
+    },
+    {
+     "start": 47.24,
+     "end": 49.63,
+     "en": "Next question. Can you drive?",
+     "ja": "次の質問。運転はできる？"
+    },
+    {
+     "start": 49.48,
+     "end": 57.35,
+     "en": "Do you mean drive a race car? It’s really hard to be a race car driver. First, you need a race car ...",
+     "ja": "レースカーを運転するってこと？　レーサーになるのはすごく大変だよ。まずレースカーが必要だし…"
+    },
+    {
+     "start": 57.4,
+     "end": 60.97,
+     "en": "No, I mean drive a taxi or drive a bus.",
+     "ja": "違うよ。タクシーとかバスを運転するってこと。"
+    },
+    {
+     "start": 62.72,
+     "end": 65.31,
+     "en": "No, I always fall asleep when I drive.",
+     "ja": "いや、ぼくは運転するといつも眠くなっちゃうんだ。"
+    },
+    {
+     "start": 66.06,
+     "end": 97.03,
+     "en": "Oh, that’s not good. Next question. Can you teach? You can be a teacher in a school.",
+     "ja": "それはよくないね。次の質問。教えることはできる？　学校の先生になれるよ。"
+    },
+    {
+     "start": 97.76,
+     "end": 99.85,
+     "en": "No, I cannot teach.",
+     "ja": "いや、教えるのは無理だ。"
+    },
+    {
+     "start": 101.4,
+     "end": 104.85,
+     "en": "Can you cook? You can be a chef in a restaurant.",
+     "ja": "料理はできる？　レストランのシェフになれるよ。"
+    },
+    {
+     "start": 109.96,
+     "end": 125.79,
+     "en": "No, I can’t code! I can’t teach! I can’t cook! Anna, I can’t do anything. This is sad. I’m gonna write about my feelings in my blog.",
+     "ja": "だめだよ。コードも書けない！　教えられない！　料理もできない！　アナ、ぼくには何もできないよ。悲しいな。ブログにこの気持ちを書くことにするよ。"
+    },
+    {
+     "start": 127.76,
+     "end": 129.29,
+     "en": "You write a blog?",
+     "ja": "ブログを書いてるの？"
+    },
+    {
+     "start": 129.76,
+     "end": 130.85,
+     "en": "Yeah, I write a blog.",
+     "ja": "うん、ブログ書いてるよ。"
+    },
+    {
+     "start": 131.76,
+     "end": 133.69,
+     "en": "How many followers do you have?",
+     "ja": "フォロワーは何人いるの？"
+    },
+    {
+     "start": 134.54,
+     "end": 135.29,
+     "en": "I don’t know … 59,538.",
+     "ja": "さあね…５万９５３８人かな。"
+    },
+    {
+     "start": 139.04,
+     "end": 144.59,
+     "en": "Pete, that's a lot of followers! You can make money writing!",
+     "ja": "ピート、それはすごい人数だよ！　文章でお金を稼げるよ！"
+    }
+   ]
+  },
+  {
+   "id": "L2-1",
+   "level": 2,
+   "title": "When Do I Start?",
+   "source": "voa",
+   "source_url": "https://learningenglish.voanews.com/a/lets-learn-english-lesson-19-when-do-you-start/3357760.html",
+   "video": "media/L2-1.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L2-1.en.vtt",
+   "subs_ja": "subs/L2-1.ja.vtt",
+   "clip_start": 120.82,
+   "clip_end": 293.56,
+   "cover_height": 0.22,
+   "repeat": "line",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "good news",
+     "ja": "うれしい知らせ、良い知らせ"
+    },
+    {
+     "en": "bad news",
+     "ja": "よくない知らせ、悪い知らせ"
+    },
+    {
+     "en": "fire",
+     "ja": "（人）をクビにする、解雇する"
+    },
+    {
+     "en": "assignment",
+     "ja": "任務、仕事、担当"
+    },
+    {
+     "en": "skills",
+     "ja": "技能、得意なこと、スキル"
+    },
+    {
+     "en": "children’s show",
+     "ja": "子ども向け番組"
+    },
+    {
+     "en": "awesome",
+     "ja": "とてもすばらしい、すごい"
+    },
+    {
+     "en": "tons of",
+     "ja": "たくさんの、山ほどの"
+    },
+    {
+     "en": "outer space",
+     "ja": "宇宙空間"
+    },
+    {
+     "en": "deep, dark ocean",
+     "ja": "深くて暗い海（深海のイメージ）"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "ウィーバーさんの「悪い知らせ」はどんな内容ですか？",
+     "choices": [
+      "アンナはニュースを読むのが下手だということ",
+      "アンナが来月クビになるということ",
+      "会社が7月に休みになるということ",
+      "ニュース番組が終わるということ"
+     ],
+     "answer": 0,
+     "explain": "ウィーバーさんは「あなたはニュースを読むのがあまり得意じゃないの」と伝えています。"
+    },
+    {
+     "q": "アンナは最初、「来月は7月。あなたは…」と言って、何を勘違いしましたか？",
+     "choices": [
+      "給料が減ると思った",
+      "引っ越しをしなければならないと思った",
+      "7月にクビになると思った",
+      "7月に休暇をもらえると思った"
+     ],
+     "answer": 2,
+     "explain": "アンナは “You are firing me in July.” と言って、クビになると勘違いしています。"
+    },
+    {
+     "q": "ウィーバーさんが言う「いい知らせ」は何ですか？",
+     "choices": [
+      "アンナが昇進すること",
+      "アンナがクビにならないこと",
+      "アンナが給料アップすること",
+      "アンナが休暇をもらえること"
+     ],
+     "answer": 1,
+     "explain": "ウィーバーさんは「7月も8月も9月も、あなたをクビにはしません」と言っています。"
+    },
+    {
+     "q": "アンナのどんな点が、新しい仕事に向いていると言われましたか？一番近いものを選んでください。",
+     "choices": [
+      "計算が早くて静かなこと",
+      "質問したり、人と話したり、気持ちを表したり、おどけるのが上手なこと",
+      "パソコンが得意なこと",
+      "外国語が話せること"
+     ],
+     "answer": 1,
+     "explain": "ウィーバーさんは、質問・会話・感情表現・ふざけることが得意だとほめています。"
+    },
+    {
+     "q": "アンナがやることになった新しい仕事はどれですか？",
+     "choices": [
+      "ニュース番組のアナウンサー",
+      "会社の受付",
+      "子ども向け番組の仕事",
+      "旅行ガイド"
+     ],
+     "answer": 2,
+     "explain": "ウィーバーさんは「子ども向けの番組にぴったり」と言い、children’s show を任せます。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 10,
+     "why": "“Well” を文頭にそのまま訳さず、「そうね」と会話のつなぎとして意訳している。"
+    },
+    {
+     "line": 16,
+     "why": "“awesome” を字幕らしく「すごい」と軽めに訳しており、語感（畏敬＋すばらしい）の一部を削っている。"
+    }
+   ],
+   "credit": "Video: VOA Learning English (learningenglish.voanews.com) — public domain",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.4,
+     "end": 1.81,
+     "en": "Hello, Ms. Weaver.",
+     "ja": "こんにちは、ウィーバーさん。"
+    },
+    {
+     "start": 2.74,
+     "end": 8.81,
+     "en": "Anna, I have good news and I have bad news. Which do you want to hear first?",
+     "ja": "アンナ、いい知らせと悪い知らせがあります。どっちを先に聞きたい？"
+    },
+    {
+     "start": 9.34,
+     "end": 13.13,
+     "en": "The good news. No … okay, the bad news.",
+     "ja": "いい知らせを…いや、やっぱり悪い知らせからお願いします。"
+    },
+    {
+     "start": 13.56,
+     "end": 17.95,
+     "en": "The bad news is you are not good at reading the news.",
+     "ja": "悪い知らせはね、あなたはニュースを読むのがあまり得意じゃないの。"
+    },
+    {
+     "start": 18.66,
+     "end": 22.25,
+     "en": "Oh. I am very sorry to hear that.",
+     "ja": "そうですか…。それは本当に残念です。"
+    },
+    {
+     "start": 23.42,
+     "end": 27.87,
+     "en": "So, starting next month you will not read the news.",
+     "ja": "だから、来月からはニュースを読む仕事はしません。"
+    },
+    {
+     "start": 29.58,
+     "end": 33.73,
+     "en": "Next month is July. You are firing me in July.",
+     "ja": "来月は7月です。7月に私をクビにするんですね。"
+    },
+    {
+     "start": 34.16,
+     "end": 41.07,
+     "en": "No. I am not firing you in July … or in August or in September. That is the good news.",
+     "ja": "違います。7月も…8月も9月も、あなたをクビにはしません。それがいい知らせよ。"
+    },
+    {
+     "start": 41.5,
+     "end": 47.25,
+     "en": "Okay. You are not firing me. I am not reading the news.",
+     "ja": "なるほど。クビにはならないけど、ニュースも読まない。"
+    },
+    {
+     "start": 47.1,
+     "end": 49.35,
+     "en": "What will I be doing?",
+     "ja": "じゃあ、私は何をするんですか。"
+    },
+    {
+     "start": 50.02,
+     "end": 52.87,
+     "en": "Well, you are good at asking questions.",
+     "ja": "そうね、あなたは質問をするのが上手だし、"
+    },
+    {
+     "start": 53.38,
+     "end": 55.51,
+     "en": "You are good at talking to people.",
+     "ja": "人と話すのも得意だし、"
+    },
+    {
+     "start": 57.08,
+     "end": 60.19,
+     "en": "You are good at showing your feelings.",
+     "ja": "気持ちを表現するのも上手だし、"
+    },
+    {
+     "start": 61.58,
+     "end": 64.35,
+     "en": "And you are great at being silly.",
+     "ja": "それに、おどけてみせるのはすごく得意よ。"
+    },
+    {
+     "start": 65.66,
+     "end": 69.89,
+     "en": "Thank you, Ms. Weaver. But what does all that mean?",
+     "ja": "ありがとうございます、ウィーバーさん。でも、それってどういう意味ですか。"
+    },
+    {
+     "start": 69.74,
+     "end": 80.79,
+     "en": "I have a new assignment for you! Your skills are perfect for a new show … a children’s show.",
+     "ja": "あなたに新しい仕事があります！　あなたの得意なことは、新しい番組――子ども向けの番組にぴったりなんです。"
+    },
+    {
+     "start": 81.94,
+     "end": 90.61,
+     "en": "A children’s show ... That is awesome! When do I start?",
+     "ja": "子ども向けの番組…すごい！　いつから始まるんですか。"
+    },
+    {
+     "start": 91.0,
+     "end": 95.91,
+     "en": "You start next month. Start thinking of ideas for the show.",
+     "ja": "来月からよ。番組のアイデアを考え始めてちょうだい。"
+    },
+    {
+     "start": 134.44,
+     "end": 140.31,
+     "en": "I have tons of ideas! I can show children what it’s like in outer space ...",
+     "ja": "アイデアは山ほどあります！　宇宙に行くとどんな感じか、子どもたちに見せられるし…"
+    },
+    {
+     "start": 141.06,
+     "end": 143.93,
+     "en": "… or in the deep, dark ocean …",
+     "ja": "…深くて暗い海の中がどんなところかも見せられるし…。"
+    },
+    {
+     "start": 143.78,
+     "end": 149.51,
+     "en": "Those are great ideas, Anna. Please go think of more … at your desk.",
+     "ja": "どれもいいアイデアね、アンナ。続きは自分のデスクで考えてきて。"
+    },
+    {
+     "start": 151.7,
+     "end": 155.39,
+     "en": "Yes. What other things can I show them? Mt. Everest!",
+     "ja": "はい。他には何を見せられるかな。エベレストとか！"
+    },
+    {
+     "start": 162.32,
+     "end": 164.63,
+     "en": "Everyone has different skills.",
+     "ja": "誰にでも、それぞれ違った得意なことがあります。"
+    },
+    {
+     "start": 165.08,
+     "end": 166.05,
+     "en": "You have skills.",
+     "ja": "あなたにも得意なことがあります。"
+    },
+    {
+     "start": 166.34,
+     "end": 167.19,
+     "en": "I have skills.",
+     "ja": "私にも得意なことがあります。"
+    },
+    {
+     "start": 167.46,
+     "end": 170.79,
+     "en": "The important thing is to know what you are good at.",
+     "ja": "大事なのは、自分は何が得意かを知ることです。"
+    },
+    {
+     "start": 170.64,
+     "end": 172.29,
+     "en": "Until next time!",
+     "ja": "それでは、また次回！"
+    }
+   ]
+  },
+  {
+   "id": "L2-2",
+   "level": 2,
+   "title": "Yesterday Was Amazing!",
+   "source": "voa",
+   "source_url": "https://learningenglish.voanews.com/a/lets-learn-english-lesson-24-yesterday-was-amazing/3439164.html",
+   "video": "media/L2-2.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L2-2.en.vtt",
+   "subs_ja": "subs/L2-2.ja.vtt",
+   "clip_start": 97.32,
+   "clip_end": 294.2,
+   "cover_height": 0.22,
+   "repeat": "line",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "festival",
+     "ja": "フェスティバル、お祭り"
+    },
+    {
+     "en": "Folklife Festival",
+     "ja": "フォークライフ・フェスティバル（民俗文化の祭典）"
+    },
+    {
+     "en": "culture",
+     "ja": "文化"
+    },
+    {
+     "en": "Basque",
+     "ja": "バスク地方の／バスク人の"
+    },
+    {
+     "en": "traditional",
+     "ja": "伝統的な"
+    },
+    {
+     "en": "handball",
+     "ja": "ハンドボール（手でボールを打つ球技の総称）"
+    },
+    {
+     "en": "pilota",
+     "ja": "ピロタ（バスク地方の球技の名前）"
+    },
+    {
+     "en": "art",
+     "ja": "アート、美術"
+    },
+    {
+     "en": "ship",
+     "ja": "船"
+    },
+    {
+     "en": "a lot of fun",
+     "ja": "とても楽しい、とてもおもしろい"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "アンナが見つけた大きなイベントは何ですか？",
+     "choices": [
+      "音楽コンサート",
+      "スポーツ大会",
+      "スミソニアン・フォークライフ・フェスティバル",
+      "バスク料理コンテスト"
+     ],
+     "answer": 2,
+     "explain": "アンナは「It was the Smithsonian Folklife Festival.」と言っていて、大きなフェスティバルだと説明しています。"
+    },
+    {
+     "q": "このフェスティバルは毎年何を紹介しますか？",
+     "choices": [
+      "アメリカの歴史",
+      "いろいろな文化",
+      "ワシントンD.C.の名所",
+      "新しいスポーツ"
+     ],
+     "answer": 1,
+     "explain": "文で「Every year the festival shows different cultures.」とあり、毎年ちがう文化を紹介しています。"
+    },
+    {
+     "q": "今年、紹介された文化の一つはどこの文化ですか？",
+     "choices": [
+      "フランス",
+      "バスク",
+      "日本",
+      "メキシコ"
+     ],
+     "answer": 1,
+     "explain": "「This year one of the cultures was the Basque culture.」とあり、バスク文化だとわかります。"
+    },
+    {
+     "q": "バスクのゲーム『pilota』はどんな道具を使いますか？",
+     "choices": [
+      "足と大きなボール",
+      "ラケットとシャトル",
+      "手と小さなボール",
+      "バットとボール"
+     ],
+     "answer": 2,
+     "explain": "「They played a game with their hands and a small ball.」と説明されていて、そのゲームが pilota です。"
+    },
+    {
+     "q": "アンナは友だちに何をしてほしいと言っていますか？",
+     "choices": [
+      "一緒に手紙を書いてほしい",
+      "ワシントンD.C.にすぐ遊びに来てほしい",
+      "一緒にバスクへ旅行してほしい",
+      "フェスティバルで働いてほしい"
+     ],
+     "answer": 1,
+     "explain": "「Please, my friend, come visit Washington, D.C. soon.」とあり、ワシントンD.C.に来てほしいと書いています。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 1,
+     "why": "“Folklife Festival”の訳として「民俗博物館のフェスティバル」を採用したが、公式名称のニュアンスをどこまで説明に入れるか迷いました。"
+    },
+    {
+     "line": 2,
+     "why": "同じく固有名詞の扱いで、「フォークライフ・フェスティバル」とカタカナにしつつ補足を入れるべきか判断が難しいです。"
+    },
+    {
+     "line": 17,
+     "why": "“beautiful”を字幕として自然にするため「すごくきれい」と多少感情を足しており、強さの度合いが原文と完全に一致しているか自信がありません。"
+    }
+   ],
+   "credit": "Video: VOA Learning English (learningenglish.voanews.com) — public domain",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.4,
+     "end": 6.33,
+     "en": "Then, I saw something! It was a festival -- a big festival!",
+     "ja": "それから、何かを見つけたの。お祭りよ、大きなお祭り。"
+    },
+    {
+     "start": 7.44,
+     "end": 10.07,
+     "en": "It is the Smithsonian Folklife Festival.",
+     "ja": "スミソニアン民俗博物館のフェスティバルなの。"
+    },
+    {
+     "start": 11.02,
+     "end": 15.23,
+     "en": "Yes. It was the Smithsonian Folklife Festival.",
+     "ja": "そう、あれはスミソニアンのフォークライフ・フェスティバルだったの。"
+    },
+    {
+     "start": 15.66,
+     "end": 18.71,
+     "en": "Every year the festival shows different cultures.",
+     "ja": "このフェスティバルでは毎年、いろいろな文化が紹介されるの。"
+    },
+    {
+     "start": 19.26,
+     "end": 22.79,
+     "en": "This year one of the cultures was the Basque culture.",
+     "ja": "今年は、そのひとつがバスクの文化だったの。"
+    },
+    {
+     "start": 23.32,
+     "end": 26.35,
+     "en": "There was dancing and food and games!",
+     "ja": "ダンスや食べ物、それにゲームもあったのよ。"
+    },
+    {
+     "start": 30.24,
+     "end": 33.81,
+     "en": "I am dancing a traditional Basque dance.",
+     "ja": "私は今、バスクの伝統的なダンスを踊っているの。"
+    },
+    {
+     "start": 34.78,
+     "end": 39.23,
+     "en": "At the festival, I danced a traditional Basque dance!",
+     "ja": "フェスティバルで、バスクの伝統的なダンスを踊ったの！"
+    },
+    {
+     "start": 49.34,
+     "end": 52.83,
+     "en": "They are cooking traditional Basque food.",
+     "ja": "あの人たちは、バスクの伝統的な料理を作っているところよ。"
+    },
+    {
+     "start": 54.04,
+     "end": 57.51,
+     "en": "They cooked a lot of traditional Basque food.",
+     "ja": "バスクの伝統料理をたくさん作ってくれたの。"
+    },
+    {
+     "start": 73.64,
+     "end": 75.27,
+     "en": "They are playing a game.",
+     "ja": "あの人たちはゲームをしているの。"
+    },
+    {
+     "start": 75.58,
+     "end": 76.99,
+     "en": "It’s a kind of handball.",
+     "ja": "ハンドボールの一種なんだって。"
+    },
+    {
+     "start": 77.82,
+     "end": 78.81,
+     "en": "What do they call it?",
+     "ja": "何ていう名前なんだろう？"
+    },
+    {
+     "start": 79.18,
+     "end": 80.45,
+     "en": "They call it pilota!",
+     "ja": "ピロタって呼ばれているの！"
+    },
+    {
+     "start": 82.56,
+     "end": 85.93,
+     "en": "They played a game with their hands and a small ball.",
+     "ja": "その人たちは、手と小さなボールを使うゲームをしていたの。"
+    },
+    {
+     "start": 85.78,
+     "end": 88.39,
+     "en": "It’s a kind of handball.",
+     "ja": "ハンドボールの一種なの。"
+    },
+    {
+     "start": 88.98,
+     "end": 91.37,
+     "en": "But this game is called pilota.",
+     "ja": "でも、このゲームはピロタっていう名前なのよ。"
+    },
+    {
+     "start": 104.36,
+     "end": 107.21,
+     "en": "This is beautiful!",
+     "ja": "これ、すごくきれい！"
+    },
+    {
+     "start": 107.8,
+     "end": 110.83,
+     "en": "This is traditional Basque art.",
+     "ja": "これはバスク地方の伝統的なアートなの。"
+    },
+    {
+     "start": 125.72,
+     "end": 129.43,
+     "en": "They are making a traditional Basque ship.",
+     "ja": "あの人たちは、バスクの伝統的な船を作っているところよ。"
+    },
+    {
+     "start": 139.9,
+     "end": 142.39,
+     "en": "This festival is a lot of fun!",
+     "ja": "このフェスティバル、とっても楽しいの！"
+    },
+    {
+     "start": 142.42,
+     "end": 144.89,
+     "en": "The whole day was a lot of fun!",
+     "ja": "一日中すごく楽しかったの！"
+    },
+    {
+     "start": 144.74,
+     "end": 145.81,
+     "en": "Who said that?",
+     "ja": "今の誰の声？"
+    },
+    {
+     "start": 145.66,
+     "end": 150.43,
+     "en": "I want to write my friends and tell them about my day!",
+     "ja": "友だちに今日一日のことを手紙で伝えたいな。"
+    },
+    {
+     "start": 184.92,
+     "end": 188.13,
+     "en": "... So, I wanted to tell you about my day!",
+     "ja": "……そんなわけで、今日のことをあなたに話したかったの。"
+    },
+    {
+     "start": 188.56,
+     "end": 192.01,
+     "en": "Please, my friend, come visit Washington, D.C. soon.",
+     "ja": "ねえ、今度ワシントンD.C.に遊びに来て。"
+    },
+    {
+     "start": 192.52,
+     "end": 193.95,
+     "en": "There is a lot to do!",
+     "ja": "ここは楽しいことがたくさんあるのよ。"
+    },
+    {
+     "start": 194.4,
+     "end": 196.43,
+     "en": "Until next time … Anna.",
+     "ja": "それじゃ、またね。アンナより。"
+    }
+   ]
+  },
+  {
+   "id": "L2-3",
+   "level": 2,
+   "title": "Have You Ever ...?",
+   "source": "voa",
+   "source_url": "https://learningenglish.voanews.com/a/lets-learn-english-lesson-48-have-you-ever/3753664.html",
+   "video": "media/L2-3.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L2-3.en.vtt",
+   "subs_ja": "subs/L2-3.ja.vtt",
+   "clip_start": 51.18,
+   "clip_end": 249.37,
+   "cover_height": 0.22,
+   "repeat": "line",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "met",
+     "ja": "meet（会う）の過去分詞形・過去形"
+    },
+    {
+     "en": "unusual",
+     "ja": "珍しい、普通と違う"
+    },
+    {
+     "en": "sculpture",
+     "ja": "彫刻（作品）"
+    },
+    {
+     "en": "artistic",
+     "ja": "芸術的な"
+    },
+    {
+     "en": "peaceful",
+     "ja": "静かで落ち着いた、平和な"
+    },
+    {
+     "en": "suggestions",
+     "ja": "提案、おすすめ"
+    },
+    {
+     "en": "Botanic Gardens",
+     "ja": "植物園（固有名詞）"
+    },
+    {
+     "en": "majestic",
+     "ja": "堂々とした、威厳のある"
+    },
+    {
+     "en": "must-see",
+     "ja": "ぜひ見るべき、見逃せない"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "ジーンは最初、アナに何についてたずねましたか？",
+     "choices": [
+      "おいしいレストラン",
+      "おもしろい博物館",
+      "安いホテル",
+      "きれいな公園"
+     ],
+     "answer": 1,
+     "explain": "ジーンは「I want to see an interesting museum」と言って、博物館について相談しています。"
+    },
+    {
+     "q": "アナがすすめた「Sculpture Garden」はどんな場所ですか？",
+     "choices": [
+      "遊園地",
+      "植物園",
+      "彫刻のある庭",
+      "歴史博物館"
+     ],
+     "answer": 2,
+     "explain": "アナは「Have you ever seen sculptures in a garden?」と言っており、彫刻が置かれた庭です。"
+    },
+    {
+     "q": "Museum of the American Indian について、アナはどう感じていますか？",
+     "choices": [
+      "とてもにぎやかだと思っている",
+      "とても平和で落ち着いていると言っている",
+      "ちょっと退屈だと言っている",
+      "一度も行ったことがないと言っている"
+     ],
+     "answer": 1,
+     "explain": "アナは「It is very peaceful.」と言い、落ち着いた場所だと説明しています。"
+    },
+    {
+     "q": "アナがまだ行ったことがない場所はどこですか？",
+     "choices": [
+      "D.C.の動物園",
+      "アメリカ植物園",
+      "スカルプチャー・ガーデン",
+      "アメリカン・インディアン博物館"
+     ],
+     "answer": 0,
+     "explain": "アナは「I've never been to D.C.’s zoo.」とはっきり言っています。"
+    },
+    {
+     "q": "ジーンが「If you have never seen a real, live elephant, you must.」と言ったときの意味に近いものはどれですか？",
+     "choices": [
+      "ゾウはこわいから見るなという意味",
+      "本物のゾウを見る必要はないという意味",
+      "本物のゾウはめったにいないという意味",
+      "本物のゾウをぜひ見たほうがいいという意味"
+     ],
+     "answer": 3,
+     "explain": "ここでの「you must」は「必ず〜しなさい」という強いおすすめの意味で、「ぜひ見たほうがいい」というニュアンスです。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 25,
+     "why": "“It's very organic.” は直訳すると「とても有機的」だが、ここでは「自然が多い」「緑が多い」というイメージ表現なので、そのニュアンスをくみ取って意訳した。"
+    },
+    {
+     "line": 30,
+     "why": "“You’re so lucky to live in such a beautiful city filled with so many museums and a zoo!” はかなり長い文で、「filled with〜」のニュアンス（〜がたくさんある）を「こんなにたくさん〜があって」と少し崩して訳している。"
+    },
+    {
+     "line": 41,
+     "why": "“You must.” は強い助言で、学習者向けに分かりやすく「絶対に見たほうがいい」と訳したが、強さの度合い（命令的か強いおすすめか）のニュアンスがやや迷った。"
+    },
+    {
+     "line": 42,
+     "why": "“majestic” は「荘厳な」「威厳のある」など訳語がいくつかあり、日本語字幕として自然さを優先して「堂々としていて迫力がある」と意訳した。"
+    },
+    {
+     "line": 46,
+     "why": "“must-see zoo animal list” を直訳すると「必見の動物リスト」だが、日本語でやわらかくするため「見に行きたい動物リスト」と少し弱めた表現にしている。"
+    }
+   ],
+   "credit": "Video: VOA Learning English (learningenglish.voanews.com) — public domain",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.4,
+     "end": 2.57,
+     "en": "Hi, Jean! I'm Anna.",
+     "ja": "やあ、ジーン。私はアナよ。"
+    },
+    {
+     "start": 3.46,
+     "end": 6.55,
+     "en": "I really feel like we’ve met before.",
+     "ja": "なんだか前に会ったことがある気がするの。"
+    },
+    {
+     "start": 7.6,
+     "end": 9.95,
+     "en": "Anyway, how can I help?",
+     "ja": "とにかく、何をお手伝いしましょう？"
+    },
+    {
+     "start": 10.28,
+     "end": 15.07,
+     "en": "I want to see an interesting museum but I don’t know which one.",
+     "ja": "おもしろい博物館を見たいんですが、どこに行けばいいか分からないんです。"
+    },
+    {
+     "start": 15.48,
+     "end": 16.87,
+     "en": "I can help with that.",
+     "ja": "それなら手伝えるわ。"
+    },
+    {
+     "start": 17.46,
+     "end": 20.27,
+     "en": "I’ve lived in Washington, D.C. a long time.",
+     "ja": "私はワシントンD.C.に長く住んでいるの。"
+    },
+    {
+     "start": 20.7,
+     "end": 23.95,
+     "en": "I think I’ve seen all the museums.",
+     "ja": "たぶん、ここの博物館は全部行ったと思うわ。"
+    },
+    {
+     "start": 24.26,
+     "end": 25.55,
+     "en": "Wow, thanks.",
+     "ja": "わあ、ありがとう。"
+    },
+    {
+     "start": 26.28,
+     "end": 28.25,
+     "en": "So, tell me, which museums are good?",
+     "ja": "それで、どの博物館がおすすめですか？"
+    },
+    {
+     "start": 29.0,
+     "end": 30.91,
+     "en": "Well, they are all good.",
+     "ja": "そうね、どこもいいわよ。"
+    },
+    {
+     "start": 31.0,
+     "end": 32.99,
+     "en": "But they’re all different.",
+     "ja": "でも、それぞれタイプが違うの。"
+    },
+    {
+     "start": 33.64,
+     "end": 40.65,
+     "en": "There are science museums and history museums and art and culture museums.",
+     "ja": "科学の博物館、歴史の博物館、美術や文化の博物館もあるわ。"
+    },
+    {
+     "start": 41.7,
+     "end": 45.37,
+     "en": "I want to see an unusual museum.",
+     "ja": "ちょっと変わった博物館が見たいです。"
+    },
+    {
+     "start": 45.74,
+     "end": 48.19,
+     "en": "I like the Sculpture Garden.",
+     "ja": "私はスカルプチャー・ガーデンが好きよ。"
+    },
+    {
+     "start": 48.7,
+     "end": 52.77,
+     "en": "Have you ever seen sculptures in a garden?",
+     "ja": "庭の中にある彫刻を見たことはある？"
+    },
+    {
+     "start": 53.64,
+     "end": 57.65,
+     "en": "It is really artistic!",
+     "ja": "とても芸術的なの！"
+    },
+    {
+     "start": 58.36,
+     "end": 61.17,
+     "en": "I have never seen a garden of sculptures!",
+     "ja": "彫刻の庭なんて、見たことありません！"
+    },
+    {
+     "start": 61.92,
+     "end": 63.49,
+     "en": "I’ll write that on my list!",
+     "ja": "それをリストに書いておきます！"
+    },
+    {
+     "start": 73.22,
+     "end": 79.21,
+     "en": "Have you been to the Museum of the American Indian?",
+     "ja": "アメリカン・インディアン博物館には行ったことある？"
+    },
+    {
+     "start": 79.52,
+     "end": 82.37,
+     "en": "I’ve visited that museum many times.",
+     "ja": "その博物館には何度も行ったことがあるわ。"
+    },
+    {
+     "start": 82.68,
+     "end": 85.01,
+     "en": "It is very peaceful.",
+     "ja": "とても落ち着いた雰囲気なの。"
+    },
+    {
+     "start": 85.9,
+     "end": 89.41,
+     "en": "I have always liked American Indian culture.",
+     "ja": "私はずっとアメリカ先住民の文化が好きなんです。"
+    },
+    {
+     "start": 89.26,
+     "end": 91.09,
+     "en": "I’ll put that on my list.",
+     "ja": "それもリストに入れておきます。"
+    },
+    {
+     "start": 91.94,
+     "end": 93.75,
+     "en": "Do you have any other suggestions?",
+     "ja": "ほかに何かおすすめはありますか？"
+    },
+    {
+     "start": 94.66,
+     "end": 100.27,
+     "en": "Well, if you like plants, you can visit the U.S. Botanic Gardens.",
+     "ja": "そうね、植物が好きなら、アメリカ植物園に行くといいわ。"
+    },
+    {
+     "start": 101.18,
+     "end": 103.97,
+     "en": "It's very organic.",
+     "ja": "とても自然がいっぱいよ。"
+    },
+    {
+     "start": 104.88,
+     "end": 107.35,
+     "en": "I have always loved plants.",
+     "ja": "私はずっと植物が大好きなんです。"
+    },
+    {
+     "start": 107.92,
+     "end": 109.81,
+     "en": "I’ll write that on my list, too!",
+     "ja": "それもリストに書いておきます！"
+    },
+    {
+     "start": 110.44,
+     "end": 114.37,
+     "en": "Wow, you know so much about D.C.’s museums.",
+     "ja": "わあ、ワシントンD.C.の博物館のこと、本当によく知っているんですね。"
+    },
+    {
+     "start": 115.7,
+     "end": 119.85,
+     "en": "Well, I have lived here for over a year.",
+     "ja": "まあね、ここに一年以上住んでいるから。"
+    },
+    {
+     "start": 120.34,
+     "end": 127.71,
+     "en": "You’re so lucky to live in such a beautiful city filled with so many museums and a zoo!",
+     "ja": "こんなにたくさん博物館があって、動物園まであるきれいな街に住めるなんて、うらやましいです！"
+    },
+    {
+     "start": 128.76,
+     "end": 131.17,
+     "en": "What? D.C. has a zoo?",
+     "ja": "えっ？ワシントンD.C.に動物園があるの？"
+    },
+    {
+     "start": 131.5,
+     "end": 133.95,
+     "en": "Yes, and it’s beautiful.",
+     "ja": "ええ、とてもすてきな動物園よ。"
+    },
+    {
+     "start": 135.5,
+     "end": 140.3,
+     "en": "You’ve lived here for so long and you haven’t been to the zoo?",
+     "ja": "こんなに長くここに住んでいて、まだ動物園に行ったことがないの？"
+    },
+    {
+     "start": 140.77,
+     "end": 143.24,
+     "en": "I've never been to D.C.’s zoo.",
+     "ja": "ワシントンD.C.の動物園には行ったことがないの。"
+    },
+    {
+     "start": 143.59,
+     "end": 145.56,
+     "en": "I've never been to any zoos!",
+     "ja": "どこの動物園にも行ったことがないわ！"
+    },
+    {
+     "start": 154.11,
+     "end": 157.08,
+     "en": "You have never seen zoo animals?",
+     "ja": "動物園の動物を見たことがないの？"
+    },
+    {
+     "start": 157.39,
+     "end": 159.74,
+     "en": "I grew up on a farm, Jean.",
+     "ja": "私は牧場で育ったのよ、ジーン。"
+    },
+    {
+     "start": 160.17,
+     "end": 162.6,
+     "en": "I've known farm animals my whole life.",
+     "ja": "家畜の動物たちは、ずっと身近な存在だったの。"
+    },
+    {
+     "start": 163.05,
+     "end": 171.56,
+     "en": "But the zoo has lions and elephants and zebras!",
+     "ja": "でも動物園には、ライオンやゾウやシマウマがいるのよ！"
+    },
+    {
+     "start": 172.55,
+     "end": 177.98,
+     "en": "If you have never seen a real, live elephant, you must.",
+     "ja": "本物の生きているゾウを見たことがないなら、絶対に見たほうがいいわ。"
+    },
+    {
+     "start": 178.45,
+     "end": 181.0,
+     "en": "They are so majestic.",
+     "ja": "とても堂々としていて迫力があるの。"
+    },
+    {
+     "start": 182.43,
+     "end": 183.36,
+     "en": "I will.",
+     "ja": "そうするわ。"
+    },
+    {
+     "start": 184.47,
+     "end": 185.04,
+     "en": "I will!",
+     "ja": "絶対行く！"
+    },
+    {
+     "start": 186.07,
+     "end": 187.22,
+     "en": "There.",
+     "ja": "よし。"
+    },
+    {
+     "start": 187.87,
+     "end": 191.36,
+     "en": "I’ve written my own must-see zoo animal list!",
+     "ja": "私だけの「見に行きたい動物リスト」を書いたわ！"
+    },
+    {
+     "start": 191.67,
+     "end": 194.3,
+     "en": "Have fun at the zoo and thanks, Anna!",
+     "ja": "動物園、楽しんでね。ありがとう、アナ！"
+    },
+    {
+     "start": 194.53,
+     "end": 196.34,
+     "en": "Have fun at the museums, Jean!",
+     "ja": "ジーンも博物館、楽しんでね！"
+    },
+    {
+     "start": 196.73,
+     "end": 197.74,
+     "en": "And thank YOU!",
+     "ja": "それから、こちらこそありがとう！"
+    }
+   ]
+  },
+  {
+   "id": "L3-1",
+   "level": 3,
+   "title": "Northward Shift of Boreal Tree Cover",
+   "source": "nasa",
+   "source_url": "https://svs.gsfc.nasa.gov/14965/",
+   "video": "media/L3-1.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L3-1.en.vtt",
+   "subs_ja": "subs/L3-1.ja.vtt",
+   "clip_start": null,
+   "clip_end": null,
+   "cover_height": 0,
+   "repeat": "minute",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "boreal forest",
+     "ja": "北方林（タイガとも呼ばれる高緯度の針葉樹林）"
+    },
+    {
+     "en": "biome",
+     "ja": "バイオーム、生物群系（気候などで特徴づけられる大きな生態帯）"
+    },
+    {
+     "en": "feedback mechanisms",
+     "ja": "フィードバックのしくみ（変化を強めたり弱めたりする働き）"
+    },
+    {
+     "en": "median latitude",
+     "ja": "中央値となる緯度（中心的な位置の緯度）"
+    },
+    {
+     "en": "pixel",
+     "ja": "ピクセル（画像を構成する最小のマス）"
+    },
+    {
+     "en": "resolution",
+     "ja": "分解能（どれくらい細かく見分けられるかの度合い）"
+    },
+    {
+     "en": "sequester carbon",
+     "ja": "炭素を隔離・吸収して貯め込む"
+    },
+    {
+     "en": "permafrost",
+     "ja": "永久凍土"
+    },
+    {
+     "en": "canary in the coal mine",
+     "ja": "早期警告を与える存在（危険をいち早く知らせる兆候）"
+    },
+    {
+     "en": "circumboreal region",
+     "ja": "北極圏をぐるりと囲む北方林地域"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "北方林（boreal forest）が特に重要だと説明されている理由はどれですか？",
+     "choices": [
+      "世界のすべての動物がそこに住んでいるから",
+      "世界の森林の多くを占め、大量の炭素を蓄えているから",
+      "人間がまったく住んでいないから",
+      "主に観光地として利用されているから"
+     ],
+     "answer": 1,
+     "explain": "北方林は世界の森林面積の3分の1以上を占め、大量の炭素を貯蔵して気候を安定させていると説明されています。"
+    },
+    {
+     "q": "研究チームが北方林の変化を詳しく調べることができた最大の要因は何ですか？",
+     "choices": [
+      "短期間の現地調査だけを行ったから",
+      "コンピューターゲームのシミュレーションを使ったから",
+      "ランドサットの長期かつ高解像度の衛星データを使えたから",
+      "北方林に住む動物にセンサーをつけたから"
+     ],
+     "answer": 2,
+     "explain": "数十年分のランドサット衛星データと、その高い空間分解能が、森のゆっくりした変化をとらえる鍵となりました。"
+    },
+    {
+     "q": "1985〜2020年のあいだに北方林に起きた変化として、正しいものはどれですか？",
+     "choices": [
+      "南に大きく移動し、面積は減った",
+      "北に移動し、面積も広がり、森がより密になった",
+      "位置は変わらないが、すべて枯れてしまった",
+      "北に移動したが、樹木は完全に消えた"
+     ],
+     "answer": 1,
+     "explain": "北方林は中央値の緯度が北へ約60km動き、面積が約12％増え、多くの緯度帯で樹木が密になったと述べられています。"
+    },
+    {
+     "q": "動画で「炭鉱のカナリア（canary in the coal mine）」というたとえが使われた理由として最も近いのはどれですか？",
+     "choices": [
+      "北方林がもっとも危険な場所だから",
+      "北方林が歌う鳥でいっぱいだから",
+      "北方林の変化が、地球システムの危険を早めに知らせるサインになるから",
+      "カナリアが北方林の上を飛ぶから"
+     ],
+     "answer": 2,
+     "explain": "北方林のゆっくりした変化を長期データでとらえることで、将来の急激な転換の前ぶれを知ることができると説明しています。"
+    },
+    {
+     "q": "北方林の拡大がもたらしうる『良い面』として挙げられているものはどれですか？",
+     "choices": [
+      "木が若返り、成長が早く、より多くの炭素を取り込める可能性があること",
+      "人間が北方林をすべて伐採しやすくなること",
+      "森林火災が必ず起きなくなること",
+      "永久凍土が完全に凍ったまま保たれること"
+     ],
+     "answer": 0,
+     "explain": "若い成長の早い木が増えることで、成熟すれば追加で炭素を蓄えられる可能性があると説明されています。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 3,
+     "why": "biome を「北方林です」と言い換え、「生物群系」の専門語を省略した。字幕としては自然だが、用語の厳密さはやや落としている。"
+    },
+    {
+     "line": 8,
+     "why": "carbon を文脈的に「二酸化炭素」と具体化した。専門的には炭素全般とも解釈できるので迷った。"
+    },
+    {
+     "line": 44,
+     "why": "the most accurate map of boreal tree cover を「樹木分布マップ」と意訳し、cover のニュアンス（被覆率）を簡略化した。"
+    },
+    {
+     "line": 53,
+     "why": "groundbreaking を「画期的」としたが、「革命的」「前例のない」など他の訳語もありえる。"
+    },
+    {
+     "line": 71,
+     "why": "net change of the forest is being lost を「正味の面積が減っている」と解釈したが、バイオマス量など他の指標もありえる表現のため。"
+    },
+    {
+     "line": 87,
+     "why": "a potential positive outcome of warming and climate benefit を一文にまとめ、日本語として自然にするために少し意訳した。"
+    },
+    {
+     "line": 100,
+     "why": "canary in the coal mine をそのまま比喩で訳しつつ補足を入れていない。日本語話者にどの程度通じるか迷いがある。"
+    },
+    {
+     "line": 107,
+     "why": "the most comprehensive analysis を「もっとも包括的な解析」としており、研究そのものと解析結果のどちらを指すかややあいまい。"
+    }
+   ],
+   "credit": "Video: NASA Goddard Space Flight Center / NASA Scientific Visualization Studio. NASAはA-PUSHを推薦・提携していません。動画内の音楽・一部映像は第三者の権利を含むため、加工せずに配信しています。",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.5,
+     "end": 5.5,
+     "en": "(bright music) (birds chirp)",
+     "ja": "（明るい音楽） （鳥のさえずり）"
+    },
+    {
+     "start": 9.72,
+     "end": 11.76,
+     "en": "- [Narrator] Stretching across the top of our planet",
+     "ja": "- [ナレーター] 地球のてっぺんを"
+    },
+    {
+     "start": 11.76,
+     "end": 13.83,
+     "en": "like a verdant, green crown,",
+     "ja": "青々とした緑の王冠のように"
+    },
+    {
+     "start": 13.83,
+     "end": 17.64,
+     "en": "the boreal forest is Earth's largest forested biome.",
+     "ja": "取り巻いているのが、タイガとも呼ばれる北方林です。"
+    },
+    {
+     "start": 17.64,
+     "end": 20.91,
+     "en": "Home to moose, wolf, caribou, bear,",
+     "ja": "ヘラジカ、オオカミ、カリブー、クマ、"
+    },
+    {
+     "start": 20.91,
+     "end": 22.71,
+     "en": "and countless other species,",
+     "ja": "ほかにも数え切れない生き物たちのすみかであり、"
+    },
+    {
+     "start": 22.71,
+     "end": 26.1,
+     "en": "this vast wilderness of spruce, fir, and pine",
+     "ja": "トウヒやモミ、マツが広がるこの広大な原生林は、"
+    },
+    {
+     "start": 26.1,
+     "end": 28.8,
+     "en": "holds more than a third of the world's forests",
+     "ja": "世界の森林面積の3分の1以上を占め、"
+    },
+    {
+     "start": 28.8,
+     "end": 31.11,
+     "en": "and stores massive amounts of carbon,",
+     "ja": "膨大な量の二酸化炭素をため込んでいて、"
+    },
+    {
+     "start": 31.11,
+     "end": 33.75,
+     "en": "helping regulate our global climate.",
+     "ja": "地球全体の気候を安定させる役割を持っています。"
+    },
+    {
+     "start": 33.75,
+     "end": 36.57,
+     "en": "But this forested frontier is changing,",
+     "ja": "しかし、この最前線の森の姿が変わりつつあり、"
+    },
+    {
+     "start": 36.57,
+     "end": 40.65,
+     "en": "and, for years, scientists could only theorize about how.",
+     "ja": "長いあいだ科学者たちは、その変化を理論で説明するしかありませんでした。"
+    },
+    {
+     "start": 40.65,
+     "end": 42.9,
+     "en": "The Earth's system is complex and dynamic,",
+     "ja": "地球のシステムは複雑でダイナミックで、"
+    },
+    {
+     "start": 42.9,
+     "end": 44.19,
+     "en": "with feedback mechanisms",
+     "ja": "いくつものフィードバックのしくみがあり、"
+    },
+    {
+     "start": 44.19,
+     "end": 47.07,
+     "en": "that can drive positive and negative outcomes.",
+     "ja": "それが良い方向にも悪い方向にも働きます。"
+    },
+    {
+     "start": 47.07,
+     "end": 49.65,
+     "en": "- For decades, there have been",
+     "ja": "- 何十年ものあいだ、"
+    },
+    {
+     "start": 49.65,
+     "end": 52.29,
+     "en": "ecological and climatological models",
+     "ja": "生態学や気候学のモデルでは、"
+    },
+    {
+     "start": 52.29,
+     "end": 54.75,
+     "en": "that have theoretically predicted",
+     "ja": "理論的な予測として、"
+    },
+    {
+     "start": 54.75,
+     "end": 58.14,
+     "en": "that the boreal forest, given climate change,",
+     "ja": "気候変動が進めば北方林は"
+    },
+    {
+     "start": 58.14,
+     "end": 60.24,
+     "en": "should be moving north.",
+     "ja": "北に移動していくはずだとされてきました。"
+    },
+    {
+     "start": 60.24,
+     "end": 62.46,
+     "en": "- [Narrator] Previous studies provided hints:",
+     "ja": "- [ナレーター] これまでの研究からもそれを示すヒントはありました。"
+    },
+    {
+     "start": 62.46,
+     "end": 64.95,
+     "en": "regional evidence, indirect measurements,",
+     "ja": "地域ごとの証拠や、間接的な測定です。"
+    },
+    {
+     "start": 64.95,
+     "end": 69.33,
+     "en": "but the boreal forest changes slowly, very slowly.",
+     "ja": "しかし北方林の変化はとてもゆっくり、非常にゆっくりです。"
+    },
+    {
+     "start": 69.33,
+     "end": 71.19,
+     "en": "To truly see what's happening,",
+     "ja": "何が起きているか本当に確かめるには、"
+    },
+    {
+     "start": 71.19,
+     "end": 73.59,
+     "en": "you'd need to watch the entire forest",
+     "ja": "森全体を見続ける必要があります。"
+    },
+    {
+     "start": 73.59,
+     "end": 76.17,
+     "en": "continuously for decades.",
+     "ja": "しかも何十年ものあいだ、途切れなくです。"
+    },
+    {
+     "start": 76.17,
+     "end": 79.35,
+     "en": "So how could researchers possibly test this hypothesis",
+     "ja": "では、研究者たちはどうすれば、"
+    },
+    {
+     "start": 79.35,
+     "end": 81.69,
+     "en": "at such a massive scale?",
+     "ja": "こんな途方もないスケールで仮説を検証できるのでしょうか？"
+    },
+    {
+     "start": 81.69,
+     "end": 83.43,
+     "en": "Enter Landsat:",
+     "ja": "そこで登場するのがランドサット、"
+    },
+    {
+     "start": 83.43,
+     "end": 87.12,
+     "en": "NASA's longest running earth observation program.",
+     "ja": "NASAが行っている、もっとも長く続く地球観測計画です。"
+    },
+    {
+     "start": 87.12,
+     "end": 87.95,
+     "en": "For the first time,",
+     "ja": "今回初めて、"
+    },
+    {
+     "start": 87.95,
+     "end": 90.93,
+     "en": "scientists could analyze the entire boreal forest",
+     "ja": "科学者たちは北方林全域を解析できるようになりました。"
+    },
+    {
+     "start": 90.93,
+     "end": 93.54,
+     "en": "using the complete Landsat archive.",
+     "ja": "ランドサットの全データ記録を使ってです。"
+    },
+    {
+     "start": 93.54,
+     "end": 96.99,
+     "en": "- This study is the first and only study",
+     "ja": "- この研究は、これまでで唯一、"
+    },
+    {
+     "start": 96.99,
+     "end": 101.99,
+     "en": "to comprehensively study the entire boreal forest",
+     "ja": "1984年から2020年までの北方林全体を包括的に調べた研究です。"
+    },
+    {
+     "start": 102.06,
+     "end": 104.4,
+     "en": "from 1984 to 2020,",
+     "ja": "1984年から2020年までの期間について、"
+    },
+    {
+     "start": 104.4,
+     "end": 108.66,
+     "en": "using 224,000 Landsat images,",
+     "ja": "22万4,000枚のランドサット画像を用い、"
+    },
+    {
+     "start": 108.66,
+     "end": 113.4,
+     "en": "mapping the tree cover in every pixel, 30-meter resolution,",
+     "ja": "30メートル四方ごとに樹木の被覆をマッピングし、"
+    },
+    {
+     "start": 113.4,
+     "end": 115.17,
+     "en": "and then testing whether or not",
+     "ja": "そのうえで、"
+    },
+    {
+     "start": 115.17,
+     "end": 118.05,
+     "en": "the boreal forest is moving north.",
+     "ja": "北方林が本当に北へ動いているかどうかを検証しました。"
+    },
+    {
+     "start": 118.05,
+     "end": 121.23,
+     "en": "- [Narrator] The research team, led by NASA and terraPulse,",
+     "ja": "- [ナレーター] NASAとterraPulseが主導した研究チームは、"
+    },
+    {
+     "start": 121.23,
+     "end": 123.24,
+     "en": "calibrated Landsat satellite data",
+     "ja": "ランドサット衛星のデータに、"
+    },
+    {
+     "start": 123.24,
+     "end": 126.57,
+     "en": "using NASA's airborne field campaign lidar measurements",
+     "ja": "NASAの航空機によるライダー観測と、"
+    },
+    {
+     "start": 126.57,
+     "end": 127.89,
+     "en": "and commercial images",
+     "ja": "商業衛星の画像を組み合わせて補正し、"
+    },
+    {
+     "start": 127.89,
+     "end": 129.54,
+     "en": "to create the most accurate map",
+     "ja": "これまででもっとも精度の高い、"
+    },
+    {
+     "start": 129.54,
+     "end": 132.27,
+     "en": "of boreal tree cover ever produced.",
+     "ja": "北方林の樹木分布マップを作り上げました。"
+    },
+    {
+     "start": 132.27,
+     "end": 135.48,
+     "en": "They then tracked changes in every 30-meter pixel,",
+     "ja": "そのうえで、30メートル四方のピクセルごとに変化を追跡しました。"
+    },
+    {
+     "start": 135.48,
+     "end": 138.15,
+     "en": "an area about the size of a baseball diamond,",
+     "ja": "およそ野球場1面ほどの広さの単位です。"
+    },
+    {
+     "start": 138.15,
+     "end": 139.77,
+     "en": "across 36 years,",
+     "ja": "それを36年間にわたって、"
+    },
+    {
+     "start": 139.77,
+     "end": 142.62,
+     "en": "in the entire circumboreal region.",
+     "ja": "地球の北極圏をぐるりと取り囲む北方林全域で行いました。"
+    },
+    {
+     "start": 142.62,
+     "end": 144.57,
+     "en": "The scope is staggering,",
+     "ja": "その規模は圧倒的で、"
+    },
+    {
+     "start": 144.57,
+     "end": 147.06,
+     "en": "analyzing the complete northern forest belt",
+     "ja": "アラスカ、カナダ、スカンジナビア、ロシアにまたがる"
+    },
+    {
+     "start": 147.06,
+     "end": 151.32,
+     "en": "spanning Alaska, Canada, Scandinavia, and Russia.",
+     "ja": "北の森の帯全体を解析しました。"
+    },
+    {
+     "start": 151.32,
+     "end": 155.85,
+     "en": "- The study's groundbreaking just in its sheer scope.",
+     "ja": "- この研究は、その規模だけ見ても画期的です。"
+    },
+    {
+     "start": 155.85,
+     "end": 159.0,
+     "en": "The longest record, the highest resolution.",
+     "ja": "観測期間は最長、空間分解能も最高レベルです。"
+    },
+    {
+     "start": 159.0,
+     "end": 161.61,
+     "en": "Data were calibrated using lidar.",
+     "ja": "データはライダーを使ってていねいに補正されています。"
+    },
+    {
+     "start": 161.61,
+     "end": 164.82,
+     "en": "I mean, just every resource was thrown at this study",
+     "ja": "あらゆる手段とリソースをこの研究に注ぎ込んで、"
+    },
+    {
+     "start": 164.82,
+     "end": 167.58,
+     "en": "to get the final, definitive answer.",
+     "ja": "最終的で決定的な答えを出そうとしたのです。"
+    },
+    {
+     "start": 167.58,
+     "end": 169.26,
+     "en": "- [Narrator] And the answer is clear:",
+     "ja": "- [ナレーター] そして、その答えははっきりしました。"
+    },
+    {
+     "start": 169.26,
+     "end": 172.35,
+     "en": "the boreal forest is shifting north.",
+     "ja": "北方林は、北へと移動しています。"
+    },
+    {
+     "start": 172.35,
+     "end": 174.96,
+     "en": "Between 1985 and 2020,",
+     "ja": "1985年から2020年のあいだに、"
+    },
+    {
+     "start": 174.96,
+     "end": 177.6,
+     "en": "the forest's median latitude moved northward",
+     "ja": "森林の中心となる緯度は、"
+    },
+    {
+     "start": 177.6,
+     "end": 182.6,
+     "en": "by 0.43 degrees, roughly 60 kilometers.",
+     "ja": "0.43度、距離にしておよそ60キロ北へ動きました。"
+    },
+    {
+     "start": 182.61,
+     "end": 184.02,
+     "en": "The forest also expanded",
+     "ja": "さらに森林は広がり、"
+    },
+    {
+     "start": 184.02,
+     "end": 189.02,
+     "en": "by 844,000 square kilometers, a 12% increase.",
+     "ja": "84万4,000平方キロメートル、率にして12％増えました。"
+    },
+    {
+     "start": 189.18,
+     "end": 190.68,
+     "en": "And it's getting denser,",
+     "ja": "そして森はより密になり、"
+    },
+    {
+     "start": 190.68,
+     "end": 194.04,
+     "en": "with tree cover increasing across most latitudes.",
+     "ja": "多くの緯度帯で樹木の覆う面積が増えています。"
+    },
+    {
+     "start": 194.04,
+     "end": 197.28,
+     "en": "- What we found is that the forest is getting denser",
+     "ja": "- 私たちがわかったのは、森が多くの緯度帯で"
+    },
+    {
+     "start": 197.28,
+     "end": 199.59,
+     "en": "across most latitudes.",
+     "ja": "どんどん密になっているということです。"
+    },
+    {
+     "start": 199.59,
+     "end": 202.98,
+     "en": "At the very southern edge of the boreal forest,",
+     "ja": "一方で、北方林のごく南の端では、"
+    },
+    {
+     "start": 202.98,
+     "end": 205.44,
+     "en": "there are a couple slices, latitudinal slices,",
+     "ja": "いくつかの「緯度の帯」の区間で、"
+    },
+    {
+     "start": 205.44,
+     "end": 209.1,
+     "en": "where the the net change of the forest is being lost.",
+     "ja": "森林の正味の面積が減っているところもあります。"
+    },
+    {
+     "start": 209.1,
+     "end": 212.34,
+     "en": "But the pattern of those losses",
+     "ja": "ただ、その減少パターンは時間がたってもほぼ同じで、"
+    },
+    {
+     "start": 212.34,
+     "end": 215.34,
+     "en": "is pretty consistent over time,",
+     "ja": "継続的に見ても大きくは変化していません。"
+    },
+    {
+     "start": 215.34,
+     "end": 218.94,
+     "en": "and those changes within latitude across time",
+     "ja": "こうした同じ緯度帯の中での変化は、"
+    },
+    {
+     "start": 218.94,
+     "end": 223.94,
+     "en": "aren't really changing as much as the growth.",
+     "ja": "全体としての森林の増加ほど大きくはないのです。"
+    },
+    {
+     "start": 223.95,
+     "end": 225.87,
+     "en": "- [Narrator] The boreal forest's northward shift",
+     "ja": "- [ナレーター] 北方林が北へ移動することは、"
+    },
+    {
+     "start": 225.87,
+     "end": 227.37,
+     "en": "affects everything,",
+     "ja": "あらゆるものに影響を及ぼします。"
+    },
+    {
+     "start": 227.37,
+     "end": 229.38,
+     "en": "from managing fuel load fire risk",
+     "ja": "山火事の燃料となる植物の量をどう管理するかから、"
+    },
+    {
+     "start": 229.38,
+     "end": 232.74,
+     "en": "to industrial operations of timber, oil, and mining,",
+     "ja": "木材、石油、鉱物などの資源開発や、"
+    },
+    {
+     "start": 232.74,
+     "end": 236.73,
+     "en": "extracting resources across North America and Eurasia.",
+     "ja": "北米とユーラシアにおける資源の採取方法まで変えてしまいます。"
+    },
+    {
+     "start": 236.73,
+     "end": 238.62,
+     "en": "It changes wildlife habitats",
+     "ja": "野生動物のすむ場所も変わり、"
+    },
+    {
+     "start": 238.62,
+     "end": 241.56,
+     "en": "and the forest's ability to store carbon.",
+     "ja": "森が炭素を蓄える力にも影響が出ます。"
+    },
+    {
+     "start": 241.56,
+     "end": 244.26,
+     "en": "The expanding forest is also getting younger,",
+     "ja": "広がる森は同時に若返っていて、"
+    },
+    {
+     "start": 244.26,
+     "end": 245.52,
+     "en": "with fast-growing trees",
+     "ja": "成長の早い木々が増えています。"
+    },
+    {
+     "start": 245.52,
+     "end": 247.44,
+     "en": "that could sequester additional carbon",
+     "ja": "これらの木がそのまま成長すれば、"
+    },
+    {
+     "start": 247.44,
+     "end": 248.82,
+     "en": "if allowed to mature,",
+     "ja": "さらに多くの炭素を取り込める可能性があります。"
+    },
+    {
+     "start": 248.82,
+     "end": 252.87,
+     "en": "a potential positive outcome of warming and climate benefit.",
+     "ja": "地球温暖化のもとでも、気候にとってプラスになりうる一面です。"
+    },
+    {
+     "start": 252.87,
+     "end": 255.39,
+     "en": "Yet other factors could drive negative outcomes,",
+     "ja": "一方で、悪い方向の変化を引き起こす要因もあり、"
+    },
+    {
+     "start": 255.39,
+     "end": 257.88,
+     "en": "which requires additional studies.",
+     "ja": "そのためにはさらなる研究が必要です。"
+    },
+    {
+     "start": 257.88,
+     "end": 262.88,
+     "en": "- The boreal forest is poised for a major transition.",
+     "ja": "- 北方林は今、大きな転換点にさしかかっています。"
+    },
+    {
+     "start": 262.89,
+     "end": 264.45,
+     "en": "Permafrost is thawing.",
+     "ja": "永久凍土は解けはじめています。"
+    },
+    {
+     "start": 264.45,
+     "end": 266.88,
+     "en": "The forest composition is changing.",
+     "ja": "森を形づくる樹木の種類も変わりつつあります。"
+    },
+    {
+     "start": 266.88,
+     "end": 268.23,
+     "en": "All of these things can lead",
+     "ja": "こうした変化が重なれば、"
+    },
+    {
+     "start": 268.23,
+     "end": 270.81,
+     "en": "to an abrupt shift in the ecosystem",
+     "ja": "生態系が突然がらりと変わり、"
+    },
+    {
+     "start": 270.81,
+     "end": 273.42,
+     "en": "from one type to a completely different type.",
+     "ja": "まったく別のタイプの姿になってしまうこともありえます。"
+    },
+    {
+     "start": 273.42,
+     "end": 277.32,
+     "en": "With shorter term or less calibrated data,",
+     "ja": "短期間のデータや、十分に補正されていないデータだけだと、"
+    },
+    {
+     "start": 277.32,
+     "end": 279.0,
+     "en": "we can see abrupt changes.",
+     "ja": "急激な変化は見えても、それだけで終わってしまいます。"
+    },
+    {
+     "start": 279.0,
+     "end": 282.72,
+     "en": "But with the long-term, highly calibrated Landsat data,",
+     "ja": "けれども、長期にわたり、精度よく補正されたランドサットのデータなら、"
+    },
+    {
+     "start": 282.72,
+     "end": 284.34,
+     "en": "we can see the slow changes.",
+     "ja": "ゆっくり進む変化まではっきり見てとれます。"
+    },
+    {
+     "start": 284.34,
+     "end": 286.29,
+     "en": "It makes it sort of a canary in the coal mine.",
+     "ja": "北方林は、まさに「炭鉱のカナリア」のような存在なのです。"
+    },
+    {
+     "start": 286.29,
+     "end": 287.79,
+     "en": "It's a slow canary,",
+     "ja": "とてもゆっくりとしたカナリアですが、"
+    },
+    {
+     "start": 287.79,
+     "end": 290.1,
+     "en": "but if we have the long-term,",
+     "ja": "長期的で、きめ細かく、高精度なデータさえあれば、"
+    },
+    {
+     "start": 290.1,
+     "end": 293.13,
+     "en": "high-resolution, highly calibrated data,",
+     "ja": "ランドサットが与えてくれるようなデータがあれば、"
+    },
+    {
+     "start": 293.13,
+     "end": 295.29,
+     "en": "which Landsat gives us,",
+     "ja": "そのさえずりに耳を傾けることができます。"
+    },
+    {
+     "start": 295.29,
+     "end": 298.29,
+     "en": "then we can listen to its song.",
+     "ja": "- [ナレーター] この研究は、"
+    },
+    {
+     "start": 298.29,
+     "end": 299.58,
+     "en": "- [Narrator] This research represents",
+     "ja": "北方林の変化について行われた中で"
+    },
+    {
+     "start": 299.58,
+     "end": 301.32,
+     "en": "the most comprehensive analysis",
+     "ja": "もっとも包括的な解析を示すものです。"
+    },
+    {
+     "start": 301.32,
+     "end": 304.2,
+     "en": "of boreal forest change ever conducted,",
+     "ja": "それを可能にしたのは、何十年にもわたるランドサット観測と、"
+    },
+    {
+     "start": 304.2,
+     "end": 307.38,
+     "en": "made possible by decades of Landsat observations",
+     "ja": "変わりゆく地球を理解しようとするNASAの取り組みです。"
+    },
+    {
+     "start": 307.38,
+     "end": 311.61,
+     "en": "and NASA's commitment to understanding our changing planet.",
+     "ja": "(軽快で明るい音楽)"
+    },
+    {
+     "start": 311.61,
+     "end": 314.29,
+     "en": "(light upbeat music)",
+     "ja": ""
+    }
+   ]
+  },
+  {
+   "id": "L3-2",
+   "level": 3,
+   "title": "Webb Spies Rain Clouds, New Molecule on Titan",
+   "source": "nasa",
+   "source_url": "https://svs.gsfc.nasa.gov/14843/",
+   "video": "media/L3-2.mp4",
+   "audio_only": null,
+   "subs_en": "subs/L3-2.en.vtt",
+   "subs_ja": "subs/L3-2.ja.vtt",
+   "clip_start": null,
+   "clip_end": null,
+   "cover_height": 0,
+   "repeat": "minute",
+   "synopsis": null,
+   "vocab": [
+    {
+     "en": "featureless",
+     "ja": "特徴のない、模様のない"
+    },
+    {
+     "en": "organic haze",
+     "ja": "有機物でできたもや・霞"
+    },
+    {
+     "en": "hydrocarbons",
+     "ja": "炭化水素（メタンやエタンなど）"
+    },
+    {
+     "en": "cryogenic temperatures",
+     "ja": "極低温"
+    },
+    {
+     "en": "infrared vision",
+     "ja": "赤外線で見る能力・観測能力"
+    },
+    {
+     "en": "mid-latitudes",
+     "ja": "中緯度地方"
+    },
+    {
+     "en": "trace gases",
+     "ja": "ごく微量しか存在しない気体"
+    },
+    {
+     "en": "methyl radical",
+     "ja": "メチルラジカル（CH3の活性種）"
+    },
+    {
+     "en": "spectrum",
+     "ja": "スペクトル（光を波長ごとに分けたもの）"
+    },
+    {
+     "en": "replenishing",
+     "ja": "補給する、補う"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "タイタンで地球と共通している現象として、映像で強調されているのはどれですか？",
+     "choices": [
+      "プレートテクトニクス",
+      "活発な雨の循環",
+      "強い磁場",
+      "酸素が豊富な大気"
+     ],
+     "answer": 1,
+     "explain": "映像では、雨の循環によって地形が形づくられている点で、地球とタイタンが似ていると説明しています。"
+    },
+    {
+     "q": "タイタンの湖や海を満たしている主な物質は何ですか？",
+     "choices": [
+      "液体の水",
+      "二酸化炭素",
+      "炭化水素（メタンやエタン）",
+      "液体窒素"
+     ],
+     "answer": 2,
+     "explain": "タイタンの湖や海は、水ではなく、メタンやエタンなどの炭化水素でできていると述べられています。"
+    },
+    {
+     "q": "MIRIの観測で新たに確認された重要な分子はどれですか？",
+     "choices": [
+      "水蒸気",
+      "メチルラジカル",
+      "オゾン",
+      "二酸化硫黄"
+     ],
+     "answer": 1,
+     "explain": "ウェッブのMIRIがとらえたスペクトルの「スパイク」は、メチルラジカルの存在を示すものだと説明されています。"
+    },
+    {
+     "q": "タイタンのメチルラジカルは、どのような役割を担う「欠けていたピース」だと説明されていますか？",
+     "choices": [
+      "大気を温める主な温室効果ガス",
+      "水の循環を直接生み出す分子",
+      "より重い炭化水素ができるまでのつなぎ役",
+      "タイタンの磁場を作る要因"
+     ],
+     "answer": 2,
+     "explain": "メチルラジカルは、メタンからエタンなどの重い炭化水素ができるまでの「missing link」として紹介されています。"
+    },
+    {
+     "q": "ドラゴンフライ計画で特に重視されている探査対象はどれですか？",
+     "choices": [
+      "岩石の年代",
+      "金属鉱物",
+      "アミノ酸などの複雑な有機分子",
+      "氷の硬さ"
+     ],
+     "answer": 2,
+     "explain": "ドラゴンフライは、メタン・窒素・酸素からできた複雑な分子、とくにアミノ酸を重視して探すと説明されています。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 7,
+     "why": "原文には「one that may have implications...」のみで、「そんなタイタンについてのお話です」と少し補っており、トーンの解釈が入っているため。"
+    },
+    {
+     "line": 31,
+     "why": "単なる音楽キューだが、字幕としてどう扱うかは制作意図次第で、訳語の有無・表現は任意性が高い。"
+    },
+    {
+     "line": 44,
+     "why": "“spike” を「鋭いピーク」と訳し、専門的ニュアンスを意訳気味に説明的にしているため。"
+    },
+    {
+     "line": 61,
+     "why": "“made from Titan's abundant methane, nitrogen and oxygen” を「タイタンに豊富にある〜から作られた物質」とし、生成の主体（自然か実験か）をあいまいにしている。"
+    },
+    {
+     "line": 74,
+     "why": "“a dark blue sky” を「暗い青一色」と雰囲気重視でやや意訳しており、色味の解釈が入っている可能性があるため。"
+    }
+   ],
+   "credit": "Video: NASA Goddard Space Flight Center / NASA Scientific Visualization Studio. NASAはA-PUSHを推薦・提携していません。動画内の音楽・一部映像は第三者の権利を含むため、加工せずに配信しています。",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.0,
+     "end": 1.72,
+     "en": "[Music]",
+     "ja": "[音楽]"
+    },
+    {
+     "start": 1.72,
+     "end": 3.35,
+     "en": "Our solar system is home",
+     "ja": "私たちの太陽系には、"
+    },
+    {
+     "start": 3.35,
+     "end": 6.35,
+     "en": "to eight planets and nearly 300 known moons,",
+     "ja": "8つの惑星と、知られているだけで約300個の衛星がありますが、"
+    },
+    {
+     "start": 6.68,
+     "end": 11.28,
+     "en": "but of those many worlds, only two are shaped by an active rain cycle:",
+     "ja": "そのたくさんの世界の中で、雨の循環が今も働いているのは2つだけです。"
+    },
+    {
+     "start": 11.77,
+     "end": 14.83,
+     "en": "Earth and Saturn's largest moon, Titan.",
+     "ja": "地球と、土星でいちばん大きな衛星タイタンです。"
+    },
+    {
+     "start": 15.55,
+     "end": 20.3,
+     "en": "Now, NASA's James Webb Space Telescope has discovered a new molecule",
+     "ja": "そして今、NASAのジェームズ・ウェッブ宇宙望遠鏡が、タイタンの大気の中に新しい分子を発見しました。"
+    },
+    {
+     "start": 20.32,
+     "end": 24.18,
+     "en": "in Titan's atmosphere, one that may have implications for the future",
+     "ja": "この分子は、驚くほど地球に似たこの世界の行く末を考えるうえで、手がかりになるかもしれません。"
+    },
+    {
+     "start": 24.25,
+     "end": 27.25,
+     "en": "of this surprisingly Earthlike world.",
+     "ja": "そんなタイタンについてのお話です。"
+    },
+    {
+     "start": 27.25,
+     "end": 28.82,
+     "en": "[Music]",
+     "ja": "[音楽]"
+    },
+    {
+     "start": 28.82,
+     "end": 32.62,
+     "en": "From space, Titan appears to be a featureless, orange globe,",
+     "ja": "宇宙から見ると、タイタンは何も模様のないオレンジ色の球体に見えます。"
+    },
+    {
+     "start": 32.62,
+     "end": 36.55,
+     "en": "with its lower atmosphere and its surface hidden by an organic haze.",
+     "ja": "低い高度の大気と地表は、有機物のもやにすっかり隠れています。"
+    },
+    {
+     "start": 37.12,
+     "end": 40.37,
+     "en": "But when we look at the moon in infrared, its features emerge:",
+     "ja": "ですが、この衛星を赤外線で見ると、その姿が現れてきます。"
+    },
+    {
+     "start": 40.97,
+     "end": 43.55,
+     "en": "dark dune fields, circling the equator,",
+     "ja": "赤道をぐるりと取り巻く、暗い砂丘地帯、"
+    },
+    {
+     "start": 43.55,
+     "end": 47.55,
+     "en": "vast plains in the mid-latitudes, and in the far north,",
+     "ja": "中緯度に広がる広大な平原、そしてはるか北には、"
+    },
+    {
+     "start": 47.75,
+     "end": 51.43,
+     "en": "lakes and seas rivaling the Great Lakes of North America.",
+     "ja": "北米の五大湖に匹敵するほどの湖や海があります。"
+    },
+    {
+     "start": 52.37,
+     "end": 56.83,
+     "en": "Unlike Earth, these bodies are not made of liquid water, but of hydrocarbons",
+     "ja": "地球とは違い、これらは液体の水ではなく、炭化水素でできています。"
+    },
+    {
+     "start": 56.83,
+     "end": 59.93,
+     "en": "like methane and ethane chilled to cryogenic temperatures.",
+     "ja": "メタンやエタンといった物質が、極低温まで冷やされているのです。"
+    },
+    {
+     "start": 60.7,
+     "end": 64.75,
+     "en": "From 2022 to 2023, my colleagues and I studied Titan",
+     "ja": "2022年から2023年にかけて、私たちのチームはタイタンを観測しました。"
+    },
+    {
+     "start": 64.75,
+     "end": 68.52,
+     "en": "with the Webb Telescope and the Keck Observatory on Mauna Kea.",
+     "ja": "使ったのはウェッブ望遠鏡と、マウナケア山のケック天文台です。"
+    },
+    {
+     "start": 68.85,
+     "end": 71.87,
+     "en": "Their powerful infrared vision cut through Titan's haze",
+     "ja": "それらの強力な赤外線観測能力のおかげで、タイタンを覆うもやを透かし見て、"
+    },
+    {
+     "start": 71.98,
+     "end": 74.98,
+     "en": "to reveal its northern hemisphere during late summer.",
+     "ja": "夏の終わりを迎えた北半球のようすをとらえることができました。"
+    },
+    {
+     "start": 75.38,
+     "end": 78.9,
+     "en": "What we saw were two broad areas of methane cloud cover",
+     "ja": "そこに見えたのは、メタンの雲が広がる2つの大きな領域で、"
+    },
+    {
+     "start": 78.93,
+     "end": 82.62,
+     "en": "around 55 degrees north, close to the largest lakes and seas.",
+     "ja": "北緯55度付近、最大級の湖や海の近くに位置していました。"
+    },
+    {
+     "start": 83.33,
+     "end": 88.45,
+     "en": "In 2004, NASA's Cassini orbiter made its first close encounter with Titan",
+     "ja": "2004年、NASAの探査機カッシーニが、初めてタイタンに接近したとき、"
+    },
+    {
+     "start": 88.58,
+     "end": 92.45,
+     "en": "while the southern hemisphere was in summer. Cassini witnessed rain clouds",
+     "ja": "そのときは南半球が夏で、カッシーニは雨雲の発生をとらえました。"
+    },
+    {
+     "start": 92.45,
+     "end": 96.92,
+     "en": "forming in the drier south polar regions due to seasonal heating and evaporation.",
+     "ja": "季節ごとの昇温と蒸発によって、より乾いた南極付近で雲が生まれていたのです。"
+    },
+    {
+     "start": 97.58,
+     "end": 101.78,
+     "en": "Climate models predicted that as Titan's northern hemisphere entered summer",
+     "ja": "気候モデルの計算では、2017年ごろからタイタンの北半球が夏に入ると、"
+    },
+    {
+     "start": 101.88,
+     "end": 106.38,
+     "en": "beginning in 2017, methane would evaporate from its large lakes and seas,",
+     "ja": "大きな湖や海からメタンが蒸発し、"
+    },
+    {
+     "start": 106.52,
+     "end": 109.52,
+     "en": "rising into the lower atmosphere to form rain clouds.",
+     "ja": "下層大気に上昇して雨雲をつくると予測されていました。"
+    },
+    {
+     "start": 110.23,
+     "end": 114.73,
+     "en": "Now, our study has confirmed that when Titan's northern hemisphere warms up,",
+     "ja": "今回の研究で、タイタンの北半球が温まると、"
+    },
+    {
+     "start": 114.78,
+     "end": 117.93,
+     "en": "it also undergoes a seasonal cycle of cloud formation.",
+     "ja": "雲が季節的に発生するサイクルが起きていることが確かめられました。"
+    },
+    {
+     "start": 117.93,
+     "end": 119.73,
+     "en": "[Music]",
+     "ja": "[音楽]"
+    },
+    {
+     "start": 119.73,
+     "end": 121.88,
+     "en": "In addition to taking pictures of Titan,",
+     "ja": "タイタンの撮像に加えて、"
+    },
+    {
+     "start": 121.88,
+     "end": 124.93,
+     "en": "we used the Webb Telescope’s Mid-Infrared Instrument,",
+     "ja": "私たちはウェッブ望遠鏡の中間赤外線装置、"
+    },
+    {
+     "start": 125.12,
+     "end": 128.12,
+     "en": "or MIRI, to study the makeup of its atmosphere.",
+     "ja": "MIRIを使って、その大気の成分も調べました。"
+    },
+    {
+     "start": 128.22,
+     "end": 130.73,
+     "en": "MIRI has both a camera and a spectrometer:",
+     "ja": "MIRIにはカメラと分光器の両方があり、"
+    },
+    {
+     "start": 130.73,
+     "end": 132.62,
+     "en": "it can break apart the light from an object",
+     "ja": "観測した天体からの光を細かく分解して、"
+    },
+    {
+     "start": 132.62,
+     "end": 135.38,
+     "en": "to determine its chemical composition.",
+     "ja": "どのような化学成分が含まれているかを調べることができます。"
+    },
+    {
+     "start": 135.38,
+     "end": 139.25,
+     "en": "Like Earth, Titan's atmosphere is made primarily of nitrogen,",
+     "ja": "地球と同じように、タイタンの大気の主成分は窒素です。"
+    },
+    {
+     "start": 139.52,
+     "end": 141.93,
+     "en": "but it also has a substantial amount of methane,",
+     "ja": "ただし、そこにはメタンも大量に含まれていて、"
+    },
+    {
+     "start": 141.93,
+     "end": 144.92,
+     "en": "which plays a similar role to Earth's water vapor.",
+     "ja": "地球の水蒸気と似た役割を果たしています。"
+    },
+    {
+     "start": 144.92,
+     "end": 150.07,
+     "en": "Trace gases are present as well, including heavier hydrocarbons like ethane.",
+     "ja": "さらに、痕跡程度の気体もあり、エタンのような重い炭化水素も含まれます。"
+    },
+    {
+     "start": 150.27,
+     "end": 153.27,
+     "en": "but the details of their formation are murky.",
+     "ja": "しかし、そうした物質がどうやって作られるのか、詳しい仕組みはよく分かっていませんでした。"
+    },
+    {
+     "start": 153.33,
+     "end": 158.27,
+     "en": "Now, Webb's MIRI instrument has shed new light on how these hydrocarbons form.",
+     "ja": "今回、ウェッブ望遠鏡のMIRIが、その炭化水素が生まれる流れに新たな光を当てました。"
+    },
+    {
+     "start": 158.75,
+     "end": 163.27,
+     "en": "When MIRI measured Titan's spectrum, it saw a previously undetected spike",
+     "ja": "MIRIがタイタンのスペクトルを測定したところ、これまで見つかっていなかった鋭いピークが現れました。"
+    },
+    {
+     "start": 163.4,
+     "end": 165.78,
+     "en": "indicating the presence of the methyl radical,",
+     "ja": "それはメチルラジカルの存在を示すサインで、"
+    },
+    {
+     "start": 165.78,
+     "end": 168.37,
+     "en": "the missing link to the heavier hydrocarbons.",
+     "ja": "より重い炭化水素へとつながる、欠けていたピースでした。"
+    },
+    {
+     "start": 168.37,
+     "end": 171.97,
+     "en": "Here's how the process works: in Titan's upper atmosphere,",
+     "ja": "そのしくみを説明しましょう。タイタンの高層大気では、"
+    },
+    {
+     "start": 171.97,
+     "end": 175.33,
+     "en": "UV radiation from the Sun and electrons from Saturn",
+     "ja": "太陽からの紫外線や、土星から飛んでくる電子が、"
+    },
+    {
+     "start": 175.35,
+     "end": 179.07,
+     "en": "break apart methane into hydrogen atoms and methyl radicals.",
+     "ja": "メタンをバラバラに壊し、水素原子とメチルラジカルを生み出します。"
+    },
+    {
+     "start": 179.38,
+     "end": 182.83,
+     "en": "The hydrogen is lost to space, while the short-lived methyl",
+     "ja": "水素は宇宙空間へ逃げていきますが、寿命の短いメチルラジカルは、"
+    },
+    {
+     "start": 182.83,
+     "end": 186.1,
+     "en": "radicals recombine into heavier molecules, like ethane.",
+     "ja": "互いに結びついてエタンのような、より重い分子になります。"
+    },
+    {
+     "start": 186.67,
+     "end": 190.13,
+     "en": "Ethane and methane eventually condense into droplets and rain",
+     "ja": "やがてエタンやメタンは凝縮して小さな液滴となり、雨となって"
+    },
+    {
+     "start": 190.13,
+     "end": 193.7,
+     "en": "out of the atmosphere, replenishing lakes and seas on the surface.",
+     "ja": "大気から降り落ち、地表の湖や海を補給します。"
+    },
+    {
+     "start": 194.13,
+     "end": 197.33,
+     "en": "Rainfall on Titan has yet to be directly observed,",
+     "ja": "タイタンでの雨そのものは、まだ直接とらえられてはいませんが、"
+    },
+    {
+     "start": 197.52,
+     "end": 201.27,
+     "en": "but the discovery of methyl radicals fills a gap in our observations,",
+     "ja": "今回のメチルラジカルの発見によって、これまで観測上あった空白が埋まり、"
+    },
+    {
+     "start": 201.5,
+     "end": 205.65,
+     "en": "and it supports our understanding of this surprisingly Earthlike world.",
+     "ja": "この、地球に驚くほど似た世界についての理解を後押しする結果となりました。"
+    },
+    {
+     "start": 205.65,
+     "end": 207.22,
+     "en": "[Music]",
+     "ja": "[音楽]"
+    },
+    {
+     "start": 207.22,
+     "end": 210.05,
+     "en": "Further discoveries will come in 2034,",
+     "ja": "さらに先の発見は、2034年にやってきます。"
+    },
+    {
+     "start": 210.05,
+     "end": 214.63,
+     "en": "when NASA's Dragonfly mission touches down near the equator during northern winter.",
+     "ja": "そのとき、NASAの探査機ドラゴンフライが、北半球の冬に、赤道近くへ着陸する予定です。"
+    },
+    {
+     "start": 215.13,
+     "end": 219.68,
+     "en": "Dragonfly will drill into the icy surface to look for complex molecules",
+     "ja": "ドラゴンフライは氷の地面に穴を開け、複雑な分子を探します。"
+    },
+    {
+     "start": 219.77,
+     "end": 223.25,
+     "en": "made from Titan's abundant methane, nitrogen and oxygen.",
+     "ja": "タイタンに豊富にあるメタン、窒素、酸素から作られた物質です。"
+    },
+    {
+     "start": 223.72,
+     "end": 226.83,
+     "en": "Of particular interest to its search are amino acids,",
+     "ja": "なかでも重要なのがアミノ酸で、"
+    },
+    {
+     "start": 227.02,
+     "end": 230.03,
+     "en": "the building blocks of proteins that make up life on Earth.",
+     "ja": "地球の生命を形づくるたんぱく質の材料となる分子です。"
+    },
+    {
+     "start": 230.97,
+     "end": 236.22,
+     "en": "As spring slowly returns to the northern hemisphere, in the late 2030’s, Dragonfly",
+     "ja": "その後、2030年代の後半にかけて、ゆっくりと北半球に春が戻ってくるころ、ドラゴンフライは、"
+    },
+    {
+     "start": 236.22,
+     "end": 239.93,
+     "en": "may also become the first mission to witness rainfall on another world.",
+     "ja": "別の天体で降る雨を、史上初めて目撃する探査機になるかもしれません。"
+    },
+    {
+     "start": 239.95,
+     "end": 242.05,
+     "en": "[Music]",
+     "ja": "[音楽]"
+    },
+    {
+     "start": 242.05,
+     "end": 245.12,
+     "en": "Looking ahead to the far future, our study hints",
+     "ja": "さらにずっと先の未来を見すえると、今回の研究結果から、"
+    },
+    {
+     "start": 245.12,
+     "end": 248.7,
+     "en": "at an intriguing possibility for the evolution of Titan's climate.",
+     "ja": "タイタンの気候がどのように変わっていくか、興味深い可能性が浮かび上がってきます。"
+    },
+    {
+     "start": 249.27,
+     "end": 252.48,
+     "en": "If the methane that is being broken apart in the upper atmosphere",
+     "ja": "もし高層大気で分解されているメタンが、"
+    },
+    {
+     "start": 252.55,
+     "end": 254.77,
+     "en": "is not replenished from the moon's interior,",
+     "ja": "衛星の内部から補充されないとしたら、"
+    },
+    {
+     "start": 254.77,
+     "end": 257.77,
+     "en": "it could eventually disappear from the environment.",
+     "ja": "いずれ環境から姿を消してしまうかもしれません。"
+    },
+    {
+     "start": 257.93,
+     "end": 262.07,
+     "en": "Over tens of millions of years, Titan's lakes and seas could dry up.",
+     "ja": "数千万年という長い時間をかけて、タイタンの湖や海は干上がる可能性があります。"
+    },
+    {
+     "start": 262.75,
+     "end": 266.2,
+     "en": "Its shorelines could gradually give way to the encroaching desert.",
+     "ja": "岸辺は少しずつ後退し、砂漠がじわじわと広がっていくでしょう。"
+    },
+    {
+     "start": 266.95,
+     "end": 270.97,
+     "en": "Its rain clouds and organic haze could vanish, leaving a dark blue sky.",
+     "ja": "雨雲も有機物のもやも消え去り、空は暗い青一色になるかもしれません。"
+    },
+    {
+     "start": 271.72,
+     "end": 274.72,
+     "en": "At last, Saturn would be visible from Titan's surface,",
+     "ja": "そしてついに、タイタンの地表からも土星が見えるようになり、"
+    },
+    {
+     "start": 274.88,
+     "end": 280.63,
+     "en": "gazing down upon a world of dry lakebeds, empty river channels, and endless dunes.",
+     "ja": "そこには、干上がった湖の跡や、からの川筋、果てしなく続く砂丘からなる世界が広がっているでしょう。"
+    },
+    {
+     "start": 280.63,
+     "end": 283.48,
+     "en": "[Dry wind blowing] [Music]",
+     "ja": "[乾いた風の音] [音楽]"
+    },
+    {
+     "start": 283.73,
+     "end": 295.57,
+     "en": "[Music]",
+     "ja": "[音楽]"
+    }
+   ]
+  },
+  {
+   "id": "L3-3",
+   "level": 3,
+   "title": "The Ransom of Red Chief",
+   "source": "voa",
+   "source_url": "https://learningenglish.voanews.com/a/the-ransom-of-red-chief-by-o-henry/4656557.html",
+   "video": "media/L3-3.mp4",
+   "audio_only": "media/L3-3_audio.mp4",
+   "subs_en": "subs/L3-3.en.vtt",
+   "subs_ja": "subs/L3-3.ja.vtt",
+   "clip_start": 222.16,
+   "clip_end": 571.21,
+   "cover_height": 0.22,
+   "repeat": "minute",
+   "synopsis": "2人組の男たちが、土地取引の資金を得るために町の有力者ドーセットの一人息子を誘拐します。\n少年は「レッド・チーフ」と名乗り、洞穴でインディアンごっこを始め、暴れ回ってビルをさんざん痛めつけます。\n逃がしたくない少年と、すでにぐったりしている誘拐犯たちとの、妙な同居生活が続いていきます。",
+   "vocab": [
+    {
+     "en": "daybreak",
+     "ja": "夜明け、ごく早朝"
+    },
+    {
+     "en": "a series of terrible screams",
+     "ja": "何度も続けて上がるひどい悲鳴"
+    },
+    {
+     "en": "spirit was broken",
+     "ja": "気力がくじけた、心が折れた"
+    },
+    {
+     "en": "imp",
+     "ja": "いたずら小僧、わんぱく坊主"
+    },
+    {
+     "en": "searching the countryside",
+     "ja": "周辺の田舎一帯を捜索する"
+    },
+    {
+     "en": "the wolves have taken the lamb from the fold",
+     "ja": "オオカミが群れから子羊をさらった（誘拐のたとえ表現）"
+    },
+    {
+     "en": "sling",
+     "ja": "投石ひも、パチンコ状の武器"
+    },
+    {
+     "en": "funning",
+     "ja": "ふざける、冗談を言うこと（口語・古風）"
+    },
+    {
+     "en": "ransom",
+     "ja": "身代金"
+    },
+    {
+     "en": "messenger",
+     "ja": "使いの者、伝令"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "レッド・チーフは夜明けにビルに対して何をしようとしていましたか？",
+     "choices": [
+      "ビルを縄で縛ろうとしていた",
+      "ビルの頭のてっぺんを切り取ろうとしていた",
+      "ビルを洞穴から逃がそうとしていた",
+      "ビルの髪を切って遊んでいた"
+     ],
+     "answer": 1,
+     "explain": "少年は前の晩に宣言したとおり、ナイフでビルの頭の上部を切り取ろうとしていました。"
+    },
+    {
+     "q": "山の上から村を見たとき、語り手が意外に感じたことは何ですか？",
+     "choices": [
+      "大雨が降っていたこと",
+      "村人たちが少年を捜して大騒ぎしていること",
+      "あたりがとても静かで平和だったこと",
+      "警察が山を包囲していたこと"
+     ],
+     "answer": 2,
+     "explain": "誘拐されたはずなのに、村は捜索どころか静まり返っていて、語り手は不思議に思います。"
+    },
+    {
+     "q": "少年がビルにされた仕打ちとして、ビルが説明しているのはどれですか？",
+     "choices": [
+      "冷たい水を頭からかけられた",
+      "背中に焼けたジャガイモを入れられ、足で押しつぶされた",
+      "顔に泥を投げつけられた",
+      "洞穴の外に閉め出された"
+     ],
+     "answer": 1,
+     "explain": "少年は熱々のジャガイモをビルの背中に入れ、さらに足で踏みつぶしたとビルが話しています。"
+    },
+    {
+     "q": "手紙の中で、身代金の受け渡し方法として正しいのはどれですか？",
+     "choices": [
+      "家の玄関マットの下に金を置く",
+      "銀行口座に振り込む",
+      "夜0時に、3本目の木の向かいの柵の下の箱に金を入れる",
+      "昼の12時に洞穴まで金を持ってくる"
+     ],
+     "answer": 2,
+     "explain": "手紙では、フクロウ川を渡った先の3本目の木の向かいの箱に、真夜中0時に金を置くよう指示しています。"
+    },
+    {
+     "q": "語り手がポプラー・コーブの郵便局兼店で聞き出した重要な情報は何ですか？",
+     "choices": [
+      "ビルが警察に捕まったこと",
+      "サミットの人々が少年の失踪を心配していること",
+      "少年の母親が金を払う気がないこと",
+      "ドーセットがすでに町を出てしまったこと"
+     ],
+     "answer": 1,
+     "explain": "老人の話から、サミットの町が少年の行方不明を心配しているとわかり、計画が知られていると確認します。"
+    }
+   ],
+   "ja_reviewed": false,
+   "ja_unsure": [
+    {
+     "line": 16,
+     "why": "“the wolves have taken the lamb from the fold” は聖書的な比喩表現で、どこまで意訳するか迷いましたが、誘拐のたとえとして説明的に訳しました。"
+    },
+    {
+     "line": 32,
+     "why": "“a deep breath from Bill” を「うめくような息づかい」としてニュアンスを補いましたが、原文の音の感じをどれだけ出すか判断が難しい箇所です。"
+    },
+    {
+     "line": 44,
+     "why": "“sat around the post office and store” を「ぶらぶらしていました」と比較的くだけた口語にしましたが、もう少し中立的な表現にするか迷いました。"
+    }
+   ],
+   "credit": "Video: VOA Learning English (learningenglish.voanews.com) — public domain",
+   "active": true,
+   "lines": [
+    {
+     "start": 0.4,
+     "end": 1.87,
+     "en": "We went to bed about 11 o’clock.",
+     "ja": "夜の11時ごろに寝ました。"
+    },
+    {
+     "start": 4.0,
+     "end": 12.39,
+     "en": "Just at daybreak, I was awakened by a series of terrible screams from Bill.",
+     "ja": "夜明けごろ、ビルのひどい悲鳴が何度も聞こえてきて、私は目を覚ましました。"
+    },
+    {
+     "start": 12.94,
+     "end": 18.85,
+     "en": "Red Chief was sitting on Bill’s chest, with one hand holding his hair.",
+     "ja": "レッド・チーフはビルの胸の上に乗り、一方の手でビルの髪をつかんでいました。"
+    },
+    {
+     "start": 19.42,
+     "end": 22.03,
+     "en": "In the other, he had a sharp knife.",
+     "ja": "もう一方の手には鋭いナイフを持っていました。"
+    },
+    {
+     "start": 22.48,
+     "end": 29.47,
+     "en": "He was attempting to cut off the top of Bill’s head, based on what he had declared the night before.",
+     "ja": "彼は、前の晩に自分で宣言していたとおり、ビルの頭のてっぺんを切り取ろうとしていたのです。"
+    },
+    {
+     "start": 31.33,
+     "end": 33.86,
+     "en": "I got the knife away from the boy.",
+     "ja": "私は少年からナイフを取り上げました。"
+    },
+    {
+     "start": 34.57,
+     "end": 38.66,
+     "en": "But, after that event, Bill’s spirit was broken.",
+     "ja": "しかしその一件のあと、ビルの気力はすっかり折れてしまいました。"
+    },
+    {
+     "start": 39.47,
+     "end": 47.2,
+     "en": "He lay down, but he never closed an eye again in sleep as long as that boy was with us.",
+     "ja": "ビルは横にはなりましたが、その少年が一緒にいるあいだ、一度も目を閉じて眠ることはありませんでした。"
+    },
+    {
+     "start": 48.57,
+     "end": 54.66,
+     "en": "“Do you think anybody will pay out money to get a little imp like that back home?” Bill asked.",
+     "ja": "「あんな悪ガキを家に戻すために、本当に金を払うやつなんていると思うか？」とビルが言いました。"
+    },
+    {
+     "start": 55.37,
+     "end": 56.32,
+     "en": "“Sure,” I said.",
+     "ja": "「もちろんだ」と私は言いました。"
+    },
+    {
+     "start": 56.85,
+     "end": 60.14,
+     "en": "“A boy like that is just the kind that parents love.",
+     "ja": "「ああいう子どもこそ、親がかわいがるタイプなんだ。"
+    },
+    {
+     "start": 60.51,
+     "end": 69.4,
+     "en": "Now, you and the Chief get up and make something to eat, while I go up on the top of this mountain and look around.”",
+     "ja": "さあ、お前とチーフは起きて何か作って食べてろ。俺はこの山の上まで見回りに行ってくる」"
+    },
+    {
+     "start": 71.4,
+     "end": 73.45,
+     "en": "I climbed to the top of the mountain.",
+     "ja": "私は山の頂上まで登りました。"
+    },
+    {
+     "start": 74.34,
+     "end": 80.23,
+     "en": "Over toward Summit, I expected to see the men of the village searching the countryside.",
+     "ja": "サミットの町のほうでは、村の男たちがあたり一帯を捜索しているだろうと予想していました。"
+    },
+    {
+     "start": 80.74,
+     "end": 83.31,
+     "en": "But all was peaceful.",
+     "ja": "ところが、あたりは実に静かでした。"
+    },
+    {
+     "start": 85.04,
+     "end": 95.79,
+     "en": "“Perhaps,” says I to myself, “it has not yet been discovered that the wolves have taken the lamb from the fold.”",
+     "ja": "「もしかすると、オオカミが群れから子羊をさらったことに、まだ気づいていないのかもしれないな」と私は心の中で思いました。"
+    },
+    {
+     "start": 97.02,
+     "end": 99.67,
+     "en": "I went back down the mountain.",
+     "ja": "私は山を下っていきました。"
+    },
+    {
+     "start": 101.18,
+     "end": 108.01,
+     "en": "When I got to the cave, I found Bill backed up against the side of it.",
+     "ja": "洞穴に戻ると、ビルが壁ぎわまで追いつめられて立っていました。"
+    },
+    {
+     "start": 108.34,
+     "end": 114.05,
+     "en": "He was breathing hard, with the boy threatening to strike him with a rock.",
+     "ja": "息をぜいぜい切らし、そのビルに向かって少年が石で殴るぞと脅しているところでした。"
+    },
+    {
+     "start": 115.22,
+     "end": 121.61,
+     "en": "“He put a red-hot potato down my back,” explained Bill, “and then crushed it with his foot.",
+     "ja": "「こいつ、焼きたての熱いジャガイモを俺の背中に入れてきやがってな」とビルが説明しました。「そのうえ足で押しつぶしたんだ。"
+    },
+    {
+     "start": 121.46,
+     "end": 123.55,
+     "en": "I hit his ears.",
+     "ja": "だから耳をはたいてやった。"
+    },
+    {
+     "start": 124.36,
+     "end": 126.25,
+     "en": "Have you got a gun with you, Sam?”",
+     "ja": "サム、銃は持ってないのか？」"
+    },
+    {
+     "start": 127.3,
+     "end": 133.27,
+     "en": "I took the rock away from the boy and ended the argument.",
+     "ja": "私は少年から石を取り上げて、その口論を終わらせました。"
+    },
+    {
+     "start": 135.3,
+     "end": 137.79,
+     "en": "“I’ll fix you,” says the boy to Bill.",
+     "ja": "「仕返ししてやるからな」と少年がビルに言いました。"
+    },
+    {
+     "start": 138.16,
+     "end": 142.27,
+     "en": "“No man ever yet struck the Red Chief but what he got paid for it.",
+     "ja": "「レッド・チーフを殴ったやつは、誰だってただではすまないんだ。"
+    },
+    {
+     "start": 142.4,
+     "end": 143.79,
+     "en": "You better be careful!”",
+     "ja": "気をつけろよ！」"
+    },
+    {
+     "start": 144.54,
+     "end": 158.41,
+     "en": "After eating, the boy takes a leather object with strings tied around it from his clothes and goes outside the cave unwinding it.",
+     "ja": "食事のあと、少年は服からひも付きの革の道具を取り出し、それをほどきながら洞穴の外へ出ていきました。"
+    },
+    {
+     "start": 159.3,
+     "end": 160.93,
+     "en": "Then we heard a kind of shout.",
+     "ja": "そのとき、何か叫び声のような音が聞こえました。"
+    },
+    {
+     "start": 161.62,
+     "end": 166.37,
+     "en": "It was Red Chief holding a sling in one hand.",
+     "ja": "見ると、レッド・チーフが片手に投石ひもを持っていました。"
+    },
+    {
+     "start": 166.64,
+     "end": 170.75,
+     "en": "He moved it faster and faster around his head.",
+     "ja": "彼はそれを頭の上でどんどん速く振り回しました。"
+    },
+    {
+     "start": 170.6,
+     "end": 179.05,
+     "en": "Just then I heard a heavy sound and a deep breath from Bill.",
+     "ja": "そのとたん、重い音と、ビルがうめくような息づかいが聞こえました。"
+    },
+    {
+     "start": 180.34,
+     "end": 187.31,
+     "en": "A rock the size of an egg had hit him just behind his left ear.",
+     "ja": "卵ほどの大きさの石が、ビルの左耳のすぐ後ろを直撃したのです。"
+    },
+    {
+     "start": 188.16,
+     "end": 194.31,
+     "en": "Bill fell in the fire across the frying pan of hot water for washing the dishes.",
+     "ja": "ビルは、皿洗い用の熱い湯を入れたフライパンの上に倒れ込み、焚き火の中へ落ちました。"
+    },
+    {
+     "start": 195.26,
+     "end": 201.57,
+     "en": "I pulled him out and poured cold water on his head for half an hour.",
+     "ja": "私はビルを引きずり出し、30分ほど頭に冷たい水をかけ続けました。"
+    },
+    {
+     "start": 203.26,
+     "end": 208.37,
+     "en": "Then I went out and caught that boy and shook him.",
+     "ja": "それから外へ出て、あの少年をつかまえ、ガタガタと揺さぶりました。"
+    },
+    {
+     "start": 209.48,
+     "end": 214.89,
+     "en": "“If your behavior doesn’t improve,” says I, “I’ll take you straight home.",
+     "ja": "「その態度を改めないなら」と私は言いました。「すぐにお前を家に連れて帰るぞ。"
+    },
+    {
+     "start": 215.38,
+     "end": 218.29,
+     "en": "Now, are you going to be good, or not?”",
+     "ja": "さあ、大人しくするのか、しないのか？」"
+    },
+    {
+     "start": 218.14,
+     "end": 221.37,
+     "en": "“I was only funning,” says he.",
+     "ja": "「ちょっとふざけてただけだよ」と少年は言いました。"
+    },
+    {
+     "start": 221.22,
+     "end": 223.77,
+     "en": "“I didn’t mean to hurt Old Hank.",
+     "ja": "「オールド・ハンクを本気で傷つけるつもりはなかったんだ。"
+    },
+    {
+     "start": 223.78,
+     "end": 225.69,
+     "en": "But what did he hit me for?",
+     "ja": "でも、なんであいつは俺をぶつんだよ？"
+    },
+    {
+     "start": 226.28,
+     "end": 229.15,
+     "en": "I’ll behave if you don’t send me home.”",
+     "ja": "家に帰さないなら、ちゃんとするよ」"
+    },
+    {
+     "start": 230.6,
+     "end": 241.65,
+     "en": "I thought it best to send a letter to old man Dorset that day, demanding the ransom and telling how it should be paid.",
+     "ja": "その日のうちに、ドーセットのじいさんへ身代金を要求し、支払い方法を書いた手紙を送るのがいちばんだと考えました。"
+    },
+    {
+     "start": 242.56,
+     "end": 243.73,
+     "en": "The letter said:",
+     "ja": "手紙にはこう書きました。"
+    },
+    {
+     "start": 244.93,
+     "end": 251.22,
+     "en": "“We have your boy hidden in a place far from Summit.",
+     "ja": "「あなたの坊ちゃんは、サミットから遠く離れた場所にかくしてある。"
+    },
+    {
+     "start": 252.35,
+     "end": 265.9,
+     "en": "We demand $1,500 for his return; the money to be left at midnight tonight at the same place and in the same box as your answer.",
+     "ja": "引き渡しの条件として1,500ドルを要求する。あなたの返事と同じ場所、同じ箱に、今夜0時に金を置いてもらいたい。"
+    },
+    {
+     "start": 266.61,
+     "end": 274.54,
+     "en": "\"If you agree to these terms, send the answer in writing by a messenger tonight at half past 8 o’clock.",
+     "ja": "この条件に同意するなら、今夜8時半までに、使いの者に書面で返事を持たせて送れ。"
+    },
+    {
+     "start": 276.45,
+     "end": 285.02,
+     "en": "After crossing Owl Creek, on the road to Poplar Cove, there are three large trees.",
+     "ja": "フクロウ川を渡ってポプラー・コーブへ向かう道沿いに、大きな木が3本並んでいる。"
+    },
+    {
+     "start": 286.07,
+     "end": 292.52,
+     "en": "At the bottom of the fence, opposite the third tree, will be a small box.",
+     "ja": "3本目の木の向かい側の柵の下に、小さな箱が置いてあるはずだ。"
+    },
+    {
+     "start": 293.37,
+     "end": 300.46,
+     "en": "The messenger will place the answer in this box and return immediately to Summit.",
+     "ja": "使いの者は、その箱に返事を入れたら、すぐにサミットへ引き返すこと。"
+    },
+    {
+     "start": 301.85,
+     "end": 307.3,
+     "en": "If you fail to agree to our demand, you will never see your boy again.",
+     "ja": "この要求に応じないなら、二度と坊ちゃんには会えない。"
+    },
+    {
+     "start": 308.65,
+     "end": 319.74,
+     "en": "If you pay the money as demanded, he will be returned to you safe and well within three hours.”",
+     "ja": "指定どおり金を払えば、3時間以内に無事な姿で坊ちゃんを返す。」"
+    },
+    {
+     "start": 322.37,
+     "end": 326.74,
+     "en": "I took the letter and walked over to Poplar Cove.",
+     "ja": "私はその手紙を持って、ポプラー・コーブまで歩いて行きました。"
+    },
+    {
+     "start": 327.57,
+     "end": 331.68,
+     "en": "I then sat around the post office and store.",
+     "ja": "それから、郵便局兼雑貨店のあたりでぶらぶらしていました。"
+    },
+    {
+     "start": 332.97,
+     "end": 342.82,
+     "en": "An old man there says he hears Summit is all worried because of Ebenezer Dorset’s boy having been lost or stolen.",
+     "ja": "そこにいた老人が、サミットの町じゅうが、エビニザー・ドーセットの坊ちゃんが行方不明か、さらわれたらしいと心配していると話してくれました。"
+    },
+    {
+     "start": 343.87,
+     "end": 345.76,
+     "en": "That was all I wanted to know.",
+     "ja": "それだけ分かれば十分でした。"
+    },
+    {
+     "start": 346.45,
+     "end": 348.6,
+     "en": "I mailed my letter and left.",
+     "ja": "私は手紙を投函し、その場を離れました。"
+    }
+   ]
+  }
+ ]
+}
