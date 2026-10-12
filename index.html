@@ -69,8 +69,11 @@ a{color:inherit}
 .tp.fill span{color:rgba(255,255,255,.85)}
 .tp.ghost{background:transparent}
 .tp.ghost b{font-size:13px;color:var(--muted)}
-.tp.ghost[aria-expanded="true"]{border-color:var(--red)}
-.tp.ghost[aria-expanded="true"] b{color:var(--red)}
+.more .top{margin:0 0 18px}
+.more .tp:not(.fill,.ghost){color:var(--fg)}
+.more .tp.ghost{border-color:var(--l2)}
+.more .tp.ghost b{color:#fff}
+.more .tp.ghost span{color:var(--m)}
 @media (max-width:430px){
   .top{grid-template-columns:1fr 1fr}
   .tp.ghost{grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;padding:9px 13px}
@@ -78,9 +81,12 @@ a{color:inherit}
 }
 
 /* ---- 使い方パネル ---- */
-.how{background:var(--surface);border:1px solid var(--red);border-radius:13px;padding:18px 16px;margin-top:9px}
-.how h2{font-size:14.5px;font-weight:900;margin:0 0 3px}
-.how>p{margin:0;font-size:13px;color:var(--muted)}
+.how{background:var(--surface);color:var(--fg);border:1px solid var(--red);border-radius:16px;padding:28px 22px 24px;width:min(600px,100% - 32px);max-height:calc(100dvh - 48px);overflow:auto}
+.how::backdrop{background:rgba(11,11,12,.6)}
+.howx{position:absolute;top:10px;right:12px;width:36px;height:36px;font-size:22px;line-height:1;color:var(--muted)}
+.howx:hover{color:var(--red)}
+.how h2{font-size:clamp(18px,4.6vw,22px);font-weight:900;margin:0 0 6px;padding-right:28px}
+.how>p{margin:0;font-size:14.5px;color:var(--muted)}
 .steps{display:grid;gap:12px;margin:16px 0 0;padding:0;list-style:none;counter-reset:s}
 .steps li{display:grid;grid-template-columns:24px 1fr;gap:11px;align-items:start;counter-increment:s}
 .steps li::before{content:counter(s);font-family:var(--en);font-size:11.5px;font-weight:900;color:var(--red);border:1.5px solid var(--red);border-radius:50%;width:24px;height:24px;display:grid;place-items:center;margin-top:1px}
@@ -306,20 +312,9 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
     </div>
   </div>
 
-  <div class="top">
-    <button class="tp ghost" id="btn-how" aria-expanded="false" aria-controls="how">
-      <b>使い方</b><span>30秒で読めます</span>
-    </button>
-    <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
-      <b>面談</b><span>無料・学習の相談</span>
-    </a>
-    <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">
-      <b>体験会</b><span>無料／60分</span>
-    </a>
-  </div>
-
-  <div class="how" id="how" hidden>
-    <h2>話せないのは、話す回数が足りないからです。</h2>
+  <dialog class="how" id="how" aria-labelledby="how-h">
+    <button class="howx" id="how-x" aria-label="閉じる">×</button>
+    <h2 id="how-h">話せないのは、話す回数が足りないからです。</h2>
     <p>絵を見て英語を選び、声に出して3回言うだけ。1ラウンド5問、2分ほどです。</p>
     <ol class="steps">
       <li><div><b>絵を見て、20秒で選ぶ</b><span>絵が何をしているかを見て、合う英語を選びます。</span></div></li>
@@ -332,12 +327,22 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
       <div class="kind"><i>時制</i><span>過去・現在・未来。同じ動詞を3つの形で言い分けます。</span></div>
       <div class="kind"><i>レベル</i><span>上のプルダウンで選べます。<b>Level 1</b> は短い文、<b>Level 2</b> は長い文、<b>Level 3</b> は英検2級くらいの言い回しです。</span></div>
     </div>
-  </div>
+  </dialog>
 
   <section class="more" aria-labelledby="more-h">
-    <p class="eyebrow en">A-PUSH MAIN COURSE</p>
-    <h2 id="more-h">このトレーニングは、まだ入口です。</h2>
-    <p>本コースで受けられるものを、まとめました。</p>
+    <div class="top">
+      <button class="tp ghost" id="btn-how" aria-haspopup="dialog">
+        <b>使い方</b><span>30秒で読めます</span>
+      </button>
+      <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
+        <b>面談</b><span>無料・学習の相談</span>
+      </a>
+      <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">
+        <b>体験会</b><span>無料／60分</span>
+      </a>
+    </div>
+
+    <h2 id="more-h">とにかく、話す、話す、話す、<br>スピーキング特化英会話　A-PUSH</h2>
 
     <div class="formula">
       <div class="duo">
@@ -495,11 +500,9 @@ function sentenceOf(q){
 }
 
 /* 使い方の開閉 */
-$("btn-how").addEventListener("click",()=>{
-  const b=$("btn-how"), open=b.getAttribute("aria-expanded")==="true";
-  b.setAttribute("aria-expanded",String(!open));
-  $("how").hidden=open;
-});
+$("btn-how").addEventListener("click",()=>$("how").showModal());
+$("how-x").addEventListener("click",()=>$("how").close());
+$("how").addEventListener("click",e=>{if(e.target===$("how"))$("how").close();}); // 背景タップで閉じる
 
 /* 種目タブ */
 ["modal","relative","tense"].forEach(k=>$("t-"+k).addEventListener("click",()=>{
@@ -642,11 +645,12 @@ function showResult(){
 $("btn-again").addEventListener("click",startRound);
 
 /* 本コース案内：上の部分だけ常に画面下に見せる。タップで全体へ */
-const more=document.querySelector(".more"), PEEK=86;
-new ResizeObserver(()=>more.style.bottom=(PEEK-more.offsetHeight)+"px").observe(more);
+const more=document.querySelector(".more"), mtop=more.querySelector(".top");
+const peek=()=>mtop.offsetTop+mtop.offsetHeight+14; // 使い方・面談・体験会のボタンまで見せる
+new ResizeObserver(()=>more.style.bottom=(peek()-more.offsetHeight)+"px").observe(more);
 more.addEventListener("click",e=>{
-  if(e.target.closest("a"))return;
-  if(more.getBoundingClientRect().top>innerHeight-PEEK-4)more.scrollIntoView({behavior:"smooth",block:"end"});
+  if(e.target.closest("a,button"))return;
+  if(more.getBoundingClientRect().top>innerHeight-peek()-4)more.scrollIntoView({behavior:"smooth",block:"end"});
 });
 
 /* レベル：1 短い文 ／ 2 長い文 ／ 3 英検2級くらい */
