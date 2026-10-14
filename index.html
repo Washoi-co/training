@@ -18,6 +18,9 @@
 
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/chunk.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="A-PUSH">
 
 <style>
 /* 公開用スケルトン（アーティファクト版では自動で付いていた分） */
@@ -79,6 +82,14 @@ a{color:inherit}
   .tp.ghost{grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;padding:9px 13px}
   .tp.ghost span{margin-top:0}
 }
+
+/* ---- ホーム画面に追加（words/ と同じ形） ---- */
+.a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;margin-top:14px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:11px 12px}
+.a2hs img{border-radius:10px}
+.a2hs b{display:block;font-size:13.5px;font-weight:900;line-height:1.4}
+.a2hs span{display:block;font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:2px}
+.a2hs #a2hs-btn{background:var(--red);color:#fff;border-radius:8px;padding:8px 12px;font-size:12.5px;font-weight:900;white-space:nowrap}
+.a2hs .x{font-size:18px;color:var(--muted);padding:2px 4px}
 
 /* ---- 使い方パネル ---- */
 .how{background:var(--surface);color:var(--fg);border:1px solid var(--red);border-radius:16px;padding:28px 22px 24px;width:min(600px,100% - 32px);max-height:calc(100dvh - 48px);overflow:auto}
@@ -312,6 +323,16 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
     </div>
   </div>
 
+  <div class="a2hs" id="a2hs" hidden>
+    <img src="/apple-touch-icon.png" alt="" width="44" height="44">
+    <div>
+      <b>ホーム画面に追加すると、毎日すぐ開けます</b>
+      <span id="a2hs-how"></span>
+    </div>
+    <button id="a2hs-btn" hidden>追加する</button>
+    <button class="x" id="a2hs-x" aria-label="閉じる">×</button>
+  </div>
+
   <dialog class="how" id="how" aria-labelledby="how-h">
     <button class="howx" id="how-x" aria-label="閉じる">×</button>
     <h2 id="how-h">話せないのは、話す回数が足りないからです。</h2>
@@ -498,6 +519,21 @@ function sentenceOf(q){
   if(MODE==="tense")return tenseSentence(q.vi,q.t);
   return SET()[SEL][0]+" "+ph(q.vi).b+".";
 }
+
+/* ホーム画面に追加：スマホのブラウザで開いた時だけ案内 */
+(function(){
+  var standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  var closed=false; try{ closed = localStorage.getItem("apush-a2hs-chunk-closed")==="1"; }catch(e){}
+  if(standalone || closed) return;
+  var ua=navigator.userAgent, ios=/iPhone|iPad|iPod/.test(ua);
+  if(!ios && !/Android/.test(ua)) return;          // パソコンでは出さない
+  var box=$("a2hs"), how=$("a2hs-how"), btn=$("a2hs-btn"), deferred=null;
+  how.textContent = ios ? "Safariの下の共有ボタン（□↑）→「ホーム画面に追加」" : "右上のメニュー（⋮）→「ホーム画面に追加」";
+  box.hidden=false;
+  addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; btn.hidden=false; how.textContent="ボタンを押すだけで追加できます"; });
+  btn.addEventListener("click",function(){ if(!deferred) return; deferred.prompt(); deferred.userChoice.then(function(){ deferred=null; box.hidden=true; }); });
+  $("a2hs-x").addEventListener("click",function(){ box.hidden=true; try{ localStorage.setItem("apush-a2hs-chunk-closed","1"); }catch(e){} });
+})();
 
 /* 使い方の開閉 */
 $("btn-how").addEventListener("click",()=>$("how").showModal());
