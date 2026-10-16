@@ -302,5 +302,6 @@ $("#seek").oninput = e => { v.currentTime = +e.target.value; };
 v.onclick = () => $("#pp").click();
 v.addEventListener("seeking", () => { if (stopAt != null && (v.currentTime < stopAt - 30 || v.currentTime > stopAt)) stopAt = null; });
 </script>
+<script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
 </body>
 </html>
