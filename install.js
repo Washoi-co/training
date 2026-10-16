@@ -43,7 +43,6 @@
       ".api-scrim{position:fixed;inset:0;z-index:2147483100;background:rgba(15,30,61,.42);display:flex;align-items:flex-end;justify-content:center;animation:api-f .2s}" +
       ".api-sheet{--b:var(--brand,#1D4ED8);width:100%;max-width:520px;max-height:92dvh;overflow:auto;background:#fff;color:#0F1E3D;border-radius:22px 22px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom,0px));" +
       "font:16px/1.6 -apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',system-ui,sans-serif;box-shadow:0 -8px 30px rgba(0,0,0,.15);animation:api-u .32s cubic-bezier(.2,.8,.2,1)}" +
-      "@media (prefers-color-scheme:dark){.api-sheet{background:#151E35;color:#EEF2FA}.api-step,.api-code{background:#0B1222!important}}" +
       "@media (min-width:640px){.api-scrim{align-items:center}.api-sheet{border-radius:22px}}" +
       ".api-grab{width:38px;height:5px;border-radius:3px;background:rgba(127,127,127,.35);margin:0 auto 14px}" +
       ".api-eb{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--b);margin:0 0 2px}" +
