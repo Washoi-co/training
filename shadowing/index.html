@@ -150,6 +150,7 @@ h2{font-size:15px;font-weight:900;margin:0 0 6px}
   </div>
 </div>
 
+<script src="/activity.js"></script>
 <script>
 const LEVELS = {1: "英検®4級程度", 2: "英検®3級程度", 3: "英検®2級〜準1級程度"};
 const STEPS = [
@@ -195,6 +196,7 @@ function home(lv) {
 }
 
 function open(x) {
+  if (window.apMark && open._last !== x.id) { apMark("shadow"); open._last = x.id; }
   L = x; $("#home").hidden = true; $("#lesson").hidden = false;
   v.src = L.video; $("#credit").textContent = L.credit;
   const rep = $("#rep");

@@ -92,22 +92,17 @@ a{color:inherit}
 .a2hs .x{font-size:18px;color:var(--muted);padding:2px 4px}
 
 /* ---- 使い方パネル ---- */
-.how{background:var(--surface);color:var(--fg);border:1px solid var(--red);border-radius:16px;padding:28px 22px 24px;width:min(600px,100% - 32px);max-height:calc(100dvh - 48px);overflow:auto}
-.how::backdrop{background:rgba(11,11,12,.6)}
-.howx{position:absolute;top:10px;right:12px;width:36px;height:36px;font-size:22px;line-height:1;color:var(--muted)}
-.howx:hover{color:var(--red)}
-.how h2{font-size:clamp(18px,4.6vw,22px);font-weight:900;margin:0 0 6px;padding-right:28px}
-.how>p{margin:0;font-size:14.5px;color:var(--muted)}
-.steps{display:grid;gap:12px;margin:16px 0 0;padding:0;list-style:none;counter-reset:s}
-.steps li{display:grid;grid-template-columns:24px 1fr;gap:11px;align-items:start;counter-increment:s}
-.steps li::before{content:counter(s);font-family:var(--en);font-size:11.5px;font-weight:900;color:var(--red);border:1.5px solid var(--red);border-radius:50%;width:24px;height:24px;display:grid;place-items:center;margin-top:1px}
-.steps b{display:block;font-size:13.5px;font-weight:700}
-.steps span{display:block;font-size:12px;color:var(--muted);margin-top:1px}
-.kinds{display:grid;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
-.kind{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline}
-.kind i{font-style:normal;font-size:11.5px;font-weight:900;color:var(--red);white-space:nowrap}
-.kind span{font-size:12px;color:var(--muted)}
-.kind span b{color:var(--fg);font-family:var(--en);font-weight:700}
+.how{background:var(--black);color:#fff;border:0;border-radius:16px;padding:10px;width:min(1100px,100% - 20px);max-width:none;max-height:calc(100dvh - 20px);overflow:auto}
+.how::backdrop{background:rgba(11,11,12,.75)}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:10px;overscroll-behavior-x:contain}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:16/9;scroll-snap-align:center;display:block;background:#F3F6FB}
+.slidebar{display:flex;align-items:center;gap:8px;padding:10px 4px 2px}
+.slidebar button{width:40px;height:40px;border:1px solid rgba(255,255,255,.28);border-radius:50%;font-size:18px;color:#fff}
+.slidebar button:hover:not(:disabled){border-color:var(--red);color:var(--red)}
+.slidebar button:disabled{opacity:.3;cursor:default}
+.slidebar .n{font-family:var(--en);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
+.slidebar .howx{margin-left:auto;width:auto;border-radius:999px;padding:0 16px;font-size:13px;font-weight:700}
 
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red);margin:0 0 4px}
@@ -262,6 +257,7 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
     <div class="links">
       <a class="wordlink" href="/words/">📚 TOEIC単語</a>
       <a class="wordlink" href="/shadowing/">🎧 シャドーイング</a>
+      <a class="wordlink" href="/plan/">📅 計画</a>
     </div>
   </div>
   <label class="lvrow">
@@ -333,27 +329,37 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
     <button class="x" id="a2hs-x" aria-label="閉じる">×</button>
   </div>
 
-  <dialog class="how" id="how" aria-labelledby="how-h">
-    <button class="howx" id="how-x" aria-label="閉じる">×</button>
-    <h2 id="how-h">話せないのは、話す回数が足りないからです。</h2>
-    <p>絵を見て英語を選び、声に出して3回言うだけ。1ラウンド5問、2分ほどです。</p>
-    <ol class="steps">
-      <li><div><b>絵を見て、20秒で選ぶ</b><span>絵が何をしているかを見て、合う英語を選びます。</span></div></li>
-      <li><div><b>声に出して3回</b><span>ここが本番です。丸を3つタップするまで次に進めません。</span></div></li>
-      <li><div><b>5問で結果</b><span>種目・型・レベルを変えると、すぐ次のラウンドが始まります。</span></div></li>
-    </ol>
-    <div class="kinds">
-      <div class="kind"><i>助動詞</i><span>できる・したい・しなければ。<b>I can / I want to / I have to</b> など6種類。</span></div>
-      <div class="kind"><i>関係代名詞</i><span>人や物を、うしろから説明します。<b>who / which / that</b> の3つ。</span></div>
-      <div class="kind"><i>時制</i><span>過去・現在・未来。同じ動詞を3つの形で言い分けます。</span></div>
-      <div class="kind"><i>レベル</i><span>上のプルダウンで選べます。<b>Level 1</b> は短い文、<b>Level 2</b> は長い文、<b>Level 3</b> は英検2級くらいの言い回しです。</span></div>
+  <dialog class="how" id="how" aria-label="使い方（A-PUSH 英語の学び方）">
+    <div class="slides" id="slides">
+      <img src="/howto/01.webp" alt="英語は、慣れでできている。" width="1600" height="900">
+      <img src="/howto/02.webp" alt="話せる英語は、声に出した回数で決まる。" width="1600" height="900" loading="lazy">
+      <img src="/howto/03.webp" alt="感覚と知識を、合わせる。" width="1600" height="900" loading="lazy">
+      <img src="/howto/04.webp" alt="使い方：毎日、3つを順番に回す。" width="1600" height="900" loading="lazy">
+      <img src="/howto/05.webp" alt="やり方：シャドーイング。聞いて、重ねて言う。" width="1600" height="900" loading="lazy">
+      <img src="/howto/06.webp" alt="分からなくても、真似て言い続ける。" width="1600" height="900" loading="lazy">
+      <img src="/howto/07.webp" alt="やり方：スピーキング。絵を見て、選んで、声に出す。" width="1600" height="900" loading="lazy">
+      <img src="/howto/08.webp" alt="単語の学習方法：選んで、声に出して、3回。" width="1600" height="900" loading="lazy">
+      <img src="/howto/09.webp" alt="単語の復習：言えた単語は、決まった日に戻ってくる。" width="1600" height="900" loading="lazy">
+      <img src="/howto/10.webp" alt="まず慣れ。その次に専門用語。" width="1600" height="900" loading="lazy">
+      <img src="/howto/11.webp" alt="頭に余裕ができると、意味が入る。" width="1600" height="900" loading="lazy">
+      <img src="/howto/12.webp" alt="考える前に、口から出す。" width="1600" height="900" loading="lazy">
+      <img src="/howto/13.webp" alt="英語を、九九にする。" width="1600" height="900" loading="lazy">
+      <img src="/howto/14.webp" alt="忘れかけた頃に、もう一度。" width="1600" height="900" loading="lazy">
+      <img src="/howto/15.webp" alt="まとめ：単語＋圧倒的な反復。慣れで、英語力を作る。" width="1600" height="900" loading="lazy">
+      <img src="/howto/16.webp" alt="無料体験会と面談、待ってます！申し込みは lp.apush.jp" width="1600" height="900" loading="lazy">
+    </div>
+    <div class="slidebar">
+      <button id="sl-prev" aria-label="前のスライド">‹</button>
+      <span class="n" id="sl-n">1 / 16</span>
+      <button id="sl-next" aria-label="次のスライド">›</button>
+      <button class="howx" id="how-x">閉じる</button>
     </div>
   </dialog>
 
   <section class="more" aria-labelledby="more-h">
     <div class="top">
       <button class="tp ghost" id="btn-how" aria-haspopup="dialog">
-        <b>使い方</b><span>30秒で読めます</span>
+        <b>使い方</b><span>スライドで見る</span>
       </button>
       <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
         <b>面談</b><span>無料・学習の相談</span>
@@ -437,6 +443,7 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
   </p>
 </div>
 
+<script src="/activity.js"></script>
 <script>
 /* 動詞チャンク30：[絵, Lv1 原形, 日本語, 過去形, Lv2 原形, 日本語, 過去形, Lv3 原形, 日本語, 過去形]
    Lv1 短い文 ／ Lv2 長い文 ／ Lv3 英検2級くらいの単語と言い回し */
@@ -536,7 +543,16 @@ function sentenceOf(q){
 })();
 
 /* 使い方の開閉 */
-$("btn-how").addEventListener("click",()=>$("how").showModal());
+/* 使い方：スライド（A-PUSH 英語の学び方）。スワイプ・‹ ›・←→キーでめくる */
+const slides=$("slides"), slN=slides.children.length;
+const slAt=()=>Math.round(slides.scrollLeft/slides.clientWidth);
+const slGo=i=>slides.scrollTo({left:Math.max(0,Math.min(slN-1,i))*slides.clientWidth,behavior:"smooth"});
+const slSync=()=>{const i=slAt(); $("sl-n").textContent=(i+1)+" / "+slN; $("sl-prev").disabled=i===0; $("sl-next").disabled=i===slN-1;};
+slides.addEventListener("scroll",slSync,{passive:true});
+$("sl-prev").addEventListener("click",()=>slGo(slAt()-1));
+$("sl-next").addEventListener("click",()=>slGo(slAt()+1));
+$("how").addEventListener("keydown",e=>{const d={ArrowLeft:-1,ArrowRight:1}[e.key]; if(d){e.preventDefault(); slGo(slAt()+d);}});
+$("btn-how").addEventListener("click",()=>{$("how").showModal(); slides.scrollLeft=0; slSync();});
 $("how-x").addEventListener("click",()=>$("how").close());
 $("how").addEventListener("click",e=>{if(e.target===$("how"))$("how").close();}); // 背景タップで閉じる
 
@@ -667,6 +683,7 @@ $("btn-next").addEventListener("click",()=>{
   qi++;askQuestion();
 });
 function showResult(){
+  if(window.apMark)apMark("chunk");
   $("rscore").textContent=score;
   $("rmsg").textContent=
     score===5?"全問正解。上の型を変えて、次の形へ。":
