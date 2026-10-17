@@ -43,3 +43,69 @@
   d.querySelector(".inst-x").onclick = function () { d.remove(); try { localStorage.setItem("ui-inst-closed", "1"); } catch (e) {} };
   d.querySelector(".primary").onclick = function () { if (window.APInstall) window.APInstall.open(); };
 })();
+
+/* ---- 初めて開いた時の案内（2026-10-18）：何がどこにあるかを、1つずつ光らせて説明する ----
+   apTour("キー", [["CSSセレクタ","説明"], ...])。1回見たら（スキップでも）もう出さない。
+   ほかの案内（やり方・アプリとして入れよう）が出ている間は待ち、最初の場所が見えてから始める。 */
+(function(){
+  var css=".aptour-spot{position:fixed;z-index:9998;border-radius:14px;box-shadow:0 0 0 9999px rgba(15,20,40,.62);transition:all .25s ease;pointer-events:none}"+
+    ".aptour-tip{position:fixed;z-index:9999;left:16px;right:16px;max-width:420px;margin:0 auto;background:#fff;color:#141a2e;border-radius:16px;padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25);font-size:15px;line-height:1.6}"+
+    ".aptour-tip small{display:block;color:#6b7385;font-size:12px;margin-bottom:4px}"+
+    ".aptour-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}"+
+    ".aptour-row button{border-radius:99px;padding:8px 16px;font-size:14px;font-weight:700}"+
+    ".aptour-skip{background:transparent;color:#6b7385}.aptour-next{background:#141a2e;color:#fff}";
+  var busy=function(){ return [].some.call(document.querySelectorAll("dialog[open],.sheet.open,.api-scrim"),function(e){ var s=getComputedStyle(e); return s.display!=="none"&&s.visibility!=="hidden"; }); };
+  var shown=function(el){ if(!el) return false; var r=el.getBoundingClientRect(); return r.width>0&&r.height>0&&getComputedStyle(el).visibility!=="hidden"; };
+  var running=false;
+  window.apTour=function(key,steps){
+    var k="apush-tour-"+key;
+    try{ if(localStorage.getItem(k)) return; }catch(e){ return; }
+    var tries=0,calm=0;
+    (function wait(){   // ほかの案内が無い状態が1.5秒続いてから始める
+      calm=(running||busy()||!shown(document.querySelector(steps[0][0])))?0:calm+1;
+      if(calm<3){ if(++tries<360) setTimeout(wait,500); return; }
+      start();
+    })();
+    function start(){
+      var list=steps.filter(function(s){ return shown(document.querySelector(s[0])); });
+      if(!list.length) return;
+      running=true;
+      if(!document.getElementById("aptour-css")){ var st=document.createElement("style"); st.id="aptour-css"; st.textContent=css; document.head.appendChild(st); }
+      var spot=document.createElement("div"); spot.className="aptour-spot";
+      var tip=document.createElement("div"); tip.className="aptour-tip"; tip.setAttribute("role","dialog"); tip.setAttribute("aria-live","polite");
+      document.body.appendChild(spot); document.body.appendChild(tip);
+      var i=0;
+      var guard=setInterval(function(){ var b=busy(); spot.style.display=tip.style.display=b?"none":""; if(!b) place(); },400);   // 途中でシートが出たら隠す
+      function end(){ try{ localStorage.setItem(k,"1"); }catch(e){} clearInterval(guard); spot.remove(); tip.remove(); running=false; removeEventListener("resize",place); }
+      function place(){
+        var el=document.querySelector(list[i][0]); if(!el) return;
+        var r=el.getBoundingClientRect(), p=6;
+        spot.style.left=(r.left-p)+"px"; spot.style.top=(r.top-p)+"px"; spot.style.width=(r.width+p*2)+"px"; spot.style.height=(r.height+p*2)+"px";
+        var below=r.bottom+p+12, h=tip.offsetHeight;
+        tip.style.top=(below+h<innerHeight-8?below:Math.max(8,r.top-p-12-h))+"px";
+      }
+      function show(){
+        var el=document.querySelector(list[i][0]);
+        el.scrollIntoView({block:"center"});
+        tip.innerHTML='<small>はじめての方へ　'+(i+1)+' / '+list.length+'</small>'+list[i][1]+
+          '<div class="aptour-row"><button class="aptour-skip" type="button">スキップ</button><button class="aptour-next" type="button">'+(i===list.length-1?"はじめる":"次へ")+'</button></div>';
+        tip.querySelector(".aptour-skip").onclick=end;
+        tip.querySelector(".aptour-next").onclick=function(){ if(++i>=list.length){ end(); return; } show(); };
+        setTimeout(place,350); place();
+      }
+      addEventListener("resize",place);
+      show();
+    }
+  };
+})();
+
+/* ページごとの案内（初めて開いた時だけ） */
+(function(){
+  var P=location.pathname, T={
+    "/":[["#tabs","まず、練習する文法を選びます（助動詞・関係代名詞・時制）。"],["#lvsel","レベルです。Lv1から始めましょう。"],["#chips","この中から型を1つ選びます。"],["#qq","英語の質問です。▶でもう一度聞けます。"],["#choices","絵に合う答えを選んだら、声に出して3回。ここが本番です。"],["#btn-how","やり方はいつでもここから見られます。"],[".tabbar","下のタブで「今日＆計画・話す・シャドーイング・単語」を行き来します。"]],
+    "/words/":[["#w-decks","今の単語帳です。"],["#w-daily","1日に新しく覚える単語の数を決めます。"],["#tasks","朝・昼・夜の3回。上から順に「スタート」を押します。"],["#w-mode","カードと一覧を切り替えられます。"],["#btn-howto","やり方はここから。"]],
+    "/shadowing/":[["#sh-list","動画を選びます。レベル1から順に。"],["#howto","やり方はここから。"]],
+    "/plan/":[["#ring","今日のゴールの達成の様子です。"],["#cal","練習した日に色がつきます。"],["#g-words","1日の目標をここで決めます。"],["#c-time","毎日の練習の時間を、自分のカレンダーに入れられます。"]]
+  }[P];
+  if(T&&window.apTour) apTour("training"+P,T);
+})();
