@@ -356,9 +356,11 @@ a{color:inherit}
 .cmp-r span:last-child{color:var(--ink);font-weight:600}
 .cmp-r .no{color:var(--line2);font-weight:700}
 .why{background:var(--dark);color:#fff;border-radius:20px;padding:20px 18px;display:flex;flex-direction:column;gap:10px}
-.why .k{font-size:12px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.7)}
-.why h2{margin:0;font-family:var(--fd);font-size:25px;font-weight:900;letter-spacing:-.02em;line-height:1.3}
+.why h2{text-wrap:balance;margin:0;font-family:var(--fd);font-size:25px;font-weight:900;letter-spacing:-.02em;line-height:1.3}
 .why p{margin:0;font-size:14.5px;line-height:1.75;color:rgba(255,255,255,.88)}
 .why .rh{display:flex;gap:6px;align-items:flex-end;height:34px;margin:4px 0 2px}
 .why .rh i{display:block;width:10px;border-radius:5px;background:var(--brand)}
-.tabbar div{grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:1fr}
+.why-top{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.why-me{display:flex;flex-direction:column;align-items:center;gap:8px}
+.why-face{width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.9)}
+.why-logo{display:block;height:13px;width:auto;color:#FF2D16}

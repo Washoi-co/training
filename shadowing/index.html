@@ -77,15 +77,7 @@ h2{font-size:16px;font-weight:700;margin:0 0 6px}
   <!-- 一覧 -->
   <section id="home">
     <h1 class="large">シャドーイング</h1>
-    <p class="sub">聞いて、重ねて言う。本物の英語の音とスピードに、口を慣らします</p>
-    <div class="flow">
-      <div class="step"><b>1</b><span>字幕なしで1回見て、何割聞き取れたかを記録</span></div>
-      <div class="step"><b>2</b><span>英文と日本語訳を読む。知らない単語を確認</span></div>
-      <div class="step"><b>3</b><span>字幕ありで、目で追いながら聞く</span></div>
-      <div class="step"><b>4</b><span>字幕ありで、一緒に言う（0.75倍から）</span></div>
-      <div class="step"><b>5</b><span>字幕なしでシャドーイング（1〜3回）</span></div>
-      <div class="step"><b>6</b><span>もう一度見て、最初と比べる → クイズ5問</span></div>
-    </div>
+    <p class="sub">3回聞いて、質問に答える。</p>
     <div class="shl" id="sh-list"></div>
   </section>
 
@@ -119,9 +111,9 @@ h2{font-size:16px;font-weight:700;margin:0 0 6px}
 
 <div class="modal" id="intro" hidden>
   <div class="card">
-    <div class="imgs"><img src="/howto/05.webp" alt="聞いて、重ねて言う。" width="1600" height="900" loading="lazy"><img src="/howto/11.webp" alt="頭に余裕ができると、意味が入る。" width="1600" height="900" loading="lazy"><img src="/howto/06.webp" alt="分からなくても、真似て言い続ける。" width="1600" height="900" loading="lazy"></div><p class="imgs-n">← 横にスワイプ →</p>
+    <div class="imgs"><img src="/howto/11.webp" alt="頭に余裕ができると、意味が入る。" width="1600" height="900" loading="lazy"><img src="/howto/06.webp" alt="分からなくても、真似て言い続ける。" width="1600" height="900" loading="lazy"></div><p class="imgs-n">← 横にスワイプ →</p>
     <h2>なぜシャドーイング？</h2>
-    <p style="font-size:13.5px;margin:0">知っている単語でも、音がつながると別の音に聞こえます（I am →「アム」）。まず意味と単語を先に分かっておき、字幕を見ながら聞いて真似し、最後に字幕なしで真似します。口が追いつかない所が、まだ聞き取れていない所です。</p>
+    <p style="font-size:13.5px;margin:0">知っている単語でも、音がつながると別の音に聞こえます（I am →「アム」）。まず3回聞いて、耳を慣らします。そのあと質問に答えて、意味が取れたか確かめます。</p>
     <button class="btn" id="introOk">はじめる</button>
   </div>
 </div>
@@ -129,15 +121,11 @@ h2{font-size:16px;font-weight:700;margin:0 0 6px}
 <script src="/activity.js"></script>
 <script>
 const LEVELS = {1: "英検®4級程度", 2: "英検®3級程度", 3: "英検®2級〜準1級程度"};
-const STEPS = [
-  {t: "まず字幕なしで1回見る", subs: "off", ask: "before", tip: "分からなくて大丈夫。最後まで見たら、何割くらい聞き取れたかを押してください。"},
-  {t: "英文と訳・単語を読む", script: true, tip: "意味と知らない単語を先に分かっておきます。動画は止めたままでOK。"},
-  {t: "字幕ありで聞く", subs: "en", tip: "文字を目で追いながら、1回聞きます。"},
-  {t: "字幕を見ながら一緒に言う", subs: "en", rate: 0.75, tip: "0.75倍から。1〜2回、字幕を見ながら声に出してまねます。慣れたら速さを上げます。"},
-  {t: "字幕なしでシャドーイング", subs: "off", tip: "字幕なしで1〜3回。少し遅れて、聞こえた音をそのまままねます。口が止まった所を「この文をもう一回」で練習。"},
-  {t: "字幕なしでもう一度見る", subs: "off", ask: "after", tip: "最後にもう一度。何割聞き取れたかを押すと、最初と比べられます。"},
-  {t: "内容クイズ", quiz: true},
+const STEPS = [   /* 2026-10-18：2つだけ。① 3回聞く → ② 質問に答える */
+  {t: "3回聞く", subs: "off", listen: true, tip: "最後まで聞くと、1回に数えます。字幕と速さは下で変えられます。"},
+  {t: "質問に答える", quiz: true},
 ];
+const TIMES = 3;
 const $ = s => document.querySelector(s);
 const v = $("#v");
 let DB, L, step = 0, subs = "off", stopAt = null, loopSeg = null;
@@ -164,7 +152,7 @@ function home() {
   v.pause(); $("#lesson").hidden = true; $("#home").hidden = false;
   $("#sh-list").innerHTML = [1, 2, 3].map(lv => `<h3>レベル${lv}<span>${LEVELS[lv]}</span></h3>` + DB.lessons.filter(x => x.level === lv).map((x, i) => {
     const p = prog(x.id), mins = Math.round((x.lines.at(-1).end - x.lines[0].start) / 60 * 10) / 10;
-    return `<a class="vid" data-id="${x.id}" href="#${x.id}"><span class="id">${i + 1}</span><span class="t">${esc(x.title)}<small>${x.source === "nasa" ? "NASA" : x.source === "apush" ? "A-PUSH講師" : "VOA"} ・ 約${mins}分${p.done ? "" : p.step ? ` ・ ${p.step} / 6` : ""}</small></span><span class="go">${p.done ? "✓ 完了" : "開く →"}</span></a>`;
+    return `<a class="vid" data-id="${x.id}" href="#${x.id}"><span class="id">${i + 1}</span><span class="t">${esc(x.title)}<small>${x.source === "nasa" ? "NASA" : x.source === "apush" ? "A-PUSH講師" : "VOA"} ・ 約${mins}分${p.done ? "" : p.step ? ` ・ ${p.step + 1} / 2` : ""}</small></span><span class="go">${p.done ? "✓ 完了" : "開く →"}</span></a>`;
   }).join("")).join("");
 }
 
@@ -178,35 +166,30 @@ function open(x) {
     rep.innerHTML = `<span>区間</span><button class="pill" data-seg="-1" aria-pressed="true">全部</button>` +
       Array.from({length: n}, (_, i) => `<button class="pill" data-seg="${i}">${i}〜${i + 1}分</button>`).join("");
   } else rep.innerHTML = `<span>練習</span><button class="pill" id="again">↺ この文をもう一回</button>`;
-  go(Math.min(prog(L.id).step || 0, 6)); window.scrollTo(0, 0);
+  go(Math.min(prog(L.id).step || 0, 1)); window.scrollTo(0, 0);
 }
 
 function go(n) {
   step = n; setProg(L.id, "step", n); const S = STEPS[n];
-  $("#stitle").textContent = `${L.title}`; $("#snum").textContent = `${n} / 6 ・ ${S.t}`;
+  $("#stitle").textContent = `${L.title}`; $("#snum").textContent = `${n + 1} / 2 ・ ${S.t}`;
   if (S.subs) setSubs(S.subs);
-  setRate(S.rate || (n >= 4 ? 1 : +(v.playbackRate || 1)));
-  const p = prog(L.id);
-  let h = `<h2>${n}. ${S.t}</h2>` + (S.tip ? `<p class="tip">${S.tip}</p>` : "");
+  const p = prog(L.id), heard = Math.min(p.heard || 0, TIMES);
+  let h = `<h2>${n + 1}. ${S.t}</h2>` + (S.tip ? `<p class="tip">${S.tip}</p>` : "");
   if (n === 0 && L.synopsis) h += `<p class="tip"><b>ここまでのあらすじ：</b>${esc(L.synopsis)}</p>`;
-  if (S.ask) h += `<div class="pct" id="pct">${[0, 25, 50, 75, 100].map(x => `<button data-p="${x}" aria-pressed="${p[S.ask] === x}">${x}%</button>`).join("")}</div>`;
-  if (S.ask === "after" && p.after != null) h += compare(p);
-  if (S.script) {
-    h += `<div class="vocab">${L.vocab.map(w => `<b>${esc(w.en)}</b><span>${esc(w.ja)}</span>`).join("")}</div>`;
-    h += `<ol class="script">${L.lines.map((l, i) => `<li><button style="text-align:left" onclick="seekLine(${i})"><div class="e">${esc(l.en)}</div><div class="j">${esc(l.ja)}</div></button></li>`).join("")}</ol>`;
+  if (S.listen) {
+    h += `<div class="dots" id="heard">${[0, 1, 2].map(i => `<button class="dot${i < heard ? " on" : ""}" data-h="${i}" aria-label="${i + 1}回目">${i + 1}</button>`).join("")}</div>`;
+    h += `<button class="btn" id="next" ${heard < TIMES ? "disabled" : ""}>質問に答える →</button>`;
   }
   if (S.quiz) h += quiz();
-  else h += `<button class="btn" id="next">次へ（${n + 1} / 6）</button>`;
-  if (n > 0) h += `<button class="btn ghost" id="prev">← 前の段へ</button>`;
+  if (n > 0) h += `<button class="btn ghost" id="prev">← もう一度聞く</button>`;
   $("#panel").innerHTML = h;
   const nx = $("#next"); if (nx) nx.onclick = () => { go(n + 1); $("#lesson").scrollIntoView(); };
-  const pv = $("#prev"); if (pv) pv.onclick = () => go(n - 1);
-  const pc = $("#pct"); if (pc) pc.onclick = e => { const b = e.target.closest("button"); if (b) { setProg(L.id, S.ask, +b.dataset.p); go(n); } };
+  const pv = $("#prev"); if (pv) pv.onclick = () => { setProg(L.id, "heard", 0); go(0); };
+  const hd = $("#heard"); if (hd) hd.onclick = e => { const b = e.target.closest("[data-h]"); if (b && +b.dataset.h <= heard) { setProg(L.id, "heard", Math.max(heard, +b.dataset.h + 1)); go(0); } };
 }
+/* 最後まで聞いたら1回に数える（3回まで） */
+v.addEventListener("ended", () => { if (L && STEPS[step].listen) { const k = prog(L.id).heard || 0; if (k < TIMES) { setProg(L.id, "heard", k + 1); go(0); } } });
 
-function compare(p) {
-  return `<div class="compare"><div><b>${p.before ?? "–"}%</b><span>最初</span></div><div>→</div><div><b style="color:var(--brand)">${p.after}%</b><span>今</span></div></div>`;
-}
 
 function quiz() {
   const res = prog(L.id).quiz || [];
@@ -218,14 +201,14 @@ function quiz() {
     const ok = L.quiz.filter((q, i) => res[i] === q.answer).length;
     setProg(L.id, "done", 1);
     const all = DB.lessons, k = all.indexOf(L), nxt = all[k + 1];
-    h += `<div class="card" style="background:var(--bg)"><h2>おつかれさまでした</h2><p class="tip">クイズ ${ok} / ${L.quiz.length} 問正解</p>${compare(prog(L.id))}
+    h += `<div class="card" style="background:var(--bg)"><h2>おつかれさまでした</h2><p class="tip">クイズ ${ok} / ${L.quiz.length} 問正解</p>
       ${nxt ? `<a class="btn" href="#${nxt.id}">次の動画へ：${esc(nxt.title)}</a>` : ""}
       <a class="btn ghost" href="${DB.links.line}" target="_blank" rel="noopener">新しい動画をLINEで受け取る</a>
       <a class="btn ghost" href="${DB.links.trial}" target="_blank" rel="noopener">講師に発音を見てもらう（体験レッスン）</a></div>`;
   }
   setTimeout(() => document.querySelectorAll(".q").forEach(d => d.onclick = e => {
     const b = e.target.closest("button[data-c]"); if (!b || b.disabled) return;
-    const r = prog(L.id).quiz || []; r[+d.dataset.q] = +b.dataset.c; setProg(L.id, "quiz", r); go(6);
+    const r = prog(L.id).quiz || []; r[+d.dataset.q] = +b.dataset.c; setProg(L.id, "quiz", r); go(1);
   }));
   return h;
 }
