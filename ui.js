@@ -37,8 +37,9 @@
   if (!at) return;
   var d = document.createElement("div");
   d.className = "inst";
-  d.innerHTML = '<span class="inst-ic" aria-hidden="true">↓</span><p><b>アプリ版もあります。</b>ホーム画面に追加すると、アプリのように1回で開けます。</p>' +
-    '<button class="inst-x" aria-label="閉じる">×</button><button class="primary">ホーム画面に追加する</button>';
+  d.innerHTML = '<button class="primary">📲 アプリにする</button><button class="inst-x" aria-label="閉じる">×</button>';   /* 押すとアプリに（Android＝インストール／iPhone＝手順） */
+  d.style.cssText = "display:flex;align-items:center;gap:8px";
+  d.querySelector(".primary").style.flex = "1";
   at.parentNode.insertBefore(d, at.nextSibling);
   d.querySelector(".inst-x").onclick = function () { d.remove(); try { localStorage.setItem("ui-inst-closed", "1"); } catch (e) {} };
   d.querySelector(".primary").onclick = function () { if (window.APInstall) window.APInstall.open(); };
