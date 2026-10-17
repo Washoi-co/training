@@ -113,11 +113,12 @@
 .pts li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.65}
 .pts li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--brand)}
 .pts .rd{color:var(--brand)}
+.navr .pill{white-space:nowrap;padding-left:11px;padding-right:11px}   /* 上のボタン4つを1行に */
 </style>
 </head>
 <body data-tab="wd">
 <main class="screen">
-  <div class="nav"><span class="navl"><span class="mini">単語</span></span><span class="navr"><button class="pill press" id="btn-set">設定</button><button class="pill press" id="btn-howto">やり方</button></span></div>
+  <div class="nav"><span class="navl"><span class="mini">単語</span></span><span class="navr"><button class="pill press" id="btn-list">一覧</button><button class="pill press" id="btn-set">設定</button><button class="pill press" id="btn-howto">やり方</button></span></div>
   <h1 class="large">単語</h1>
   <p class="sub" id="title">TOEIC 700点を狙う単語・お試し版</p>
 
@@ -473,6 +474,8 @@ function setMode(m){
 }
 $("w-mode-card").addEventListener("click",function(){ setMode("card"); });
 $("w-mode-list").addEventListener("click",function(){ setMode("list"); });
+/* 上の「一覧」：学習中・テスト中でも、いつでも単語の一覧へ */
+$("btn-list").addEventListener("click",function(){ view("home"); renderHome(); setMode("list"); $("w-listwrap").scrollIntoView({block:"start"}); });
 /* 一覧：日本語か英語でさがす。覚えた状態は、その単語の意味（カード）から */
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 function renderList(){
