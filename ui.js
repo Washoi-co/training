@@ -15,3 +15,23 @@
   function stuck() { if (nav) nav.classList.toggle("stuck", window.scrollY > 40); }
   window.addEventListener("scroll", stuck, { passive: true }); stuck();
 })();
+
+/* 「アプリ版もあります」の案内（doboku の今日の画面と同じ形）。スマホのブラウザで開いている時だけ、見出しの下に出す。
+   押すと install.js の手順（iPhone＝ホーム画面に追加／Android＝インストール）。× で閉じたら、このサイトでは出さない。
+   ページに前からの案内（#a2hs）がある時は出さない（2つ出ないように） */
+(function () {
+  var ua = navigator.userAgent || "";
+  var mobile = /iPhone|iPad|iPod|Android/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var app = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+  var closed = false; try { closed = localStorage.getItem("ui-inst-closed") === "1"; } catch (e) {}
+  if (!mobile || app || closed || document.getElementById("a2hs")) return;
+  var at = document.querySelector(".screen .sub") || document.querySelector(".screen .large");
+  if (!at) return;
+  var d = document.createElement("div");
+  d.className = "inst";
+  d.innerHTML = '<span class="inst-ic" aria-hidden="true">↓</span><p><b>アプリ版もあります。</b>ホーム画面に追加すると、アプリのように1回で開けます。</p>' +
+    '<button class="inst-x" aria-label="閉じる">×</button><button class="primary">ホーム画面に追加する</button>';
+  at.parentNode.insertBefore(d, at.nextSibling);
+  d.querySelector(".inst-x").onclick = function () { d.remove(); try { localStorage.setItem("ui-inst-closed", "1"); } catch (e) {} };
+  d.querySelector(".primary").onclick = function () { if (window.APInstall) window.APInstall.open(); };
+})();
