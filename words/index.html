@@ -113,12 +113,11 @@
 .pts li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.65}
 .pts li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--brand)}
 .pts .rd{color:var(--brand)}
-.navr .pill{white-space:nowrap;padding-left:11px;padding-right:11px}   /* 上のボタン4つを1行に */
 </style>
 </head>
 <body data-tab="wd">
 <main class="screen">
-  <div class="nav"><span class="navl"><span class="mini">単語</span></span><span class="navr"><button class="pill press" id="btn-list">一覧</button><button class="pill press" id="btn-set">設定</button><button class="pill press" id="btn-howto">やり方</button></span></div>
+  <div class="nav"><span class="navl"><span class="mini">単語</span></span><span class="navr"><button class="pill press" id="btn-set">設定</button><button class="pill press" id="btn-howto">やり方</button></span></div>
   <h1 class="large">単語</h1>
   <p class="sub" id="title">TOEIC 700点を狙う単語・お試し版</p>
 
@@ -179,7 +178,13 @@
 
   <!-- 朝：覚える ／ 夜：もう一度 -->
   <section id="v-learn" hidden>
-    <div class="card"><div class="cin">
+    <div class="seg" id="l-mode" role="group" aria-label="見せ方" style="margin-bottom:10px"><button data-lm="card" aria-pressed="true">カード</button><button data-lm="list" aria-pressed="false">一覧</button></div>
+    <div id="l-listwrap" class="card" hidden><div class="cin">
+      <p class="say" id="l-listnote"></p>
+      <div class="list" id="l-list"></div>
+      <div class="acts"><button class="primary" id="l-listdone"></button></div>
+    </div></div>
+    <div class="card" id="l-cardwrap"><div class="cin">
       <div class="wcount"><span id="l-count"></span><span class="wcat" id="l-label"></span></div>
       <div class="pics" id="l-pics"></div>
       <p class="word" id="l-word"></p>
@@ -474,8 +479,6 @@ function setMode(m){
 }
 $("w-mode-card").addEventListener("click",function(){ setMode("card"); });
 $("w-mode-list").addEventListener("click",function(){ setMode("list"); });
-/* 上の「一覧」：学習中・テスト中でも、いつでも単語の一覧へ */
-$("btn-list").addEventListener("click",function(){ view("home"); renderHome(); setMode("list"); $("w-listwrap").scrollIntoView({block:"start"}); });
 /* 一覧：日本語か英語でさがす。覚えた状態は、その単語の意味（カード）から */
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 function renderList(){
@@ -503,6 +506,8 @@ function startLearn(mode){
   }
   L={mode:mode, list:d.batch.slice(), i:0, reps:0};
   showLearn(); view("learn");
+  var lm="card"; try{ lm=localStorage.getItem("apush-words-lm")||"card"; }catch(e){}
+  setLearnMode(lm);   // 前に選んだ見せ方（カード／一覧）で始める
 }
 function showLearn(){
   var wi=L.list[L.i], w=W[wi], senses=w[1];
@@ -518,6 +523,21 @@ function showLearn(){
   $("l-next").textContent = L.i===L.list.length-1 ? (night?"夜の分を終える":"朝の分を終える") : "次の単語へ";
   speak(w[0]);
 }
+/* 今日の単語を一覧で（いつでもカードと切り替えられる） */
+function setLearnMode(m){
+  $("l-mode").querySelectorAll("[data-lm]").forEach(function(b){ b.setAttribute("aria-pressed",String(b.dataset.lm===m)); });
+  if(window.segSlide) segSlide("l-mode");
+  $("l-cardwrap").hidden=m!=="card"; $("l-listwrap").hidden=m!=="list";
+  if(m!=="list") return;
+  $("l-listnote").textContent=(L.mode==="am"?"🌅 朝：新しい単語":"🌙 夜：もう一度")+" "+L.list.length+"語。▶で音を聞いて、声に出して3回ずつ。";
+  $("l-list").innerHTML=L.list.map(function(wi){ var w=W[wi];
+    var ja=w[1].map(function(x){ return (x[1]?x[1]+" ":"")+x[0]; }).join("・");
+    return '<div class="li"><span>'+esc(ja)+'</span><span class="e">'+esc(w[0])+'</span><button class="spk" data-say="'+wi+'" aria-label="読み上げ">▶</button></div>'; }).join("");
+  $("l-listdone").textContent=L.mode==="am"?"朝の分を終える":"夜の分を終える";
+}
+$("l-mode").addEventListener("click",function(e){ var b=e.target.closest("[data-lm]"); if(!b) return; try{ localStorage.setItem("apush-words-lm",b.dataset.lm); }catch(e){} setLearnMode(b.dataset.lm); });
+$("l-list").addEventListener("click",function(e){ var b=e.target.closest("[data-say]"); if(b) speak(W[+b.dataset.say][0]); });
+$("l-listdone").addEventListener("click",function(){ L.i=L.list.length-1; L.reps=3; paintReps(); setLearnMode("card"); $("l-next").click(); });
 function paintReps(){
   Array.prototype.forEach.call($("l-reps").children,function(b,i){ b.classList.toggle("on", i<L.reps); });
   $("l-next").disabled = L.reps<3;
