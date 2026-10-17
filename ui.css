@@ -366,6 +366,11 @@ a{color:inherit}
 .why-logo{display:block;height:13px;width:auto;color:#FF2D16}
 .why-ex{display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.08);border-radius:14px;padding:12px 14px}
 .why-ex span{font-family:var(--en);font-size:14px;color:rgba(255,255,255,.65)}
-.why-ex b{font-family:var(--en);font-size:22px;font-weight:900;letter-spacing:-.01em;color:#fff}
+.why-ex b{font-family:var(--en);font-size:20px;font-weight:900;letter-spacing:-.01em;color:#fff;white-space:nowrap}
 .why-ex b::before{content:"→ ";color:var(--mid,#7799F8)}
 .why-go{display:inline-block;margin-top:6px;font-size:17px;color:#fff}
+.why-l{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.why-play{flex:none;font:inherit;font-size:13px;font-weight:700;border:0;border-radius:99px;padding:7px 12px;cursor:pointer;background:rgba(255,255,255,.14);color:#fff}
+.why-play.on{background:var(--brand);color:#fff}
+.why-play:active{transform:scale(.95)}
+.why-ex small{font-size:12px;color:rgba(255,255,255,.6)}
