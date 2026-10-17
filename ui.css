@@ -364,3 +364,8 @@ a{color:inherit}
 .why-me{display:flex;flex-direction:column;align-items:center;gap:8px}
 .why-face{width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.9)}
 .why-logo{display:block;height:13px;width:auto;color:#FF2D16}
+.why-ex{display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.08);border-radius:14px;padding:12px 14px}
+.why-ex span{font-family:var(--en);font-size:14px;color:rgba(255,255,255,.65)}
+.why-ex b{font-family:var(--en);font-size:22px;font-weight:900;letter-spacing:-.01em;color:#fff}
+.why-ex b::before{content:"→ ";color:var(--mid,#7799F8)}
+.why-go{display:inline-block;margin-top:6px;font-size:17px;color:#fff}
