@@ -4,170 +4,117 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#F2F4F8">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>わたしの計画｜A-PUSH</title>
+<title>今日＆計画｜A-PUSH</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="/ui.css">
 <style>
 /* 生徒用。毎日の課題ができたかのカレンダー、ゴール（1日・今月・3ヶ月）、自分のカレンダーへの追加。
-   記録は ap_activity（各ページが書く）、ゴールは ap_goals に、この端末だけに保存する。 */
-:root{
-  --ink:#FFFFFF; --surface:#F6F6F4; --surface2:#ECECE8;
-  --line:rgba(11,11,12,.10); --line-strong:rgba(11,11,12,.22);
-  --fg:#0B0B0C; --muted:#6B6B72;
-  --red:#E8321F; --red-deep:#C42612; --ok:#14935A; --ng:#C42612;
-  --en:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-html,body{margin:0}
-[hidden]{display:none!important}
-body{background:var(--ink);color:var(--fg);font-family:var(--jp);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 16px 44px}
-.wrap{max-width:600px;margin:0 auto}
-.en{font-family:var(--en)}
-button,input,select,textarea{font:inherit;color:inherit}
-button{background:none;border:0;cursor:pointer}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
-.top{display:flex;gap:14px;padding-top:14px;font-size:13px}
-.top a{color:var(--muted);text-decoration:none}.top a:hover{color:var(--fg)}
-h1{font-size:22px;font-weight:900;margin:14px 0 2px}
-.sub{font-size:12.5px;color:var(--muted);margin:0 0 6px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:14px}
-.card h2{font-size:15px;font-weight:900;margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.card h2 small{font-size:11.5px;font-weight:500;color:var(--muted)}
-
-/* 今日 */
-.today{display:grid;gap:8px}
-.trow{display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:10px;background:var(--surface2);border-radius:10px;padding:9px 12px;text-decoration:none}
-.trow b{font-family:var(--en);font-variant-numeric:tabular-nums}
-.trow .st{font-size:12px;font-weight:700;color:var(--muted)}
-.trow.done .st{color:var(--ok)}
-.trow:hover{outline:1px solid var(--line-strong)}
-
-/* カレンダー */
-.calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.calhead button{width:34px;height:34px;border:1px solid var(--line-strong);border-radius:9px;font-size:16px}
-.calhead b{font-family:var(--en);font-size:16px}
-.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.cal .wd{font-size:10.5px;color:var(--muted);text-align:center;padding-bottom:2px}
-.cal .d{aspect-ratio:1;border-radius:8px;background:rgba(11,11,12,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-family:var(--en);font-size:12px;color:var(--muted)}
-.cal .d.all{background:var(--red);color:#fff}
-.cal .d.some{background:rgba(232,50,31,.16);color:var(--fg)}
-.cal .d.today{outline:2px solid var(--fg)}
-.cal .d.future{opacity:.35}
+   記録は ap_activity（各ページが書く）、ゴールは ap_goals に、この端末だけに保存する。
+   見た目は /ui.css（doboku と同じ）。ここは計画ページだけの分。 */
+a.row{text-decoration:none;color:var(--ink)}
+/* カレンダーの日：数字の下に、チャンク・単語・シャドーイングの点 */
+.cal .d{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
 .cal .d i{display:flex;gap:2px}
-.cal .d i s{width:5px;height:5px;border-radius:50%;background:rgba(11,11,12,.16);text-decoration:none}
+.cal .d i s{width:4px;height:4px;border-radius:50%;background:var(--line2)}
 .cal .d i s.on{background:var(--ok)}
-.cal .d.all i s.on{background:#fff}
-.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--muted);margin-top:10px}
-.legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:4px;vertical-align:-1px;background:var(--c)}
-.nums{display:flex;gap:8px;margin-top:12px}
-.nums div{flex:1;background:var(--surface2);border-radius:10px;padding:8px;text-align:center;font-size:11px;color:var(--muted)}
-.nums b{display:block;font-family:var(--en);font-size:22px;font-weight:900;color:var(--fg);line-height:1.15}
-
-/* ゴール */
-.goal{border-top:1px solid var(--line);padding:12px 0 2px}
-.goal:first-of-type{border-top:0;padding-top:0}
-.goal h3{font-size:13.5px;font-weight:900;margin:0 0 8px}
-.goal h3 span{font-size:11px;font-weight:500;color:var(--muted);margin-left:6px}
-.f{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;margin:6px 0;font-size:13.5px}
-.f select,.f input[type=number],.f input[type=time]{background:var(--surface2);border:1px solid var(--line-strong);border-radius:9px;padding:8px 10px;font-size:14px;min-width:96px;text-align:right}
-textarea{width:100%;background:var(--surface2);border:1px solid var(--line-strong);border-radius:9px;padding:9px 11px;font-size:14px;resize:vertical;min-height:44px}
-input:focus,select:focus,textarea:focus{border-color:var(--red);outline:none}
-.bar{height:8px;border-radius:999px;background:rgba(11,11,12,.08);overflow:hidden;margin:8px 0 4px}
-.bar i{display:block;height:100%;background:var(--red);border-radius:999px}
-.prog{font-size:12px;color:var(--muted)}
-.prog b{color:var(--fg);font-family:var(--en)}
-.hint{font-size:11.5px;color:var(--muted);margin:4px 0 0}
-.btn{display:block;width:100%;margin-top:14px;border-radius:10px;padding:12px;background:var(--red);color:#fff;font-weight:700;font-size:14.5px;text-align:center;text-decoration:none}
-.btn:hover{background:var(--red-deep)}
-.btn.ghost{background:none;border:1px solid var(--line-strong);color:var(--fg)}
-.btn.ghost:hover{border-color:var(--red);color:var(--red)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.row2 .btn{margin-top:10px}
-.saved{font-size:12.5px;color:var(--ok);text-align:center;margin:8px 0 0;min-height:1.2em}
-.foot{margin-top:22px;font-size:11px;color:#64646C;line-height:1.7}
+.cal .d.all i s.on{background:var(--on)}
+/* ゴールの進み具合 */
+.gbar{margin:2px 14px 6px;border-radius:4px;overflow:hidden}
+.gmeta b{font-family:var(--en);color:var(--ink)}
+.label span{margin-left:6px;font-weight:400}
 </style>
 </head>
-<body>
-<div class="wrap">
-  <div class="top"><a href="/">← チャンクトレーニング</a><a href="/words/">📚 単語</a><a href="/shadowing/">🎧 シャドーイング</a></div>
-  <h1>📅 わたしの計画</h1>
-  <p class="sub" id="who"></p>
+<body data-tab="home">
+<main class="screen">
+  <div class="nav"><span class="navl"><span class="mini">今日</span></span></div>
+  <p class="eyebrow" id="today-date"></p>
+  <h1 class="large">今日</h1>
+  <p class="sub" id="who" hidden></p>
 
-  <!-- 今日の課題 -->
-  <section class="card">
-    <h2>今日の課題<small id="today-date"></small></h2>
-    <div class="today" id="today"></div>
-  </section>
+  <div class="hero">
+    <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="t" cx="50" cy="50" r="42"/><circle class="v" id="ring" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="263.9" transform="rotate(-90 50 50)"/></svg>
+    <div><b id="h-num">0 / 3</b><p id="h-msg">今日のゴール</p></div>
+  </div>
+  <div class="tiles">
+    <div><b id="st-streak">0</b>日 連続</div>
+    <div><b id="st-week">0</b>日 今週</div>
+    <div><b id="st-words">0</b>語 今月</div>
+  </div>
+  <p class="label">今日やること</p>
+  <div class="group" id="today"></div>
 
-  <!-- カレンダー -->
-  <section class="card">
-    <div class="calhead"><button id="prev" aria-label="前の月">‹</button><b id="month"></b><button id="next" aria-label="次の月">›</button></div>
+  <hr class="hr">
+  <h2 class="sect">計画</h2>
+  <p class="sub">ゴールを決めると、毎日のカレンダーが塗られていきます</p>
+  <div class="calbox">
+    <div class="calhd"><button id="prev" aria-label="前の月">‹</button><b id="month"></b><button id="next" aria-label="次の月">›</button></div>
     <div class="cal" id="cal"></div>
     <div class="legend">
-      <span style="--c:var(--red)">1日のゴール達成</span>
-      <span style="--c:rgba(255,45,22,.35)">少しやった</span>
-      <span style="--c:var(--ok)">● チャンク・単語・シャドーイング</span>
+      <span style="--c:var(--brand)">1日のゴール達成</span>
+      <span style="--c:var(--soft2)">少しやった</span>
+      <span style="--c:var(--ok)">チャンク・単語・シャドーイング</span>
     </div>
-    <div class="nums">
-      <div><b id="n-streak">0</b>日 連続達成</div>
-      <div><b id="n-month">0</b>日 今月の達成</div>
-      <div><b id="n-words">0</b>語 今月覚えた</div>
-    </div>
-  </section>
+  </div>
+  <div class="tiles">
+    <div><b id="n-streak">0</b>日 連続達成</div>
+    <div><b id="n-month">0</b>日 今月の達成</div>
+    <div><b id="n-words">0</b>語 今月覚えた</div>
+  </div>
 
-  <!-- ゴール -->
-  <section class="card">
-    <h2>あなたのゴール<small>この端末に保存</small></h2>
+  <p class="label">1日のゴール</p>
+  <div class="group">
+    <div class="step2"><span>新しく覚える単語<small>語／日</small></span><span class="stepper"><button data-goal="g-words" data-d="-1" aria-label="減らす">−</button><output id="g-words">20</output><button data-goal="g-words" data-d="1" aria-label="増やす">＋</button></span></div>
+    <div class="step2"><span>チャンクトレーニング<small>章／日</small></span><span class="stepper"><button data-goal="g-chunk" data-d="-1" aria-label="減らす">−</button><output id="g-chunk">1</output><button data-goal="g-chunk" data-d="1" aria-label="増やす">＋</button></span></div>
+    <div class="step2"><span>シャドーイング<small>本／日</small></span><span class="stepper"><button data-goal="g-shadow" data-d="-1" aria-label="減らす">−</button><output id="g-shadow">1</output><button data-goal="g-shadow" data-d="1" aria-label="増やす">＋</button></span></div>
+  </div>
+  <p class="note" id="g-words-hint"></p>
 
-    <div class="goal">
-      <h3>1日のゴール<span>毎日やること</span></h3>
-      <label class="f">新しく覚える単語<select id="g-words"><option value="0">なし</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>40</option><option>50</option></select></label>
-      <label class="f">チャンクトレーニング<select id="g-chunk"><option value="0">なし</option><option value="1">1章</option><option value="2">2章</option><option value="3">3章</option></select></label>
-      <label class="f">シャドーイング<select id="g-shadow"><option value="0">なし</option><option value="1">1本</option><option value="2">2本</option></select></label>
-      <p class="hint" id="g-words-hint"></p>
-    </div>
+  <p class="label">今月のゴール<span id="g-month-label"></span></p>
+  <div class="group">
+    <textarea class="goaltext" id="g-month-text" rows="2" placeholder="例：毎日休まず続ける／Ch 12 まで終わらせる"></textarea>
+    <label class="fld" for="g-month-words">今月覚える単語<input type="number" id="g-month-words" min="0" step="10" inputmode="numeric"></label>
+    <div class="bar gbar"><i id="g-month-bar"></i></div>
+    <div class="gmeta" id="g-month-prog"></div>
+  </div>
 
-    <div class="goal">
-      <h3>今月のゴール<span id="g-month-label"></span></h3>
-      <textarea id="g-month-text" placeholder="例：毎日休まず続ける／Ch 12 まで終わらせる"></textarea>
-      <label class="f">今月覚える単語<input type="number" id="g-month-words" min="0" step="10" inputmode="numeric"></label>
-      <div class="bar"><i id="g-month-bar"></i></div>
-      <p class="prog" id="g-month-prog"></p>
-    </div>
+  <p class="label">3ヶ月のゴール<span id="g-3m-label"></span></p>
+  <div class="group">
+    <textarea class="goaltext" id="g-3m-text" rows="2" placeholder="例：TOEIC 800点／海外旅行で注文や道案内ができる"></textarea>
+    <label class="fld" for="g-3m-words">3ヶ月で覚える単語<input type="number" id="g-3m-words" min="0" step="50" inputmode="numeric"></label>
+    <div class="bar gbar"><i id="g-3m-bar"></i></div>
+    <div class="gmeta" id="g-3m-prog"></div>
+  </div>
 
-    <div class="goal">
-      <h3>3ヶ月のゴール<span id="g-3m-label"></span></h3>
-      <textarea id="g-3m-text" placeholder="例：TOEIC 800点／海外旅行で注文や道案内ができる"></textarea>
-      <label class="f">3ヶ月で覚える単語<input type="number" id="g-3m-words" min="0" step="50" inputmode="numeric"></label>
-      <div class="bar"><i id="g-3m-bar"></i></div>
-      <p class="prog" id="g-3m-prog"></p>
-    </div>
+  <button class="primary" id="save">ゴールを保存する</button>
+  <p class="saved" id="saved" role="status"></p>
 
-    <button class="btn" id="save">ゴールを保存する</button>
-    <p class="saved" id="saved" role="status"></p>
-  </section>
+  <p class="label">自分のカレンダーに入れる</p>
+  <div class="group">
+    <label class="fld" for="c-time">練習する時間<input type="time" id="c-time" value="21:00"></label>
+    <label class="fld" for="c-len">長さ<select id="c-len"><option value="15">15分</option><option value="30" selected>30分</option><option value="45">45分</option><option value="60">60分</option></select></label>
+  </div>
+  <div class="two">
+    <a id="c-ics" href="#">iPhone・Mac<small>カレンダー</small></a>
+    <a id="c-google" href="#" target="_blank" rel="noopener">Google<small>カレンダー</small></a>
+  </div>
+  <p class="note">押すと、毎日くり返す予定（A-PUSH 今日のトレーニング）が追加されます。予定の中に、このサイトへのリンクと今日の課題が入ります。</p>
 
-  <!-- 自分のカレンダー -->
-  <section class="card">
-    <h2>自分のカレンダーに入れる<small>毎日、練習の時間にお知らせ</small></h2>
-    <label class="f">練習する時間<input type="time" id="c-time" value="21:00"></label>
-    <label class="f">長さ<select id="c-len"><option value="15">15分</option><option value="30" selected>30分</option><option value="45">45分</option><option value="60">60分</option></select></label>
-    <div class="row2">
-      <a class="btn ghost" id="c-ics" href="#">iPhone・Mac<br><small>カレンダー</small></a>
-      <a class="btn ghost" id="c-google" href="#" target="_blank" rel="noopener">Google<br><small>カレンダー</small></a>
-    </div>
-    <p class="hint">押すと、毎日くり返す予定（A-PUSH 今日のトレーニング）が追加されます。予定の中に、このサイトへのリンクと今日の課題が入ります。</p>
-  </section>
-
-  <p class="foot">記録とゴールは、お使いの端末のブラウザに保存されます。機種を変えたり、別のブラウザで開いたりすると、0から始まります。</p>
-</div>
+  <a class="apush" href="https://lp.apush.jp/" target="_blank" rel="noopener">
+    <span class="ap-k">3ヶ月、英語に集中</span>
+    <span class="ap-n">A-PUSH</span>
+    <span class="ap-c">無料体験＆学習相談 →</span>
+  </a>
+  <footer class="foot">
+    <span>記録とゴールは、お使いの端末のブラウザに保存されます。機種を変えたり、別のブラウザで開いたりすると、0から始まります。</span>
+    <span class="by">TRAINING BY A-PUSH</span>
+  </footer>
+</main>
 
 <script>
 const $=id=>document.getElementById(id);
@@ -205,11 +152,29 @@ function dayState(a,d){
 /* ---- 今日 ---- */
 function paintToday(a){
   $("today-date").textContent=TODAY.replace(/-/g,"/");
-  const x=a[TODAY]||{};
-  $("today").innerHTML=TASKS.filter(t=>goalOf(t.k)>0).map(t=>{
-    const n=x[t.k]||0,g=goalOf(t.k),done=n>=g;
-    return '<a class="trow'+(done?" done":"")+'" href="'+t.href+'"><span>'+t.ic+'</span><span>'+t.t+'　<b>'+n+'</b> / '+g+' '+t.u+'</span><span class="st">'+(done?"✓ できた":"やる →")+'</span></a>';
-  }).join("")||'<p class="hint">下の「1日のゴール」を決めると、ここに今日の課題が出ます。</p>';
+  const x=a[TODAY]||{},on=TASKS.filter(t=>goalOf(t.k)>0);
+  const rows=on.map(t=>{const n=x[t.k]||0,g=goalOf(t.k);return {t,n,g,done:n>=g};});
+  const met=rows.filter(r=>r.done).length;
+  $("h-num").textContent=met+" / "+rows.length;
+  $("h-msg").innerHTML=!rows.length?"下の「計画」で、1日のゴールを決めてください":met===rows.length?"今日のゴール達成。おつかれさま！":"今日のゴール<br>あと "+rows.filter(r=>!r.done).map(r=>r.t.t).join("・");
+  ring(rows.length?rows.reduce((s,r)=>s+Math.min(1,r.n/r.g),0)/rows.length:0);
+  $("today").innerHTML=rows.map(r=>
+    '<a class="row'+(r.done?" done":"")+'" href="'+r.t.href+'"><span class="ic" aria-hidden="true">'+r.t.ic+'</span><span><b>'+r.t.t+'</b><small>今日 '+r.n+' / '+r.g+' '+r.t.u+'</small></span><span class="chev">'+(r.done?"✓ できた":"やる ›")+'</span></a>'
+  ).join("")||'<a class="row" href="#g-words"><span class="ic" aria-hidden="true">📅</span><span><b>1日のゴールを決める</b><small>この下の「計画」</small></span><span class="chev">›</span></a>';
+  // 連続・今週（何かやった日）・今月の単語
+  const act=d=>TASKS.some(t=>(a[d]||{})[t.k]);
+  let d=act(TODAY)?TODAY:addDays(TODAY,-1),n=0;
+  while(act(d)){n++;d=addDays(d,-1);}
+  $("st-streak").textContent=n;
+  let w=0;for(let i=0;i<7;i++)if(act(addDays(TODAY,-i)))w++;
+  $("st-week").textContent=w;
+  $("st-words").textContent=sumWords(a,TODAY.slice(0,7)+"-01",TODAY);
+}
+function ring(p){
+  const r=$("ring"),to=String(263.9*(1-p));
+  if(r.dataset.v===to)return;r.dataset.v=to;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){r.style.strokeDashoffset=to;return;}
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{r.style.strokeDashoffset=to;}));
 }
 
 /* ---- カレンダー ---- */
@@ -218,7 +183,7 @@ function paintCal(a){
   const [y,m]=VIEW.split("-").map(Number);
   $("month").textContent=y+"年 "+m+"月";
   const first=new Date(y,m-1,1),days=new Date(y,m,0).getDate();
-  let html=["日","月","火","水","木","金","土"].map(w=>'<span class="wd">'+w+'</span>').join("");
+  let html=["日","月","火","水","木","金","土"].map(w=>'<span class="w">'+w+'</span>').join("");
   for(let i=0;i<first.getDay();i++)html+="<span></span>";
   for(let d=1;d<=days;d++){
     const key=VIEW+"-"+p2(d),st=dayState(a,key);
@@ -257,7 +222,14 @@ function paintNums(a){
   $("g-3m-prog").innerHTML=g3?'覚えた単語 <b>'+w3+'</b> / '+g3+' 語　・　残り '+left3+' 日':"";
 }
 
-/* ---- ゴールの入力 ---- */
+/* ---- ゴールの入力（1日のゴールは ＋− で、決まった数の中から選ぶ） ---- */
+const STEPS={"g-words":[0,10,15,20,25,30,40,50],"g-chunk":[0,1,2,3],"g-shadow":[0,1,2]};
+document.querySelectorAll("[data-goal]").forEach(b=>b.onclick=()=>{
+  const o=$(b.dataset.goal),list=STEPS[b.dataset.goal],v=+o.value||0;
+  const n=+b.dataset.d>0?list.find(x=>x>v):list.slice().reverse().find(x=>x<v);
+  if(n!==undefined)o.value=String(n);
+  hint();
+});
 function fillForm(){
   $("g-words").value=String(G.words);$("g-chunk").value=String(G.chunk);$("g-shadow").value=String(G.shadow);
   $("g-month-text").value=G.monthText||"";$("g-month-words").value=G.monthWords||"";
@@ -268,7 +240,6 @@ function hint(){
   const n=+$("g-words").value;
   $("g-words-hint").textContent=n?"毎日"+n+"語なら、1ヶ月で約"+n*30+"語、3ヶ月で約"+n*90+"語。単語トレーニングの「1日に覚える数」もこの数になります。":"";
 }
-$("g-words").onchange=hint;
 $("save").onclick=()=>{
   const prev=G;
   G=Object.assign({},G,{
@@ -325,9 +296,10 @@ $("c-google").onclick=()=>{
 };
 
 function paint(){const a=activity();paintToday(a);paintCal(a);paintNums(a);}
-const nm=get("ap_name","");if(nm)$("who").textContent=nm+" さんの計画";
+const nm=get("ap_name","");if(nm){$("who").textContent=nm+" さんの計画";$("who").hidden=false;}
 fillForm();paint();
 </script>
 <script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
+<script src="/ui.js" defer></script>
 </body>
 </html>

@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="TOEIC 700点を狙う単語を、絵と声で毎日20個。忘却曲線で、忘れかけた単語がまた出てきます。">
-<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://training.apush.jp/words/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://training.apush.jp/words/">
@@ -17,226 +16,147 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="A-PUSH単語">
 <title>A-PUSH 単語｜TOEIC 700点を狙う単語（お試し版）</title>
+<meta name="theme-color" content="#F2F4F8">
+<meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="/ui.css">
 <style>
-:root{
-  --ink:#FFFFFF; --surface:#F6F6F4; --surface2:#ECECE9;
-  --line:rgba(11,11,12,.10); --line-strong:rgba(11,11,12,.22);
-  --fg:#0B0B0C; --muted:#6B6B72;
-  --red:#E8321F; --red-deep:#C42612; --ok:#14935A; --ng:#D9301E;
-  --en:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
-  color-scheme:light;
-  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
-}
-*{box-sizing:border-box}
-[hidden]{display:none!important}
-html,body{margin:0}
-body{background:var(--ink);color:var(--fg);font-family:var(--jp);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 16px 44px}
-.wrap{max-width:600px;margin:0 auto}
-@media(min-width:900px){
-  .wrap{max-width:1040px}
-  #v-home{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"prog tasks" "sync tasks" "a2hs cta";column-gap:20px;align-items:start}
-  #v-home .c-prog{grid-area:prog} #v-home .c-tasks{grid-area:tasks} #v-home .sync{grid-area:sync} #v-home .a2hs{grid-area:a2hs} #v-home .cta{grid-area:cta}
-  #v-learn,#v-test,#v-result,#v-set,#v-sync{max-width:600px;margin:0 auto}
-}
+/* 単語ページだけの見た目（doboku の色・形に合わせる） */
+.screen>section{display:flex;flex-direction:column;gap:12px}
 .en{font-family:var(--en)}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.seg button[aria-pressed="true"]{background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.13),0 0 0 .5px rgba(0,0,0,.04)}
+.filters .note b{font-family:var(--en);font-weight:900;color:var(--ink)}
 
-.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 0 6px}
-.back{font-size:12.5px;font-weight:700;color:var(--muted);text-decoration:none}
-.back:hover{color:var(--red)}
-.gear{border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700;color:var(--muted)}
-.gear:hover{border-color:var(--red);color:var(--red)}
-.eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red);margin:10px 0 2px}
-h1{font-size:21px;font-weight:900;letter-spacing:-.02em;margin:0;line-height:1.35}
-h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;color:#fff;background:var(--red);border-radius:999px;padding:2px 9px;vertical-align:3px}
-
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin-top:14px}
-
-/* 進み具合 */
-.prog{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;color:var(--muted)}
-.prog b{font-family:var(--en);font-size:22px;color:var(--fg);font-weight:900}
-.boxes{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:12px}
-.boxes div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 4px 6px;text-align:center}
-.boxes span{display:block;font-size:10.5px;color:var(--muted);font-weight:700}
+/* 箱の様子 */
+.boxes{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.boxes div{background:var(--bg);border-radius:10px;padding:7px 2px 6px;text-align:center}
+.boxes span{display:block;font-size:10.5px;color:var(--mute);font-weight:700}
 .boxes b{display:block;font-family:var(--en);font-size:17px;font-weight:900}
-.boxes .m{border-color:var(--ok)} .boxes .m b{color:var(--ok)}
-.boxnote{font-size:11px;color:var(--muted);margin:8px 0 0}
+.boxes .m{background:var(--soft)} .boxes .m b{color:var(--brand)}
+.boxnote{font-size:11.5px;color:var(--mute);margin:0;line-height:1.6}
 
-/* 今日のタスク */
-.tasks{display:flex;flex-direction:column;gap:9px;margin-top:4px}
-.task{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:13px 14px;text-align:left;width:100%}
-.task:not(:disabled):hover{border-color:var(--red)}
-.task:disabled{cursor:default;opacity:.55}
-.task .ic{font-size:24px;line-height:1}
-.task b{display:block;font-size:15px;font-weight:900}
-.task small{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
-.task .st{font-size:11.5px;font-weight:900;white-space:nowrap;color:var(--red)}
-.task.done .st{color:var(--ok)}
-.task.next{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
-.msg{font-size:12.5px;background:#FFF4F2;border:1px solid rgba(232,50,31,.35);border-radius:10px;padding:10px 12px;margin-top:10px}
+/* 今日のタスク（row の形） */
+.task:disabled{cursor:default;opacity:.5}
+.task .chev{color:var(--brand)} .task.done .chev{color:var(--ok)} .task:disabled .chev{color:var(--mute)}
+.task.next{box-shadow:0 0 0 2px var(--brand) inset}
 
-/* 学習カード */
-.meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)}
-.meta .en{font-variant-numeric:tabular-nums}
-.pics{display:flex;justify-content:center;gap:18px;font-size:clamp(54px,15vw,76px);line-height:1;padding:14px 0 6px;min-height:20px}
-.word{font-family:var(--en);font-size:clamp(30px,8vw,40px);font-weight:900;letter-spacing:-.03em;text-align:center;margin:6px 0 0;line-height:1.15}
-.say{display:block;margin:6px auto 0;border:1px solid var(--line-strong);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700;color:var(--muted)}
-.say:hover{border-color:var(--red);color:var(--red)}
-.senses{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
-.senses li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-weight:700}
+/* 覚える・テスト */
+.pics{display:flex;justify-content:center;gap:18px;font-size:clamp(54px,15vw,68px);line-height:1;padding:4px 0}
+.word{margin:0;text-align:center;font-family:var(--en);font-size:clamp(30px,8vw,38px);font-weight:900;letter-spacing:-.025em;line-height:1.2;padding:6px 0 0}
+.lsay{align-self:center;background:var(--soft);color:var(--brand);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:600}
+.senses{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.senses li{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:10px 12px;font-weight:700}
 .senses li i{font-style:normal;font-size:22px;width:1.3em;text-align:center}
-.reps{display:flex;justify-content:center;gap:12px;margin-top:16px}
-.reps button{width:46px;height:46px;border-radius:50%;border:2px solid var(--line-strong);font-family:var(--en);font-weight:900;color:var(--muted)}
-.reps button.on{background:var(--red);border-color:var(--red);color:#fff}
-.repsnote{text-align:center;font-size:12px;color:var(--muted);margin:8px 0 0}
-.acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-.acts button{border:1px solid var(--line-strong);border-radius:9px;padding:11px 18px;font-size:14px;font-weight:700}
-.acts button:hover{border-color:var(--red);color:var(--red)}
-.acts .primary{background:var(--red);border-color:var(--red);color:#fff;min-width:180px}
-.acts .primary:hover{background:var(--red-deep);border-color:var(--red-deep);color:#fff}
-.acts button:disabled{opacity:.35;cursor:default}
-.acts button:disabled:hover{border-color:var(--line-strong);color:inherit}
-.acts .primary:disabled:hover{background:var(--red);border-color:var(--red);color:#fff}
+.ask{text-align:center}
+.verdict small{display:block;font-weight:600;font-size:12.5px;color:var(--mute);margin-top:4px}
+.recap div{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:.5px solid var(--line2);font-size:14px}
+.recap .en{font-weight:800;color:var(--brand)}
 
-/* テスト */
-.ask{text-align:center;font-size:13px;color:var(--muted);margin:10px 0 0}
-.choices{display:grid;gap:8px;margin-top:16px}
-.choices button{background:#fff;border:1px solid var(--line-strong);border-radius:11px;padding:13px 14px;text-align:left;font-weight:700;font-size:15px}
-.choices button.en{font-family:var(--en);font-size:17px}
-.choices button:not(:disabled):hover{border-color:var(--red)}
-.choices button.ok{border-color:var(--ok);background:#EAF7F0}
-.choices button.ng{border-color:var(--ng);background:#FDECEA}
-.verdict{text-align:center;font-weight:900;margin:14px 0 0}
-.verdict.y{color:var(--ok)} .verdict.n{color:var(--ng)}
-.verdict small{display:block;font-weight:700;font-size:12px;color:var(--muted)}
+/* 設定・登録 */
+.fld input[type="text"],.fld input:not([type]){text-align:left;width:60%}
+.ghost.danger{background:var(--line);color:var(--ng)}
 
-/* 結果 */
-.big{font-family:var(--en);font-size:48px;font-weight:900;text-align:center;margin:6px 0 0;line-height:1}
-.big em{font-style:normal;font-size:20px;color:var(--muted)}
-.recap{margin-top:14px;display:flex;flex-direction:column;gap:6px}
-.recap div{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13.5px}
-.recap .en{font-weight:900}
-
-/* 設定 */
-.set{display:flex;flex-direction:column;gap:14px}
-.set label{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700}
-.set select,.set input{font:inherit;font-weight:700;border:1px solid var(--line-strong);border-radius:9px;padding:8px 10px;background:#fff}
-.set .hint{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:-8px}
-.danger{color:var(--ng)!important;border-color:rgba(217,48,30,.4)!important}
+/* 忘却曲線を活用する（ニックネーム登録） */
+.wsync{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;background:var(--card);border-radius:var(--r);padding:12px 14px;box-shadow:0 0 0 2px var(--brand) inset}
+.wsync b{display:block;font-size:15px;font-weight:700}
+.wsync>div>span{display:block;font-size:12px;color:var(--mute);line-height:1.5;margin-top:2px}
+.wsync button{background:var(--brand);color:var(--on);border-radius:10px;padding:9px 14px;font-size:13px;font-weight:700;white-space:nowrap}
+.wsync.on{box-shadow:none}
+.wsync.on button{background:var(--soft);color:var(--brand)}
+/* ホーム画面に追加 */
+.a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;background:var(--card);border-radius:var(--r);padding:11px 12px}
+.a2hs img{border-radius:10px}
+.a2hs b{display:block;font-size:14px;font-weight:700;line-height:1.4}
+.a2hs span{display:block;font-size:12px;color:var(--mute);line-height:1.5;margin-top:2px}
+.a2hs #a2hs-btn{background:var(--brand);color:var(--on);border-radius:9px;padding:8px 12px;font-size:13px;font-weight:700;white-space:nowrap}
+.a2hs .x{font-size:18px;color:var(--mute);padding:2px 4px}
+/* 面談・体験 */
+.cta{display:flex;flex-direction:column;gap:8px}
+.cta .label{margin:4px 4px 0}
+.two a.fill{background:var(--brand);color:var(--on)}
+.two a.fill small{color:rgba(255,255,255,.8)}
 
 /* A-PUSH式 単語の覚え方 */
-.howbtn{display:inline-block;margin-left:.4em;vertical-align:3px;border:1px solid var(--fg);border-radius:999px;padding:2px 10px;font-size:11px;font-weight:900;color:var(--fg);background:#fff}
-.howbtn:hover{border-color:var(--red);color:var(--red)}
-.howto{margin-top:14px}
-.howto h2{font-size:clamp(20px,3vw,28px);font-weight:900;margin:0 0 14px}
+.howto{display:flex;flex-direction:column;gap:12px}
 .hg{display:grid;grid-template-columns:1fr;gap:12px}
-.hc{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px;display:flex;flex-direction:column}
-.ht-n{position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--en);font-weight:900;display:grid;place-items:center;font-size:13px;z-index:1}
+.hc{position:relative;background:var(--card);border-radius:20px;padding:18px 18px 20px;display:flex;flex-direction:column}
+.ht-n{position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--brand);color:var(--on);font-family:var(--en);font-weight:900;display:grid;place-items:center;font-size:13px;z-index:1}
 .hc h3{font-size:clamp(17px,2.2vw,21px);font-weight:900;margin:14px 0 2px;line-height:1.4}
-.hc h3 em{font-style:normal;color:var(--red)}
-.hc p{margin:0;font-size:13px;color:var(--muted);line-height:1.7}
+.hc h3 em{font-style:normal;color:var(--brand)}
+.hc p{margin:0;font-size:13.5px;color:var(--ink);line-height:1.7}
 .hv,.curve,.flow-d,.ladder{flex:1;min-height:150px;margin:0;display:flex;align-items:center;justify-content:center}
-/* 1：単語が消えていく */
 .forget{gap:10px;flex-wrap:wrap;font-family:var(--en);font-weight:900;font-size:clamp(18px,2.6vw,24px);letter-spacing:.02em}
-.forget span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.forget span{background:var(--bg);border-radius:10px;padding:8px 10px}
 .forget span:nth-child(2){opacity:.65}.forget span:nth-child(3){opacity:.4}.forget span:nth-child(4){opacity:.2}
-/* 2：忘却曲線 */
-.curve{flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px}
-.curve svg{display:block;width:100%;height:auto;font-family:var(--jp)}
-.curve figcaption{font-size:11px;color:var(--muted);margin-top:2px}
+.curve{flex-direction:column;background:var(--bg);border-radius:12px;padding:8px}
+.curve svg{display:block;width:100%;height:auto;font-family:var(--f)}
+.curve figcaption{font-size:11px;color:var(--mute);margin-top:2px}
 .lg{display:inline-block;width:16px;height:3px;vertical-align:3px;margin-right:4px}
-.lg.r{background:var(--red)} .lg.g{background:repeating-linear-gradient(90deg,#B5B5BB 0 5px,transparent 5px 9px);margin-left:6px}
-/* 3：朝→夜→睡眠→翌日 */
+.lg.r{background:var(--brand)} .lg.g{background:repeating-linear-gradient(90deg,#B5BCCB 0 5px,transparent 5px 9px);margin-left:6px}
 .flow-d{list-style:none;padding:0;gap:14px}
-.flow-d li{position:relative;width:66px;height:84px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.flow-d li:not(:last-child)::after{content:"→";position:absolute;right:-12px;color:var(--red);font-weight:900;font-size:13px}
-.flow-d li.z{background:var(--fg);border-color:var(--fg);color:#fff}
+.flow-d li{position:relative;width:66px;height:84px;background:var(--bg);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.flow-d li:not(:last-child)::after{content:"→";position:absolute;right:-12px;color:var(--brand);font-weight:900;font-size:13px}
+.flow-d li.z{background:var(--ink);color:var(--on)}
 .flow-d i{font-style:normal;font-size:26px;line-height:1.1}
 .flow-d b{font-size:12px;font-weight:900;margin-top:2px}
-.flow-d small{font-size:9.5px;color:var(--muted);margin-top:1px;white-space:nowrap}
+.flow-d small{font-size:9.5px;color:var(--mute);margin-top:1px;white-space:nowrap}
 .flow-d li.z small{color:rgba(255,255,255,.75)}
-/* 4：間をあけて、習得へ */
 .ladder{list-style:none;padding:0;gap:6px;align-items:flex-end}
-.ladder li{width:46px;border-radius:8px 8px 4px 4px;background:rgba(232,50,31,.18);color:var(--red-deep);font-weight:700;font-size:9.5px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6px;line-height:1.25;text-align:center}
+.ladder li{width:46px;border-radius:8px 8px 4px 4px;background:var(--soft);color:var(--brand);font-weight:700;font-size:9.5px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6px;line-height:1.25;text-align:center}
 .ladder li b{font-size:11px;font-weight:900}
 .ladder li:nth-child(1){height:42px}.ladder li:nth-child(2){height:52px}.ladder li:nth-child(3){height:70px}.ladder li:nth-child(4){height:88px}.ladder li:nth-child(5){height:106px}
-.ladder li.m{height:130px;background:var(--red);color:#fff;font-size:20px;justify-content:center;padding:0}
-.ladder li.m b{font-size:11px;color:#fff;margin-top:4px}
+.ladder li.m{height:130px;background:var(--brand);color:var(--on);font-size:20px;justify-content:center;padding:0}
+.ladder li.m b{font-size:11px;color:var(--on);margin-top:4px}
 .pts{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
-.pts li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.65;color:#3A3A40}
-.pts li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--red)}
-.pts .dot{color:var(--red)}
-.hc p{color:#3A3A40!important;font-size:13.5px!important}
-.howto .note{font-size:10.5px;color:var(--muted);line-height:1.7;margin:12px 0 0}
-@media(min-width:900px){ .hg{grid-template-columns:1fr 1fr;gap:16px} .hc{padding:22px 24px 24px} .hv,.curve,.flow-d,.ladder{min-height:190px} }
-/* 忘却曲線を活用する（ニックネーム登録） */
-.sync{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;margin-top:14px;background:#fff;border:1.5px solid var(--red);border-radius:12px;padding:12px 14px}
-.sync b{display:block;font-size:14px;font-weight:900}
-.sync>div>span{display:block;font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:2px}
-.sync button{background:var(--red);color:#fff;border-radius:9px;padding:9px 14px;font-size:13px;font-weight:900;white-space:nowrap}
-.sync.on{border-color:var(--ok)}
-.sync.on button{background:#fff;color:var(--fg);border:1px solid var(--line-strong)}
-.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.seg button{border:1px solid var(--line-strong);border-radius:9px;padding:9px 6px;font-size:12.5px;font-weight:700;color:var(--muted);background:#fff}
-.seg button[aria-pressed="true"]{border-color:var(--red);color:var(--red)}
-.set input#sy-nick,.set input#sy-id{width:60%}
-/* ホーム画面に追加 */
-.a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;margin-top:14px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:11px 12px}
-.a2hs img{border-radius:10px}
-.a2hs b{display:block;font-size:13.5px;font-weight:900;line-height:1.4}
-.a2hs span{display:block;font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:2px}
-.a2hs #a2hs-btn{background:var(--red);color:#fff;border-radius:8px;padding:8px 12px;font-size:12.5px;font-weight:900;white-space:nowrap}
-.a2hs .x{font-size:18px;color:var(--muted);padding:2px 4px}
-/* 面談・体験 */
-.cta{margin-top:14px}
-.cta-h{font-size:12px;font-weight:700;color:var(--muted);margin:0 0 6px}
-.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.cta-b{display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line-strong);border-radius:11px;padding:11px 13px;text-decoration:none;background:var(--surface)}
-.cta-b:hover{border-color:var(--red)}
-.cta-b b{font-size:14px;font-weight:900}
-.cta-b span{font-size:11px;color:var(--muted)}
-.cta-b.fill{background:var(--red);border-color:var(--red);color:#fff}
-.cta-b.fill span{color:rgba(255,255,255,.85)}
-.cta-b.fill:hover{background:var(--red-deep)}
-.foot{font-size:10.5px;color:var(--muted);line-height:1.7;margin-top:22px}
+.pts li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.65}
+.pts li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--brand)}
+.pts .rd{color:var(--brand)}
 </style>
 </head>
-<body>
-<div class="wrap">
-
-  <div class="bar">
-    <a class="back" href="/">← トレーニングへ</a>
-    <button class="gear" id="btn-set">⚙ 設定</button>
-  </div>
-  <p class="eyebrow">A-PUSH VOCABULARY</p>
-  <h1 id="title">TOEIC 700点を狙う単語<small>お試し版</small><button class="howbtn" id="btn-howto">A-PUSH式 単語の覚え方</button></h1>
+<body data-tab="wd">
+<main class="screen">
+  <div class="nav"><span class="navl"><span class="mini">単語</span></span><span class="navr"><button class="pill press" id="btn-set">設定</button><button class="pill press" id="btn-howto">やり方</button></span></div>
+  <h1 class="large">単語</h1>
+  <p class="sub" id="title">TOEIC 700点を狙う単語・お試し版</p>
 
   <!-- ホーム -->
   <section id="v-home">
-    <div class="card c-prog">
-      <div class="prog"><span>覚えた単語</span><span><b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span></div>
+    <div class="decks" id="w-decks" role="group" aria-label="単語帳を選ぶ"></div>
+    <div class="daily">
+      <span><b>1日の新しい単語</b><small>朝に覚える単語の数</small></span>
+      <div class="seg" id="w-daily" role="group" aria-label="1日の新しい単語の数"></div>
+    </div>
+    <div class="today"><div class="today-t" id="w-today"></div><div class="bar"><i id="w-bar"></i></div></div>
+    <div class="filters">
+      <span class="note">覚えた単語 <b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span>
+      <div class="seg" id="w-mode" role="group" aria-label="見せ方">
+        <button id="w-mode-card" aria-pressed="true">カード</button>
+        <button id="w-mode-list" aria-pressed="false">一覧</button>
+      </div>
+    </div>
+    <div id="w-card" class="cin" style="padding:0">
+      <div class="group" id="tasks"></div>
+      <div class="msg" id="msg" hidden></div>
+      <p class="note" id="times"></p>
+    </div>
+    <div id="w-listwrap" class="cin" style="padding:0" hidden>
+      <input class="search" id="w-q" type="search" placeholder="日本語か英語でさがす" aria-label="さがす" enterkeyhint="search" autocapitalize="none" autocorrect="off">
+      <div class="list" id="w-list"></div>
+    </div>
+    <p class="label">箱の様子</p>
+    <div class="card"><div class="cin">
       <div class="boxes" id="boxes"></div>
       <p class="boxnote">箱1 → 翌日／箱2 → 3日後／箱3 → 7日後／箱4 → 14日後／箱5 → 30日後に、また出てきます。間違えると箱1へ（箱5で間違えたら箱3へ）。</p>
-    </div>
-    <div class="sync" id="sync-off">
+    </div></div>
+    <div class="wsync" id="sync-off">
       <div><b>🧠 忘却曲線を活用する</b><span>ニックネームを登録すると、記録が残り、別のスマホやパソコンでも続きから学習できます。</span></div>
       <button id="sync-open">登録する</button>
     </div>
-    <div class="sync on" id="sync-on" hidden>
+    <div class="wsync on" id="sync-on" hidden>
       <div><b>🧠 <span id="sync-id"></span> で記録中</b><span id="sync-st">別の端末では、このIDを入れると続きから学習できます。</span></div>
       <button id="sync-copy">IDをコピー</button>
-    </div>
-    <div class="card c-tasks">
-      <div class="tasks" id="tasks"></div>
-      <div class="msg" id="msg" hidden></div>
-      <p class="boxnote" id="times"></p>
     </div>
     <div class="a2hs" id="a2hs" hidden>
       <img src="/apple-touch-icon.png" alt="" width="44" height="44">
@@ -248,63 +168,65 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
       <button class="x" id="a2hs-x" aria-label="閉じる">×</button>
     </div>
     <div class="cta">
-      <p class="cta-h">もっと話せるようになりたい方へ</p>
-      <div class="cta-row">
-        <a class="cta-b" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener"><b>面談</b><span>無料・学習の相談</span></a>
-        <a class="cta-b fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener"><b>マンツーマン体験</b><span>無料／60分</span></a>
+      <p class="label">もっと話せるようになりたい方へ</p>
+      <div class="two">
+        <a href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">面談<small>無料・学習の相談</small></a>
+        <a class="fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">マンツーマン体験<small>無料／60分</small></a>
       </div>
     </div>
   </section>
 
   <!-- 朝：覚える ／ 夜：もう一度 -->
   <section id="v-learn" hidden>
-    <div class="card">
-      <div class="meta"><span id="l-label"></span><span class="en" id="l-count"></span></div>
+    <div class="card"><div class="cin">
+      <div class="wcount"><span id="l-count"></span><span class="wcat" id="l-label"></span></div>
       <div class="pics" id="l-pics"></div>
       <p class="word" id="l-word"></p>
-      <button class="say" id="l-say">🔊 発音を聞く</button>
+      <button class="lsay press" id="l-say">🔊 発音を聞く</button>
       <div id="l-front" hidden>
         <div class="acts"><button class="primary" id="l-flip">意味を見る</button></div>
       </div>
-      <div id="l-back">
+      <div id="l-back" class="cin" style="padding:0">
         <ul class="senses" id="l-senses"></ul>
-        <div class="reps" id="l-reps"><button>1</button><button>2</button><button>3</button></div>
-        <p class="repsnote" id="l-repsnote">声に出して3回。言うたびに押してください。</p>
+        <p class="say" id="l-repsnote">声に出して3回。言うたびに押してください。</p>
+        <div class="dots" id="l-reps"><button class="dot" aria-label="1回目">1</button><button class="dot" aria-label="2回目">2</button><button class="dot" aria-label="3回目">3</button></div>
         <div class="acts"><button class="primary" id="l-next" disabled>次の単語へ</button></div>
       </div>
-    </div>
+    </div></div>
   </section>
 
   <!-- テスト・復習 -->
   <section id="v-test" hidden>
-    <div class="card">
-      <div class="meta"><span id="t-label">テスト・復習</span><span class="en" id="t-count"></span></div>
+    <div class="card"><div class="cin">
+      <div class="wcount"><span id="t-label">テスト・復習</span><span id="t-count"></span></div>
+      <span class="wcat" id="t-cat"></span>
       <div class="pics" id="t-pics"></div>
       <p class="word" id="t-word"></p>
-      <button class="say" id="t-say" hidden>🔊 発音を聞く</button>
+      <button class="lsay press" id="t-say" hidden>🔊 発音を聞く</button>
       <p class="ask" id="t-ask"></p>
       <div class="choices" id="t-choices"></div>
       <p class="verdict" id="t-verdict" hidden></p>
       <div class="acts"><button class="primary" id="t-next" hidden>次へ</button></div>
-    </div>
+    </div></div>
   </section>
 
   <!-- 結果 -->
   <section id="v-result" hidden>
-    <div class="card">
+    <div class="card"><div class="cin">
       <p class="eyebrow" style="text-align:center" id="r-head">RESULT</p>
       <p class="big"><span id="r-score">0</span><em> / <span id="r-total">0</span></em></p>
-      <p style="text-align:center;margin:8px 0 0;font-weight:700" id="r-msg"></p>
+      <p class="rmsg" id="r-msg"></p>
       <div class="recap" id="r-recap"></div>
       <div class="acts"><button class="primary" id="r-home">今日のメニューへ</button></div>
-    </div>
+    </div></div>
   </section>
 
   <!-- A-PUSH式 単語の覚え方（図で見せる） -->
   <section id="v-howto" hidden>
     <div class="howto">
+      <div class="imgs"><img src="/howto/08.webp" alt="選んで、声に出して、3回。" width="1600" height="900" loading="lazy"><img src="/howto/09.webp" alt="言えた単語は、決まった日に戻ってくる。" width="1600" height="900" loading="lazy"><img src="/howto/14.webp" alt="忘れかけた頃に、もう一度。" width="1600" height="900" loading="lazy"><img src="/howto/10.webp" alt="まず慣れ。その次に専門用語。" width="1600" height="900" loading="lazy"></div><p class="imgs-n">← 横にスワイプ →</p>
       <p class="eyebrow">HOW TO MEMORIZE</p>
-      <h2>A-PUSH式 単語の覚え方</h2>
+      <h2 class="sect">A-PUSH式 単語の覚え方</h2>
       <div class="hg">
 
         <div class="hc">
@@ -319,19 +241,19 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
           <span class="ht-n">2</span>
           <figure class="curve" aria-label="復習しないと記憶はすぐ下がる。1日後・3日後・7日後・14日後に思い出すと、記憶が高いまま保たれるイメージ図">
             <svg viewBox="0 0 330 160" role="img">
-              <line x1="20" y1="14" x2="20" y2="130" stroke="#D5D5D9"/><line x1="20" y1="130" x2="318" y2="130" stroke="#D5D5D9"/>
-              <g font-size="10" fill="#6B6B72" text-anchor="middle">
+              <line x1="20" y1="14" x2="20" y2="130" stroke="#D5DAE5"/><line x1="20" y1="130" x2="318" y2="130" stroke="#D5DAE5"/>
+              <g font-size="10" fill="#667391" text-anchor="middle">
                 <text x="20" y="148">今日</text><text x="80" y="148">1日</text><text x="140" y="148">3日</text><text x="200" y="148">7日</text><text x="260" y="148">14日</text><text x="312" y="148">30日</text>
               </g>
-              <path d="M20,18 C30,78 48,96 80,106 S210,126 316,128" fill="none" stroke="#B5B5BB" stroke-width="2.5" stroke-dasharray="5 4"/>
-              <path d="M20,18 C34,56 54,76 80,84 L80,18 C100,46 118,62 140,68 L140,18 C162,38 180,50 200,55 L200,18 C222,32 240,40 260,43 L260,18 C282,27 300,32 316,34" fill="none" stroke="#E8321F" stroke-width="3" stroke-linejoin="round"/>
-              <g fill="#E8321F"><circle cx="80" cy="18" r="4.5"/><circle cx="140" cy="18" r="4.5"/><circle cx="200" cy="18" r="4.5"/><circle cx="260" cy="18" r="4.5"/></g>
+              <path d="M20,18 C30,78 48,96 80,106 S210,126 316,128" fill="none" stroke="#B5BCCB" stroke-width="2.5" stroke-dasharray="5 4"/>
+              <path d="M20,18 C34,56 54,76 80,84 L80,18 C100,46 118,62 140,68 L140,18 C162,38 180,50 200,55 L200,18 C222,32 240,40 260,43 L260,18 C282,27 300,32 316,34" fill="none" stroke="#1D4ED8" stroke-width="3" stroke-linejoin="round"/>
+              <g fill="#1D4ED8"><circle cx="80" cy="18" r="4.5"/><circle cx="140" cy="18" r="4.5"/><circle cx="200" cy="18" r="4.5"/><circle cx="260" cy="18" r="4.5"/></g>
             </svg>
             <figcaption><span class="lg r"></span>思い出す　<span class="lg g"></span>思い出さない</figcaption>
           </figure>
           <h3>忘れかけたら、<em>思い出す。</em></h3>
           <p>完全に忘れる前に思い出すと、記憶が戻り、前よりも下がりにくくなります。</p>
-          <ul class="pts"><li>赤い <b class="dot">●</b> が復習のタイミング（1日後・3日後・7日後・14日後）</li><li>思い出すたびに、次に忘れるまでの間が長くなります</li></ul>
+          <ul class="pts"><li>青い <b class="rd">●</b> が復習のタイミング（1日後・3日後・7日後・14日後）</li><li>思い出すたびに、次に忘れるまでの間が長くなります</li></ul>
         </div>
 
         <div class="hc">
@@ -362,46 +284,46 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
 
   <!-- 忘却曲線を活用する（ニックネーム登録） -->
   <section id="v-sync" hidden>
-    <div class="card set">
+    <div class="card"><div class="cin">
       <p style="margin:0;font-weight:900">🧠 忘却曲線を活用する</p>
-      <p class="hint" style="margin:0">ニックネームを登録すると、あなたの記録（どの単語を、いつ、どの箱で覚えたか）が保存されます。別のスマホやパソコンでも、続きから学習できます。</p>
+      <p class="note" style="margin:0">ニックネームを登録すると、あなたの記録（どの単語を、いつ、どの箱で覚えたか）が保存されます。別のスマホやパソコンでも、続きから学習できます。</p>
       <div class="seg" role="group">
         <button id="sy-tab-new" aria-pressed="true">はじめて登録する</button>
         <button id="sy-tab-old" aria-pressed="false">前に作ったIDで続きから</button>
       </div>
-      <div id="sy-new">
-        <label>ニックネーム<input id="sy-nick" maxlength="12" placeholder="例：たろう" autocomplete="off"></label>
-        <p class="hint" style="margin-top:6px">本名・メールアドレス・電話番号は入れないでください。後ろに4ケタの番号をつけて、あなたのIDを作ります（例：たろう#4821）。</p>
+      <div id="sy-new" class="cin" style="padding:0">
+        <div class="group"><label class="fld">ニックネーム<input id="sy-nick" maxlength="12" placeholder="例：たろう" autocomplete="off"></label></div>
+        <p class="note">本名・メールアドレス・電話番号は入れないでください。後ろに4ケタの番号をつけて、あなたのIDを作ります（例：たろう#4821）。</p>
       </div>
-      <div id="sy-old" hidden>
-        <label>ID<input id="sy-id" placeholder="例：たろう#4821" autocomplete="off"></label>
-        <p class="hint" style="margin-top:6px">この端末の今の記録は、IDの記録に置き換わります。</p>
+      <div id="sy-old" class="cin" style="padding:0" hidden>
+        <div class="group"><label class="fld">ID<input id="sy-id" placeholder="例：たろう#4821" autocomplete="off"></label></div>
+        <p class="note">この端末の今の記録は、IDの記録に置き換わります。</p>
       </div>
       <p class="msg" id="sy-msg" hidden></p>
-      <div class="acts" style="margin-top:4px">
+      <div class="acts">
+        <button class="ghost" id="sy-cancel">戻る</button>
         <button class="primary" id="sy-go">登録する</button>
-        <button id="sy-cancel">戻る</button>
       </div>
-      <div class="acts" style="margin-top:0" id="sy-leave-row" hidden><button class="danger" id="sy-leave">この端末での記録の保存をやめる</button></div>
-    </div>
+      <div class="acts" id="sy-leave-row" hidden><button class="ghost danger" id="sy-leave">この端末での記録の保存をやめる</button></div>
+    </div></div>
   </section>
 
   <!-- 設定 -->
   <section id="v-set" hidden>
-    <div class="card set">
-      <label>1回に覚える単語の数
+    <div class="group">
+      <label class="fld">1回に覚える単語の数
         <select id="s-per"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select>
       </label>
-      <label>朝（新しい単語）<input type="time" id="s-am"></label>
-      <label>昼（テスト・復習）<input type="time" id="s-noon"></label>
-      <label>夜（もう一度）<input type="time" id="s-pm"></label>
-      <p class="hint">公式LINEでのお知らせは準備中です。今は、この時間を目安に開いてください。</p>
-      <div class="acts" style="margin-top:4px">
-        <button class="primary" id="s-save">保存する</button>
-        <button id="s-cancel">戻る</button>
-      </div>
-      <div class="acts" style="margin-top:0"><button class="danger" id="s-reset">記録をすべて消す</button></div>
+      <label class="fld">朝（新しい単語）<input type="time" id="s-am"></label>
+      <label class="fld">昼（テスト・復習）<input type="time" id="s-noon"></label>
+      <label class="fld">夜（もう一度）<input type="time" id="s-pm"></label>
     </div>
+    <p class="note">公式LINEでのお知らせは準備中です。今は、この時間を目安に開いてください。</p>
+    <div class="acts">
+      <button class="ghost" id="s-cancel">戻る</button>
+      <button class="primary" id="s-save">保存する</button>
+    </div>
+    <div class="acts"><button class="ghost danger" id="s-reset">記録をすべて消す</button></div>
   </section>
 
   <p class="foot">
@@ -409,7 +331,7 @@ h1 small{display:inline-block;margin-left:.4em;font-size:11px;font-weight:700;co
     ※ TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。<br>
     ※ 記録は、お使いの端末のブラウザに保存されます。「忘却曲線を活用する」でニックネームを登録した場合は、IDと学習の記録だけを A-PUSH のサーバー（Google スプレッドシート）にも保存し、別の端末から続きを学習できるようにします。
   </p>
-</div>
+</main>
 
 <script src="/activity.js"></script>
 <script src="toeic700.js"></script>
@@ -520,10 +442,17 @@ function renderHome(){
 
   var nextIdx = tasks.findIndex(function(x){ return x.on; });
   $("tasks").innerHTML = tasks.map(function(x,i){
-    return '<button class="task'+(x.done?' done':'')+(i===nextIdx?' next':'')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'
-      +'<span class="ic">'+x.ic+'</span><span><b>'+x.t+'</b><small>'+x.s+'</small></span><span class="st">'+x.st+'</span></button>'; }).join("");
+    return '<button class="row task'+(x.done?' done':'')+(i===nextIdx?' next':'')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'
+      +'<span class="ic" aria-hidden="true">'+x.ic+'</span><span><b>'+x.t+'</b><small>'+x.s+'</small></span><span class="chev">'+x.st+(x.on?' ›':'')+'</span></button>'; }).join("");
   $("msg").hidden=!msg; $("msg").textContent=msg;
-  var st=S.settings; $("times").textContent="目安の時間：朝 "+st.am+"／昼 "+st.noon+"／夜 "+st.pm+"（⚙ 設定で変更できます）";
+  // doboku の形：単語帳・1日の新しい単語・今日の数
+  renderDecks(tn);
+  $("w-daily").innerHTML=PER_OPTS.map(function(n){ return '<button data-per="'+n+'" aria-pressed="'+(n===per)+'">'+n+'</button>'; }).join("");
+  var goal=d.batch.length||Math.min(per,W.length-S.next), done=d.am?d.batch.length:0;
+  $("w-today").innerHTML='<span>今日の復習 <b>'+tn+'</b>問</span><span>新しい語 <b>'+done+'</b> / '+goal+'</span>';
+  $("w-bar").style.width=(goal?Math.min(100,done/goal*100):0)+"%";
+  if(!$("w-listwrap").hidden) renderList();
+  var st=S.settings; $("times").textContent="目安の時間：朝 "+st.am+"／昼 "+st.noon+"／夜 "+st.pm+"（設定で変更できます）";
   view("home");
 }
 $("tasks").addEventListener("click",function(e){
@@ -532,6 +461,33 @@ $("tasks").addEventListener("click",function(e){
   if(b.dataset.t==="pm") startLearn("pm");
   if(b.dataset.t==="test") startTest();
 });
+
+function renderDecks(tn){
+  $("w-decks").innerHTML='<button class="deck" aria-pressed="true"><b>'+C.title+'</b><span>覚えた '+S.next+' / '+W.length+(tn?'　<em>復習 '+tn+'</em>':'')+'</span></button>';
+}
+var PER_OPTS=Array.prototype.map.call($("s-per").options,function(o){ return +o.value; });
+$("w-daily").addEventListener("click",function(e){ var b=e.target.closest("[data-per]"); if(!b) return; S.settings.per=+b.dataset.per; save(); renderHome(); });
+function setMode(m){
+  $("w-mode-card").setAttribute("aria-pressed",String(m==="card")); $("w-mode-list").setAttribute("aria-pressed",String(m==="list"));
+  $("w-card").hidden=m!=="card"; $("w-listwrap").hidden=m!=="list"; if(m==="list") renderList();
+}
+$("w-mode-card").addEventListener("click",function(){ setMode("card"); });
+$("w-mode-list").addEventListener("click",function(){ setMode("list"); });
+/* 一覧：日本語か英語でさがす。覚えた状態は、その単語の意味（カード）から */
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function renderList(){
+  var q=$("w-q").value.trim().toLowerCase(), t=today(), out=[];
+  W.forEach(function(w,wi){
+    var ja=w[1].map(function(s){ return s[0]; }).join("・");
+    if(q && w[0].toLowerCase().indexOf(q)<0 && ja.toLowerCase().indexOf(q)<0) return;
+    var cs=w[1].map(function(_,si){ return S.cards[cid(wi,si)]; }).filter(Boolean);
+    var m=!cs.length?"":cs.some(function(c){ return c.box<=5 && c.due<=t; })?"今日":cs.every(function(c){ return c.box>5; })?"習得":"箱"+Math.min.apply(null,cs.map(function(c){ return c.box; }));
+    out.push('<div class="li"><span>'+esc(ja)+(m?' <span class="ok">'+m+'</span>':'')+'</span><span class="e">'+esc(w[0])+'</span><button class="spk" data-say="'+wi+'" aria-label="読み上げ">▶</button></div>');
+  });
+  $("w-list").innerHTML=out.join("")||'<div class="li"><span>見つかりません</span></div>';
+}
+$("w-q").addEventListener("input",renderList);
+$("w-list").addEventListener("click",function(e){ var b=e.target.closest("[data-say]"); if(b) speak(W[+b.dataset.say][0]); });
 
 /* ---------- 朝：覚える／夜：もう一度 ---------- */
 var L={mode:"am", list:[], i:0, reps:0};
@@ -591,6 +547,7 @@ function pick(arr,n,not){ var out=[], pool=shuffle(arr.slice()); for(var i=0;i<p
 function askTest(){
   var id=T.q[T.i], p=parse(id), w=W[p.wi], s=w[1][p.si];
   $("t-count").textContent=(T.i+1)+" / "+T.q.length;
+  $("t-cat").textContent="箱"+S.cards[id].box;
   $("t-verdict").hidden=true; $("t-next").hidden=true;
   var picQ = !!s[1] && Math.random()<.5;        // 絵がある意味は、半分は「絵 → 英単語」
   var opts, correct;
@@ -608,15 +565,14 @@ function askTest(){
     var others=[]; W.forEach(function(x,i){ if(i!==p.wi) x[1].forEach(function(y){ others.push(y[0]); }); });
     opts=shuffle([correct].concat(pick(others,3,[correct])));
   }
-  $("t-choices").innerHTML=opts.map(function(o){ return '<button class="'+(picQ?'en':'')+'">'+o+'</button>'; }).join("");
+  $("t-choices").innerHTML=opts.map(function(o,n){ return '<button class="ch'+(picQ?' en':'')+'"'+(o===correct?' data-ok="1"':'')+'><span class="k">'+(n+1)+'</span><span>'+o+'</span></button>'; }).join("");
   Array.prototype.forEach.call($("t-choices").children,function(b){
-    b.addEventListener("click",function(){ answerTest(b, b.textContent===correct, correct); });
+    b.addEventListener("click",function(){ answerTest(b, !!b.dataset.ok, correct); });
   });
 }
 function answerTest(btn,right,correct){
   var id=T.q[T.i], p=parse(id), w=W[p.wi], s=w[1][p.si];
-  Array.prototype.forEach.call($("t-choices").children,function(b){ b.disabled=true; if(b.textContent===correct) b.classList.add("ok"); });
-  if(!right) btn.classList.add("ng");
+  Array.prototype.forEach.call($("t-choices").children,function(b){ b.disabled=true; b.classList.add(b.dataset.ok?"correct":(b===btn?"wrong":"dim")); });
   var before=S.cards[id].box;
   grade(id,right);
   if(right) T.right++; else T.miss.push(id);
@@ -735,5 +691,6 @@ renderHome();
 })();
 </script>
 <script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
+<script src="/ui.js" defer></script>
 </body>
 </html>

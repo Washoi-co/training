@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="絵を見て英語を選び、声に出して3回。A-PUSHのスピーキング反復トレーニング。">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#F2F4F8">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://training.apush.jp/">
 
 <!-- LINEやSNSでリンクを貼ったときのプレビュー -->
@@ -22,288 +23,148 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="A-PUSH">
 
-<style>
-/* 公開用スケルトン（アーティファクト版では自動で付いていた分） */
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-img{max-width:100%}
-[hidden]{display:none!important}
-</style>
 <title>動詞チャンクトレーニング</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="/ui.css">
 <style>
-/* Layout: 左上に小さな種目タブ、型チップ、1枚のカード。使い方・面談・体験会はカードの下。開いた瞬間にドリルが動いている。 */
-:root{
-  --ink:#FFFFFF; --surface:#F6F6F4; --surface2:#ECECE9;
-  --line:rgba(11,11,12,.10); --line-strong:rgba(11,11,12,.22);
-  --fg:#0B0B0C; --muted:#6B6B72;
-  --red:#E8321F; --red-deep:#C42612; --ok:#14935A; --green:#14935A; --ng:#D9301E;
-  --black:#0B0B0C;
-  --en:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-html,body{margin:0}
-body{
-  background:var(--ink); color:var(--fg); font-family:var(--jp);
-  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
-  padding:0 16px 44px;
-}
-.wrap{max-width:600px;margin:0 auto}
-.en{font-family:var(--en)}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-/* ---- 単語トレーニングへのリンク ---- */
-.wordlink{flex:none;padding:5px 12px;border:1px solid var(--red);border-radius:999px;font-size:12px;font-weight:900;color:var(--red);text-decoration:none;white-space:nowrap}
-.wordlink:hover{background:var(--red);color:#fff}
-/* ---- カード下の3つ ---- */
-.top{display:grid;grid-template-columns:auto 1fr 1fr;gap:7px;margin-top:22px}
-.tp{display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line-strong);border-radius:11px;padding:10px 13px;text-decoration:none;background:var(--surface);min-width:0}
-.tp:hover{border-color:var(--red)}
-.tp b{font-size:13.5px;font-weight:900;letter-spacing:-.01em;white-space:nowrap}
-.tp span{font-size:10.5px;color:var(--muted);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tp.fill{background:var(--red);border-color:var(--red)}
-.tp.fill:hover{background:var(--red-deep);border-color:var(--red-deep)}
-.tp.fill span{color:rgba(255,255,255,.85)}
-.tp.ghost{background:transparent}
-.tp.ghost b{font-size:13px;color:var(--muted)}
-.more .top{margin:0 0 18px}
-.more .tp:not(.fill,.ghost){color:var(--fg)}
-.more .tp.ghost{border-color:var(--l2)}
-.more .tp.ghost b{color:#fff}
-.more .tp.ghost span{color:var(--m)}
-@media (max-width:430px){
-  .top{grid-template-columns:1fr 1fr}
-  .tp.ghost{grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;padding:9px 13px}
-  .tp.ghost span{margin-top:0}
-}
-
-/* ---- ホーム画面に追加（words/ と同じ形） ---- */
-.a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;margin-top:14px;background:#fff;border:1px solid var(--line-strong);border-radius:12px;padding:11px 12px}
-.a2hs img{border-radius:10px}
-.a2hs b{display:block;font-size:13.5px;font-weight:900;line-height:1.4}
-.a2hs span{display:block;font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:2px}
-.a2hs #a2hs-btn{background:var(--red);color:#fff;border-radius:8px;padding:8px 12px;font-size:12.5px;font-weight:900;white-space:nowrap}
-.a2hs .x{font-size:18px;color:var(--muted);padding:2px 4px}
-
-/* ---- 使い方パネル ---- */
-.how{background:var(--black);color:#fff;border:0;border-radius:16px;padding:10px;width:min(1100px,100% - 20px);max-width:none;max-height:calc(100dvh - 20px);overflow:auto}
-.how::backdrop{background:rgba(11,11,12,.75)}
-.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:10px;overscroll-behavior-x:contain}
-.slides::-webkit-scrollbar{display:none}
-.slides img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:16/9;scroll-snap-align:center;display:block;background:#F3F6FB}
-.slidebar{display:flex;align-items:center;gap:8px;padding:10px 4px 2px}
-.slidebar button{width:40px;height:40px;border:1px solid rgba(255,255,255,.28);border-radius:50%;font-size:18px;color:#fff}
-.slidebar button:hover:not(:disabled){border-color:var(--red);color:var(--red)}
-.slidebar button:disabled{opacity:.3;cursor:default}
-.slidebar .n{font-family:var(--en);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
-.slidebar .howx{margin-left:auto;width:auto;border-radius:999px;padding:0 16px;font-size:13px;font-weight:700}
-
+/* 話す（training）：見た目は /ui.css（doboku と同じ）。ここは doboku に無い分だけ */
+img{max-width:100%}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.eyebrow{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red);margin:0 0 4px}
-h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
+.en{font-family:var(--en)}
+.stem{font-family:var(--en);font-size:clamp(21px,5.4vw,26px);font-weight:900;letter-spacing:-.025em;line-height:1.2}
+.stem .blank{color:var(--brand);border-bottom:3px solid var(--brand);padding:0 .35em}
+.chip.num small{font-size:11px;opacity:.7;margin-left:5px;font-weight:500}
+.acts a{text-align:center;text-decoration:none}
+.nudge{margin:0;padding-top:12px;border-top:.5px solid var(--line2);font-size:13px;color:var(--mute);line-height:1.6}
+.nudge b{display:block;color:var(--ink);font-size:14px;font-weight:700;margin-bottom:2px}
 
-/* ---- 種目タブ ---- */
-.tabrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:14px}
-.links{display:flex;gap:6px;margin-left:auto}
-.tabs{display:flex;gap:6px}
-.tabs button{padding:5px 12px;border:1px solid var(--line-strong);border-radius:999px;font-size:12px;font-weight:700;color:var(--muted)}
-.tabs button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--ink)}
+/* ホーム画面に追加 */
+.a2hs{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:10px;background:var(--soft);border-radius:var(--r);padding:12px}
+.a2hs img{border-radius:10px}
+.a2hs b{display:block;font-size:13.5px;font-weight:700;line-height:1.4}
+.a2hs span{display:block;font-size:12px;color:var(--mute);line-height:1.5;margin-top:2px}
+.a2hs #a2hs-btn{background:var(--brand);color:var(--on);border-radius:99px;padding:8px 14px;font-size:13px;font-weight:700;white-space:nowrap}
+.a2hs .x{font-size:20px;color:var(--mute);width:34px;height:34px}
 
-/* ---- 設定チップ ---- */
-.chips{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:3px;margin:11px 0;padding:3px;background:var(--surface2);border-radius:10px}
-.chip{border:0;border-radius:8px;padding:8px 2px;font-size:13px;font-weight:700;white-space:nowrap;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis}
-.chip.en{font-family:var(--en);letter-spacing:-.01em}
-.chip:hover{color:var(--fg)}
-.chip.num{display:flex;flex-direction:column;align-items:center;line-height:1.1;padding:6px 2px}
-.chip.num b{font-size:16px;font-weight:900}
-.chip.num small{font-size:10.5px;font-weight:700;opacity:.75;margin-top:1px}
-.chip[aria-pressed="true"]{background:#fff;color:var(--fg);box-shadow:0 1px 3px rgba(11,11,12,.14)}
+/* やり方（スライド）：下から出る白いシート */
+.how{border:0;padding:0 16px calc(16px + env(safe-area-inset-bottom,0px));margin:auto auto 0;width:100%;max-width:760px;max-height:calc(100dvh - env(safe-area-inset-top,0px) - 24px);overflow:auto;
+  background:var(--card);color:var(--ink);border-radius:24px 24px 0 0;box-shadow:0 -8px 40px rgba(0,0,0,.18)}
+.how::backdrop{background:var(--scrim)}
+.how .sh-top{cursor:default;touch-action:auto}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:14px;overscroll-behavior-x:contain;border:1px solid var(--line)}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:16/9;scroll-snap-align:center;display:block;background:#F4F7FB}
+.slidebar{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 0 2px}
+.slidebar button{width:44px;height:44px;border-radius:50%;background:var(--soft);color:var(--brand);font-size:22px;font-weight:700}
+.slidebar button:disabled{opacity:.3;cursor:default}
+.slidebar .n{font-family:var(--en);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;min-width:60px;text-align:center;color:var(--mute)}
 
-/* ---- カード ---- */
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.timerbar{height:4px;background:var(--surface2)}
-.timerbar i{display:block;height:100%;background:var(--red);width:100%;transition:width .25s linear}
-.timerbar i.low{background:var(--ng)}
-.cardin{padding:14px 16px 20px}
-.qmeta{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--muted)}
-.qmeta .en{font-variant-numeric:tabular-nums}
-.pips{display:flex;gap:5px}
-.pip{width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
-.pip.y{background:var(--ok)} .pip.n{background:var(--ng)}
-.lvrow{display:block;margin-top:10px}
-.lvrow select{width:100%;appearance:none;-webkit-appearance:none;font:inherit;font-size:14px;font-weight:700;color:var(--fg);background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M0 0l6 7 6-7z' fill='%23E8321F'/%3E%3C/svg%3E") no-repeat right 14px center;border:1.5px solid var(--fg);border-radius:10px;padding:11px 36px 11px 13px;cursor:pointer;text-overflow:ellipsis}
-.lvrow select:hover{border-color:var(--red)}
+/* 面談・体験会 */
+.group a.row{text-decoration:none;color:var(--ink)}
+.row .chev.go{color:var(--brand)}
 
-.ask{font-size:12.5px;color:var(--muted);margin:12px 0 0;text-align:center}
-.pic{display:grid;place-items:center;line-height:1;user-select:none;font-size:clamp(78px,24vw,116px);padding:10px 0 12px}
-.stem{font-family:var(--en);font-size:clamp(21px,5.4vw,28px);font-weight:900;letter-spacing:-.03em;margin:0 0 4px;line-height:1.15;text-align:center}
-.stem .blank{color:var(--red);border-bottom:3px solid var(--red);padding:0 .35em}
-.stemja{font-size:12px;color:var(--muted);margin:0 0 15px;text-align:center}
-.choices{display:grid;gap:8px}
-.ch{border:1px solid var(--line-strong);border-radius:10px;padding:13px 15px;text-align:left;font-family:var(--en);font-size:15.5px;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:11px}
-.ch:hover:not(:disabled){border-color:var(--red);color:var(--red)}
-.ch:disabled{cursor:default}
-.ch .k{font-size:11px;color:var(--muted);flex:none;width:14px}
-.ch.correct{border-color:var(--ok);background:rgba(20,147,90,.08);color:var(--ok)}
-.ch.wrong{border-color:var(--ng);background:rgba(217,48,30,.07);color:var(--ng)}
-.ch.dim{opacity:.4}
-
-/* ---- 復唱 ---- */
-.repeat{text-align:center}
-.verdict{font-size:13px;font-weight:700;margin:0}
-.verdict.y{color:var(--ok)} .verdict.n{color:var(--ng)}
-.answer{font-family:var(--en);font-size:clamp(21px,5.3vw,29px);font-weight:900;letter-spacing:-.03em;line-height:1.2;margin:12px 0 0;text-wrap:balance}
-.answerja{font-size:13.5px;color:var(--muted);margin:8px 0 0}
-.saylabel{font-size:12.5px;color:var(--muted);margin:18px 0 10px}
-.dots{display:flex;gap:12px;justify-content:center}
-.dot{width:56px;height:56px;border-radius:50%;border:2px solid var(--line-strong);display:grid;place-items:center;font-family:var(--en);font-size:16px;font-weight:900;color:var(--muted)}
-.dot:hover{border-color:var(--red)}
-.dot.on{background:var(--red);border-color:var(--red);color:#fff}
-
-/* ---- 結果 ---- */
-.result{text-align:center}
-.big{font-family:var(--en);font-size:56px;font-weight:900;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;margin:0}
-.big em{font-style:normal;font-size:24px;color:var(--muted)}
-.resultja{font-size:13.5px;margin:9px 0 0}
-.recap{margin-top:18px;text-align:left;border-top:1px solid var(--line)}
-.rrow{display:flex;gap:11px;align-items:center;padding:10px 2px;border-bottom:1px solid var(--line);font-size:13.5px}
-.rrow .m{flex:none;font-size:19px;width:25px;text-align:center}
-.rrow .s{font-family:var(--en);font-weight:700;letter-spacing:-.01em;min-width:0;overflow-wrap:anywhere;flex:1}
-.rrow .v{flex:none;font-size:12px;font-weight:700}
-.rrow .v.y{color:var(--ok)} .rrow .v.n{color:var(--ng)}
-.nudge{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);text-align:left}
-.nudge b{display:block;color:var(--fg);font-size:13.5px;font-weight:700;margin-bottom:3px}
-
-.acts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-.acts button,.acts a{border:1px solid var(--line-strong);border-radius:9px;padding:11px 18px;font-size:13.5px;font-weight:700;text-decoration:none}
-.acts button:hover,.acts a:hover{border-color:var(--red);color:var(--red)}
-.acts .primary{background:var(--red);border-color:var(--red);color:#fff}
-.acts .primary:hover{background:var(--red-deep);border-color:var(--red-deep);color:#fff}
-.acts button:disabled{opacity:.35;cursor:default}
-.acts button:disabled:hover{border-color:var(--line-strong);color:inherit}
-
-/* ---- 本コース案内：黒いカードに「マンツーマン×コーチング＋管理＋トレーニング」の足し算 ---- */
-.more{position:sticky;z-index:5;box-shadow:0 -10px 30px rgba(0,0,0,.18);margin-top:28px;background:var(--black);color:#fff;border-radius:16px;padding:20px 16px 22px;--m:rgba(255,255,255,.62);--l:rgba(255,255,255,.14);--l2:rgba(255,255,255,.28)}
-.more .eyebrow{color:var(--red)}
-.more h2{font-size:19px;font-weight:900;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
-.more>p{margin:0;font-size:13px;color:var(--m)}
-.formula{margin-top:18px;display:grid;gap:0}
-.op{font-family:var(--en);font-size:20px;font-weight:900;color:var(--red);text-align:center;line-height:1;padding:6px 0}
+/* A-PUSH のコース案内（doboku の .apush と同じ濃紺の箱） */
+.more{background:var(--dark);color:#fff;border-radius:20px;padding:20px 16px 22px;--m:rgba(255,255,255,.66);--l:rgba(255,255,255,.14);--l2:rgba(255,255,255,.28);--acc:var(--mid)}
+.more .k{margin:0 0 4px;font-size:12px;color:rgba(255,255,255,.75);font-weight:600}
+.more h2{font-family:var(--fd);font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1.35;margin:0;text-wrap:balance}
+.formula{margin-top:18px;display:grid}
+.op{font-family:var(--en);font-size:20px;font-weight:900;color:var(--acc);text-align:center;line-height:1;padding:6px 0}
 .duo{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch}
 .duo .op{display:grid;place-items:center;padding:0 8px}
-.blk{background:#fff;color:var(--black);border-radius:12px;padding:12px 13px}
-.blk i{display:block;font-style:normal;font-family:var(--en);font-size:9.5px;font-weight:700;letter-spacing:.16em;color:var(--red)}
-.blk b{display:block;font-size:15px;font-weight:900;letter-spacing:-.01em;line-height:1.35;margin-top:2px}
-.blk span{display:block;font-size:11.5px;color:#6B6B72;margin-top:2px;line-height:1.5}
-.blk.dark{background:transparent;color:#fff;border:1px solid var(--l2)}
-.blk.dark span{color:var(--m)}
-.train{border:1px solid var(--l2);border-radius:12px;padding:12px 13px}
-.train>i{font-style:normal;font-family:var(--en);font-size:9.5px;font-weight:700;letter-spacing:.16em;color:var(--red)}
+.blk{background:var(--card);color:var(--ink);border-radius:14px;padding:12px 13px}
+.blk i{display:block;font-style:normal;font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--brand)}
+.blk b{display:block;font-size:15px;font-weight:700;line-height:1.35;margin-top:2px}
+.blk.dark{background:transparent;color:#fff;box-shadow:0 0 0 1px var(--l2) inset}
+.blk.dark i{color:var(--acc)}
+.train{box-shadow:0 0 0 1px var(--l2) inset;border-radius:14px;padding:12px 13px}
+.train>i{font-style:normal;font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--acc)}
 .tr{padding:13px 0;border-top:1px solid var(--l)}
 .tr::after{content:"";display:block;clear:both}
 .tr:first-of-type{border-top:0;padding-top:8px}
-.tr .no{float:left;font-family:var(--en);font-size:22px;font-weight:900;color:var(--red);line-height:1;margin:-1px 10px 0 0}
-.tr h3{margin:0;font-size:15px;font-weight:900;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
-.tr h3 small{font-size:11.5px;font-weight:500;color:var(--m)}
-.tr p{margin:4px 0 0;font-size:12px;color:var(--m);line-height:1.6}
-.pre{font-family:var(--en);font-size:9.5px;font-weight:700;letter-spacing:.1em;color:#fff;border:1px solid var(--l2);border-radius:999px;padding:1px 8px}
+.tr .no{float:left;font-family:var(--en);font-size:22px;font-weight:900;color:var(--acc);line-height:1;margin:-1px 10px 0 0}
+.tr h3{margin:0;font-size:15px;font-weight:700;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.tr h3 small{font-size:12px;font-weight:500;color:var(--m)}
+.tr p{margin:4px 0 0;font-size:12.5px;color:var(--m);line-height:1.6}
+.pre{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.1em;color:#fff;box-shadow:0 0 0 1px var(--l2) inset;border-radius:99px;padding:1px 8px}
 .lvls{display:grid;gap:8px;margin-top:10px}
-.lvl{border-radius:10px;background:rgba(255,255,255,.05);padding:10px 11px}
+.lvl{border-radius:12px;background:rgba(255,255,255,.06);padding:10px 11px}
 .lvh{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
-.lvh b{font-family:var(--en);font-size:13px;font-weight:900;color:var(--red)}
+.lvh b{font-family:var(--en);font-size:13px;font-weight:900;color:var(--acc)}
 .lvh span{font-size:12px;font-weight:700}
-.lvh em{flex-basis:100%;font-style:normal;font-family:var(--en);font-size:11.5px;color:var(--m)}
+.lvh em{flex-basis:100%;font-style:normal;font-family:var(--en);font-size:12px;color:var(--m)}
 .cs{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
-.cs span{font-family:var(--en);font-size:11.5px;font-weight:700;border:1px solid var(--l2);border-radius:6px;padding:2px 7px;line-height:1.4}
-.cs span.j{font-family:var(--jp)}
-.cs span.g{border-color:var(--green);color:#3FCB86}
-.legend{font-size:11px;color:var(--m);margin:10px 0 0;display:flex;align-items:center;gap:6px}
-.legend::before{content:"";width:10px;height:10px;border-radius:3px;border:1px solid var(--green)}
+.cs span{font-family:var(--en);font-size:11.5px;font-weight:700;box-shadow:0 0 0 1px var(--l2) inset;border-radius:99px;padding:2px 8px;line-height:1.4}
+.cs span.j{font-family:var(--f)}
+.cs span.g{background:var(--brand);box-shadow:none;color:#fff}
+.more .legend{font-size:11.5px;color:var(--m);margin:10px 0 0;padding:0;display:flex;align-items:center;gap:6px}
+.more .legend::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--brand)}
 .count{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.count span{font-size:11px;font-weight:700;background:rgba(255,255,255,.08);border-radius:999px;padding:3px 10px}
+.count span{font-size:11.5px;font-weight:700;background:rgba(255,255,255,.08);border-radius:99px;padding:3px 10px}
 .count span b{font-family:var(--en);color:#fff}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
-.tags span{font-family:var(--en);font-size:11.5px;font-weight:700;background:#fff;color:var(--black);border-radius:6px;padding:2px 8px}
-.tags span.g{background:var(--green);color:#fff;font-family:var(--jp)}
-.etc{text-align:center;font-size:13px;font-weight:700;color:var(--m);border:1px dashed var(--l2);border-radius:12px;padding:10px}
-.more .cta{color:#fff;margin:20px 0 0;font-size:14px;font-weight:700;text-align:center}
-.more .acts a{border-color:var(--l2);color:#fff}
-.more .acts a:hover{border-color:var(--red);color:#fff}
-.more .lp{display:block;text-align:center;margin-top:14px;font-size:12.5px;font-weight:700;color:#fff}
-.more .lp:hover{color:var(--red)}
-
-.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);line-height:1.7}
-.foot a{color:var(--fg);font-weight:700}
-.foot b{color:var(--muted);font-weight:700}
+.tags span{font-family:var(--en);font-size:11.5px;font-weight:700;background:var(--card);color:var(--ink);border-radius:99px;padding:2px 9px}
+.tags span.g{background:var(--brand);color:#fff;font-family:var(--f)}
+.etc{text-align:center;font-size:13px;font-weight:700;color:var(--m);border:1px dashed var(--l2);border-radius:14px;padding:10px}
+.more .cta{margin:20px 0 10px;font-size:14px;font-weight:700;text-align:center}
+.more .ghost{background:rgba(255,255,255,.1);color:#fff}
+.more .lp{display:block;text-align:center;margin-top:14px;font-size:13px;font-weight:700;color:#fff}
+.foot a{color:var(--ink);font-weight:700}
 </style>
 </head>
-<body>
-<div class="wrap">
+<body data-tab="sp">
+<main class="screen">
+  <div class="nav"><span class="navl"><span class="mini">話す</span></span><button class="pill" id="btn-how" aria-haspopup="dialog">やり方</button></div>
+  <h1 class="large">話す</h1>
+  <p class="sub">A-PUSHメソッド・選んで、声に出して3回</p>
 
-  <h1 class="sr">動詞チャンクトレーニング</h1>
-
-  <div class="tabrow">
-    <div class="tabs" role="group" aria-label="種目">
-      <button id="t-modal" aria-pressed="true">助動詞</button>
-      <button id="t-relative" aria-pressed="false">関係代名詞</button>
-      <button id="t-tense" aria-pressed="false">時制</button>
-    </div>
-    <div class="links">
-      <a class="wordlink" href="/words/">📚 TOEIC単語</a>
-      <a class="wordlink" href="/shadowing/">🎧 シャドーイング</a>
-      <a class="wordlink" href="/plan/">📅 計画</a>
-    </div>
+  <div class="seg" id="tabs" role="group" aria-label="種目">
+    <button id="t-modal" aria-pressed="true">助動詞</button>
+    <button id="t-relative" aria-pressed="false">関係代名詞</button>
+    <button id="t-tense" aria-pressed="false">時制</button>
   </div>
-  <label class="lvrow">
-    <span class="sr">レベル</span>
-    <select id="lvsel">
-      <option value="1">Level 1 ・ 短い文</option>
-      <option value="2">Level 2 ・ 長い文</option>
-      <option value="3">Level 3 ・ 英検2級くらい</option>
-    </select>
-  </label>
+  <div class="seg lv" id="lvsel" role="group" aria-label="レベル">
+    <button data-lv="1" aria-pressed="true"><b>Lv1</b><small>短い文</small></button>
+    <button data-lv="2" aria-pressed="false"><b>Lv2</b><small>長い文</small></button>
+    <button data-lv="3" aria-pressed="false"><b>Lv3</b><small>英検2級くらい</small></button>
+  </div>
 
   <div class="chips" id="chips" role="group" aria-label="型を選ぶ"></div>
 
   <div class="card">
-    <div class="timerbar"><i id="tbar"></i></div>
-    <div class="cardin">
+    <div class="bar"><i id="tbar"></i></div>
+    <div class="cin">
 
-      <div id="v-quiz">
-        <div class="qmeta">
+      <div id="v-quiz" class="cin" style="padding:0">
+        <div class="meta">
           <span class="pips" id="pips"></span>
-          <span class="en" id="qleft">20</span>
+          <span id="qleft">20</span>
         </div>
         <p class="ask" id="ask">この絵に合うのは？</p>
         <div class="pic" id="pic" role="img"></div>
-        <p class="stem en" id="stem"></p>
-        <p class="stemja" id="stemja"></p>
+        <p class="stem" id="stem"></p>
+        <p class="say" id="stemja"></p>
         <div class="choices" id="choices"></div>
       </div>
 
-      <div id="v-repeat" class="repeat" hidden>
+      <div id="v-repeat" class="cin" style="padding:0" hidden>
         <p class="verdict" id="verdict"></p>
-        <div class="pic" id="rpic" style="padding:12px 0 2px;font-size:clamp(52px,14vw,76px)"></div>
-        <p class="answer en" id="answer"></p>
-        <p class="answerja" id="answerja"></p>
-        <p class="saylabel">声に出して3回。タップすると音が鳴ります。</p>
+        <div class="pic" id="rpic" aria-hidden="true"></div>
+        <p class="answer" id="answer"></p>
+        <p class="say" id="answerja"></p>
+        <p class="say">声に出して3回。タップすると音が鳴ります。</p>
         <div class="dots" id="dots">
-          <button class="dot" data-d="0">1</button>
-          <button class="dot" data-d="1">2</button>
-          <button class="dot" data-d="2">3</button>
+          <button class="dot" data-d="0" aria-label="1回目">1</button>
+          <button class="dot" data-d="1" aria-label="2回目">2</button>
+          <button class="dot" data-d="2" aria-label="3回目">3</button>
         </div>
         <div class="acts"><button class="primary" id="btn-next" disabled>次の絵へ</button></div>
       </div>
 
-      <div id="v-result" class="result" hidden>
-        <p class="big en"><span id="rscore">0</span><em> / 5</em></p>
-        <p class="resultja" id="rmsg"></p>
+      <div id="v-result" class="cin" style="padding:0" hidden>
+        <p class="big"><span id="rscore">0</span><em> / 5</em></p>
+        <p class="rmsg" id="rmsg"></p>
         <div class="recap" id="recap"></div>
         <div class="nudge">
           <b>次は、人を相手に話してみませんか。</b>
@@ -311,8 +172,8 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
         </div>
         <div class="acts">
           <button class="primary" id="btn-again">もう5問</button>
-          <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">体験会</a>
-          <a href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">面談</a>
+          <a class="ghost" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">体験会</a>
+          <a class="ghost" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">面談</a>
         </div>
       </div>
 
@@ -329,46 +190,14 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
     <button class="x" id="a2hs-x" aria-label="閉じる">×</button>
   </div>
 
-  <dialog class="how" id="how" aria-label="使い方（A-PUSH 英語の学び方）">
-    <div class="slides" id="slides">
-      <img src="/howto/01.webp" alt="英語は、慣れでできている。" width="1600" height="900">
-      <img src="/howto/02.webp" alt="話せる英語は、声に出した回数で決まる。" width="1600" height="900" loading="lazy">
-      <img src="/howto/03.webp" alt="感覚と知識を、合わせる。" width="1600" height="900" loading="lazy">
-      <img src="/howto/04.webp" alt="使い方：毎日、3つを順番に回す。" width="1600" height="900" loading="lazy">
-      <img src="/howto/05.webp" alt="やり方：シャドーイング。聞いて、重ねて言う。" width="1600" height="900" loading="lazy">
-      <img src="/howto/06.webp" alt="分からなくても、真似て言い続ける。" width="1600" height="900" loading="lazy">
-      <img src="/howto/07.webp" alt="やり方：スピーキング。絵を見て、選んで、声に出す。" width="1600" height="900" loading="lazy">
-      <img src="/howto/08.webp" alt="単語の学習方法：選んで、声に出して、3回。" width="1600" height="900" loading="lazy">
-      <img src="/howto/09.webp" alt="単語の復習：言えた単語は、決まった日に戻ってくる。" width="1600" height="900" loading="lazy">
-      <img src="/howto/10.webp" alt="まず慣れ。その次に専門用語。" width="1600" height="900" loading="lazy">
-      <img src="/howto/11.webp" alt="頭に余裕ができると、意味が入る。" width="1600" height="900" loading="lazy">
-      <img src="/howto/12.webp" alt="考える前に、口から出す。" width="1600" height="900" loading="lazy">
-      <img src="/howto/13.webp" alt="英語を、九九にする。" width="1600" height="900" loading="lazy">
-      <img src="/howto/14.webp" alt="忘れかけた頃に、もう一度。" width="1600" height="900" loading="lazy">
-      <img src="/howto/15.webp" alt="まとめ：単語＋圧倒的な反復。慣れで、英語力を作る。" width="1600" height="900" loading="lazy">
-      <img src="/howto/16.webp" alt="無料体験会と面談、待ってます！申し込みは lp.apush.jp" width="1600" height="900" loading="lazy">
-    </div>
-    <div class="slidebar">
-      <button id="sl-prev" aria-label="前のスライド">‹</button>
-      <span class="n" id="sl-n">1 / 16</span>
-      <button id="sl-next" aria-label="次のスライド">›</button>
-      <button class="howx" id="how-x">閉じる</button>
-    </div>
-  </dialog>
+  <p class="label">無料で相談・体験</p>
+  <div class="group">
+    <a class="row" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">💬</span><span><b>面談</b><small>無料・学習の相談</small></span><span class="chev go">予約 ›</span></a>
+    <a class="row" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">🎤</span><span><b>体験会</b><small>無料／60分・ネイティブとマンツーマン</small></span><span class="chev go">予約 ›</span></a>
+  </div>
 
   <section class="more" aria-labelledby="more-h">
-    <div class="top">
-      <button class="tp ghost" id="btn-how" aria-haspopup="dialog">
-        <b>使い方</b><span>スライドで見る</span>
-      </button>
-      <a class="tp" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">
-        <b>面談</b><span>無料・学習の相談</span>
-      </a>
-      <a class="tp fill" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">
-        <b>体験会</b><span>無料／60分</span>
-      </a>
-    </div>
-
+    <p class="k">スピーキング特化英会話</p>
     <h2 id="more-h">とにかく、話す、話す、話す、<br>スピーキング特化英会話　A-PUSH</h2>
 
     <div class="formula">
@@ -402,7 +231,7 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
                 <div class="cs"><span class="j">現在完了</span><span class="g">who</span><span class="g">which</span><span class="g">that</span><span class="j">不定詞</span><span class="j">動名詞</span><span>if / whether</span><span>when / while</span><span>before / after</span><span>as soon as</span><span>as long as</span><span>in case</span><span>even if</span></div>
               </div>
             </div>
-            <p class="legend">緑は、このページで体験できるもの（助動詞・関係代名詞・時制）</p>
+            <p class="legend">青は、このページで体験できるもの（助動詞・関係代名詞・時制）</p>
             <div class="count"><span>Beginner <b>24</b>章</span><span>Intermediate <b>26</b>章</span><span>全 <b>300</b>問</span></div>
           </div>
         </div>
@@ -432,16 +261,44 @@ h1{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:0}
     <p class="cta">より詳しく、より深く学びたい方は、お問い合わせください。</p>
     <div class="acts">
       <a class="primary" href="https://calendar.app.google/kX21qNU7f9NdJtQY9" target="_blank" rel="noopener">無料面談で問い合わせる</a>
-      <a href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">体験会（無料）</a>
+      <a class="ghost" href="https://reserva.be/washoiii/reserve?mode=service_staff&amp;search_evt_no=95eJwzNbY0tbQEAARxAUk" target="_blank" rel="noopener">体験会（無料）</a>
     </div>
     <a class="lp" href="https://lp.apush.jp/" target="_blank" rel="noopener">A-PUSHのコースを詳しく見る →</a>
   </section>
 
-  <p class="foot">
-    <b>音声について</b>　端末の読み上げ機能を使っています。端末や設定によっては鳴りません。<br>
-    <a href="https://lp.apush.jp/" target="_blank" rel="noopener">A-PUSH株式会社</a>　スピーキング特化の英会話スクール／目黒駅 徒歩1分　※体験会（60分・オンライン可）と面談は無料です。学習効果には個人差があり、特定の成果を保証するものではありません。
-  </p>
-</div>
+  <footer class="foot">
+    <span><b>音声について</b>　端末の読み上げ機能を使っています。端末や設定によっては鳴りません。</span>
+    <span><a href="https://lp.apush.jp/" target="_blank" rel="noopener">A-PUSH株式会社</a>　スピーキング特化の英会話スクール／目黒駅 徒歩1分　※体験会（60分・オンライン可）と面談は無料です。学習効果には個人差があり、特定の成果を保証するものではありません。</span>
+    <span class="by">TRAINING BY A-PUSH</span>
+  </footer>
+</main>
+
+<dialog class="how" id="how" aria-label="使い方（A-PUSH 英語の学び方）">
+  <div class="sh-top"><div class="grab"></div><div class="sh-head"><span class="sh-title">やり方</span><button class="sh-x" id="how-x" aria-label="閉じる">×</button></div></div>
+  <div class="slides" id="slides">
+    <img src="/howto/01.webp" alt="英語は、慣れでできている。" width="1600" height="900">
+    <img src="/howto/02.webp" alt="話せる英語は、声に出した回数で決まる。" width="1600" height="900" loading="lazy">
+    <img src="/howto/03.webp" alt="感覚と知識を、合わせる。" width="1600" height="900" loading="lazy">
+    <img src="/howto/04.webp" alt="使い方：毎日、3つを順番に回す。" width="1600" height="900" loading="lazy">
+    <img src="/howto/05.webp" alt="やり方：シャドーイング。聞いて、重ねて言う。" width="1600" height="900" loading="lazy">
+    <img src="/howto/06.webp" alt="分からなくても、真似て言い続ける。" width="1600" height="900" loading="lazy">
+    <img src="/howto/07.webp" alt="やり方：スピーキング。絵を見て、選んで、声に出す。" width="1600" height="900" loading="lazy">
+    <img src="/howto/08.webp" alt="単語の学習方法：選んで、声に出して、3回。" width="1600" height="900" loading="lazy">
+    <img src="/howto/09.webp" alt="単語の復習：言えた単語は、決まった日に戻ってくる。" width="1600" height="900" loading="lazy">
+    <img src="/howto/10.webp" alt="まず慣れ。その次に専門用語。" width="1600" height="900" loading="lazy">
+    <img src="/howto/11.webp" alt="頭に余裕ができると、意味が入る。" width="1600" height="900" loading="lazy">
+    <img src="/howto/12.webp" alt="考える前に、口から出す。" width="1600" height="900" loading="lazy">
+    <img src="/howto/13.webp" alt="英語を、九九にする。" width="1600" height="900" loading="lazy">
+    <img src="/howto/14.webp" alt="忘れかけた頃に、もう一度。" width="1600" height="900" loading="lazy">
+    <img src="/howto/15.webp" alt="まとめ：単語＋圧倒的な反復。慣れで、英語力を作る。" width="1600" height="900" loading="lazy">
+    <img src="/howto/16.webp" alt="無料体験会と面談、待ってます！申し込みは lp.apush.jp" width="1600" height="900" loading="lazy">
+  </div>
+  <div class="slidebar">
+    <button id="sl-prev" aria-label="前のスライド">‹</button>
+    <span class="n" id="sl-n">1 / 16</span>
+    <button id="sl-next" aria-label="次のスライド">›</button>
+  </div>
+</dialog>
 
 <script src="/activity.js"></script>
 <script>
@@ -518,6 +375,17 @@ let MODE="modal", SEL=4, queue=[], qi=0, score=0, log=[], taps=0, timer=null, le
 
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* 切り替え（セグメント）の白い板を、押した所へすべらせる（doboku の engine.js と同じ） */
+function segSlide(id){
+  const el=$(id);if(!el)return;
+  let i=el.querySelector(".sl");
+  if(!i){i=document.createElement("i");i.className="sl";el.insertBefore(i,el.firstChild);}
+  const btns=[...el.querySelectorAll("button")];if(!btns.length)return;
+  const n=btns.findIndex(b=>b.getAttribute("aria-pressed")==="true");
+  i.hidden=n<0;if(n<0)return;
+  i.style.width="calc((100% - 4px) / "+btns.length+")";
+  i.style.transform="translateX("+n*100+"%)";
+}
 function view(k){["quiz","repeat","result"].forEach(n=>$("v-"+n).hidden=(n!==k));}
 function speak(t){try{if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
 
@@ -560,6 +428,7 @@ $("how").addEventListener("click",e=>{if(e.target===$("how"))$("how").close();})
 ["modal","relative","tense"].forEach(k=>$("t-"+k).addEventListener("click",()=>{
   MODE=k; SEL=(k==="tense")?0:(k==="modal"?4:0);
   ["modal","relative","tense"].forEach(n=>$("t-"+n).setAttribute("aria-pressed",String(n===k)));
+  segSlide("tabs");
   renderChips(); startRound();
 }));
 
@@ -697,21 +566,19 @@ function showResult(){
 }
 $("btn-again").addEventListener("click",startRound);
 
-/* 本コース案内：上の部分だけ常に画面下に見せる。タップで全体へ */
-const more=document.querySelector(".more"), mtop=more.querySelector(".top");
-const peek=()=>mtop.offsetTop+mtop.offsetHeight+14; // 使い方・面談・体験会のボタンまで見せる
-new ResizeObserver(()=>more.style.bottom=(peek()-more.offsetHeight)+"px").observe(more);
-more.addEventListener("click",e=>{
-  if(e.target.closest("a,button"))return;
-  if(more.getBoundingClientRect().top>innerHeight-peek()-4)more.scrollIntoView({behavior:"smooth",block:"end"});
+/* レベル：1 短い文 ／ 2 長い文 ／ 3 英検2級くらい */
+$("lvsel").addEventListener("click",e=>{
+  const b=e.target.closest("[data-lv]"); if(!b)return;
+  LV=+b.dataset.lv;
+  $("lvsel").querySelectorAll("[data-lv]").forEach(el=>el.setAttribute("aria-pressed",String(el===b)));
+  segSlide("lvsel"); startRound();
 });
 
-/* レベル：1 短い文 ／ 2 長い文 ／ 3 英検2級くらい */
-$("lvsel").addEventListener("change",()=>{LV=+$("lvsel").value;startRound();});
-
 renderChips();
+segSlide("tabs"); segSlide("lvsel");
 startRound();
 </script>
+<script src="/ui.js" defer></script>
 <script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
 </body>
 </html>

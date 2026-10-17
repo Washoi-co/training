@@ -19,9 +19,20 @@ window.apMark = function (k, n) {
   if (honka) {
     try {
       var sid = JSON.parse(localStorage.getItem("ap_sid") || "null"), nm = JSON.parse(localStorage.getItem("ap_name") || "null");
-      if (sid) o.name = sid + (nm ? " " + nm : "");   /* 本コースは会員番号が名前＝聞かない */
+      if (sid && nm) { o.sid = sid; o.name = nm; }   /* 本コースは会員番号＝生徒ID。名前も決まっている＝聞かない */
     } catch (e) {}
   }
+  /* スマホを替えて生徒IDで入り直した時：前の記録を、このページの記録（ap_activity）に戻す。数は大きい方 */
+  o.restore = function (days) {
+    try {
+      var a = JSON.parse(localStorage.getItem("ap_activity") || "{}"), map = { sp: "chunk", wd: "words", sh: "shadow" };
+      Object.keys(days).forEach(function (t) {
+        a[t] = a[t] || {};
+        Object.keys(map).forEach(function (k) { if (days[t][k]) a[t][map[k]] = Math.max(a[t][map[k]] || 0, days[t][k]); });
+      });
+      localStorage.setItem("ap_activity", JSON.stringify(a));
+    } catch (e) {}
+  };
   (window.aps = window.aps || []).push(["start", o]);
   var s = document.createElement("script"); s.src = "https://kanri.apush.jp/sync.js"; s.defer = true; document.head.appendChild(s);
   var mark0 = window.apMark;
