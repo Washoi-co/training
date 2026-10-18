@@ -58,7 +58,7 @@ a.row{text-decoration:none;color:var(--ink)}
     <div class="legend">
       <span style="--c:var(--brand)">1日のゴール達成</span>
       <span style="--c:var(--soft2)">少しやった</span>
-      <span style="--c:var(--ok)">チャンク・単語・シャドーイング</span>
+      <span style="--c:var(--ok)">チャンク・単語・アドリブ・シャドーイング</span>
     </div>
   </div>
   <div class="tiles">
@@ -124,6 +124,9 @@ const p2=n=>String(n).padStart(2,"0");
 const ymd=d=>d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate());
 const addDays=(s,n)=>{const [y,m,d]=s.split("-").map(Number);const t=new Date(y,m-1,d);t.setDate(t.getDate()+n);return ymd(t);};
 const TODAY=ymd(new Date());
+// 添削した文：アドリブの日から +1・+4・+11日（話すのページと同じ決まり）。遅れてやった日の当日には出さない
+const RV=[1,4,11];
+const revN=()=>get("ap_adrev",[]).filter(x=>{if(!x||!x.en||RV[x.step]===undefined)return false;const a=addDays(x.made,RV[x.step]),b=x.last?addDays(x.last,1):"";return (a>b?a:b)<=TODAY;}).length;
 
 /* ---- 記録（ap_activity）。前からあるチャンクの記録（ap_days）も1章として数える ---- */
 function activity(){
@@ -133,14 +136,17 @@ function activity(){
 }
 const DEF={words:20,chunk:1,shadow:1,monthText:"",monthWords:600,m3Text:"",m3Words:1800,m3Start:TODAY};
 let G=Object.assign({},DEF,get("ap_goals",{}));
+// アドリブ5問は、決まった必須の課題（1日5問）。始めた日より前の日は数えない
+if(!G.adFrom){G.adFrom=TODAY;put("ap_goals",G);}
 const TASKS=[
   {k:"chunk",ic:"🧩",t:"チャンクトレーニング",u:"章",href:"/"},
   {k:"words",ic:"📚",t:"新しい単語",u:"語",href:"/words/"},
+  {k:"adlib",ic:"🎤",t:"アドリブ（今日の単語で5問）",u:"",href:"/?adlib=1"},
   {k:"shadow",ic:"🎧",t:"シャドーイング",u:"本",href:"/shadowing/"},
 ];
 // 1日のゴールは、変えた日から先にだけ使う（前の日は、その日のゴールで判定）。hist=[{from, words, chunk, shadow}]
 const daily=d=>{const h=(G.hist||[]).filter(x=>x.from<=d);return h.length?h[h.length-1]:(G.hist&&G.hist[0])||G;};
-const goalOf=(k,d)=>+daily(d||TODAY)[k]||0;
+const goalOf=(k,d)=>k==="adlib"?((d||TODAY)>=G.adFrom?5:0):+daily(d||TODAY)[k]||0;
 // その日に、1日のゴールのうちいくつできたか
 function dayState(a,d){
   const x=a[d]||{},on=TASKS.filter(t=>goalOf(t.k,d)>0);
@@ -161,6 +167,9 @@ function paintToday(a){
   $("today").innerHTML=rows.map(r=>
     '<a class="row'+(r.done?" done":"")+'" href="'+r.t.href+'"><span class="ic" aria-hidden="true">'+r.t.ic+'</span><span><b>'+r.t.t+'</b><small>今日 '+r.n+' / '+r.g+' '+r.t.u+'</small></span><span class="chev">'+(r.done?"✓ できた":"やる ›")+'</span></a>'
   ).join("")||'<a class="row" href="#g-words"><span class="ic" aria-hidden="true">📅</span><span><b>1日のゴールを決める</b><small>この下の「計画」</small></span><span class="chev">›</span></a>';
+  // 添削した文の復習（話すのページの ap_adrev）。ゴールの輪には数えない。並べるだけ
+  const rv=revN();
+  if(rv)$("today").innerHTML+='<a class="row" href="/?review=adlib"><span class="ic" aria-hidden="true">🔁</span><span><b>話すの復習（添削した文）</b><small>今日 '+rv+'文</small></span><span class="chev">やる ›</span></a>';
   // 連続・今週（何かやった日）・今月の単語
   const act=d=>TASKS.some(t=>(a[d]||{})[t.k]);
   let d=act(TODAY)?TODAY:addDays(TODAY,-1),n=0;
@@ -267,7 +276,7 @@ function syncWordsPer(){
 
 /* ---- 自分のカレンダーに入れる ---- */
 function plan(){
-  const t=TASKS.filter(x=>goalOf(x.k)>0).map(x=>x.t+" "+goalOf(x.k)+x.u).join("・");
+  const t=TASKS.filter(x=>goalOf(x.k)>0).map(x=>x.k==="adlib"?"アドリブ5問":x.t+" "+goalOf(x.k)+x.u).join("・");
   return t||"チャンク・単語・シャドーイング";
 }
 function startEnd(){

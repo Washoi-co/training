@@ -41,6 +41,7 @@
 .task:disabled{cursor:default;opacity:.5}
 .task .chev{color:var(--brand)} .task.done .chev{color:var(--ok)} .task:disabled .chev{color:var(--mute)}
 .task.next{box-shadow:0 0 0 2px var(--brand) inset}
+.inst a.primary{text-align:center;text-decoration:none}
 
 /* 覚える・テスト */
 .pics{display:flex;justify-content:center;gap:18px;font-size:clamp(54px,15vw,68px);line-height:1;padding:4px 0}
@@ -123,6 +124,11 @@
 
   <!-- ホーム -->
   <section id="v-home">
+    <div class="inst" id="w-adlib" hidden>
+      <span class="inst-ic" aria-hidden="true">🎤</span>
+      <p><b>次は、今日の単語でアドリブ5問</b><br><span id="w-adlib-n"></span></p>
+      <a class="primary" href="/?adlib=1">アドリブ5問へ</a>
+    </div>
     <div class="decks" id="w-decks" role="group" aria-label="単語帳を選ぶ"></div>
     <div class="daily">
       <span><b>1日の新しい単語</b><small>朝に覚える単語の数</small></span>
@@ -333,18 +339,45 @@
   </section>
 
   <p class="foot">
-    ※ 単語の選定・訳は A-PUSH が独自に行ったものです。700点レベルを目標にした単語で、スコアを保証するものではありません。<br>
-    ※ TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。<br>
+    ※ 単語の選定・訳は A-PUSH が独自に行ったものです。目標のレベルに合わせた単語で、スコアや合格を保証するものではありません。<br>
+    <span id="w-tm"></span><br>
     ※ 記録は、お使いの端末のブラウザに保存されます。「忘却曲線を活用する」でニックネームを登録した場合は、IDと学習の記録だけを A-PUSH のサーバー（Google スプレッドシート）にも保存し、別の端末から続きを学習できるようにします。
   </p>
 </main>
 
 <script src="/activity.js"></script>
-<script src="toeic700.js"></script>
+<script>
+/* 単語帳は5つ。?c=<id> か、前に選んだもの（無ければ TOEIC 700）。記録は単語帳ごと（apush-words-<id>-v1） */
+var APW_DECKS=[
+  {id:"toeic700",t:"TOEIC 700",tm:"TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
+  {id:"business",t:"ビジネス英単語（基本200）",tm:""},
+  {id:"ielts55",t:"IELTS 5.5",tm:"IELTSは、ブリティッシュ・カウンシル、IDP: IELTS オーストラリア、ケンブリッジ大学英語検定機構が共同で運営する試験です。本ツールはこれらの団体により承認・推奨されたものではありません。"},
+  {id:"toefl60",t:"TOEFL iBT 60",tm:"TOEFL・TOEFL iBTはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
+  {id:"eiken_pre2",t:"英検®準2級",tm:"英検®は、公益財団法人 日本英語検定協会の登録商標です。本ツールは、公益財団法人 日本英語検定協会の承認や推奨、その他の検討を受けたものではありません。"}
+];
+(function(){
+  var ok=function(id){ return APW_DECKS.some(function(x){ return x.id===id; }); };
+  var c=new URLSearchParams(location.search).get("c"), last=null;
+  try{ last=localStorage.getItem("apush-words-course"); }catch(e){}
+  if(!ok(c)) c=ok(last)?last:"toeic700";
+  window.APW_WANT=c;
+  try{ localStorage.setItem("apush-words-course",c); }catch(e){}
+  document.write('<script src="'+c+'.js"><\/script>');
+})();
+</script>
 <script>
 (function(){
 "use strict";
-var C = window.APW_COURSE, W = C.words;
+var C = window.APW_COURSE;
+// 単語帳のファイルが無い・読めない時は、TOEIC 700 にもどす
+if(!C || C.id!==window.APW_WANT){
+  if(window.APW_WANT!=="toeic700"){ try{ localStorage.setItem("apush-words-course","toeic700"); }catch(e){} location.replace("?c=toeic700"); }
+  return;
+}
+var W = C.words, DECK = APW_DECKS.filter(function(x){ return x.id===C.id; })[0];
+document.title = "A-PUSH 単語｜"+C.title+"（お試し版）";
+document.getElementById("title").textContent = C.title+"・お試し版";
+document.getElementById("w-tm").textContent = DECK.tm ? "※ "+DECK.tm : "";
 var KEY = "apush-words-" + C.id + "-v1";
 var CAP = 40;                                   // 1日の復習の上限（これを超えたら新しい単語はお休み）
 var INT = {1:1, 2:3, 3:7, 4:14, 5:30};          // 箱ごとの次の出題までの日数
@@ -451,6 +484,10 @@ function renderHome(){
     return '<button class="row task'+(x.done?' done':'')+(i===nextIdx?' next':'')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'
       +'<span class="ic" aria-hidden="true">'+x.ic+'</span><span><b>'+x.t+'</b><small>'+x.s+'</small></span><span class="chev">'+x.st+(x.on?' ›':'')+'</span></button>'; }).join("");
   $("msg").hidden=!msg; $("msg").textContent=msg;
+  // 朝の分が終わったら（全部覚えた後も）、次は今日の単語でアドリブ5問
+  var ad=adlibToday();
+  $("w-adlib").hidden=!((d.am||finished) && ad<5);
+  $("w-adlib-n").textContent="今日 "+Math.min(ad,5)+" / 5　声で言うと、AIが添削します";
   // doboku の形：単語帳・1日の新しい単語・今日の数
   renderDecks(tn);
   $("w-daily").innerHTML=PER_OPTS.map(function(n){ return '<button data-per="'+n+'" aria-pressed="'+(n===per)+'">'+n+'</button>'; }).join("");
@@ -468,9 +505,16 @@ $("tasks").addEventListener("click",function(e){
   if(b.dataset.t==="test") startTest();
 });
 
-function renderDecks(tn){
-  $("w-decks").innerHTML='<button class="deck" aria-pressed="true"><b>'+C.title+'</b><span>覚えた '+S.next+' / '+W.length+(tn?'　<em>復習 '+tn+'</em>':'')+'</span></button>';
+function renderDecks(tn){   // 5つの単語帳。押すと ?c=<id> で開き直す（進み具合は単語帳ごと）
+  $("w-decks").innerHTML=APW_DECKS.map(function(x){
+    var on=x.id===C.id, n=on?S.next:0;
+    if(!on){ try{ n=(JSON.parse(localStorage.getItem("apush-words-"+x.id+"-v1"))||{}).next||0; }catch(e){} }
+    return '<button class="deck" data-c="'+x.id+'" aria-pressed="'+on+'"><b>'+esc(x.t)+'</b><span>覚えた '+n+(on?' / '+W.length+(tn?'　<em>復習 '+tn+'</em>':''):'')+'</span></button>';
+  }).join("");
 }
+$("w-decks").addEventListener("click",function(e){ var b=e.target.closest("[data-c]"); if(b && b.getAttribute("aria-pressed")!=="true") location.search="?c="+b.dataset.c; });
+// 今日のアドリブ（話すのページが ap_activity の adlib に数える）
+function adlibToday(){ try{ return ((JSON.parse(localStorage.getItem("ap_activity"))||{})[today()]||{}).adlib||0; }catch(e){ return 0; } }
 var PER_OPTS=Array.prototype.map.call($("s-per").options,function(o){ return +o.value; });
 $("w-daily").addEventListener("click",function(e){ var b=e.target.closest("[data-per]"); if(!b) return; S.settings.per=+b.dataset.per; save(); renderHome(); });
 function setMode(m){
