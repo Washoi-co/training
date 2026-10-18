@@ -130,6 +130,7 @@
       <a class="primary" href="/?adlib=1">アドリブ5問へ</a>
     </div>
     <div class="decks" id="w-decks" role="group" aria-label="単語帳を選ぶ"></div>
+    <div class="inst"><span class="inst-ic" aria-hidden="true">📚</span><p><b>有料版では、もっと上まで</b><br>IELTS 8.5・TOEFL 110・TOEIC 950点・英検®1級まで。さらに土木やビジネスなど＋2,500単語が追加されます。</p><a class="pill" href="/course/">見る</a></div>
     <div class="daily">
       <span><b>1日の新しい単語</b><small>朝に覚える単語の数</small></span>
       <div class="seg" id="w-daily" role="group" aria-label="1日の新しい単語の数"></div>
@@ -347,13 +348,15 @@
 
 <script src="/activity.js"></script>
 <script>
-/* 単語帳は5つ。?c=<id> か、前に選んだもの（無ければ TOEIC 700）。記録は単語帳ごと（apush-words-<id>-v1） */
+/* 単語帳は7つ。?c=<id> か、前に選んだもの（無ければ TOEIC 700）。記録は単語帳ごと（apush-words-<id>-v1） */
 var APW_DECKS=[
   {id:"toeic700",t:"TOEIC 700",tm:"TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
   {id:"business",t:"ビジネス英単語（基本200）",tm:""},
   {id:"ielts55",t:"IELTS 5.5",tm:"IELTSは、ブリティッシュ・カウンシル、IDP: IELTS オーストラリア、ケンブリッジ大学英語検定機構が共同で運営する試験です。本ツールはこれらの団体により承認・推奨されたものではありません。"},
   {id:"toefl60",t:"TOEFL iBT 60",tm:"TOEFL・TOEFL iBTはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
-  {id:"eiken_pre2",t:"英検®準2級",tm:"英検®は、公益財団法人 日本英語検定協会の登録商標です。本ツールは、公益財団法人 日本英語検定協会の承認や推奨、その他の検討を受けたものではありません。"}
+  {id:"eiken_pre2",t:"英検®準2級",tm:"英検®は、公益財団法人 日本英語検定協会の登録商標です。本ツールは、公益財団法人 日本英語検定協会の承認や推奨、その他の検討を受けたものではありません。"},
+  {id:"native",t:"ネイティブのフレーズ（50）",tm:""},
+  {id:"slang",t:"英語のスラング（50）",tm:""}
 ];
 (function(){
   var ok=function(id){ return APW_DECKS.some(function(x){ return x.id===id; }); };
