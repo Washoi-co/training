@@ -457,13 +457,13 @@ function frameOf(){
   const s=SET()[SEL];
   return {en:s[0].replace(/ helps me$/,"")+" ＿＿.", ja:s[2]};
 }
-/* 3問目と最後をアドリブに（単語が足りなければ減らす） */
+/* 5問ともアドリブに（単語が少なければ、くり返す） */
 function mixAd(){
   $("mix-empty").hidden=true;
-  if(!MIX||queue.length<3)return;
+  if(!MIX||!queue.length)return;
   const ws=todayWords();
   if(!ws.length){ if(!mixNoted){mixNoted=true;$("mix-empty").hidden=false;} return; }
-  [2,queue.length-1].slice(0,ws.length).forEach(i=>{ queue[i]={ad:true,word:ws[WP++%ws.length],frame:frameOf()}; });
+  queue=queue.map(()=>({ad:true,word:ws[WP++%ws.length],frame:frameOf()}));
 }
 function paintMix(){
   $("mix").setAttribute("aria-checked",String(MIX));
@@ -678,8 +678,9 @@ $("btn-next").addEventListener("click",()=>{
 function showResult(){
   if(window.apMark)apMark("chunk");
   const n=queue.filter(q=>!q.ad).length, ad=queue.length-n;
-  $("rscore").textContent=score;$("rtotal").textContent=" / "+n;
-  $("rmsg").textContent=(ad?n+"問中"+score+"問正解＋アドリブ"+ad+"。":"")+(
+  $("rscore").textContent=n?score:ad;$("rtotal").textContent=n?" / "+n:" 文 アドリブ";
+  if(!n)$("rmsg").textContent="アドリブ "+ad+"文、おつかれさまでした。単語を変えて、もう1回。";
+  else $("rmsg").textContent=(ad?n+"問中"+score+"問正解＋アドリブ"+ad+"。":"")+(
     score===n?"全問正解。上の型を変えて、次の形へ。":
     score>=n*.6?"あと少し。もう1回いきましょう。":
     "この形はまだ練習が要ります。もう1回。");
