@@ -38,6 +38,15 @@
 .boxnote{font-size:11.5px;color:var(--mute);margin:0;line-height:1.6}
 
 /* 今日のタスク（row の形） */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:14px 16px;border-radius:var(--r);background:var(--card);box-shadow:0 0 0 .5px var(--line2) inset;text-align:left;color:var(--ink)}
+.tile .tl{font-size:13px;font-weight:700;color:var(--mute)}
+.tile b{font-family:var(--en);font-size:30px;font-weight:900;line-height:1.15}.tile b small{font-size:13px;font-weight:700;margin-left:2px}
+.tile .ts{font-size:12.5px;font-weight:700;color:var(--brand)}
+.tile.next{background:var(--brand);box-shadow:none}.tile.next .tl,.tile.next b,.tile.next .ts{color:var(--on)}
+.tile.done .ts{color:var(--ok)}.tile:disabled{cursor:default}
+.setrow{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:10px;padding:13px 16px;border-radius:var(--r);background:var(--card);box-shadow:0 0 0 .5px var(--line2) inset;font-size:14.5px;font-weight:600;color:var(--ink)}
+.setrow span{font-size:13px;color:var(--mute);font-weight:500}
 .task:disabled{cursor:default;opacity:.5}
 .task .chev{color:var(--brand)} .task.done .chev{color:var(--ok)} .task:disabled .chev{color:var(--mute)}
 .task.next{box-shadow:0 0 0 2px var(--brand) inset}
@@ -139,7 +148,8 @@
       </div>
     </div>
     <div id="w-card" class="cin" style="padding:0">
-      <div class="group" id="tasks"></div>
+      <div class="duo" id="tasks"></div>
+      <button class="setrow press" id="w-set">単語の設定<span id="w-set-v"></span></button>
       <div class="msg" id="msg" hidden></div>
     </div>
     <div id="w-listwrap" class="cin" style="padding:0" hidden>
@@ -319,14 +329,16 @@
   <!-- 設定 -->
   <section id="v-set" hidden>
     <div class="group">
-      <label class="fld">1回に覚える単語の数
+      <label class="fld">毎日の新しい単語の数
         <select id="s-per"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option></select>
       </label>
+      <div hidden>
       <label class="fld">朝（新しい単語）<input type="time" id="s-am"></label>
       <label class="fld">昼（テスト・復習）<input type="time" id="s-noon"></label>
       <label class="fld">夜（もう一度）<input type="time" id="s-pm"></label>
+      </div>
     </div>
-    <p class="note">公式LINEでのお知らせは準備中です。今は、この時間を目安に開いてください。</p>
+    <button class="setrow press" id="s-sync">別の端末でも続ける（記録の登録）<span>›</span></button>
     <div class="acts">
       <button class="ghost" id="s-cancel">戻る</button>
       <button class="primary" id="s-save">保存する</button>
@@ -463,7 +475,7 @@ function renderHome(){
 
   // ① テスト：昨日の単語＋忘れかけた単語
   var tn=Math.min(due.length,CAP);
-  tasks.push({id:"test", ic:"📝", t:"テスト", s: tn ? tn+"問" : "今日はなし", st: tn?"スタート":"済み", on: tn>0, done: tn===0});
+  tasks.push({id:"test", ic:"📝", t:"テスト", s: tn ? tn+"問" : "今日はなし", n:tn, u:"問", st: tn?"スタート":"済み", on: tn>0, done: tn===0});
 
   // ② トレーニング：新しい単語
   var amState, amOn=false;
@@ -471,12 +483,13 @@ function renderHome(){
   else if(finished){ amState="全部覚えた"; }
   else if(backlog){ amState="お休み"; msg="復習がたまっています（"+due.length+"問）。今日は新しい単語をお休みにして、先にテストをしましょう。"; }
   else { amState="スタート"; amOn=true; }
-  tasks.push({id:"am", ic:"🎴", t:"トレーニング", s:"新しい単語 "+(d.am?d.batch.length:Math.min(per,W.length-S.next))+"個", st:amState, on:amOn, done:d.am});
+  tasks.push({id:"am", ic:"🎴", t:"トレーニング", s:"新しい単語 "+(d.am?d.batch.length:Math.min(per,W.length-S.next))+"個", n:(d.am?d.batch.length:Math.min(per,W.length-S.next)), u:"語", st:amState, on:amOn, done:d.am});
 
   var nextIdx = tasks.findIndex(function(x){ return x.on; });
   $("tasks").innerHTML = tasks.map(function(x,i){
-    return '<button class="row task'+(x.done?' done':'')+(i===nextIdx?' next':'')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'
-      +'<span class="ic" aria-hidden="true">'+x.ic+'</span><span><b>'+x.t+'</b><small>'+x.s+'</small></span><span class="chev">'+x.st+(x.on?' ›':'')+'</span></button>'; }).join("");
+    return '<button class="tile'+(x.done?' done':'')+(i===nextIdx?' next':'')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'
+      +'<span class="tl">'+x.t+'</span><b>'+x.n+'<small>'+x.u+'</small></b><span class="ts">'+(x.done?'✓ ':'')+x.st+(x.on?' ›':'')+'</span></button>'; }).join("");
+  $("w-set-v").textContent="1日 "+per+"語 ›";
   $("msg").hidden=!msg; $("msg").textContent=msg;
   // 朝の分が終わったら（全部覚えた後も）、次は今日の単語でアドリブ5問
   var ad=adlibToday();
@@ -655,6 +668,7 @@ $("s-save").addEventListener("click",function(){
   save(); renderHome();
 });
 $("s-cancel").addEventListener("click",renderHome);
+$("w-set").addEventListener("click",function(){ $("btn-set").click(); });
 $("s-reset").addEventListener("click",function(){
   if(!confirm("これまでの記録をすべて消して、最初からやり直しますか？")) return;
   var keep=S.sync; S=fresh(); if(keep) S.sync=keep; save(); renderHome();
@@ -671,6 +685,7 @@ function syTab(m){ syMode=m; $("sy-tab-new").setAttribute("aria-pressed",m==="ne
 function syMsg(t){ $("sy-msg").hidden=!t; $("sy-msg").textContent=t||""; }
 function openSync(){ syTab("new"); $("sy-leave-row").hidden=!(S.sync&&S.sync.id); view("sync"); }
 $("sync-open").addEventListener("click",openSync);
+$("s-sync").addEventListener("click",openSync);
 $("sy-tab-new").addEventListener("click",function(){ syTab("new"); });
 $("sy-tab-old").addEventListener("click",function(){ syTab("old"); });
 $("sy-cancel").addEventListener("click",renderHome);
