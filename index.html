@@ -196,7 +196,7 @@ img{max-width:100%}
         <div class="pic" id="a-pic" aria-hidden="true"></div>
         <div class="adw"><p class="wen" id="a-en"></p><button class="tsay" id="a-say" aria-label="単語を聞く">🔊</button></div>
         <p class="say" id="a-ja"></p>
-        <p class="say">この単語を使って、この型で自分の文を作り、声に出して言ってみよう</p>
+        <p class="say">この単語を使って、この型で自分の文を作り、声に出して言ってみよう。🎤を押して話し、言えたらもう一度押すと次へ進みます</p>
         <button class="mic" id="a-mic">🎤 話す</button>
         <p class="say" id="a-live" aria-live="polite"></p>
         <div id="a-type" hidden>
@@ -204,7 +204,7 @@ img{max-width:100%}
           <input id="a-in" lang="en" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-label="あなたの英文" placeholder="ここに英文（直せます）">
           <div class="acts"><button class="ghost" id="a-again">もう一度話す</button><button class="primary" id="a-next">送って次へ</button></div>
         </div>
-        <p class="say priv">添削のため、英文を送ります。名前・声は送りません（端末ごとの番号は元に戻せない形にして、今月の利用分を数えるだけに使います）</p>
+        <p class="say priv">添削のため、声（または英文）を送ります。声は文字にするためだけに使い、保存しません。名前は送りません（端末ごとの番号は元に戻せない形にして、今月の利用分を数えるだけに使います）</p>
       </div>
 
       <div id="v-fix" class="cin" style="padding:0" hidden>
@@ -546,54 +546,52 @@ function openAd(){
   $("a-pic").hidden=!q.word.emo;$("a-pic").textContent=q.word.emo;
   $("a-en").textContent=q.word.en;$("a-ja").textContent=q.word.ja;
   micStop();$("a-in").value="";$("a-live").textContent="";
-  if(!SR||micOff)adType(true,false);else{$("a-mic").hidden=false;$("a-type").hidden=true;}
+  if(!CAN_REC||micOff)adType(true,false);else{$("a-mic").hidden=false;$("a-type").hidden=true;}
   view("adlib");
   speak(q.word.en);
 }
 $("a-say").addEventListener("click",()=>speak($("a-en").textContent));
 
-// 声の文字起こし（端末のブラウザの機能）。使えない・止められた時は、打って入力
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-let sr=null,micOff=false;
-function micStop(){
-  if(sr){sr.onresult=sr.onerror=sr.onend=null;try{sr.abort();}catch(e){}sr=null;}
-  $("a-mic").classList.remove("on");$("a-mic").textContent="🎤 話す";
+// 声：録音 → 添削のときにサーバーで文字にする（OpenAI）。押す→話す→もう一度押すと、送って次の問題へ（待たない）
+// 録音できない端末・マイクを止めた時は、打って入力
+const CAN_REC=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);
+let rec=null,recStream=null,micOff=false,recT=0,recTick=0;
+function micStop(){   // 録音を捨てて止める
+  if(rec){rec.ondataavailable=rec.onstop=null;try{rec.stop();}catch(e){}rec=null;}
+  clearInterval(recTick);$("a-mic").classList.remove("on");$("a-mic").textContent="🎤 話す";$("a-live").textContent="";
 }
+function micRelease(){micStop();if(recStream){recStream.getTracks().forEach(t=>t.stop());recStream=null;}}
 function adType(note,again){
   $("a-mic").hidden=true;$("a-type").hidden=false;
   $("a-nomic").hidden=!note;$("a-again").hidden=!again;
 }
-function micStart(){
+async function micStart(){
   micStop();
   try{speechSynthesis.cancel();}catch(e){}
-  let txt="",fail="";
-  const r=sr=new SR();
-  r.lang="en-US";r.interimResults=true;r.continuous=false;
-  r.onresult=e=>{txt=Array.from(e.results,x=>x[0].transcript).join(" ").replace(/\s+/g," ");$("a-live").textContent=txt;};
-  r.onerror=e=>{fail=e.error||"error";};
-  r.onend=()=>{
-    sr=null;micStop();$("a-live").textContent="";
-    if(/not-allowed|service-not-allowed|audio-capture/.test(fail))micOff=true;   // マイクが使えない → このあとは打って入力
-    $("a-in").value=txt.trim();
-    adType(!!fail&&fail!=="no-speech",!micOff);
-  };
-  try{r.start();}catch(e){sr=null;micOff=true;adType(true,false);return;}
-  $("a-mic").hidden=false;$("a-type").hidden=true;
-  $("a-mic").classList.add("on");$("a-mic").textContent="● 聞いています（押すと止める）";
+  try{recStream=recStream||await navigator.mediaDevices.getUserMedia({audio:true});}
+  catch(e){micOff=true;adType(true,false);return;}
+  const chunks=[],r=rec=new MediaRecorder(recStream);
+  r.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
+  r.onstop=()=>{rec=null;adSend(new Blob(chunks,{type:r.mimeType||"audio/mp4"}),(Date.now()-recT)/1000);};
+  r.start();recT=Date.now();
+  $("a-mic").hidden=false;$("a-type").hidden=true;$("a-mic").classList.add("on");
+  const tick=()=>{const t=Math.floor((Date.now()-recT)/1000);$("a-mic").textContent="● 録音中 "+t+"秒（押すと送って次へ）";if(t>=30&&rec)rec.stop();};
+  tick();recTick=setInterval(tick,500);
 }
-$("a-mic").addEventListener("click",()=>{if(sr)sr.stop();else micStart();});
+$("a-mic").addEventListener("click",()=>{if(rec){clearInterval(recTick);rec.stop();}else micStart();});
 $("a-again").addEventListener("click",micStart);
 $("a-in").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.isComposing){e.preventDefault();$("a-next").click();}});
 // 「送って次へ」：添削を後ろで頼んで、待たずに次へ。5問目のあとは添削を1文ずつ
-$("a-next").addEventListener("click",()=>{
-  const q=queue[qi],you=$("a-in").value.trim();
-  if(!you){$("a-in").focus();return;}
+function adSend(blob,sec){   // 声（blob）か、打った文で添削を頼んで、次へ
+  const q=queue[qi],you=blob?"":$("a-in").value.trim();
+  if(!blob&&!you){$("a-in").focus();return;}
   micStop();
-  const it={word:q.word.en,meaning:q.word.ja,pattern:q.frame.en,you};
+  const it={word:q.word.en,meaning:q.word.ja,pattern:q.frame.en,you,audio:blob||null,sec:sec||0};
   adl.push(it);review(it);
-  if(qi>=queue.length-1){FIX={list:adl,i:0,review:false};paintFix();view("fix");return;}
+  if(qi>=queue.length-1){micRelease();FIX={list:adl,i:0,review:false};paintFix();view("fix");return;}
   qi++;openAd();
-});
+}
+$("a-next").addEventListener("click",()=>adSend(null));
 
 /* 添削（Cloud Functions の review）。送るのは英文・型・単語・意味と、ハッシュにした端末の番号だけ（月の利用分を数えるため）。
    モデルはサーバーがサイトで決める */
@@ -606,14 +604,16 @@ const acctHash=s=>crypto.subtle.digest("SHA-256",new TextEncoder().encode("apush
 const REVIEW_URL="https://asia-northeast1-apush-training.cloudfunctions.net/review";
 function review(it){
   it.r=null;it.err=null;
-  const sig=window.AbortSignal&&AbortSignal.timeout?AbortSignal.timeout(40000):undefined;
-  it.p=acctHash(deviceId()).then(account=>fetch(REVIEW_URL,{method:"POST",headers:{"Content-Type":"application/json"},signal:sig,
-      body:JSON.stringify({data:{sentence:it.you,pattern:it.pattern,word:it.word,meaning:it.meaning,account}})}))
+  const sig=window.AbortSignal&&AbortSignal.timeout?AbortSignal.timeout(80000):undefined;
+  const b64=it.audio?new Promise(ok=>{const f=new FileReader();f.onload=()=>ok(String(f.result).split(",")[1]||"");f.readAsDataURL(it.audio);}):Promise.resolve("");
+  it.p=Promise.all([acctHash(deviceId()),b64]).then(([account,audio])=>fetch(REVIEW_URL,{method:"POST",headers:{"Content-Type":"application/json"},signal:sig,
+      body:JSON.stringify({data:Object.assign({sentence:it.you,pattern:it.pattern,word:it.word,meaning:it.meaning,account},audio?{audio,mime:it.audio.type,sec:it.sec}:{})})}))
     .then(async res=>{
       const j=await res.json().catch(()=>({}));
       const r=j.result;
       if(!res.ok||!r||!String(r.corrected||"").trim()){const e=new Error();e.ja=j.error&&j.error.message;throw e;}
       it.r={ok:!!r.ok,corrected:String(r.corrected).trim(),note:String(r.note||"")};
+      if(r.heard!=null)it.you=String(r.heard);
       saveRev(it);
     })
     .catch(e=>{it.err=(e&&e.ja)||"添削できませんでした。電波の良い所で「もう一度」を押してください。";})
@@ -628,7 +628,7 @@ function paintFix(){
   $("f-tag").textContent=rv?"🔁 今日の復習":"添削";
   $("f-n").textContent=(FIX.i+1)+" / "+FIX.list.length;
   $("f-you-h").hidden=$("f-you").hidden=$("f-fix-h").hidden=rv;
-  $("f-you").textContent=it.you||"（何も言っていません）";
+  $("f-you").textContent=it.you||(it.audio&&!it.r&&!it.err?"（聞き取っています…）":"（何も言っていません）");
   $("f-wait").hidden=!!(en||it.err);
   $("f-err").hidden=!!en||!it.err;$("f-msg").textContent=it.err||"";
   $("f-ok").hidden=!en;
@@ -636,21 +636,26 @@ function paintFix(){
   $("f-badge").hidden=rv||!(it.r&&it.r.ok);
   $("f-note").textContent=(rv?it.note:it.r&&it.r.note)||"";$("f-note").hidden=!$("f-note").textContent;
   FIX.taps=0;$("f-dots").querySelectorAll(".dot").forEach(d=>d.classList.remove("on"));
-  $("f-next").disabled=true;$("f-next").textContent=last?(rv?"おわり":"結果を見る"):"次へ";
+  fixLabel();
   if(en)speak(en);
 }
 $("f-say").addEventListener("click",()=>speak($("f-en").textContent));
-$("f-dots").addEventListener("click",e=>{
-  const d=e.target.closest("[data-f]");if(!d||!FIX)return;
-  const n=+d.dataset.f;if(n>FIX.taps)return;
-  d.classList.add("on");FIX.taps=Math.max(FIX.taps,n+1);
-  speak($("f-en").textContent);
+function fixLabel(){
+  const last=FIX.i===FIX.list.length-1;
+  $("f-next").disabled=!fixEn(FIX.list[FIX.i]);
+  $("f-next").textContent=FIX.taps>=3?(last?(FIX.review?"おわり":"結果を見る"):"次へ"):"言えた（"+FIX.taps+"/3）";
+}
+function fixTap(){   // 3回言う：点でも「言えた」ボタンでも数える。3回で「次へ」になる
+  if(!FIX||FIX.taps>=3||!fixEn(FIX.list[FIX.i]))return;
+  $("f-dots").querySelectorAll(".dot")[FIX.taps].classList.add("on");FIX.taps++;
+  if(FIX.taps<3)speak($("f-en").textContent);
+  fixLabel();
   if(FIX.taps>=3){
-    $("f-next").disabled=false;
     const it=FIX.list[FIX.i];
     if(!FIX.review&&!it.marked){it.marked=true;if(window.apMark)apMark("adlib");}   // 今日＆計画の「アドリブ n / 5」
   }
-});
+}
+$("f-dots").addEventListener("click",e=>{if(e.target.closest("[data-f]"))fixTap();});
 $("f-retry").addEventListener("click",()=>{const it=FIX.list[FIX.i];review(it);paintFix();});
 function fixNext(){
   if(FIX.review)revDone(FIX.list[FIX.i].id);
@@ -658,7 +663,7 @@ function fixNext(){
   if(FIX.review)endReview();else showAdResult();
 }
 $("f-skip").addEventListener("click",fixNext);
-$("f-next").addEventListener("click",fixNext);
+$("f-next").addEventListener("click",()=>{if(FIX.taps<3)fixTap();else fixNext();});
 function showAdResult(){
   AD=false;
   const ok=adl.filter(it=>it.marked).length;
@@ -873,17 +878,19 @@ function openRepeat(q,right,timedOut){
 function resetDots(){
   taps=0;
   document.querySelectorAll(".dot").forEach(d=>d.classList.remove("on"));
-  $("btn-next").disabled=true;
-  $("btn-next").textContent=(qi===queue.length-1)?"結果を見る":"次の絵へ";
+  repLabel();
 }
-$("dots").addEventListener("click",e=>{
-  const d=e.target.closest("[data-d]"); if(!d)return;
-  const n=+d.dataset.d; if(n>taps)return;
-  d.classList.add("on");taps=Math.max(taps,n+1);
-  speak(sentenceOf(queue[qi]));
-  if(taps>=3)$("btn-next").disabled=false;
-});
+// 3回言う：点でも「言えた」ボタンでも数える。3回で「次へ」になる
+function repLabel(){$("btn-next").disabled=false;$("btn-next").textContent=taps<3?"言えた（"+taps+"/3）":(qi===queue.length-1)?"結果を見る":"次の絵へ";}
+function repTap(){
+  if(taps>=3)return;
+  $("dots").querySelectorAll(".dot")[taps].classList.add("on");taps++;
+  if(taps<3)speak(sentenceOf(queue[qi]));
+  repLabel();
+}
+$("dots").addEventListener("click",e=>{if(e.target.closest("[data-d]"))repTap();});
 $("btn-next").addEventListener("click",()=>{
+  if(taps<3){repTap();return;}
   if(qi>=queue.length-1){showResult();return;}
   qi++;askQuestion();
 });
