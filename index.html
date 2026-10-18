@@ -113,6 +113,9 @@ img{max-width:100%}
 .more .ghost{background:rgba(255,255,255,.1);color:#fff}
 .more .lp{display:block;text-align:center;margin-top:14px;font-size:13px;font-weight:700;color:#fff}
 .foot a{color:var(--ink);font-weight:700}
+/* 今日の単語を混ぜる：アドリブカード */
+.adw{margin:0;text-align:center;font-family:var(--en);font-size:clamp(28px,8vw,36px);font-weight:900;letter-spacing:-.02em;line-height:1.2}
+.adw button{width:34px;height:34px;border-radius:50%;background:var(--soft);color:var(--brand);font-size:15px;vertical-align:middle;margin-left:6px}
 </style>
 </head>
 <body data-tab="sp">
@@ -133,6 +136,11 @@ img{max-width:100%}
   </div>
 
   <div class="chips" id="chips" role="group" aria-label="型を選ぶ"></div>
+  <div class="toggle-row">
+    <div><b>今日の単語を混ぜる</b><span id="mix-note">OFF：決まった文だけ</span></div>
+    <button class="switch" id="mix" role="switch" aria-checked="false" aria-label="今日の単語を混ぜる"><i></i></button>
+  </div>
+  <p class="say" id="mix-empty" hidden>単語の画面で今日の単語を始めると、ここに出ます</p>
 
   <div class="card">
     <div class="bar"><i id="tbar"></i></div>
@@ -157,7 +165,7 @@ img{max-width:100%}
         <p class="say en" id="rq"></p>
         <p class="answer" id="answer"></p>
         <p class="say" id="answerja"></p>
-        <p class="say">声に出して3回。タップすると音が鳴ります。</p>
+        <p class="say" id="rsay">声に出して3回。タップすると音が鳴ります。</p>
         <div class="dots" id="dots">
           <button class="dot" data-d="0" aria-label="1回目">1</button>
           <button class="dot" data-d="1" aria-label="2回目">2</button>
@@ -305,6 +313,7 @@ img{max-width:100%}
 </dialog>
 
 <script src="/activity.js"></script>
+<script src="/words/toeic700.js"></script>  <!-- 今日の単語を混ぜる：単語の画面と同じ単語帳（読むだけ） -->
 <script>
 /* 動詞チャンク30：[絵, Lv1 原形, 日本語, 過去形, Lv2 原形, 日本語, 過去形, Lv3 原形, 日本語, 過去形]
    Lv1 短い文 ／ Lv2 長い文 ／ Lv3 英検2級くらいの単語と言い回し */
@@ -409,9 +418,62 @@ function speak(t){try{if(!("speechSynthesis" in window))return;speechSynthesis.c
 
 const SET=()=>MODE==="modal"?MODALS:MODE==="relative"?RELATIVES:TENSES;
 function sentenceOf(q){
+  if(q.ad)return q.word.en;
   if(MODE==="tense")return tenseSentence(q.vi,q.t,q.w);
   return SET()[SEL][0]+" "+ph(q.vi).b+".";
 }
+
+/* 今日の単語を混ぜる（2026-10-18）：単語の画面の記録を読むだけ（書かない）。
+   今日の新しい単語 → 今日の復習 → なければ最後に学習した日の単語 */
+let MIX=false, WP=0, mixNoted=false;
+try{ MIX=localStorage.getItem("apush-training-mix")==="1"; }catch(e){}
+function todayWords(){
+  const C=window.APW_COURSE; if(!C)return [];
+  let S=null; try{ S=JSON.parse(localStorage.getItem("apush-words-"+C.id+"-v1")); }catch(e){}
+  if(!S||!S.cards)return [];
+  const p=n=>(n<10?"0":"")+n, d=new Date(), t=d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
+  const days=S.days||{}, ids=[];
+  ((days[t]||{}).batch||[]).forEach(wi=>ids.push(wi+":0"));
+  Object.keys(S.cards).filter(id=>S.cards[id].box<=5&&S.cards[id].due<=t)
+    .sort((a,b)=>S.cards[a].due<S.cards[b].due?-1:S.cards[a].due>S.cards[b].due?1:0).forEach(id=>ids.push(id));
+  if(!ids.length){
+    const last=Object.keys(days).filter(k=>(days[k].batch||[]).length).sort().pop();
+    if(last)days[last].batch.forEach(wi=>ids.push(wi+":0"));
+  }
+  const seen=new Set(), out=[];
+  ids.forEach(id=>{
+    const [wi,si]=id.split(":").map(Number), w=C.words[wi]; if(!w||seen.has(wi))return; seen.add(wi);
+    const m=w[1][si]||w[1][0]; out.push({en:w[0],ja:m[0],emo:m[1]||""});
+  });
+  return out;
+}
+/* その型の文の枠：助動詞 I should ＿＿. ／ 関係代名詞 I have a coach who ＿＿. ／ 時制 I ＿＿ yesterday. */
+function frameOf(){
+  if(MODE==="tense"){
+    let t=TENSES[SEL][0]; if(t==="mix")t=TENSE_KEYS[Math.floor(Math.random()*3)];
+    const w=TW[t][0];
+    return {en:(t==="future"?"I will ＿＿ ":"I ＿＿ ")+w[0]+".", ja:w[2]};
+  }
+  const s=SET()[SEL];
+  return {en:s[0].replace(/ helps me$/,"")+" ＿＿.", ja:s[2]};
+}
+/* 3問目と最後をアドリブに（単語が足りなければ減らす） */
+function mixAd(){
+  $("mix-empty").hidden=true;
+  if(!MIX||queue.length<3)return;
+  const ws=todayWords();
+  if(!ws.length){ if(!mixNoted){mixNoted=true;$("mix-empty").hidden=false;} return; }
+  [2,queue.length-1].slice(0,ws.length).forEach(i=>{ queue[i]={ad:true,word:ws[WP++%ws.length],frame:frameOf()}; });
+}
+function paintMix(){
+  $("mix").setAttribute("aria-checked",String(MIX));
+  $("mix-note").textContent=MIX?"ON：今日の単語でアドリブ":"OFF：決まった文だけ";
+}
+paintMix();
+$("mix").addEventListener("click",()=>{
+  MIX=!MIX; try{ localStorage.setItem("apush-training-mix",MIX?"1":"0"); }catch(e){}
+  paintMix(); startRound();
+});
 
 /* ホーム画面に追加：スマホのブラウザで開いた時だけ案内 */
 (function(){
@@ -479,7 +541,7 @@ function startRound(){
       const vi=shuffle(g)[0];used.add(vi);queue.push({vi,t,w});
     }
     qi=0;score=0;log=[];
-    if(queue.length){askQuestion();return;}
+    if(queue.length){mixAd();askQuestion();return;}
   }
   const good=MODE==="tense"?[]:goodV();
   if(good.length<3){   /* 選択肢が3つ作れない型は出さない */
@@ -490,15 +552,17 @@ function startRound(){
   }
   queue=shuffle(good).slice(0,5).map(vi=>({vi}));
   qi=0;score=0;log=[];
-  askQuestion();
+  mixAd();askQuestion();
 }
 function paintPips(){
   $("pips").innerHTML=queue.map((_,i)=>{
-    const l=log[i];return '<span class="pip'+(l?(l.right?" y":" n"):"")+'"></span>';
+    const l=log[i];return '<span class="pip'+(l?(l.right||l.q.ad?" y":" n"):"")+'"></span>';
   }).join("");
 }
 function askQuestion(){
-  const q=queue[qi], v=V[q.vi];
+  const q=queue[qi];
+  if(q.ad){openAd(q);return;}
+  const v=V[q.vi];
   paintPips();
   const qs=questionOf(q);
   $("qq").innerHTML=esc(qs)+' <button type="button" aria-label="質問をもう一度聞く">▶</button>';
@@ -563,15 +627,43 @@ function openRepeat(q,right,timedOut){
   $("verdict").className="verdict "+(right?"y":"n");
   $("rpic").textContent=v[0];
   $("rq").textContent=questionOf(q);
+  $("answer").className="answer";
   $("answer").textContent=s;
   $("answerja").textContent=ph(q.vi).j+"（"+(MODE==="tense"?TW[q.t][q.w][2]:SET()[SEL][1])+"）";
+  $("rpic").hidden=false;
+  $("rq").className="say en";
+  $("rsay").textContent="声に出して3回。タップすると音が鳴ります。";
+  resetDots();
+  view("repeat");
+  speak(s);
+}
+function resetDots(){
   taps=0;
   document.querySelectorAll(".dot").forEach(d=>d.classList.remove("on"));
   $("btn-next").disabled=true;
   $("btn-next").textContent=(qi===queue.length-1)?"結果を見る":"次の絵へ";
-  view("repeat");
-  speak(s);
 }
+/* アドリブカード：時間なし・正解なし。この単語で、この型の自分の文を3回 */
+function openAd(q){
+  clearInterval(timer);
+  paintPips();
+  $("tbar").style.width="100%";$("tbar").classList.remove("low");
+  $("qleft").textContent="";
+  $("verdict").className="verdict";
+  $("verdict").innerHTML='<span class="tag" style="margin:0">アドリブ</span>';
+  $("rpic").hidden=!q.word.emo; $("rpic").textContent=q.word.emo;
+  $("rq").className="stem";
+  $("rq").innerHTML=esc(q.frame.en).replace("＿＿",'<span class="blank">＿＿</span>');
+  $("answer").className="adw";
+  $("answer").innerHTML=esc(q.word.en)+' <button type="button" id="ad-say" aria-label="単語を聞く">🔊</button>';
+  $("answerja").textContent=q.word.ja+"　・"+q.frame.ja;
+  $("rsay").textContent="この単語を使って、この型で自分の文を作り、声に出して3回";
+  resetDots();
+  log.push({q});
+  view("repeat");
+  speak(q.word.en);
+}
+$("answer").addEventListener("click",e=>{if(e.target.closest("#ad-say"))speak(queue[qi].word.en);});
 $("dots").addEventListener("click",e=>{
   const d=e.target.closest("[data-d]"); if(!d)return;
   const n=+d.dataset.d; if(n>taps)return;
@@ -585,12 +677,14 @@ $("btn-next").addEventListener("click",()=>{
 });
 function showResult(){
   if(window.apMark)apMark("chunk");
-  $("rscore").textContent=score;$("rtotal").textContent=" / "+queue.length;
-  $("rmsg").textContent=
-    score===queue.length?"全問正解。上の型を変えて、次の形へ。":
-    score>=queue.length*.6?"あと少し。もう1回いきましょう。":
-    "この形はまだ練習が要ります。もう1回。";
-  $("recap").innerHTML=log.map(l=>
+  const n=queue.filter(q=>!q.ad).length, ad=queue.length-n;
+  $("rscore").textContent=score;$("rtotal").textContent=" / "+n;
+  $("rmsg").textContent=(ad?n+"問中"+score+"問正解＋アドリブ"+ad+"。":"")+(
+    score===n?"全問正解。上の型を変えて、次の形へ。":
+    score>=n*.6?"あと少し。もう1回いきましょう。":
+    "この形はまだ練習が要ります。もう1回。");
+  $("recap").innerHTML=log.map(l=>l.q.ad?
+    '<div class="rrow"><span class="m">'+esc(l.q.word.emo||"💬")+'</span><span class="s">アドリブ：'+esc(l.q.word.en)+'</span><span class="v y">✓</span></div>':
     '<div class="rrow"><span class="m">'+V[l.q.vi][0]+'</span>'+
     '<span class="s">'+esc(sentenceOf(l.q))+'</span>'+
     '<span class="v '+(l.right?"y":"n")+'">'+(l.right?"○":"×")+'</span></div>').join("");
