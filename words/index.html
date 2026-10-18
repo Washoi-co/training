@@ -120,7 +120,7 @@
 <main class="screen">
   <div class="nav"><span class="navl"><span class="mini">単語</span></span><span class="navr"><button class="pill press" id="btn-set">設定</button><button class="pill press" id="btn-howto">やり方</button></span></div>
   <h1 class="large">単語</h1>
-  <p class="sub" id="title">TOEIC 700点を狙う単語・お試し版</p>
+  <p class="sub" id="title" hidden>TOEIC 700点を狙う単語・お試し版</p>
 
   <!-- ホーム -->
   <section id="v-home">
@@ -130,7 +130,7 @@
       <a class="primary" href="/?adlib=1">アドリブ5問へ</a>
     </div>
     <div class="chips" id="w-decks" role="group" aria-label="単語帳を選ぶ"></div>
-    <div class="inst"><span class="inst-ic" aria-hidden="true">📚</span><p><b>有料版では、もっと上まで</b><br>IELTS 8.5・TOEFL 110・TOEIC 950点・英検®1級まで。さらに土木やビジネスなど＋2,500単語が追加されます。</p><a class="pill" href="/course/">見る</a></div>
+    <div class="inst"><span class="inst-ic" aria-hidden="true">📚</span><p><b>有料版</b>　IELTS 8.5・TOEFL 110・TOEIC 950・英検®1級＋2,500語</p><a class="pill" href="/course/">見る</a></div>
     <div class="filters">
       <span class="note">覚えた単語 <b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span>
       <div class="seg" id="w-mode" role="group" aria-label="見せ方">
@@ -149,7 +149,6 @@
     <p class="label">箱の様子</p>
     <div class="card"><div class="cin">
       <div class="boxes" id="boxes"></div>
-      <p class="boxnote">箱1 → 翌日／箱2 → 3日後／箱3 → 7日後／箱4 → 14日後／箱5 → 30日後に、また出てきます。間違えると箱1へ（箱5で間違えたら箱3へ）。</p>
     </div></div>
     <div class="wsync" id="sync-off">
       <div><b>🧠 忘却曲線を活用する</b><span>ニックネームを登録すると、記録が残り、別のスマホやパソコンでも続きから学習できます。</span></div>
@@ -462,7 +461,7 @@ function renderHome(){
 
   // ① テスト：昨日の単語＋忘れかけた単語
   var tn=Math.min(due.length,CAP);
-  tasks.push({id:"test", ic:"📝", t:"テスト", s: tn ? "昨日の単語＋忘れかけた単語 "+tn+"問" : "今日の分はありません", st: tn?"スタート":"済み", on: tn>0, done: tn===0});
+  tasks.push({id:"test", ic:"📝", t:"テスト", s: tn ? tn+"問" : "今日はなし", st: tn?"スタート":"済み", on: tn>0, done: tn===0});
 
   // ② トレーニング：新しい単語
   var amState, amOn=false;
@@ -470,7 +469,7 @@ function renderHome(){
   else if(finished){ amState="全部覚えた"; }
   else if(backlog){ amState="お休み"; msg="復習がたまっています（"+due.length+"問）。今日は新しい単語をお休みにして、先にテストをしましょう。"; }
   else { amState="スタート"; amOn=true; }
-  tasks.push({id:"am", ic:"🎴", t:"トレーニング", s:"新しい単語 "+(d.am?d.batch.length:Math.min(per,W.length-S.next))+"個を、絵と声で覚える", st:amState, on:amOn, done:d.am});
+  tasks.push({id:"am", ic:"🎴", t:"トレーニング", s:"新しい単語 "+(d.am?d.batch.length:Math.min(per,W.length-S.next))+"個", st:amState, on:amOn, done:d.am});
 
   var nextIdx = tasks.findIndex(function(x){ return x.on; });
   $("tasks").innerHTML = tasks.map(function(x,i){
