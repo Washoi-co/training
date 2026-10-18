@@ -129,13 +129,8 @@
       <p><b>次は、今日の単語でアドリブ5問</b><br><span id="w-adlib-n"></span></p>
       <a class="primary" href="/?adlib=1">アドリブ5問へ</a>
     </div>
-    <div class="decks" id="w-decks" role="group" aria-label="単語帳を選ぶ"></div>
+    <div class="chips" id="w-decks" role="group" aria-label="単語帳を選ぶ"></div>
     <div class="inst"><span class="inst-ic" aria-hidden="true">📚</span><p><b>有料版では、もっと上まで</b><br>IELTS 8.5・TOEFL 110・TOEIC 950点・英検®1級まで。さらに土木やビジネスなど＋2,500単語が追加されます。</p><a class="pill" href="/course/">見る</a></div>
-    <div class="daily">
-      <span><b>1日の新しい単語</b><small>朝に覚える単語の数</small></span>
-      <div class="seg" id="w-daily" role="group" aria-label="1日の新しい単語の数"></div>
-    </div>
-    <div class="today"><div class="today-t" id="w-today"></div><div class="bar"><i id="w-bar"></i></div></div>
     <div class="filters">
       <span class="note">覚えた単語 <b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span>
       <div class="seg" id="w-mode" role="group" aria-label="見せ方">
@@ -146,7 +141,6 @@
     <div id="w-card" class="cin" style="padding:0">
       <div class="group" id="tasks"></div>
       <div class="msg" id="msg" hidden></div>
-      <p class="note" id="times"></p>
     </div>
     <div id="w-listwrap" class="cin" style="padding:0" hidden>
       <input class="search" id="w-q" type="search" placeholder="日本語か英語でさがす" aria-label="さがす" enterkeyhint="search" autocapitalize="none" autocorrect="off">
@@ -350,13 +344,13 @@
 <script>
 /* 単語帳は7つ。?c=<id> か、前に選んだもの（無ければ TOEIC 700）。記録は単語帳ごと（apush-words-<id>-v1） */
 var APW_DECKS=[
-  {id:"toeic700",t:"TOEIC 700",tm:"TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
-  {id:"business",t:"ビジネス英単語（基本200）",tm:""},
-  {id:"ielts55",t:"IELTS 5.5",tm:"IELTSは、ブリティッシュ・カウンシル、IDP: IELTS オーストラリア、ケンブリッジ大学英語検定機構が共同で運営する試験です。本ツールはこれらの団体により承認・推奨されたものではありません。"},
-  {id:"toefl60",t:"TOEFL iBT 60",tm:"TOEFL・TOEFL iBTはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
-  {id:"eiken_pre2",t:"英検®準2級",tm:"英検®は、公益財団法人 日本英語検定協会の登録商標です。本ツールは、公益財団法人 日本英語検定協会の承認や推奨、その他の検討を受けたものではありません。"},
-  {id:"native",t:"ネイティブのフレーズ（50）",tm:""},
-  {id:"slang",t:"英語のスラング（50）",tm:""}
+  {id:"toeic700",s:"TOEIC",t:"TOEIC 700",tm:"TOEICはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
+  {id:"business",s:"ビジネス",t:"ビジネス英単語（基本200）",tm:""},
+  {id:"ielts55",s:"IELTS",t:"IELTS 5.5",tm:"IELTSは、ブリティッシュ・カウンシル、IDP: IELTS オーストラリア、ケンブリッジ大学英語検定機構が共同で運営する試験です。本ツールはこれらの団体により承認・推奨されたものではありません。"},
+  {id:"toefl60",s:"TOEFL",t:"TOEFL iBT 60",tm:"TOEFL・TOEFL iBTはETSの登録商標です。本ツールはETSにより承認・推奨されたものではありません。"},
+  {id:"eiken_pre2",s:"英検®",t:"英検®準2級",tm:"英検®は、公益財団法人 日本英語検定協会の登録商標です。本ツールは、公益財団法人 日本英語検定協会の承認や推奨、その他の検討を受けたものではありません。"},
+  {id:"native",s:"ネイティブ",t:"ネイティブのフレーズ（50）",tm:""},
+  {id:"slang",s:"スラング",t:"英語のスラング（50）",tm:""}
 ];
 (function(){
   var ok=function(id){ return APW_DECKS.some(function(x){ return x.id===id; }); };
@@ -466,21 +460,17 @@ function renderHome(){
   var per=S.settings.per;
   var tasks=[], msg="";
 
-  // ① 朝：新しい単語
+  // ① テスト：昨日の単語＋忘れかけた単語
+  var tn=Math.min(due.length,CAP);
+  tasks.push({id:"test", ic:"📝", t:"テスト", s: tn ? "昨日の単語＋忘れかけた単語 "+tn+"問" : "今日の分はありません", st: tn?"スタート":"済み", on: tn>0, done: tn===0});
+
+  // ② トレーニング：新しい単語
   var amState, amOn=false;
   if(d.am){ amState="済み"; }
   else if(finished){ amState="全部覚えた"; }
-  else if(backlog){ amState="お休み"; msg="復習がたまっています（"+due.length+"問）。今日は新しい単語をお休みにして、先にテスト・復習をしましょう。"; }
+  else if(backlog){ amState="お休み"; msg="復習がたまっています（"+due.length+"問）。今日は新しい単語をお休みにして、先にテストをしましょう。"; }
   else { amState="スタート"; amOn=true; }
-  tasks.push({id:"am", ic:"🌅", t:"朝：新しい単語", s:(d.am?d.batch.length:Math.min(per,W.length-S.next))+"個を、絵と声で覚える", st:amState, on:amOn, done:d.am});
-
-  // ② 昼：テスト・復習
-  var tn=Math.min(due.length,CAP);
-  tasks.push({id:"test", ic:"📝", t:"昼：テスト・復習", s: tn ? "昨日の単語＋忘れかけた単語 "+tn+"問" : "今日の分はありません", st: tn?"スタート":"済み", on: tn>0, done: tn===0});
-
-  // ③ 夜：もう一度
-  var pmOn=d.am && !d.pm;
-  tasks.push({id:"pm", ic:"🌙", t:"夜：もう一度", s:"今朝の"+(d.batch.length||per)+"個を、意味を思い出しながら", st: d.pm?"済み":(d.am?"スタート":"朝のあと"), on:pmOn, done:d.pm});
+  tasks.push({id:"am", ic:"🎴", t:"トレーニング", s:"新しい単語 "+(d.am?d.batch.length:Math.min(per,W.length-S.next))+"個を、絵と声で覚える", st:amState, on:amOn, done:d.am});
 
   var nextIdx = tasks.findIndex(function(x){ return x.on; });
   $("tasks").innerHTML = tasks.map(function(x,i){
@@ -491,14 +481,8 @@ function renderHome(){
   var ad=adlibToday();
   $("w-adlib").hidden=!((d.am||finished) && ad<5);
   $("w-adlib-n").textContent="今日 "+Math.min(ad,5)+" / 5　声で言うと、AIが添削します";
-  // doboku の形：単語帳・1日の新しい単語・今日の数
   renderDecks(tn);
-  $("w-daily").innerHTML=PER_OPTS.map(function(n){ return '<button data-per="'+n+'" aria-pressed="'+(n===per)+'">'+n+'</button>'; }).join("");
-  var goal=d.batch.length||Math.min(per,W.length-S.next), done=d.am?d.batch.length:0;
-  $("w-today").innerHTML='<span>今日の復習 <b>'+tn+'</b>問</span><span>新しい語 <b>'+done+'</b> / '+goal+'</span>';
-  $("w-bar").style.width=(goal?Math.min(100,done/goal*100):0)+"%";
   if(!$("w-listwrap").hidden) renderList();
-  var st=S.settings; $("times").textContent="目安の時間：朝 "+st.am+"／昼 "+st.noon+"／夜 "+st.pm+"（設定で変更できます）";
   view("home");
 }
 $("tasks").addEventListener("click",function(e){
@@ -508,18 +492,15 @@ $("tasks").addEventListener("click",function(e){
   if(b.dataset.t==="test") startTest();
 });
 
-function renderDecks(tn){   // 5つの単語帳。押すと ?c=<id> で開き直す（進み具合は単語帳ごと）
+function renderDecks(tn){   // 単語帳は小さいタブ。押すと ?c=<id> で開き直す（進み具合は単語帳ごと）
   $("w-decks").innerHTML=APW_DECKS.map(function(x){
-    var on=x.id===C.id, n=on?S.next:0;
-    if(!on){ try{ n=(JSON.parse(localStorage.getItem("apush-words-"+x.id+"-v1"))||{}).next||0; }catch(e){} }
-    return '<button class="deck" data-c="'+x.id+'" aria-pressed="'+on+'"><b>'+esc(x.t)+'</b><span>覚えた '+n+(on?' / '+W.length+(tn?'　<em>復習 '+tn+'</em>':''):'')+'</span></button>';
+    var on=x.id===C.id;
+    return '<button class="chip" data-c="'+x.id+'" aria-pressed="'+on+'">'+esc(x.s)+(on&&tn?'<span class="n">'+tn+'</span>':'')+'</button>';
   }).join("");
 }
 $("w-decks").addEventListener("click",function(e){ var b=e.target.closest("[data-c]"); if(b && b.getAttribute("aria-pressed")!=="true") location.search="?c="+b.dataset.c; });
 // 今日のアドリブ（話すのページが ap_activity の adlib に数える）
 function adlibToday(){ try{ return ((JSON.parse(localStorage.getItem("ap_activity"))||{})[today()]||{}).adlib||0; }catch(e){ return 0; } }
-var PER_OPTS=Array.prototype.map.call($("s-per").options,function(o){ return +o.value; });
-$("w-daily").addEventListener("click",function(e){ var b=e.target.closest("[data-per]"); if(!b) return; S.settings.per=+b.dataset.per; save(); renderHome(); });
 function setMode(m){
   $("w-mode-card").setAttribute("aria-pressed",String(m==="card")); $("w-mode-list").setAttribute("aria-pressed",String(m==="list"));
   $("w-card").hidden=m!=="card"; $("w-listwrap").hidden=m!=="list"; if(m==="list") renderList();
@@ -558,7 +539,7 @@ function startLearn(mode){
 }
 function showLearn(){
   var wi=L.list[L.i], w=W[wi], senses=w[1];
-  $("l-label").textContent = L.mode==="am" ? "🌅 朝：新しい単語" : "🌙 夜：もう一度";
+  $("l-label").textContent = L.mode==="am" ? "🎴 トレーニング" : "🌙 もう一度";
   $("l-count").textContent=(L.i+1)+" / "+L.list.length;
   $("l-word").textContent=w[0];
   var pics=senses.map(function(s){return s[1];}).filter(Boolean);
@@ -567,7 +548,7 @@ function showLearn(){
   L.reps=0; paintReps();
   var night=L.mode==="pm";
   $("l-front").hidden=!night; $("l-back").hidden=night; $("l-pics").hidden=night;
-  $("l-next").textContent = L.i===L.list.length-1 ? (night?"夜の分を終える":"朝の分を終える") : "次の単語へ";
+  $("l-next").textContent = L.i===L.list.length-1 ? (night?"終える":"トレーニングを終える") : "次の単語へ";
   speak(w[0]);
 }
 /* 今日の単語を一覧で（いつでもカードと切り替えられる） */
@@ -576,11 +557,11 @@ function setLearnMode(m){
   if(window.segSlide) segSlide("l-mode");
   $("l-cardwrap").hidden=m!=="card"; $("l-listwrap").hidden=m!=="list";
   if(m!=="list") return;
-  $("l-listnote").textContent=(L.mode==="am"?"🌅 朝：新しい単語":"🌙 夜：もう一度")+" "+L.list.length+"語。▶で音を聞いて、声に出して3回ずつ。";
+  $("l-listnote").textContent=(L.mode==="am"?"🎴 トレーニング":"🌙 もう一度")+" "+L.list.length+"語。▶で音を聞いて、声に出して3回ずつ。";
   $("l-list").innerHTML=L.list.map(function(wi){ var w=W[wi];
     var ja=w[1].map(function(x){ return (x[1]?x[1]+" ":"")+x[0]; }).join("・");
     return '<div class="li"><span>'+esc(ja)+'</span><span class="e">'+esc(w[0])+'</span><button class="spk" data-say="'+wi+'" aria-label="読み上げ">▶</button></div>'; }).join("");
-  $("l-listdone").textContent=L.mode==="am"?"朝の分を終える":"夜の分を終える";
+  $("l-listdone").textContent=L.mode==="am"?"トレーニングを終える":"終える";
 }
 $("l-mode").addEventListener("click",function(e){ var b=e.target.closest("[data-lm]"); if(!b) return; try{ localStorage.setItem("apush-words-lm",b.dataset.lm); }catch(e){} setLearnMode(b.dataset.lm); });
 $("l-list").addEventListener("click",function(e){ var b=e.target.closest("[data-say]"); if(b) speak(W[+b.dataset.say][0]); });

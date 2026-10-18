@@ -151,6 +151,10 @@ img{max-width:100%}
   </div>
 
   <div class="chips" id="chips" role="group" aria-label="型を選ぶ"></div>
+  <div class="toggle-row">
+    <div><b>今日の単語を混ぜる</b><span id="mix-note">OFF：決まった文だけ</span></div>
+    <button class="switch" id="mix" role="switch" aria-checked="false" aria-label="今日の単語を混ぜる"><i></i></button>
+  </div>
   <div class="inst" id="rev-card" hidden>
     <span class="inst-ic" aria-hidden="true">🔁</span>
     <p><b>今日の復習：添削した文 <span id="rev-n" class="en"></span>文</b></p>
@@ -536,7 +540,18 @@ async function startAdlib(){
   openAd();
   $("v-adlib").closest(".card").scrollIntoView({behavior:"smooth",block:"start"});
 }
-const restart=()=>AD?startAdlib():startRound();   // アドリブ中に型やレベルを変えたら、新しい型でアドリブをやり直す
+/* 今日の単語を混ぜる：ONなら、話すは毎回アドリブ5問（今日の単語 × 今の型） */
+let MIX=false;
+try{ MIX=localStorage.getItem("apush-training-mix")==="1"; }catch(e){}
+function paintMix(){
+  $("mix").setAttribute("aria-checked",String(MIX));
+  $("mix-note").textContent=MIX?"ON：今日の単語でアドリブ":"OFF：決まった文だけ";
+}
+$("mix").addEventListener("click",()=>{
+  MIX=!MIX; try{ localStorage.setItem("apush-training-mix",MIX?"1":"0"); }catch(e){}
+  paintMix(); MIX?startAdlib():startRound();
+});
+const restart=()=>AD||MIX?startAdlib():startRound();   // アドリブ中に型やレベルを変えたら、新しい型でアドリブをやり直す
 function openAd(){
   const q=queue[qi];
   clearInterval(timer);$("tbar").style.width="100%";$("tbar").classList.remove("low");
@@ -670,7 +685,7 @@ function showAdResult(){
   $("rscore").textContent=ok;$("rtotal").textContent=" / "+adl.length+" 文";
   $("rmsg").textContent=ok?"アドリブ、おつかれさまでした。添削した文は、1日後・4日後・11日後に「今日の復習」で出てきます。":"添削できた文がありませんでした。電波の良い所で、もう1回。";
   $("recap").innerHTML=adl.map(it=>'<div class="rrow"><span class="m">💬</span><span class="s">'+esc(it.r?it.r.corrected:it.you)+'</span><span class="v '+(it.marked?"y":"n")+'">'+(it.marked?"✓":"–")+'</span></div>').join("");
-  $("btn-again").textContent="いつもの練習へ";
+  $("btn-again").textContent=MIX?"もう1回":"いつもの練習へ";
   view("result");
 }
 
@@ -907,7 +922,7 @@ function showResult(){
     '<span class="v '+(l.right?"y":"n")+'">'+(l.right?"○":"×")+'</span></div>').join("");
   view("result");
 }
-$("btn-again").addEventListener("click",startRound);
+$("btn-again").addEventListener("click",()=>MIX?startAdlib():startRound());
 
 /* レベル：1 短い文 ／ 2 長い文 ／ 3 英検2級くらい */
 $("lvsel").addEventListener("click",e=>{
@@ -920,11 +935,12 @@ $("lvsel").addEventListener("click",e=>{
 renderChips();
 segSlide("tabs"); segSlide("lvsel");
 startRound();
+paintMix();
 paintRev();
 // 今日＆計画・単語の画面から：/?adlib=1 はアドリブ5問、/?review=adlib は添削した文の復習
 {const q=new URLSearchParams(location.search);
  if(q.has("adlib")||q.has("review"))history.replaceState(null,"",location.pathname);
- if(q.get("adlib")==="1")startAdlib();
+ if(q.get("adlib")==="1"||MIX)startAdlib();
  else if(q.get("review")==="adlib")openReview();}
 </script>
 <script src="/ui.js" defer></script>
