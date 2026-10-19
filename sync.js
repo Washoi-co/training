@@ -310,7 +310,14 @@
   }
 
   /* ---------- 呼び出しの受け口（読み込み前に積まれた分も処理） ---------- */
-  var API = { start: start, mark: mark, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); } };
+  /* ログイン（匿名）してから Cloud Functions を呼ぶ。添削（adlib.js）が使う。記録の同意とは別＝同意していなくても添削はできる */
+  function call(name, data) {
+    return (window.FB_CONFIG ? Promise.resolve() : js(BASE + "config.js")).then(function () {
+      if (!cfg()) throw new Error("no firebase config");
+      return signIn();
+    }).then(function () { return fb.functions(REGION).httpsCallable(name)(data); });
+  }
+  var API = { start: start, mark: mark, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
   function run(a) { try { if (a && API[a[0]]) API[a[0]].apply(null, a.slice(1)); } catch (e) { warn(e); } }
   var q = window.aps || [];
   window.aps = { push: run };

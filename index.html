@@ -37,7 +37,6 @@ img{max-width:100%}
 .stem{font-family:var(--en);font-size:clamp(21px,5.4vw,26px);font-weight:900;letter-spacing:-.025em;line-height:1.2}
 .qq{margin:0;text-align:center;font-family:var(--en);font-size:19px;font-weight:700;line-height:1.4;text-wrap:balance}
 .qq button{width:28px;height:28px;border-radius:50%;background:var(--soft);color:var(--brand);font-size:12px;vertical-align:middle;margin-left:4px}
-.stem .blank{color:var(--brand);border-bottom:3px solid var(--brand);padding:0 .35em}
 .chip.num small{font-size:11px;opacity:.7;margin-left:5px;font-weight:500}
 .acts a{text-align:center;text-decoration:none}
 .nudge{margin:0;padding-top:12px;border-top:.5px solid var(--line2);font-size:13px;color:var(--mute);line-height:1.6}
@@ -114,24 +113,6 @@ img{max-width:100%}
 .more .ghost{background:rgba(255,255,255,.1);color:#fff}
 .more .lp{display:block;text-align:center;margin-top:14px;font-size:13px;font-weight:700;color:#fff}
 .foot a{color:var(--ink);font-weight:700}
-/* アドリブ5問（今日の単語 × 今の型）：声で言う → AI 添削 → 3回 → 間隔をあけた復習 */
-.adw{display:flex;justify-content:center;align-items:center;gap:10px}
-.tsay{flex:none;width:36px;height:36px;border-radius:50%;background:var(--soft);color:var(--brand);font-size:13px;display:grid;place-items:center}
-.mic{align-self:center;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:var(--on);border-radius:99px;padding:16px 36px;font-size:19px;font-weight:800;transition:transform .1s ease-out}
-.mic:active{transform:scale(.97)}
-.mic.on{background:var(--ng)} .mic[hidden]{display:none}
-#a-type{display:flex;flex-direction:column;gap:9px}
-#a-type[hidden],#f-err[hidden],#f-ok[hidden]{display:none}
-#a-in{width:100%;border:0;background:var(--bg);border-radius:12px;padding:13px 14px;font-family:var(--en);font-size:17px}
-#a-live{font-family:var(--en);font-size:16px;color:var(--ink);min-height:1.3em}
-.say.priv{font-size:11.5px}
-.you{margin:0;font-family:var(--en);font-size:16px;text-align:center;color:var(--mute);line-height:1.4}
-.okb{align-self:center;font-size:12px;font-weight:700;background:var(--ok);color:#fff;border-radius:99px;padding:2px 10px}
-.err{color:var(--ng);font-size:13px;margin:0;text-align:center}
-#f-err,#f-ok{display:flex;flex-direction:column;gap:10px}
-#rev-card p{grid-column:2/-1}
-.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:calc(100% - 32px);max-width:420px;margin:0;background:var(--card);border-radius:14px;padding:12px 14px;font-size:14px;text-align:center;z-index:20;box-shadow:0 8px 30px rgba(15,30,61,.18)}
-.toast a{color:var(--brand);font-weight:700}
 </style>
 </head>
 <body data-tab="sp">
@@ -193,8 +174,9 @@ img{max-width:100%}
         <div class="acts"><button class="primary" id="btn-next" disabled>次の絵へ</button></div>
       </div>
 
+<!-- アドリブ（🎤で言う → AI添削 → 3回）と、添削した文の復習の画面。無料版・本コース共通（build が「部品の差し込み」の印の所に入れる）。動きは /adlib.js -->
       <div id="v-adlib" class="cin" style="padding:0" hidden>
-        <div class="meta"><span class="wcat">アドリブ</span><span id="a-n"></span></div>
+        <div class="meta"><span class="wcat" id="a-tag">アドリブ</span><span id="a-n"></span></div>
         <p class="stem" id="a-frame"></p>
         <p class="say" id="a-fja"></p>
         <div class="pic" id="a-pic" aria-hidden="true"></div>
@@ -208,7 +190,7 @@ img{max-width:100%}
           <input id="a-in" lang="en" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-label="あなたの英文" placeholder="ここに英文（直せます）">
           <div class="acts"><button class="ghost" id="a-again">もう一度話す</button><button class="primary" id="a-next">送って次へ</button></div>
         </div>
-        <p class="say priv">添削のため、声（または英文）を送ります。声は文字にするためだけに使い、保存しません。名前は送りません（端末ごとの番号は元に戻せない形にして、今月の利用分を数えるだけに使います）</p>
+        <p class="say priv">添削のため、声（または英文）を送ります。声は文字にするためだけに使い、保存しません。名前は送りません（ログインの印は元に戻せない形にして、今月の利用分を数えるだけに使います）</p>
       </div>
 
       <div id="v-fix" class="cin" style="padding:0" hidden>
@@ -218,7 +200,7 @@ img{max-width:100%}
         <p class="say" id="f-fix-h">② 添削</p>
         <p class="say" id="f-wait" role="status">添削しています…</p>
         <div id="f-err" hidden>
-          <p class="err" id="f-msg" role="alert"></p>
+          <p id="f-msg" role="alert"></p>
           <div class="acts"><button class="ghost" id="f-skip">とばす</button><button class="primary" id="f-retry">もう一度</button></div>
         </div>
         <div id="f-ok" hidden>
@@ -234,6 +216,7 @@ img{max-width:100%}
         </div>
         <div class="acts"><button class="primary" id="f-next" disabled>次へ</button></div>
       </div>
+
 
       <div id="v-result" class="cin" style="padding:0" hidden>
         <p class="big"><span id="rscore">0</span><em id="rtotal"> / 5</em></p>
@@ -375,6 +358,7 @@ img{max-width:100%}
 <p class="toast" id="toast" role="status" hidden></p>
 
 <script src="/activity.js"></script>
+<script src="/adlib.js"></script>  <!-- アドリブ→🎤→AI添削→3回→復習（無料版・本コース共通） -->
 <script>
 /* 動詞チャンク30：[絵, Lv1 原形, 日本語, 過去形, Lv2 原形, 日本語, 過去形, Lv3 原形, 日本語, 過去形]
    Lv1 短い文 ／ Lv2 長い文 ／ Lv3 英検2級くらいの単語と言い回し */
@@ -485,7 +469,7 @@ function sentenceOf(q){
 
 /* ---- アドリブ5問（/?adlib=1）：今日の単語 × 今の型。🎤で言う → AI 添削 → 3回 ----
    単語の記録は読むだけ（書かない）。今日の新しい単語 → 今日の復習 → なければ最後に学習した日の単語 */
-let AD=false, WC=null, adl=[], FIX=null;
+let AD=false, WC=null, adl=[];
 // 単語の画面で選んでいる単語帳（無ければ TOEIC 700）。ファイルが読めなければ WC は null のまま
 function loadDeck(){
   return new Promise(done=>{
@@ -534,9 +518,9 @@ async function startAdlib(){
   await loadDeck();
   const ws=wordsNow();
   if(!ws.length){toast('今日の単語がまだありません。<a href="/words/">単語</a>で今日の単語を始めると、ここでアドリブができます');setTimeout(()=>$("toast").hidden=true,6000);return;}
-  AD=true;clearInterval(timer);micStop();
+  AD=true;clearInterval(timer);Adlib.reset();
   queue=Array.from({length:5},(_,n)=>({ad:true,word:ws[n%ws.length],frame:frameOf()}));   // 単語が少なければ、くり返す
-  qi=0;score=0;log=[];adl=[];FIX=null;
+  qi=0;score=0;log=[];adl=[];
   openAd();
   $("v-adlib").closest(".card").scrollIntoView({behavior:"smooth",block:"start"});
 }
@@ -555,130 +539,23 @@ const restart=()=>AD||MIX?startAdlib():startRound();   // アドリブ中に型�
 function openAd(){
   const q=queue[qi];
   clearInterval(timer);$("tbar").style.width="100%";$("tbar").classList.remove("low");
-  $("a-n").textContent=(qi+1)+" / "+queue.length;
-  $("a-frame").innerHTML=esc(q.frame.en).replace("＿＿",'<span class="blank">＿＿</span>');
-  $("a-fja").textContent=q.frame.ja;
-  $("a-pic").hidden=!q.word.emo;$("a-pic").textContent=q.word.emo;
-  $("a-en").textContent=q.word.en;$("a-ja").textContent=q.word.ja;
-  micStop();$("a-in").value="";$("a-live").textContent="";
-  if(!CAN_REC||micOff)adType(true,false);else{$("a-mic").hidden=false;$("a-type").hidden=true;}
-  view("adlib");
-  speak(q.word.en);
+  Adlib.show({tag:"アドリブ",n:(qi+1)+" / "+queue.length,frame:q.frame.en,frameJa:q.frame.ja,pic:q.word.emo,word:q.word.en,meaning:q.word.ja,pattern:q.frame.en});
 }
-$("a-say").addEventListener("click",()=>speak($("a-en").textContent));
-
-// 声：録音 → 添削のときにサーバーで文字にする（OpenAI）。押す→話す→もう一度押すと、送って次の問題へ（待たない）
-// 録音できない端末・マイクを止めた時は、打って入力
-const CAN_REC=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);
-let rec=null,recStream=null,micOff=false,recT=0,recTick=0;
-function micStop(){   // 録音を捨てて止める
-  if(rec){rec.ondataavailable=rec.onstop=null;try{rec.stop();}catch(e){}rec=null;}
-  clearInterval(recTick);$("a-mic").classList.remove("on");$("a-mic").textContent="🎤 話す";$("a-live").textContent="";
-}
-function micRelease(){micStop();if(recStream){recStream.getTracks().forEach(t=>t.stop());recStream=null;}}
-function adType(note,again){
-  $("a-mic").hidden=true;$("a-type").hidden=false;
-  $("a-nomic").hidden=!note;$("a-again").hidden=!again;
-}
-async function micStart(){
-  micStop();
-  try{speechSynthesis.cancel();}catch(e){}
-  try{recStream=recStream||await navigator.mediaDevices.getUserMedia({audio:true});}
-  catch(e){micOff=true;adType(true,false);return;}
-  const chunks=[],r=rec=new MediaRecorder(recStream);
-  r.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
-  r.onstop=()=>{rec=null;adSend(new Blob(chunks,{type:r.mimeType||"audio/mp4"}),(Date.now()-recT)/1000);};
-  r.start();recT=Date.now();
-  $("a-mic").hidden=false;$("a-type").hidden=true;$("a-mic").classList.add("on");
-  const tick=()=>{const t=Math.floor((Date.now()-recT)/1000);$("a-mic").textContent="● 録音中 "+t+"秒（押すと送って次へ）";if(t>=30&&rec)rec.stop();};
-  tick();recTick=setInterval(tick,500);
-}
-$("a-mic").addEventListener("click",()=>{if(rec){clearInterval(recTick);rec.stop();}else micStart();});
-$("a-again").addEventListener("click",micStart);
-$("a-in").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.isComposing){e.preventDefault();$("a-next").click();}});
-// 「送って次へ」：添削を後ろで頼んで、待たずに次へ。5問目のあとは添削を1文ずつ
-function adSend(blob,sec){   // 声（blob）か、打った文で添削を頼んで、次へ
-  const q=queue[qi],you=blob?"":$("a-in").value.trim();
-  if(!blob&&!you){$("a-in").focus();return;}
-  micStop();
-  const it={word:q.word.en,meaning:q.word.ja,pattern:q.frame.en,you,audio:blob||null,sec:sec||0};
-  adl.push(it);review(it);
-  if(qi>=queue.length-1){micRelease();FIX={list:adl,i:0,review:false};paintFix();view("fix");return;}
-  qi++;openAd();
-}
-$("a-next").addEventListener("click",()=>adSend(null));
-
-/* 添削（Cloud Functions の review）。送るのは英文・型・単語・意味と、ハッシュにした端末の番号だけ（月の利用分を数えるため）。
-   モデルはサーバーがサイトで決める */
-function deviceId(){   // この端末の番号：1回だけ作って保存（名前などとは結びつかない、ただの乱数）
-  let id=null;
-  try{id=localStorage.getItem("apush-device");if(!id){id=crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);localStorage.setItem("apush-device",id);}}catch(e){}
-  return id||"anon";
-}
-const acctHash=s=>crypto.subtle.digest("SHA-256",new TextEncoder().encode("apush-review|"+s)).then(b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""));
-const REVIEW_URL="https://asia-northeast1-apush-training.cloudfunctions.net/review";
-function review(it){
-  it.r=null;it.err=null;
-  const sig=window.AbortSignal&&AbortSignal.timeout?AbortSignal.timeout(80000):undefined;
-  const b64=it.audio?new Promise(ok=>{const f=new FileReader();f.onload=()=>ok(String(f.result).split(",")[1]||"");f.readAsDataURL(it.audio);}):Promise.resolve("");
-  it.p=Promise.all([acctHash(deviceId()),b64]).then(([account,audio])=>fetch(REVIEW_URL,{method:"POST",headers:{"Content-Type":"application/json"},signal:sig,
-      body:JSON.stringify({data:Object.assign({sentence:it.you,pattern:it.pattern,word:it.word,meaning:it.meaning,account},audio?{audio,mime:it.audio.type,sec:it.sec}:{})})}))
-    .then(async res=>{
-      const j=await res.json().catch(()=>({}));
-      const r=j.result;
-      if(!res.ok||!r||!String(r.corrected||"").trim()){const e=new Error();e.ja=j.error&&j.error.message;throw e;}
-      it.r={ok:!!r.ok,corrected:String(r.corrected).trim(),note:String(r.note||"")};
-      if(r.heard!=null)it.you=String(r.heard);
-      saveRev(it);
-    })
-    .catch(e=>{it.err=(e&&e.ja)||"添削できませんでした。電波の良い所で「もう一度」を押してください。";})
-    .then(()=>{if(FIX&&!FIX.review&&FIX.list[FIX.i]===it)paintFix();});
-  return it.p;
-}
-
-/* 添削を1文ずつ見て3回（review:true の時は、今日の復習） */
-const fixEn=it=>FIX.review?it.en:(it.r&&it.r.corrected);
-function paintFix(){
-  const it=FIX.list[FIX.i],rv=FIX.review,en=fixEn(it),last=FIX.i===FIX.list.length-1;
-  $("f-tag").textContent=rv?"🔁 今日の復習":"添削";
-  $("f-n").textContent=(FIX.i+1)+" / "+FIX.list.length;
-  $("f-you-h").hidden=$("f-you").hidden=$("f-fix-h").hidden=rv;
-  $("f-you").textContent=it.you||(it.audio&&!it.r&&!it.err?"（聞き取っています…）":"（何も言っていません）");
-  $("f-wait").hidden=!!(en||it.err);
-  $("f-err").hidden=!!en||!it.err;$("f-msg").textContent=it.err||"";
-  $("f-ok").hidden=!en;
-  $("f-en").textContent=en||"";
-  $("f-badge").hidden=rv||!(it.r&&it.r.ok);
-  $("f-note").textContent=(rv?it.note:it.r&&it.r.note)||"";$("f-note").hidden=!$("f-note").textContent;
-  FIX.taps=0;$("f-dots").querySelectorAll(".dot").forEach(d=>d.classList.remove("on"));
-  fixLabel();
-  if(en)speak(en);
-}
-$("f-say").addEventListener("click",()=>speak($("f-en").textContent));
-function fixLabel(){
-  const last=FIX.i===FIX.list.length-1;
-  $("f-next").disabled=!fixEn(FIX.list[FIX.i]);
-  $("f-next").textContent=FIX.taps>=3?(last?(FIX.review?"おわり":"結果を見る"):"次へ"):"言えた（"+FIX.taps+"/3）";
-}
-function fixTap(){   // 3回言う：点でも「言えた」ボタンでも数える。3回で「次へ」になる
-  if(!FIX||FIX.taps>=3||!fixEn(FIX.list[FIX.i]))return;
-  $("f-dots").querySelectorAll(".dot")[FIX.taps].classList.add("on");FIX.taps++;
-  if(FIX.taps<3)speak($("f-en").textContent);
-  fixLabel();
-  if(FIX.taps>=3){
-    const it=FIX.list[FIX.i];
-    if(!FIX.review&&!it.marked){it.marked=true;if(window.apMark)apMark("adlib");}   // 今日＆計画の「アドリブ n / 5」
+/* アドリブの流れ（🎤・添削・3回・復習は /adlib.js）。ここはこのページの分だけ */
+Adlib.setup({
+  send(it){adl.push(it);if(qi>=queue.length-1){Adlib.fix(adl);return;}qi++;openAd();},   // 5問目のあとは添削を1文ずつ
+  fixed(){if(window.apMark)apMark("adlib");},   // 添削した文を3回言えた＝今日＆計画の「アドリブ n / 5」
+  done:showAdResult,
+  reviewStart(){clearInterval(timer);$("tbar").style.width="100%";$("tbar").classList.remove("low");},
+  reviewDone(L){
+    $("rscore").textContent=L.length;$("rtotal").textContent=" 文 復習";
+    $("rmsg").textContent="今日の復習おわり。";
+    $("recap").innerHTML=L.map(x=>'<div class="rrow"><span class="m">🔁</span><span class="s">'+esc(x.en)+'</span><span class="v y">✓</span></div>').join("");
+    $("btn-again").textContent="練習にもどる";
+    AD=false;
+    view("result");
   }
-}
-$("f-dots").addEventListener("click",e=>{if(e.target.closest("[data-f]"))fixTap();});
-$("f-retry").addEventListener("click",()=>{const it=FIX.list[FIX.i];review(it);paintFix();});
-function fixNext(){
-  if(FIX.review)revDone(FIX.list[FIX.i].id);
-  if(++FIX.i<FIX.list.length){paintFix();return;}
-  if(FIX.review)endReview();else showAdResult();
-}
-$("f-skip").addEventListener("click",fixNext);
-$("f-next").addEventListener("click",()=>{if(FIX.taps<3)fixTap();else fixNext();});
+});
 function showAdResult(){
   AD=false;
   const ok=adl.filter(it=>it.marked).length;
@@ -688,45 +565,7 @@ function showAdResult(){
   $("btn-again").textContent=MIX?"もう1回":"いつもの練習へ";
   view("result");
 }
-
-/* ---- 添削した文の復習（ap_adrev）。アドリブの日から +1・+4・+11日。遅れてやった日の当日には、もう出さない ---- */
 const ymd=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-const dayAgo=n=>{const d=new Date();d.setDate(d.getDate()-n);return ymd(d);};
-const addDays=(s,n)=>{const [y,m,d]=s.split("-").map(Number);const t=new Date(y,m-1,d);t.setDate(t.getDate()+n);return ymd(t);};
-const RV=[1,4,11];
-const revDue=x=>{const a=addDays(x.made,RV[x.step]),b=x.last?addDays(x.last,1):"";return a>b?a:b;};
-const adrev=()=>{try{return JSON.parse(localStorage.getItem("ap_adrev"))||[];}catch(e){return [];}};
-const setAdrev=L=>{try{localStorage.setItem("ap_adrev",JSON.stringify(L));}catch(e){}};
-const revList=()=>adrev().filter(x=>x&&x.en&&RV[x.step]!==undefined&&revDue(x)<=dayAgo(0));
-function saveRev(it){
-  const L=adrev();
-  L.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),en:it.r.corrected,you:it.you,note:it.r.note,word:it.word,made:dayAgo(0),step:0});
-  setAdrev(L);
-}
-function revDone(id){
-  const L=adrev(),x=L.find(y=>y.id===id);if(!x)return;
-  x.step++;x.last=dayAgo(0);
-  setAdrev(x.step>=RV.length?L.filter(y=>y!==x):L);
-}
-function paintRev(){const n=revList().length;$("rev-card").hidden=!n;$("rev-n").textContent=n;return n;}
-function toast(html){$("toast").innerHTML=html;$("toast").hidden=false;}
-function openReview(){
-  const L=revList();
-  if(!L.length){paintRev();toast("今日の復習（添削した文）は、ありません");setTimeout(()=>$("toast").hidden=true,4000);return;}
-  micStop();clearInterval(timer);$("tbar").style.width="100%";$("tbar").classList.remove("low");
-  FIX={list:L,i:0,review:true};paintFix();view("fix");
-  $("v-fix").closest(".card").scrollIntoView({behavior:"smooth",block:"start"});
-}
-$("rev-go").addEventListener("click",openReview);
-function endReview(){
-  paintRev();
-  $("rscore").textContent=FIX.list.length;$("rtotal").textContent=" 文 復習";
-  $("rmsg").textContent="今日の復習おわり。";
-  $("recap").innerHTML=FIX.list.map(x=>'<div class="rrow"><span class="m">🔁</span><span class="s">'+esc(x.en)+'</span><span class="v y">✓</span></div>').join("");
-  $("btn-again").textContent="練習にもどる";
-  FIX=null;AD=false;
-  view("result");
-}
 
 /* ホーム画面に追加：スマホのブラウザで開いた時だけ案内 */
 (function(){
@@ -785,7 +624,7 @@ $("chips").addEventListener("click",e=>{
 });
 
 function startRound(){
-  AD=false;FIX=null;micStop();$("btn-again").textContent="もう1回";
+  AD=false;Adlib.reset();$("btn-again").textContent="もう1回";
   if(MODE==="tense"){   /* 時制：5問。選択肢は同じ時制・ちがう動作の文（まちがい探しにしない） */
     const sel=TENSES[SEL][0],used=new Set();queue=[];
     for(let n=0;n<40&&queue.length<5;n++){
@@ -936,12 +775,12 @@ renderChips();
 segSlide("tabs"); segSlide("lvsel");
 startRound();
 paintMix();
-paintRev();
+Adlib.paintRev();
 // 今日＆計画・単語の画面から：/?adlib=1 はアドリブ5問、/?review=adlib は添削した文の復習
 {const q=new URLSearchParams(location.search);
  if(q.has("adlib")||q.has("review"))history.replaceState(null,"",location.pathname);
  if(q.get("adlib")==="1"||MIX)startAdlib();
- else if(q.get("review")==="adlib")openReview();}
+ else if(q.get("review")==="adlib")Adlib.openReview();}
 </script>
 <script src="/ui.js" defer></script>
 <script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
