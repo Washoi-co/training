@@ -2,19 +2,27 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<script>window.SITE={"id":"free","domain":"training.apush.jp","tourKey":"training","login":false,"words":{"title":"A-PUSH 単語（お試し版）","dir":"","index":false,"check":false,"default":"toeic700","syncUrl":"https://script.google.com/macros/s/AKfycbxFb0g6A2tabxluPos92mMQLU2pREAvqrwoZeflHXoOHPPf9rh5KufWlVkCX2rHs-pCvw/exec","courses":[{"g":"TOEIC","id":"toeic700","t":"TOEIC 700"},{"g":"ビジネス","id":"business","t":"ビジネス英単語（基本200）"},{"g":"IELTS","id":"ielts55","t":"IELTS 5.5"},{"g":"TOEFL","id":"toefl60","t":"TOEFL iBT 60"},{"g":"英検®","id":"eiken_pre2","t":"英検®準2級"},{"g":"ネイティブ","id":"native","t":"ネイティブのフレーズ（50）"},{"g":"スラング","id":"slang","t":"英語のスラング（50）"}]},"links":{"lp":"https://lp.apush.jp/","course":"/course/","line":true},"tours":{"/":[["#tabs","まず、練習する文法を選びます（助動詞・関係代名詞・時制）。"],["#lvsel","レベルです。Lv1から始めましょう。"],["#chips","この中から型を1つ選びます。"],["#qq","英語の質問です。▶でもう一度聞けます。"],["#choices","絵に合う答えを選んだら、声に出して3回。ここが本番です。"],["#btn-how","やり方はいつでもここから見られます。"],[".tabbar","下のタブで「今日＆計画・話す・シャドーイング・単語」を行き来します。"]],"/words/":[["#w-decks","単語帳を選びます。"],["#tasks","テスト → トレーニングの順に「スタート」を押します。"],["#w-mode","カードと一覧を切り替えられます。"],["#btn-howto","やり方はここから。"]],"/shadowing/":[["#sh-list","動画を選びます。レベル1から順に。"],["#howto","やり方はここから。"]],"/plan/":[["#ring","今日のゴールの達成の様子です。"],["#cal","練習した日に色がつきます。"],["#g-words","1日の目標をここで決めます。"],["#c-time","毎日の練習の時間を、自分のカレンダーに入れられます。"]]},"manifest":{"name":"A-PUSH 単語トレーニング","short":"A-PUSH単語","description":"TOEIC 700点を狙う単語を、絵と声で毎日。忘却曲線で、忘れかけた単語がまた出てきます。","start_url":"/words/?from=home","color":"#FFFFFF"}};</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="字幕あり→字幕なしの順で、短い英語の動画をシャドーイング。A-PUSHの無料トレーニング。">
-<meta name="theme-color" content="#F2F4F8">
-<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://training.apush.jp/shadowing/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://training.apush.jp/shadowing/">
 <meta property="og:title" content="シャドーイング｜A-PUSH">
 <meta property="og:description" content="字幕あり→字幕なしの順で、短い英語の動画をシャドーイング。">
 <meta property="og:image" content="https://training.apush.jp/ogp.png">
+<meta name="theme-color" content="#F2F4F8">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="A-PUSH単語">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>シャドーイング</title>
+<title>シャドーイング｜A-PUSH</title>
+<script src="/activity.js"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
@@ -117,7 +125,6 @@ h2{font-size:16px;font-weight:700;margin:0 0 6px}
   </div>
 </div>
 
-<script src="/activity.js"></script>
 <script>
 const LEVELS = {1: "英検®4級程度", 2: "英検®3級程度", 3: "英検®2級〜準1級程度"};
 const STEPS = [   /* 2026-10-18：2つだけ。① 3回聞く → ② 質問に答える */
@@ -156,7 +163,6 @@ function home() {
 }
 
 function open(x) {
-  if (window.apMark && open._last !== x.id) { apMark("shadow"); open._last = x.id; }
   L = x; $("#home").hidden = true; $("#lesson").hidden = false;
   v.src = L.video; $("#credit").textContent = L.credit;
   const rep = $("#rep");
@@ -199,6 +205,8 @@ function quiz() {
   if (res.filter(x => x != null).length === L.quiz.length) {
     const ok = L.quiz.filter((q, i) => res[i] === q.answer).length;
     setProg(L.id, "done", 1);
+    const td = new Date().toDateString();  // 同じ動画でも、日が変われば「今日の1本」に数える（画面を描き直しても1日1回）
+    if (prog(L.id).doneOn !== td) { apMark("shadow"); setProg(L.id, "doneOn", td); }
     const all = DB.lessons, k = all.indexOf(L), nxt = all[k + 1];
     h += `<div class="card" style="background:var(--bg)"><h2>おつかれさまでした</h2><p class="tip">クイズ ${ok} / ${L.quiz.length} 問正解</p>
       ${nxt ? `<a class="btn" href="#${nxt.id}">次の動画へ：${esc(nxt.title)}</a>` : ""}

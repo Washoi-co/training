@@ -3,6 +3,7 @@
    ・iPhoneのSafari → 練習を始める前に「ホーム画面に追加」の手順（Safariとアプリでは記録が別々になるため）
    ・Android → 「インストール」ボタン1つ
    ・もう練習したことがある人 → 「引き継ぎコード」で、記録をアプリに移せる
+   ・ブラウザで開いている間は、右下に小さな「ホーム画面に追加」ボタン（×でそのタブの間だけ消える）
    ・ホーム画面のアプリで開いている／パソコン → 何も出さない（引き継ぎコードを貼る入口だけ）
    ・どのページも一番上に A-PUSH のロゴ（団体のサイトは型の方に入っている）
    サイト側：<script src="install.js" defer></script>（どのページでも1行）。window.APInstall.open() で手で開ける。 */
@@ -202,12 +203,29 @@
       return;
     }
     if (!MOBILE) return;
+    pill();   /* ブラウザで開いている間は、いつでも押せる小さなボタン（2026-10-19） */
     if (INAPP) { if (!get("inapp")) inApp(); return; }
     if (get("stay")) return;
     var seen = Number(get("seen") || 0);
     if (Date.now() - seen < 3 * 864e5) return;   /* 「わかった」から3日は出さない */
     if (SAFARI || (IOS && /CriOS/.test(ua))) iosGuide();
     else if (ANDROID) setTimeout(androidGuide, 1500);   /* インストールの準備（beforeinstallprompt）を少し待つ */
+  }
+  /* ブラウザで開いている時だけの「ホーム画面に追加」ボタン。×で、このタブを閉じるまで消える */
+  function pill() {
+    try { if (sessionStorage.getItem(K + "pill")) return; } catch (e) {}
+    css();
+    var w = document.createElement("div");
+    w.style.cssText = "position:fixed;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 92px);z-index:25;display:flex;align-items:center;gap:2px;background:var(--brand,#1D4ED8);color:#fff;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.2);font:600 13px/1 -apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif";
+    var b = document.createElement("button"), x = document.createElement("button");
+    b.textContent = INAPP ? "Safariで開く" : "ホーム画面に追加";
+    x.textContent = "×"; x.setAttribute("aria-label", "閉じる");
+    [b, x].forEach(function (e) { e.style.cssText = "background:none;border:0;color:inherit;font:inherit;padding:11px 6px 11px 14px;cursor:pointer"; });
+    x.style.padding = "11px 12px 11px 4px"; x.style.opacity = ".8";
+    b.onclick = open;
+    x.onclick = function () { try { sessionStorage.setItem(K + "pill", "1"); } catch (e) {} w.remove(); };
+    w.appendChild(b); w.appendChild(x);
+    document.body.appendChild(w);
   }
   function open() {
     if (STANDALONE) { importSheet(); return; }

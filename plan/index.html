@@ -2,10 +2,17 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<script>window.SITE={"id":"free","domain":"training.apush.jp","tourKey":"training","login":false,"words":{"title":"A-PUSH 単語（お試し版）","dir":"","index":false,"check":false,"default":"toeic700","syncUrl":"https://script.google.com/macros/s/AKfycbxFb0g6A2tabxluPos92mMQLU2pREAvqrwoZeflHXoOHPPf9rh5KufWlVkCX2rHs-pCvw/exec","courses":[{"g":"TOEIC","id":"toeic700","t":"TOEIC 700"},{"g":"ビジネス","id":"business","t":"ビジネス英単語（基本200）"},{"g":"IELTS","id":"ielts55","t":"IELTS 5.5"},{"g":"TOEFL","id":"toefl60","t":"TOEFL iBT 60"},{"g":"英検®","id":"eiken_pre2","t":"英検®準2級"},{"g":"ネイティブ","id":"native","t":"ネイティブのフレーズ（50）"},{"g":"スラング","id":"slang","t":"英語のスラング（50）"}]},"links":{"lp":"https://lp.apush.jp/","course":"/course/","line":true},"tours":{"/":[["#tabs","まず、練習する文法を選びます（助動詞・関係代名詞・時制）。"],["#lvsel","レベルです。Lv1から始めましょう。"],["#chips","この中から型を1つ選びます。"],["#qq","英語の質問です。▶でもう一度聞けます。"],["#choices","絵に合う答えを選んだら、声に出して3回。ここが本番です。"],["#btn-how","やり方はいつでもここから見られます。"],[".tabbar","下のタブで「今日＆計画・話す・シャドーイング・単語」を行き来します。"]],"/words/":[["#w-decks","単語帳を選びます。"],["#tasks","テスト → トレーニングの順に「スタート」を押します。"],["#w-mode","カードと一覧を切り替えられます。"],["#btn-howto","やり方はここから。"]],"/shadowing/":[["#sh-list","動画を選びます。レベル1から順に。"],["#howto","やり方はここから。"]],"/plan/":[["#ring","今日のゴールの達成の様子です。"],["#cal","練習した日に色がつきます。"],["#g-words","1日の目標をここで決めます。"],["#c-time","毎日の練習の時間を、自分のカレンダーに入れられます。"]]},"manifest":{"name":"A-PUSH 単語トレーニング","short":"A-PUSH単語","description":"TOEIC 700点を狙う単語を、絵と声で毎日。忘却曲線で、忘れかけた単語がまた出てきます。","start_url":"/words/?from=home","color":"#FFFFFF"}};</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F2F4F8">
 <meta name="color-scheme" content="light">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="A-PUSH単語">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>今日＆計画｜A-PUSH</title>
@@ -57,7 +64,7 @@ a.row{text-decoration:none;color:var(--ink)}
     <div class="legend">
       <span style="--c:var(--brand)">1日のゴール達成</span>
       <span style="--c:var(--soft2)">少しやった</span>
-      <span style="--c:var(--ok)">チャンク・単語・アドリブ・シャドーイング</span>
+      <span style="--c:var(--ok)">単語・アドリブ・チャンク・シャドーイング</span>
     </div>
   </div>
   <div class="tiles">
@@ -135,14 +142,14 @@ function activity(){
 }
 const DEF={words:20,chunk:1,shadow:1,monthText:"",monthWords:600,m3Text:"",m3Words:1800,m3Start:TODAY};
 let G=Object.assign({},DEF,get("ap_goals",{}));
-// アドリブ5問は、決まった必須の課題（1日5問）。始めた日より前の日は数えない
-if(!G.adFrom){G.adFrom=TODAY;put("ap_goals",G);}
 const TASKS=[
-  {k:"chunk",ic:"🧩",t:"チャンクトレーニング",u:"章",href:"/"},
   {k:"words",ic:"📚",t:"新しい単語",u:"語",href:"/words/"},
-  {k:"adlib",ic:"🎤",t:"アドリブ（今日の単語で5問）",u:"",href:"/?adlib=1"},
+  {k:"adlib",ic:"🗣",t:"アドリブ（今日の単語で5問）",u:"問",href:"/?adlib=1"},
+  {k:"chunk",ic:"🧩",t:"チャンクトレーニング",u:"章",href:"/"},
   {k:"shadow",ic:"🎧",t:"シャドーイング",u:"本",href:"/shadowing/"},
 ];
+// アドリブは毎日5問の決まった課題（ゴールで変えない）。この端末で始めた日より前の日には数えない
+if(!G.adFrom){G.adFrom=TODAY;put("ap_goals",G);}
 // 1日のゴールは、変えた日から先にだけ使う（前の日は、その日のゴールで判定）。hist=[{from, words, chunk, shadow}]
 const daily=d=>{const h=(G.hist||[]).filter(x=>x.from<=d);return h.length?h[h.length-1]:(G.hist&&G.hist[0])||G;};
 const goalOf=(k,d)=>k==="adlib"?((d||TODAY)>=G.adFrom?5:0):+daily(d||TODAY)[k]||0;
@@ -267,15 +274,16 @@ $("save").onclick=()=>{
 function syncWordsPer(){
   if(!G.words)return;
   let id=null;try{id=localStorage.getItem("apush-words-course");}catch(e){}
-  if(!id)id="toeic700";
-  const k="apush-words-"+id+"-v1",S=get(k,null);if(!S)return;
+  if(!id)id=SITE.words["default"]||null;
+  if(!id)return;
+  const k="apush-words-"+id+"-v1",S=get(k,null)||{settings:{per:20,am:"07:30",noon:"12:30",pm:"21:00"},next:0,cards:{},days:{}};
   S.settings=Object.assign({am:"07:30",noon:"12:30",pm:"21:00"},S.settings,{per:G.words});
   put(k,S);
 }
 
 /* ---- 自分のカレンダーに入れる ---- */
 function plan(){
-  const t=TASKS.filter(x=>goalOf(x.k)>0).map(x=>x.k==="adlib"?"アドリブ5問":x.t+" "+goalOf(x.k)+x.u).join("・");
+  const t=TASKS.filter(x=>goalOf(x.k)>0).map(x=>x.t+" "+goalOf(x.k)+x.u).join("・");
   return t||"チャンク・単語・シャドーイング";
 }
 function startEnd(){
@@ -288,7 +296,7 @@ const TITLE="A-PUSH 今日のトレーニング",URL_="https://training.apush.jp
 $("c-ics").onclick=e=>{
   e.preventDefault();
   const [s,en]=startEnd(),now=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
-  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//A-PUSH//training//JA","BEGIN:VEVENT",
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//A-PUSH//free//JA","BEGIN:VEVENT",
     "UID:apush-"+Date.now()+"@training.apush.jp","DTSTAMP:"+now,"DTSTART:"+s,"DTEND:"+en,"RRULE:FREQ=DAILY",
     "SUMMARY:"+TITLE,"DESCRIPTION:今日の課題："+plan()+"\\n"+URL_,"URL:"+URL_,
     "BEGIN:VALARM","TRIGGER:PT0M","ACTION:DISPLAY","DESCRIPTION:"+TITLE,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");

@@ -34,7 +34,7 @@ window.apMark = function (k, n) {
     } catch (e) {}
   };
   (window.aps = window.aps || []).push(["start", o]);
-  var s = document.createElement("script"); s.src = "https://kanri.apush.jp/sync.js"; s.defer = true; document.head.appendChild(s);
+  var s = document.createElement("script"); s.src = "/sync.js";   /* 2026-10-19：型に焼き込み（club-kit/template/pages/sync.js）。外から読まない */ s.defer = true; document.head.appendChild(s);
   var mark0 = window.apMark;
   window.apMark = function (k, n) { mark0(k, n); window.aps.push(["mark", k, n || 1]); };
 })();
