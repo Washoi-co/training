@@ -19,7 +19,7 @@ const H={send(){},done(){},fixed(){},reviewStart(){},reviewDone(){}};
 const ymd=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 const dayAgo=n=>{const d=new Date();d.setDate(d.getDate()-n);return ymd(d);};
 const addDays=(s,n)=>{const [y,m,d]=s.split("-").map(Number);const t=new Date(y,m-1,d);t.setDate(t.getDate()+n);return ymd(t);};
-let cur=null,FIX=null;
+let cur=null,FIX=null,REDO=null;   /* REDO：添削に失敗して「言い直す」中の文（同じ場所に入れ替える） */
 
 /* ---- アドリブ1問を出す ---- */
 function show(o){
@@ -68,6 +68,7 @@ function adSend(blob,sec){   /* 声（blob）か、打った文で添削を頼�
   const you=blob?"":$("a-in").value.trim();
   if(!blob&&!you){$("a-in").focus();return;}   /* 空は送らない */
   micStop();
+  if(REDO){const it=REDO;REDO=null;Object.assign(it,{you,audio:blob||null,sec:sec||0,marked:false});review(it);paintFix();view("fix");return;}   /* 言い直し：同じ場所に入れ替えて添削 */
   const it=Object.assign({},cur,{you,audio:blob||null,sec:sec||0});
   review(it);
   H.send(it);
@@ -93,7 +94,7 @@ function review(it){
 }
 
 /* ---- 添削を1文ずつ見て3回（review:true の時は、今日の復習） ---- */
-function fix(list){micRelease();FIX={list,i:0,review:false};paintFix();view("fix");}
+function fix(list){micRelease();REDO=null;FIX={list,i:0,review:false};paintFix();view("fix");}
 const fixEn=it=>FIX.review?it.en:(it.r&&it.r.corrected);
 function paintFix(){
   const it=FIX.list[FIX.i],rv=FIX.review,en=fixEn(it);
@@ -125,7 +126,13 @@ function fixTap(){   /* 3回言う：点でも「言えた」ボタンでも数�
   if(FIX.taps>=3){const it=FIX.list[FIX.i];if(!FIX.review&&!it.marked){it.marked=true;H.fixed(it);}}
 }
 $("f-dots").addEventListener("click",e=>{if(e.target.closest("[data-f]"))fixTap();});
-$("f-retry").addEventListener("click",()=>{review(FIX.list[FIX.i]);paintFix();});
+$("f-retry").addEventListener("click",()=>{if(!FIX)return;review(FIX.list[FIX.i]);paintFix();});
+$("f-redo").addEventListener("click",()=>{   /* 言い直す：アドリブの画面に戻って、🎤でも打ち込みでも */
+  if(!FIX||FIX.review)return;
+  const it=REDO=FIX.list[FIX.i];
+  show({tag:$("f-tag").textContent,n:$("f-n").textContent,frame:it.pattern,frameJa:"",pic:"",word:it.word,meaning:it.meaning,pattern:it.pattern});
+  $("a-type").hidden=false;$("a-nomic").hidden=true;$("a-again").hidden=!CAN_REC||micOff;$("a-in").value=it.you||"";
+});
 function fixNext(){
   if(FIX.review)revDone(FIX.list[FIX.i].id);
   if(++FIX.i<FIX.list.length){paintFix();return;}
@@ -161,5 +168,5 @@ function openReview(){
 }
 $("rev-go").addEventListener("click",openReview);
 
-return {setup(h){Object.assign(H,h);},show,fix,reset(){FIX=null;micStop();},micStop,micRelease,review,openReview,paintRev,revList};
+return {setup(h){Object.assign(H,h);},show,fix,reset(){FIX=null;REDO=null;micStop();},micStop,micRelease,review,openReview,paintRev,revList};
 })();
