@@ -364,8 +364,8 @@
 
 <script>
 if(!window.APW_COURSES)window.APW_COURSES=SITE.words.courses||[];   // 無料版：単語帳の一覧はサイトの設定から。本コースは courses/index.js
-// Business・土木のコースは、その専門の生徒だけ。専門ON（話すのスイッチ）なら、専門のコースだけ
-var LIMITED=["Business","土木"];   // 専門の生徒だけのグループ（下のコース選びでも使う）
+// 土木のコースは、その専門の生徒だけ。Business は本コースの全員に出す（2026-10-20 kimi）。専門ON（話すのスイッチ）なら、専門のコースだけ
+var LIMITED=["土木"];   // 専門の生徒だけのグループ（下のコース選びでも使う）
 (function(){
   var tr=null,on=false;try{tr=JSON.parse(localStorage.getItem("ap_track"));on=JSON.parse(localStorage.getItem("ap_biz"));}catch(e){}
   var mine=tr&&tr.words;
