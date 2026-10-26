@@ -7,12 +7,15 @@
  *      実行するユーザー：自分　／　アクセスできるユーザー：全員
  *   3. 表示された「ウェブアプリの URL」を、words/index.html の SYNC_URL に入れる
  *
- * 保存するのは「ニックネーム＋自動の4ケタ番号（ID）」と「単語の学習記録」だけです。
+ * 保存するのは「ニックネーム＋自動の番号（ID）」と「単語の学習記録」だけです。
  * メールアドレスや本名は受け取りません。
  */
 
 var SHEET = 'records';
 var HEAD = ['ID', 'ニックネーム', '作成日時', '最終更新', '覚えた単語', '習得', 'コース', 'データ（JSON）'];
+// ID は「ニックネーム#4ケタ-8文字」。後ろの8文字が合言葉の代わり（ID を知っている人だけが読める・書ける）。
+// 2026-10 より前の「ニックネーム#4ケタ」だけの ID は、次に読んだ時に8文字を足して、新しい ID を返す（1回だけ）
+function tok_() { return Utilities.getUuid().replace(/-/g, '').slice(0, 8); }
 var MAX_DATA = 45000;   // セル1つに入る文字数（5万字）の手前で止める
 
 function sheet_() {
@@ -51,6 +54,10 @@ function doGet(e) {
   var sh = sheet_();
   var r = rowOf_(sh, id);
   if (!r) return out_({ ok: false, error: 'not_found' });
+  if (!/-[a-z0-9]{8}$/.test(id)) {   // ponytail: 古い ID は1回だけ8文字を足して引き継ぐ。足した後は新しい ID でしか開けない
+    id = id + '-' + tok_();
+    sh.getRange(r, 1).setValue(id);
+  }
   var row = sh.getRange(r, 1, 1, HEAD.length).getValues()[0];
   var data = null;
   try { data = row[7] ? JSON.parse(row[7]) : null; } catch (x) {}
@@ -72,7 +79,7 @@ function doPost(e) {
       if (!nick) return out_({ ok: false, error: 'no_nickname' });
       var id = '';
       for (var k = 0; k < 30; k++) {
-        var c = nick + '#' + String(Math.floor(1000 + Math.random() * 9000));
+        var c = nick + '#' + String(Math.floor(1000 + Math.random() * 9000)) + '-' + tok_();
         if (!rowOf_(sh, c)) { id = c; break; }
       }
       if (!id) return out_({ ok: false, error: 'busy' });

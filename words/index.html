@@ -320,10 +320,10 @@
       </div>
       <div id="sy-new" class="cin" style="padding:0">
         <div class="group"><label class="fld">ニックネーム<input id="sy-nick" maxlength="12" placeholder="例：たろう" autocomplete="off"></label></div>
-        <p class="note">本名・メールアドレス・電話番号は入れないでください。後ろに4ケタの番号をつけて、あなたのIDを作ります（例：たろう#4821）。</p>
+        <p class="note">本名・メールアドレス・電話番号は入れないでください。後ろに番号をつけて、あなたのIDを作ります（例：たろう#4821-k7x2m9qa）。IDを知っている人は記録を見られるので、人に見せないでください。</p>
       </div>
       <div id="sy-old" class="cin" style="padding:0" hidden>
-        <div class="group"><label class="fld">ID<input id="sy-id" placeholder="例：たろう#4821" autocomplete="off"></label></div>
+        <div class="group"><label class="fld">ID<input id="sy-id" placeholder="例：たろう#4821-k7x2m9qa" autocomplete="off"></label></div>
         <p class="note">この端末の今の記録は、IDの記録に置き換わります。</p>
       </div>
       <p class="msg" id="sy-msg" hidden></p>
@@ -734,13 +734,13 @@ $("sy-go").addEventListener("click",function(){
     }).catch(function(){ btn.disabled=false; syMsg("通信できませんでした。電波の良いところで、もう一度お試しください。"); });
   } else {
     var id=$("sy-id").value.trim().replace("＃","#");
-    if(!/.+#\d{4}$/.test(id)){ syMsg("IDは「ニックネーム#4ケタの番号」の形で入れてください（例：たろう#4821）。"); btn.disabled=false; return; }
+    if(!/.+#\d{4}(-[a-z0-9]{8})?$/.test(id)){ syMsg("IDは「ニックネーム#4ケタの番号-8文字」の形で入れてください（例：たろう#4821-k7x2m9qa）。"); btn.disabled=false; return; }
     pullById(id).then(function(r){
       btn.disabled=false;
       if(!r || !r.ok){ syMsg("このIDは見つかりませんでした。#のあとの番号まで、もう一度ご確認ください。"); return; }
       if(S.next>0 && !confirm("この端末の今の記録を、「"+id+"」の記録に置き換えます。よろしいですか？")) return;
       var d=r.data && r.data.cards ? r.data : fresh();
-      S=d; S.sync={id:id}; try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}
+      S=d; S.sync={id:r.id||id}; try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}   /* 古いIDは、ここで8文字つきの新しいIDに変わる */
       renderHome();
     }).catch(function(){ btn.disabled=false; syMsg("通信できませんでした。電波の良いところで、もう一度お試しください。"); });
   }
@@ -755,7 +755,9 @@ $("sy-leave").addEventListener("click",function(){
   if(!SYNC_URL || !S.sync || !S.sync.id) return;
   var mine=S.sync.id;
   pullById(mine).then(function(r){
-    if(!r || !r.ok || !r.data || !r.data.cards) return;
+    if(!r || !r.ok) return;
+    if(r.id && r.id!==mine){ mine=r.id; S.sync={id:mine}; save(); renderHome(); }   /* 古いIDは8文字つきに変わる。新しいIDを控え直してもらう */
+    if(!r.data || !r.data.cards) return;
     if((r.data.updatedAt||0) > (S.updatedAt||0)){
       S=r.data; S.sync={id:mine}; try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}
       if(!$("v-home").hidden) renderHome();
