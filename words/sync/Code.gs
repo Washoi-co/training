@@ -42,6 +42,9 @@ function rowOf_(sh, id) {
   return 0;
 }
 
+// 表に書く文：先頭が = + - @ なら ' を付けて、数式として読ませない（点検 10/29）
+function safe_(v) { var s = String(v == null ? '' : v); return /^[=+\-@\t\r]/.test(s) ? "'" + s : s; }
+
 // ニックネーム：前後の空白を取り、12文字まで。数式として読まれないよう、先頭の = + - @ と # は外す
 function cleanNick_(s) {
   return String(s || '').replace(/[#\u0000-\u001f]/g, '').trim().replace(/^[=+\-@]+/, '').slice(0, 12);
@@ -84,7 +87,7 @@ function doPost(e) {
       }
       if (!id) return out_({ ok: false, error: 'busy' });
       var now = new Date();
-      sh.appendRow([id, nick, now, now, 0, 0, String(b.course || ''), '']);
+      sh.appendRow([id, nick, now, now, 0, 0, safe_(b.course), '']);
       return out_({ ok: true, id: id });
     }
 
@@ -94,7 +97,7 @@ function doPost(e) {
       if (!r) return out_({ ok: false, error: 'not_found' });
       var d = JSON.stringify(b.data || {});
       if (d.length > MAX_DATA) return out_({ ok: false, error: 'too_large' });
-      sh.getRange(r, 4, 1, 5).setValues([[new Date(), Number(b.learned) || 0, Number(b.mastered) || 0, String(b.course || ''), d]]);
+      sh.getRange(r, 4, 1, 5).setValues([[new Date(), Number(b.learned) || 0, Number(b.mastered) || 0, safe_(b.course), d]]);
       return out_({ ok: true });
     }
 
