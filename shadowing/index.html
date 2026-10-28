@@ -213,7 +213,7 @@ function quiz() {
     h += `<div class="card" style="background:var(--bg)"><h2>おつかれさまでした</h2><p class="tip">クイズ ${ok} / ${L.quiz.length} 問正解</p>
       ${nxt ? `<a class="btn" href="#${nxt.id}">次の動画へ：${esc(nxt.title)}</a>` : ""}
       <a class="btn ghost" href="${DB.links.line}" target="_blank" rel="noopener">新しい動画をLINEで受け取る</a>
-      <a class="btn ghost" href="${DB.links.meeting}" target="_blank" rel="noopener">学習の相談をする（【無料】30分オンライン面談）</a></div>`;
+      <a class="btn ghost" href="${DB.links.meeting}" target="_blank" rel="noopener">学習の相談をする（【無料】45分オンライン面談）</a></div>`;
   }
   setTimeout(() => document.querySelectorAll(".q").forEach(d => d.onclick = e => {
     const b = e.target.closest("button[data-c]"); if (!b || b.disabled) return;
