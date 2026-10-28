@@ -14,7 +14,7 @@ SRC, MEDIA, SUBS, DATA = ROOT / "sources", ROOT / "media", ROOT / "subs", ROOT /
 MODEL = os.environ.get("OPENAI_MODEL", "gpt-5.1")
 
 LINKS = {"line": "https://lin.ee/Wxep7BH",
-         "trial": "https://reserva.be/washoiii/reserve?mode=service_staff&search_evt_no=95eJwzNbY0tbQEAARxAUk&utm_source=training&utm_medium=shadowing&utm_content=trial"}
+         "meeting": "https://calendar.app.google/kX21qNU7f9NdJtQY9?utm_source=training&utm_medium=shadowing&utm_content=meeting"}
 VOA_CREDIT = "Video: VOA Learning English (learningenglish.voanews.com) — public domain"
 NASA_CREDIT = ("Video: NASA Goddard Space Flight Center / NASA Scientific Visualization Studio. "
                "NASAはA-PUSHを推薦・提携していません。動画内の音楽・一部映像は第三者の権利を含むため、加工せずに配信しています。")
