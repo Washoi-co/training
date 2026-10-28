@@ -109,7 +109,7 @@
     connecting = signIn()
       .then(function () { return S.linked === uid ? null : link({ sid: S.sid, name: S.name }); })
       .then(function () { ready = true; return pull(); })
-      .then(function () { saveMe(); watchInbox(); return push(); })
+      .then(function () { saveMe(); watchInbox(); sendPlan(); return push(); })
       .catch(function (e) { connecting = null; warn(e); });
     return connecting;
   }
@@ -328,7 +328,22 @@
     Object.keys(S.ww).sort().slice(0, -3).forEach(function (k) { delete S.ww[k]; });   // 3日分だけ持つ
     S.q[d] = 1; save(); later();
   }
-  var API = { start: start, mark: mark, words: words, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
+  /* 計画（計画のページのゴール ap_goals）。変わった時だけ、名簿の plan に送る（先生用の入口・管理サイトが見る。2026-10-29） */
+  function plan(g) {
+    if (!O || !g || typeof g !== "object") return;
+    var p = { words: +g.words || 0, chunk: +g.chunk || 0, shadow: +g.shadow || 0, monthText: String(g.monthText || "").slice(0, 200), monthWords: +g.monthWords || 0,
+      m3Text: String(g.m3Text || "").slice(0, 200), m3Words: +g.m3Words || 0, m3Start: /^\d{4}-\d{2}-\d{2}$/.test(g.m3Start || "") ? g.m3Start : "" };
+    var j = JSON.stringify(p);
+    if (j === S.planSent) return;
+    S.plan = p; save();
+    if (ready) sendPlan();
+  }
+  function sendPlan() {
+    if (!S.plan || JSON.stringify(S.plan) === S.planSent) return;
+    var j = JSON.stringify(S.plan);
+    me().update({ plan: S.plan, updatedAt: TS() }).then(function () { S.planSent = j; save(); }).catch(warn);
+  }
+  var API = { start: start, mark: mark, words: words, plan: plan, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
   function run(a) { try { if (a && API[a[0]]) API[a[0]].apply(null, a.slice(1)); } catch (e) { warn(e); } }
   var q = window.aps || [];
   window.aps = { push: run };
