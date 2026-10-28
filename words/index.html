@@ -560,6 +560,9 @@ function renderList(){
 $("w-q").addEventListener("input",renderList);
 $("w-list").addEventListener("click",function(e){ var b=e.target.closest("[data-say]"); if(b) speak(W[+b.dataset.say][0]); });
 
+/* 今日の単語を先生に見せる（記録を送ることに同意した生徒だけ、sync.js が送る）。"word|意味" */
+function sendWords(batch){ if(!batch||!batch.length) return; (window.aps=window.aps||[]).push(["words", batch.map(function(wi){ var w=W[wi]; return w[0]+"|"+((w[1][0]||[])[0]||""); })]); }
+
 /* ---------- 朝：覚える／夜：もう一度 ---------- */
 var L={mode:"am", list:[], i:0, reps:0};
 function startLearn(mode){
@@ -569,6 +572,7 @@ function startLearn(mode){
     for(var k=0;k<n;k++) b.push(S.next+k);
     d.batch=b; save();
   }
+  sendWords(d.batch);
   L={mode:mode, list:d.batch.slice(), i:0, reps:0};
   showLearn(); view("learn");
   var lm="card"; try{ lm=localStorage.getItem("apush-words-lm")||"card"; }catch(e){}

@@ -138,7 +138,9 @@
     if (!ds.length) return Promise.resolve();
     return Promise.all(ds.map(function (d) {
       var x = S.days[d] || {};
-      return me().collection("days").doc(d).set({ sp: x.sp | 0, wd: x.wd | 0, sh: x.sh | 0, wn: x.wn | 0, at: TS() })
+      var doc = { sp: x.sp | 0, wd: x.wd | 0, sh: x.sh | 0, wn: x.wn | 0, at: TS() };
+      if (S.ww && S.ww[d] && S.ww[d].length) doc.ww = S.ww[d];
+      return me().collection("days").doc(d).set(doc)
         .then(function () { delete S.q[d]; }).catch(warn);
     })).then(function () {
       save();
@@ -317,7 +319,16 @@
       return signIn();
     }).then(function () { return fb.functions(REGION).httpsCallable(name)(data); });
   }
-  var API = { start: start, mark: mark, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
+  /* 今日の単語（単語のページの「トレーニング」の分）。["word|意味", …]。先生用の入口のアドリブ生成機が使う（2026-10-29） */
+  function words(list) {
+    if (!O || !Array.isArray(list)) return;
+    var d = today();
+    S.ww = S.ww || {};
+    S.ww[d] = list.slice(0, 30).map(function (x) { return String(x || "").slice(0, 60); }).filter(Boolean);
+    Object.keys(S.ww).sort().slice(0, -3).forEach(function (k) { delete S.ww[k]; });   // 3日分だけ持つ
+    S.q[d] = 1; save(); later();
+  }
+  var API = { start: start, mark: mark, words: words, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
   function run(a) { try { if (a && API[a[0]]) API[a[0]].apply(null, a.slice(1)); } catch (e) { warn(e); } }
   var q = window.aps || [];
   window.aps = { push: run };
