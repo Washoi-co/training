@@ -75,6 +75,7 @@
     S.name = cleanName(o.name);
     if (o.sid && o.sid !== S.sid) { S.sid = o.sid; S.linked = ""; }
     if (o.fixed) { O.name = S.name; O.sid = S.sid; if (S.consent == null) auto(); }
+    if (o.tok) O.tok = o.tok;   /* 本コース：この生徒だけの鍵（study の data.enc から）。メモリだけ＝S に入れない（保存しない） */
     save();
     if (S.consent === true && S.sid) connect();
   }
@@ -99,8 +100,10 @@
   }
   /* 生徒ID＋名前を確かめて、この端末をその生徒にひも付ける。{sid,name}／はじめて＝{name}。戻り値 {org,sid,name,isNew} */
   function link(data) {
+    /* 本コースは、パスワードで開けた時の鍵（tok）が無いと入れない。無い時（単語のページなど）は送らない＝間違いに数えられない */
+    if (O.org === "honka" && !O.tok) return Promise.reject(new Error("no tok"));
     return signIn().then(function () {
-      return fb.functions(REGION).httpsCallable("student")(Object.assign({ org: O.org }, data));
+      return fb.functions(REGION).httpsCallable("student")(Object.assign({ org: O.org }, data, O.org === "honka" ? { tok: O.tok } : {}));
     }).then(function (r) {
       var v = r.data;
       S.sid = v.sid; S.name = v.name; S.org = v.org; S.linked = uid; save();
