@@ -128,9 +128,11 @@
   }
 
   /* ---------- 4) 引き継ぎコード（この端末のこのサイトの記録を、まるごと文字にする） ---------- */
+  /* パスワード・生徒IDはコードに入れない（コードがLINE等で人に渡っても、なりすませないように。新しい端末で1回入れてもらう） */
+  function carry(k) { return k.indexOf("apinst-") !== 0 && k !== "ap_sid" && !/pass/i.test(k); }
   function pack() {
     var o = {};
-    try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k.indexOf("apinst-") !== 0) o[k] = localStorage.getItem(k); } } catch (e) {}
+    try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (carry(k)) o[k] = localStorage.getItem(k); } } catch (e) {}
     var txt = JSON.stringify({ v: 1, host: location.host, at: Date.now(), d: o });
     if (window.CompressionStream) {
       var cs = new Blob([txt]).stream().pipeThrough(new CompressionStream("gzip"));
@@ -153,7 +155,7 @@
 
   function exportSheet() {
     var sh = sheet('<p class="api-eb">記録を移す 1/2</p><h2>引き継ぎコードをコピー</h2>' +
-      "<p>このコードに、今までの記録・ゴール・名前が入っています。</p>" +
+      "<p>このコードに、今までの記録・ゴール・名前が入っています。パスワードと生徒IDは入っていません（新しい方で1回だけ入れてください）。</p>" +
       '<textarea class="api-code" id="api-c" readonly>作っています…</textarea>' +
       '<div class="api-row"><button class="api-btn p" id="api-copy" disabled>コピーする</button></div>' +
       '<p style="margin-top:12px;font-size:13.5px">次に、ホーム画面に追加したアプリを開く → 出てくる<b>「引き継ぎコードを貼る」</b>に貼り付け。</p>');
@@ -180,7 +182,7 @@
       go.disabled = true;
       unpack(t.value).then(function (j) {
         if (j.host !== location.host) throw new Error("別のサイトのコードです（" + j.host + "）");
-        Object.keys(j.d).forEach(function (k) { try { localStorage.setItem(k, j.d[k]); } catch (e) {} });
+        Object.keys(j.d).forEach(function (k) { if (carry(k)) try { localStorage.setItem(k, j.d[k]); } catch (e) {} });   /* 前のコードにパスワードが入っていても、入れない */
         set("imported", String(Date.now()));
         sh.q(".api-sheet").innerHTML = '<div class="api-grab"></div><p class="api-eb">記録を移す</p><h2>移しました</h2><p>読み込み直します…</p>';
         setTimeout(function () { location.reload(); }, 900);
