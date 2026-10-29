@@ -14,7 +14,7 @@
 var SHEET = 'records';
 var HEAD = ['ID', 'ニックネーム', '作成日時', '最終更新', '覚えた単語', '習得', 'コース', 'データ（JSON）'];
 // ID は「ニックネーム#4ケタ-8文字」。後ろの8文字が合言葉の代わり（ID を知っている人だけが読める・書ける）。
-// 2026-10 より前の「ニックネーム#4ケタ」だけの ID は、次に読んだ時に8文字を足して、新しい ID を返す（1回だけ）
+// 2026-10 より前の「ニックネーム#4ケタ」だけの ID は、次に読んだ時に8文字を足して、新しい ID を返す（1回だけ。2026-11-30 まで）
 function tok_() { return Utilities.getUuid().replace(/-/g, '').slice(0, 8); }
 var MAX_DATA = 45000;   // セル1つに入る文字数（5万字）の手前で止める
 
@@ -34,7 +34,9 @@ function out_(o) {
   return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);
 }
 
+var LEGACY_UNTIL = '2026-11-30';   // ponytail: 古い ID（8文字なし）は番号が9000通りしかなく、当てれば他人の記録を取れる。この日（日本時間）まで受け付け、過ぎたら not_found
 function rowOf_(sh, id) {
+  if (!/-[a-z0-9]{8}$/.test(id) && Utilities.formatDate(new Date(), 'Asia/Tokyo', 'yyyy-MM-dd') > LEGACY_UNTIL) return 0;
   var n = sh.getLastRow() - 1;
   if (n < 1) return 0;
   var ids = sh.getRange(2, 1, n, 1).getValues();
