@@ -200,7 +200,7 @@
       ".aps-sheet h2{margin:0 0 8px;font-size:24px;line-height:1.3;letter-spacing:-.015em}.aps-sheet p{margin:0 0 12px;font-size:14.5px;opacity:.8}" +
       ".aps-lb{display:block;font-size:13px;font-weight:700;margin:0 0 4px}" +
       ".aps-in{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:13px 14px;border-radius:14px;border:1px solid rgba(15,30,61,.16);background:#F2F4F8;color:inherit;margin:0 0 12px}" +
-      ".aps-ck{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;margin:2px 0 16px;cursor:pointer;opacity:.9}.aps-ck input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--b);flex:none}" +
+      ".aps-note{font-size:13.5px;margin:2px 0 16px;opacity:.8}" +
       ".aps-row{display:flex;gap:10px}.aps-btn{flex:1;font:inherit;font-weight:700;border:0;border-radius:16px;padding:15px;cursor:pointer;background:rgba(29,78,216,.1);color:var(--b)}" +
       ".aps-btn.p{background:var(--b);color:#fff}.aps-btn:disabled{opacity:.4;cursor:default}.aps-btn:active{transform:scale(.97)}" +
       ".aps-lk{display:block;width:100%;background:none;border:0;font:inherit;font-size:14px;font-weight:700;color:var(--b);padding:10px 0 0;cursor:pointer}" +
@@ -246,11 +246,11 @@
       (fixed ? "" :
         '<div id="aps-idw"><label class="aps-lb" for="aps-i">生徒ID</label><input class="aps-in" id="aps-i" maxlength="24" autocapitalize="characters" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="例：K7M2Q9" value="' + esc(S.sid || "") + '"></div>' +
         '<label class="aps-lb" for="aps-n">名前（呼び名でOK。' + esc(who()) + 'がわかる名前）</label><input class="aps-in" id="aps-n" maxlength="20" autocomplete="nickname" placeholder="例：はなこ" value="' + esc(S.name || "") + '">') +
-      '<label class="aps-ck"><input type="checkbox" id="aps-c"><span>練習した日と回数が、名前と一緒に' + esc(who()) + "に見えることに同意します。メールや電話番号は聞きません。記録はA-PUSHのサーバー（日本・東京）に置かれます。</span></label>" +
+      '<p class="aps-note">練習した日と回数が、名前と一緒に' + esc(who()) + "に届きます。メールや電話番号は聞きません。</p>" +
       '<p class="aps-err" id="aps-e" hidden></p>' +
       '<div class="aps-row"><button class="aps-btn" id="aps-no">送らない</button><button class="aps-btn p" id="aps-ok" disabled>送る</button></div>' +
       (fixed ? "" : '<button class="aps-lk" id="aps-sw"></button>'));
-    var n = sh.q("#aps-n"), i = sh.q("#aps-i"), c = sh.q("#aps-c"), ok = sh.q("#aps-ok"), e = sh.q("#aps-e");
+    var n = sh.q("#aps-n"), i = sh.q("#aps-i"), ok = sh.q("#aps-ok"), e = sh.q("#aps-e");
     function mode() {
       if (fixed) { sh.q("#aps-h").textContent = "練習の記録を送りますか？"; sh.q("#aps-p").textContent = "送ると、" + who() + "があなたの練習を見て、応援やお知らせを送れます。"; return; }
       sh.q("#aps-h").textContent = hasId ? "生徒IDと名前で入る" : "名前を入れて記録を送る";
@@ -259,8 +259,9 @@
       sh.q("#aps-sw").textContent = hasId ? "はじめて使う ›" : "生徒IDを持っている（スマホを替えた時など） ›";
       chk();
     }
-    function chk() { ok.disabled = !(c.checked && (fixed || (n.value.trim() && (!hasId || i.value.trim())))); }
-    c.addEventListener("change", chk); if (n) n.addEventListener("input", chk); if (i) i.addEventListener("input", chk);
+    /* 同意のチェックは無し：名前（とID）を入れて「送る」だけ（kimi 2026-10-30） */
+    function chk() { ok.disabled = !(fixed || (n.value.trim() && (!hasId || i.value.trim()))); }
+    if (n) n.addEventListener("input", chk); if (i) i.addEventListener("input", chk);
     if (!fixed) sh.q("#aps-sw").addEventListener("click", function () { hasId = !hasId; e.hidden = true; mode(); });
     mode();
     sh.q("#aps-no").addEventListener("click", function () { if (!back) { S.consent = false; save(); } sh.close(); });
