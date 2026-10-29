@@ -50,6 +50,9 @@
     }).catch(function () {});
   }
 
+  /* 会員番号が決まっている生徒（本コース）：同意は聞かずに送る。今までの分もまとめて送る（kimi 2026-10-30）。設定の「送らない」は今までどおり効く */
+  function auto() { S.consent = true; Object.keys(S.days).forEach(function (k) { S.q[k] = 1; }); save(); }
+
   /* 練習した */
   function mark(k, n) {
     if (!O) return;
@@ -61,6 +64,7 @@
     var keys = Object.keys(S.days).sort(); while (keys.length > 60) delete S.days[keys.shift()];
     save();
     if (!cfg()) return;
+    if (S.consent == null && O.sid) auto();
     if (S.consent === true && S.sid) { connect(); later(); }
     else if (S.consent == null && !asked) { asked = true; setTimeout(ask, 900); }
   }
@@ -70,7 +74,7 @@
     if (!O || !o || !o.name) return;
     S.name = cleanName(o.name);
     if (o.sid && o.sid !== S.sid) { S.sid = o.sid; S.linked = ""; }
-    if (o.fixed) { O.name = S.name; O.sid = S.sid; }
+    if (o.fixed) { O.name = S.name; O.sid = S.sid; if (S.consent == null) auto(); }
     save();
     if (S.consent === true && S.sid) connect();
   }
