@@ -204,7 +204,7 @@
     css();
     var bar = document.createElement("div");
     bar.className = "aps-pushbar"; bar.setAttribute("role", "dialog");
-    bar.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:2147483000;min-height:20vh;box-sizing:border-box;padding:calc(env(safe-area-inset-top) + 18px) 20px 18px;" +
+    bar.style.cssText = "--b:var(--brand,#1D4ED8);position:fixed;left:0;right:0;top:0;z-index:2147483000;min-height:20vh;box-sizing:border-box;padding:calc(env(safe-area-inset-top) + 18px) 20px 18px;" +
       "background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.18);display:flex;flex-direction:column;justify-content:center;gap:12px;font-size:16px;line-height:1.5";
     bar.innerHTML = '<b style="font-size:18px">通知を受け取りますか？</b><span>その日に復習する章などを、スマホの通知でお知らせします。「はい」の後に出る確認で「許可」を押してください。</span>' +
       '<div class="aps-row"><button class="aps-btn p" id="aps-yes">はい</button><button class="aps-btn" id="aps-no">いいえ</button></div>';
