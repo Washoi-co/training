@@ -116,7 +116,7 @@
     connecting = signIn()
       .then(function () { return S.linked === uid ? null : link({ sid: S.sid, name: S.name }); })
       .then(function () { ready = true; return pull(); })
-      .then(function () { saveMe(); watchInbox(); sendPlan(); return push(); })
+      .then(function () { saveMe(); watchInbox(); sendPlan(); pushNudge(); return push(); })
       .catch(function (e) { connecting = null; warn(e); });
     return connecting;
   }
@@ -186,6 +186,33 @@
         return fb.messaging().getToken({ vapidKey: vapid(), serviceWorkerRegistration: reg });
       }).then(function (t) { if (!t) return false; return me().update({ fcm: t }).then(function () { return true; }); });
     }).catch(function (e) { warn(e); return false; });
+  }
+
+  /* スマホに通知を届ける（kimi 2026-10-30）：許可済みの端末は、開くたびに通知の鍵を登録し直す（鍵が変わっても届く）。
+   * まだ許可していない端末は、つながった直後に画面の上で「はい／いいえ」を聞く（「いいえ」は3日あけてまた聞く）。許可はボタンを押した時だけ聞ける（ブラウザの決まり）。
+   * iPhone はホーム画面のアプリで開いた時だけ（Safari のままでは通知を許可できない。ホーム画面への追加は install.js が案内する） */
+  function pushNudge() {
+    if (!vapid() || !window.Notification || !("serviceWorker" in navigator)) return;
+    if (Notification.permission === "granted") { enablePush(); return; }
+    if (Notification.permission !== "default") return;
+    var ua = navigator.userAgent || "", ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var app = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+    if (ios && !app) return;
+    if (Date.now() - (S.pushAsk || 0) < 3 * 864e5) return;
+    S.pushAsk = Date.now(); save();
+    /* 画面の上（上から2割くらい）に「通知を受け取りますか？ はい／いいえ」（kimi 2026-10-30） */
+    css();
+    var bar = document.createElement("div");
+    bar.className = "aps-pushbar"; bar.setAttribute("role", "dialog");
+    bar.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:2147483000;min-height:20vh;box-sizing:border-box;padding:calc(env(safe-area-inset-top) + 18px) 20px 18px;" +
+      "background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.18);display:flex;flex-direction:column;justify-content:center;gap:12px;font-size:16px;line-height:1.5";
+    bar.innerHTML = '<b style="font-size:18px">通知を受け取りますか？</b><span>その日に復習する章などを、スマホの通知でお知らせします。「はい」の後に出る確認で「許可」を押してください。</span>' +
+      '<div class="aps-row"><button class="aps-btn p" id="aps-yes">はい</button><button class="aps-btn" id="aps-no">いいえ</button></div>';
+    document.body.appendChild(bar);
+    function off() { if (bar.parentNode) bar.parentNode.removeChild(bar); }
+    bar.querySelector("#aps-no").addEventListener("click", off);
+    var y = bar.querySelector("#aps-yes");
+    y.addEventListener("click", function () { y.disabled = true; enablePush().then(function (ok) { if (ok) off(); else { y.textContent = "受け取れませんでした"; setTimeout(off, 2500); } }); });
   }
 
   /* ---------- 見た目（どのサイトでも同じ。白基調。サイトの色 --brand があれば使う） ---------- */
