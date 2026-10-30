@@ -117,7 +117,7 @@
       .then(function () { return S.linked === uid ? null : link({ sid: S.sid, name: S.name }); })
       .then(function () { ready = true; return pull(); })
       .then(function () { saveMe(); watchInbox(); sendPlan(); pushNudge(); return push(); })
-      .catch(function (e) { connecting = null; warn(e); });
+      .catch(function (e) { connecting = null; if (/permission-denied/.test(e && e.code)) { S.linked = ""; save(); } warn(e); });   /* 名簿の uids が消えていた（契約の写し・取り込み）＝次はつなぎ直す */
     return connecting;
   }
   function me() { return db.collection("orgs").doc(S.org || O.org).collection("members").doc(S.sid); }
@@ -348,11 +348,21 @@
 
   /* ---------- 呼び出しの受け口（読み込み前に積まれた分も処理） ---------- */
   /* ログイン（匿名）してから Cloud Functions を呼ぶ。添削（adlib.js）が使う。記録の同意とは別＝同意していなくても添削はできる */
+  /* 本コース（鍵 tok がある時）：添削は名簿の uids にこの端末が要る。同意（記録を送る）とは別に、まだならつないでから呼ぶ。
+     「ログインしてから」（permission-denied）が返ったら、名簿の uids が消えていた＝つなぎ直して1回だけやり直す（2026-10-30） */
   function call(name, data) {
+    var mustLink = function () { return O && O.org === "honka" && O.tok && S.sid && S.name; };
+    var go = function () { return fb.functions(REGION).httpsCallable(name)(data); };
     return (window.FB_CONFIG ? Promise.resolve() : js(BASE + "config.js")).then(function () {
       if (!cfg()) throw new Error("no firebase config");
       return signIn();
-    }).then(function () { return fb.functions(REGION).httpsCallable(name)(data); });
+    }).then(function () { return mustLink() && S.linked !== uid ? link({ sid: S.sid, name: S.name }) : null; })
+      .then(go)
+      .catch(function (e) {
+        if (!mustLink() || !/permission-denied/.test(e && e.code) || S.linked !== uid) throw e;
+        S.linked = ""; save();
+        return link({ sid: S.sid, name: S.name }).then(go);
+      });
   }
   /* 今日の単語（単語のページの「トレーニング」の分）。["word|意味", …]。先生用の入口のアドリブ生成機が使う（2026-10-29） */
   function words(list) {
