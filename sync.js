@@ -64,7 +64,7 @@
     var keys = Object.keys(S.days).sort(); while (keys.length > 60) delete S.days[keys.shift()];
     save();
     if (!cfg()) return;
-    if (S.consent == null && O.sid) auto();
+    if (S.consent !== true && O.sid) auto();   /* 本コース（会員番号が決まっている）は必ず送る。前に「送らない」を押していても（kimi 2026-10-30） */
     if (S.consent === true && S.sid) { connect(); later(); }
     else if (S.consent == null && !asked) { asked = true; setTimeout(ask, 900); }
   }
@@ -74,7 +74,7 @@
     if (!O || !o || !o.name) return;
     S.name = cleanName(o.name);
     if (o.sid && o.sid !== S.sid) { S.sid = o.sid; S.linked = ""; }
-    if (o.fixed) { O.name = S.name; O.sid = S.sid; if (S.consent == null) auto(); }
+    if (o.fixed) { O.name = S.name; O.sid = S.sid; if (S.consent !== true) auto(); }   /* 本コースは必ず送る（kimi 2026-10-30） */
     if (o.tok) O.tok = o.tok;   /* 本コース：この生徒だけの鍵（study の data.enc から）。メモリだけ＝S に入れない（保存しない） */
     save();
     if (S.consent === true && S.sid) connect();
@@ -313,7 +313,7 @@
     var sh = sheet('<p class="aps-eb">' + (first ? "あなたの生徒ID" : "記録を送る") + "</p><h2>" + esc(S.name || "") + "</h2>" +
       '<div class="aps-id">' + esc(S.sid || "") + "</div>" +
       "<p>" + (first ? "<b>この画面をスクショして保存してください。</b>" : "") + "スマホを替えた時や記録が消えた時は、このIDと名前を入れると、今までの記録に戻れます。IDを忘れたら" + esc(who()) + "に聞いてください。</p>" +
-      '<div class="aps-row">' + (first ? "" : '<button class="aps-btn" id="aps-stop">送るのをやめる</button>') + '<button class="aps-btn p" id="aps-x">' + (first ? "保存した" : "閉じる") + "</button></div>");
+      '<div class="aps-row">' + (first || O.sid ? "" : '<button class="aps-btn" id="aps-stop">送るのをやめる</button>') + '<button class="aps-btn p" id="aps-x">' + (first ? "保存した" : "閉じる") + "</button></div>");
     sh.q("#aps-x").addEventListener("click", sh.close);
     var st = sh.q("#aps-stop");
     if (st) st.addEventListener("click", function () { S.consent = false; save(); if (unsub) { unsub(); unsub = null; } MSGS = []; paintBell(); sh.close(); });
