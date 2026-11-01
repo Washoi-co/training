@@ -21,7 +21,7 @@
   var REGION = "asia-northeast1";
   var BASE = (function () { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^\/]*$/, "") : "/"; })();
   /* サイトの記録の名前 → 共通の名前（団体のサイトと同じ sp/wd/sh/wn） */
-  var KIND = { chunk: ["sp"], sp: ["sp"], speak: ["sp"], words: ["wd", "wn"], wd: ["wd"], mix: ["wd"], shadow: ["sh"], sh: ["sh"] };
+  var KIND = { chunk: ["sp"], sp: ["sp"], speak: ["sp"], words: ["wd", "wn"], wordsTest: ["wd"], wd: ["wd"], mix: ["wd"], shadow: ["sh"], sh: ["sh"] };
 
   var O = null, S = null, KEY = "", fb = null, db = null, uid = null, ready = false, timer = null, asked = false, MSGS = [], unsub = null;
 
@@ -125,6 +125,12 @@
   function saveMe() { if (ready) me().update({ lastSeen: TS(), updatedAt: TS() }).catch(warn); }
   /* 前の端末の記録を、この端末に戻す（数は大きい方を取る） */
   function pull() {
+    /* 今日の話す（functions の speakDaily が毎晩書く・本コースだけ）。今日＆計画と話すのページが ap_today を読む */
+    me().get().then(function (d) {
+      var t = d.get("spToday") || null;
+      try { localStorage.setItem("ap_today", JSON.stringify(t)); } catch (e) {}
+      window.dispatchEvent(new Event("ap-today"));
+    }).catch(warn);
     return me().collection("days").get().then(function (snap) {
       var got = {};
       snap.forEach(function (d) {

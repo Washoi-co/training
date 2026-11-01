@@ -149,6 +149,12 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", 
 fetch("data/lessons.json").then(r => r.json()).then(d => {
   DB = d; DB.lessons = DB.lessons.filter(x => x.active);
   $("#credits").textContent = [...new Set(DB.lessons.map(x => x.credit))].join(" / ");
+  if (/[?&]today=1/.test(location.search)) {   /* 今日＆計画の「今日のシャドーイング」から：途中の動画 → 最後に終えた動画の次 → まだの最初 */
+    const all = DB.lessons, p = x => prog(x.id);
+    const lastDone = all.reduce((k, x, i) => p(x).done ? i : k, -1);
+    const x = all.find(x => p(x).step && !p(x).done) || all.slice(lastDone + 1).find(x => !p(x).done) || all.find(x => !p(x).done) || all[0];
+    history.replaceState(null, "", location.pathname + (x ? "#" + x.id : ""));
+  }
   route(); window.onhashchange = route;
   function route() { const id = location.hash.slice(1); const x = DB.lessons.find(l => l.id === id); x ? open(x) : home(); }
   if (!store.get().intro) $("#intro").hidden = false;

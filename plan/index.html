@@ -134,6 +134,8 @@ const addDays=(s,n)=>{const [y,m,d]=s.split("-").map(Number);const t=new Date(y,
 const TODAY=ymd(new Date());
 // 添削した文：アドリブの日から +1・+4・+11日（話すのページと同じ決まり）。遅れてやった日の当日には出さない
 const RV=[1,4,11];
+// 今日の話す（先生のレッスンから 1・4・11・25 日目の章。sync.js が ap_today に入れる・本コースだけ）
+const spT=()=>{const t=get("ap_today",null);return t&&t.day===TODAY&&t.label?t:null;};
 const revN=()=>get("ap_adrev",[]).filter(x=>{if(!x||!x.en||RV[x.step]===undefined)return false;const a=addDays(x.made,RV[x.step]),b=x.last?addDays(x.last,1):"";return (a>b?a:b)<=TODAY;}).length;
 
 /* ---- 記録（ap_activity）。前からあるチャンクの記録（ap_days）も1章として数える ---- */
@@ -145,10 +147,10 @@ function activity(){
 const DEF={words:20,chunk:1,shadow:1,monthText:"",monthWords:600,m3Text:"",m3Words:1800,m3Start:TODAY};
 let G=Object.assign({},DEF,get("ap_goals",{}));
 const TASKS=[
-  {k:"words",ic:"📚",t:"新しい単語",u:"語",href:"/words/"},
-  {k:"adlib",ic:"🗣",t:"アドリブ（今日の単語で5問）",u:"問",href:"/?adlib=1"},
-  {k:"chunk",ic:"🧩",t:"チャンクトレーニング",u:"章",href:"/"},
-  {k:"shadow",ic:"🎧",t:"シャドーイング",u:"本",href:"/shadowing/"},
+  {k:"words",ic:"📚",t:"新しい単語＋復習",u:"語",href:"/words/?go=1"},
+  {k:"adlib",ic:"🗣",t:"アドリブ＋AI添削（今日の単語で5問）",u:"問",href:"/?adlib=1"},
+  {k:"chunk",ic:"🧩",t:"話す（チャンクトレーニング）",u:"章",href:"/?today=1"},
+  {k:"shadow",ic:"🎧",t:"今日のシャドーイング",u:"本",href:"/shadowing/?today=1"},
 ];
 // アドリブは毎日5問の決まった課題（ゴールで変えない）。この端末で始めた日より前の日には数えない
 if(!G.adFrom){G.adFrom=TODAY;put("ap_goals",G);}
@@ -173,7 +175,7 @@ function paintToday(a){
   $("h-msg").innerHTML=!rows.length?"下の「計画」で、1日のゴールを決めてください":met===rows.length?"今日のゴール達成。おつかれさま！":"今日のゴール<br>あと "+rows.filter(r=>!r.done).map(r=>r.t.t).join("・");
   ring(rows.length?rows.reduce((s,r)=>s+Math.min(1,r.n/r.g),0)/rows.length:0);
   $("today").innerHTML=rows.map(r=>
-    '<a class="row'+(r.done?" done":"")+'" href="'+r.t.href+'"><span class="ic" aria-hidden="true">'+r.t.ic+'</span><span><b>'+r.t.t+'</b><small>今日 '+r.n+' / '+r.g+' '+r.t.u+'</small></span><span class="chev">'+(r.done?"✓ できた":"やる ›")+'</span></a>'
+    '<a class="row'+(r.done?" done":"")+'" href="'+r.t.href+'"><span class="ic" aria-hidden="true">'+r.t.ic+'</span><span><b>'+r.t.t+'</b><small>今日 '+r.n+' / '+r.g+' '+r.t.u+(r.t.k==="chunk"&&spT()?'　'+spT().label:'')+'</small></span><span class="chev">'+(r.done?"✓ できた":"やる ›")+'</span></a>'
   ).join("")||'<a class="row" href="#g-words"><span class="ic" aria-hidden="true">📅</span><span><b>1日のゴールを決める</b><small>この下の「計画」</small></span><span class="chev">›</span></a>';
   // 添削した文の復習（話すのページの ap_adrev）。ゴールの輪には数えない。並べるだけ
   const rv=revN();
@@ -316,7 +318,9 @@ $("c-google").onclick=()=>{
 function paint(){const a=activity();paintToday(a);paintCal(a);paintNums(a);}
 const nm=get("ap_name","");if(nm){$("who").textContent=nm+" さんの計画";$("who").hidden=false;}
 fillForm();paint();
+addEventListener("ap-today",paint);   // つながって今日の話すが届いたら描き直す
 </script>
+<script src="/activity.js"></script>  <!-- つないで、今日の話す（ap_today）を受け取る -->
 <script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
 <script src="/ui.js" defer></script>
 </body>

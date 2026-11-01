@@ -683,7 +683,18 @@ $("t-next").addEventListener("click",function(){
     return '<div><span class="en">'+w[0]+'</span><span>'+(s[1]||"")+' '+s[0]+'</span></div>'; }).join("");
   view("result");
 });
-$("r-home").addEventListener("click",renderHome);
+$("r-home").addEventListener("click",function(){ GO ? goNext() : renderHome(); });
+
+/* 今日＆計画の「新しい単語＋復習」から（?go=1）：忘れかけた単語のテスト → 今日の新しい単語 → 終わればホーム（今日の単語でアドリブ） */
+var GO=/[?&]go=1/.test(location.search);
+if(GO){ try{ var u=new URL(location.href); u.searchParams.delete("go"); history.replaceState(null,"",u.pathname+u.search); }catch(e){} }
+function goNext(){
+  var d=day(), due=dueList();
+  if(due.length && !goNext.tested){ goNext.tested=true; startTest(); return; }   // テストは1回（多すぎる日も1回分 CAP 問）
+  GO=false;
+  if(!d.am && S.next<W.length && due.length<=CAP){ startLearn("am"); return; }
+  renderHome();
+}
 
 /* ---------- 設定 ---------- */
 $("btn-set").addEventListener("click",function(){
@@ -783,7 +794,7 @@ $("sy-leave").addEventListener("click",function(){
   $("a2hs-x").addEventListener("click",function(){ box.hidden=true; try{ localStorage.setItem("apush-a2hs-closed","1"); }catch(e){} });
 })();
 
-renderHome();
+GO ? goNext() : renderHome();
 })();
 </script>
 <script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
