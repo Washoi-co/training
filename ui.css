@@ -109,9 +109,11 @@ a{color:inherit}
 .seg{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--line);border-radius:10px;padding:2px}
 .seg .sl{position:absolute;top:2px;bottom:2px;left:2px;border-radius:8px;background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.13),0 0 0 .5px rgba(0,0,0,.04);
   transition:transform .32s var(--spring),width .32s var(--spring);pointer-events:none}
-.seg button{position:relative;z-index:1;border-radius:8px;padding:7px 4px;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.2;transition:color .2s,transform .1s ease-out}
-.seg button:active{transform:scale(.96)}
-.seg button[aria-pressed="true"]{color:var(--brand)}
+.seg button,.seg a{position:relative;z-index:1;border-radius:8px;padding:7px 4px;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.2;transition:color .2s,transform .1s ease-out}
+.seg button:active,.seg a:active{transform:scale(.96)}
+.seg button[aria-pressed="true"],.seg a[aria-pressed="true"]{color:var(--brand);background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.13),0 0 0 .5px rgba(0,0,0,.04)}
+.seg a{text-decoration:none;text-align:center}
+.seg.sp-kind{margin:0 0 14px}
 .seg.lv button{display:flex;flex-direction:column;align-items:center;padding:6px 4px}
 .seg.lv b{font-family:var(--en);font-weight:900;font-size:17px}
 .seg.lv small{font-size:11px;color:var(--mute);font-weight:500}
