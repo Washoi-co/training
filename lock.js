@@ -17,8 +17,14 @@
     ".seg.scroll button[data-lock]{color:var(--mute,#6b7385);font-weight:500}";
   var s=document.createElement("style");s.textContent=css;document.head.appendChild(s);
   /* 本コースの文法（話すの鍵付きタブ）。無料版・団体のサイトが、持っていない物だけ並べる */
-  window.AP_LOCKED_GRAMMAR=["疑問詞（5W1H）","助動詞","関係代名詞","時制","形容詞","現在進行形","頻度の副詞","過去進行形","現在完了","比較級","最上級","接続詞","不定詞","動名詞"];
-  window.apLockedTabs=function(have){return window.AP_LOCKED_GRAMMAR.filter(function(g){return have.indexOf(g)<0;}).map(function(g){return '<button type="button" aria-pressed="false" data-lock="文法「'+g+'」">🔒 '+g+'</button>';}).join("");};
+  /* 本コース（study）の章にある文法だけ（Beginner 24章・Intermediate 26章から。無い物は並べない）。2026-11-04 */
+  window.AP_LOCKED_GRAMMAR=["be動詞（What is this?）","数・色（How many?）","持ち主（Whose?）","職業","形容詞","現在形","三人称単数","現在進行形","頻度の副詞",
+    "疑問詞（5W1H）","過去形","過去進行形","過去形と過去進行形","未来（will）","be going to","will と be going to","現在完了（経験・完了）","現在完了（継続）","現在完了と過去形",
+    "比較級","最上級","助動詞 can","助動詞 should","助動詞 must / have to","must not と don't have to",
+    "接続詞 and / but","接続詞 so / because","接続詞 although / though","接続詞 if / whether","接続詞 when / while","接続詞 before / after","接続詞 as soon as / as long as","接続詞 in case / even if",
+    "関係代名詞 who","関係代名詞 which","関係代名詞 that","不定詞","動名詞"];
+  /* have：そのサイトにもうある文法（この言葉で始まる物は並べない） */
+  window.apLockedTabs=function(have){return window.AP_LOCKED_GRAMMAR.filter(function(g){return !have.some(function(h){return g.indexOf(h)===0;});}).map(function(g){return '<button type="button" aria-pressed="false" data-lock="文法「'+g+'」">🔒 '+g+'</button>';}).join("");};
   window.apLock=function(what){
     if(document.querySelector(".aplk-scrim"))return;
     var w=document.createElement("div");w.className="aplk-scrim";
