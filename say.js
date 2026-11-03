@@ -3,7 +3,7 @@
    使い方：<script src="/say.js"></script> を置いて、window.apSay("英文")。 */
 (function () {
   "use strict";
-  var FN = "https://asia-northeast1-apush-training.cloudfunctions.net/say";   // ?v= は kanri の say.js の VER と合わせる（変えると端末に残る古い音声を使わない）
+  var FN = "https://apush-training.web.app/say";   // 配信網（Firebase Hosting）経由。中身は kanri の say 関数（2026-11-04）   // ?v= は kanri の say.js の VER と合わせる（変えると端末に残る古い音声を使わない）
   var cur = null;
   function device(t) {
     try { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel(); var u = new SpeechSynthesisUtterance(t); u.lang = "en-US"; u.rate = .9; speechSynthesis.speak(u); } catch (e) {}
