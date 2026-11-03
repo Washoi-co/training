@@ -29,7 +29,8 @@
 .q{display:flex;flex-direction:column;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
 .q:first-child{border-top:0}
 .q .n{font-family:var(--en);font-weight:900;color:var(--brand);font-size:13px}
-.q .stem{font-family:var(--en);font-size:15.5px;line-height:1.5;margin:0}
+.q .stem{font-family:var(--en);font-size:15.5px;line-height:1.5;margin:0;white-space:pre-line}
+.stem u,.passage u{text-decoration-thickness:2px;text-underline-offset:3px}
 .q .ja{font-size:12.5px;color:var(--mute);margin:0}
 .opts{display:flex;flex-direction:column;gap:6px}
 .opts button{text-align:left;background:var(--soft);border-radius:10px;padding:10px 12px;font-size:14.5px;line-height:1.4;font-family:var(--en);color:var(--ink);display:flex;gap:10px}
@@ -128,7 +129,7 @@ textarea.essay{width:100%;min-height:200px;font-size:16px;line-height:1.55;font-
    ?exam=toeic&part=P5    … チャプター別トレーニング
    問題バンクの形は ~/apush/exam-src/bank/SCHEMA.md。採点（ライティング・スピーキング）は kanri の assess。 */
 const $=id=>document.getElementById(id);
-const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])).replace(/&lt;(\/?)u&gt;/g,"<$1u>");   // 下線 <u>…</u> だけは残す
 const P=new URLSearchParams(location.search);
 const SITE=window.SITE||{};
 const LEGACY=P.get("id"), BANK=P.get("exam"), MODE=P.get("mode"), PART=P.get("part");
@@ -175,13 +176,16 @@ function paintHub(){
 }
 
 /* ---------- バンク → テスト（sections） ---------- */
+/* 1問ずつのセット（本文なし／短い本文つき／1問ずつの音声）は、1つの画面にまとめる */
+const wcount=t=>String(t||"").split(/\s+/).filter(Boolean).length;
+const mergeable=sets=>sets.every(s=>s.questions&&s.questions.length===1&&(s.script?!s.passage:wcount(s.passage)<=80));
 function partSection(b,p,sets,label){
   const base={id:p.id+"-"+Math.random().toString(36).slice(2,7),part:p.id,kind:p.kind,title:label||p.title,intro:p.intro,voice:b.voice};
   if(p.kind==="writing")return Object.assign(base,{tasks:sets});
   if(p.kind==="speaking")return Object.assign(base,{sets:sets.map(s=>s.tasks)});
   // 本文の無いセット（Part 5・Part 2 など）は1つの画面にまとめる。本文・音声のあるセットは1セット1画面
-  if(sets.every(s=>!s.passage&&!s.script)||sets.every(s=>s.script&&s.questions.length===1&&!s.passage))
-    return [Object.assign(base,{questions:[].concat(...sets.map(s=>s.questions.map(q=>Object.assign({},q,{script:s.script,set:s.id}))))})];
+  if(mergeable(sets))
+    return [Object.assign(base,{questions:[].concat(...sets.map(s=>s.questions.map(q=>Object.assign({},q,{script:s.script,ctx:s.passage,set:s.id}))))})];
   return sets.map((s,i)=>Object.assign({},base,{id:base.id+i,passage:s.passage,script:s.script,questions:s.questions.map(q=>Object.assign({},q,{set:s.id})),title:sets.length>1?base.title+"（"+(i+1)+"/"+sets.length+"）":base.title}));
 }
 function fromPicks(b,mode){
@@ -205,7 +209,7 @@ function fromPicks(b,mode){
 }
 function fromPart(b,pid){
   const p=b.parts.find(x=>x.id===pid);
-  const n=p.kind==="writing"||p.kind==="speaking"?1:(p.sets.every(s=>!s.passage&&!s.script)||p.sets.every(s=>s.script&&s.questions.length===1&&!s.passage))?10:(p.sets[0].questions.length>=8?1:3);
+  const n=p.kind==="writing"||p.kind==="speaking"?1:mergeable(p.sets)?10:(p.sets[0].questions.length>=8?1:3);
   const sets=shuffle(p.sets.slice()).slice(0,n);
   const secs=[].concat(partSection(b,p,sets));
   secs.forEach(s=>{s.sec=0;});   // 練習は時間で切らない
@@ -290,8 +294,8 @@ function qHtml(q,n,S,perQ){
   else if(q.type==="tfng"||q.type==="ynng"){const o=q.type==="tfng"?["TRUE","FALSE","NOT GIVEN"]:["YES","NO","NOT GIVEN"];body='<div class="opts" data-q="'+n+'">'+o.map((x,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b></b>'+x+'</button>').join("")+'</div>';}
   else if(q.spoken)body='<div class="opts spoken" data-q="'+n+'">'+q.choices.map((o,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b>'+LETTERS[i]+'</b></button>').join("")+'</div>';
   else body='<div class="opts" data-q="'+n+'">'+q.choices.map((o,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b>'+LETTERS[i]+'</b><span>'+esc(o)+'</span></button>').join("")+'</div>';
-  const stem=q.spoken?"":'<p class="stem">'+esc(q.q)+'</p>';
-  return '<div class="q"><span class="n">'+num+(q.type==="multi"?"　（"+q.pick+"つ選ぶ）":"")+'</span>'+(perQ?'<button type="button" class="qplay" data-q="'+n+'">▶ 音声を流す</button>':"")+stem+(q.ja?'<p class="ja">'+esc(q.ja)+'</p>':"")+body+'</div>';
+  const stem=(q.ctx?'<div class="passage" style="max-height:none;font-size:15px">'+esc(q.ctx)+'</div>':"")+(q.spoken?"":'<p class="stem">'+esc(q.q)+'</p>');
+  return '<div class="q"><span class="n">'+num+(q.type==="multi"?"　（"+q.pick+"つ選ぶ）":"")+'</span>'+(perQ?'<button type="button" class="qplay" data-q="'+n+'">▶ 音声を流す</button>':"")+stem+body+'</div>';   // 日本語訳（ja）は答えのヒントになるので、答え合わせの時だけ出す
 }
 function bindQ(q,n,S){
   const a=A[S.id];
@@ -317,7 +321,7 @@ function ansText(q,a){if(a==null||(Array.isArray(a)&&!a.length))return "（無�
 function gradeLR(S){
   const a=A[S.id]; let ok=0;
   const detail=S.questions.map((q,n)=>{const r=isRight(q,a[n]);if(r)ok++;
-    return {n:(S.start||1)+n,ok:r,ans:ansText(q,a[n]),key:keyText(q),why:q.why||"",q:q.spoken?"":q.q,
+    return {n:(S.start||1)+n,ok:r,ans:ansText(q,a[n]),key:keyText(q),why:q.why||"",q:q.spoken?"":q.q,ja:q.ja||"",
       script:q.script?q.script+(q.spoken?"\n"+q.choices.map((c,i)=>LETTERS[i]+". "+c).join("\n"):""):""};});
   const bands=X.bands&&X.bands[S.id];
   R[S.id]={kind:S.kind,part:S.part,title:S.title,ok,total:S.questions.length,band:bands?bands[Math.min(ok,bands.length-1)]:null,detail,script:S.script||""};
@@ -459,7 +463,7 @@ function partHtml(p,sc){
   let h='<div class="card"><div class="cin">';
   if(p.kind==="listening"||p.kind==="reading"){
     h+='<div class="res"><div><b>'+(p.band!=null?fmtBand(p.band,sc):Math.round(p.ok/p.total*100)+"%")+'</b><small>'+esc(p.title)+'</small></div><div>正解 '+p.ok+' / '+p.total+'</div></div>';
-    h+='<details'+(X.part?" open":"")+'><summary class="note">答え合わせと解説</summary><ol class="ded">'+p.detail.map(d=>'<li>'+(d.ok?'<span class="ok-t">○</span>':'×')+' '+d.n+'　正解 <b>'+esc(d.key)+'</b>'+(d.ok?"":'　<i>あなた：'+esc(d.ans)+'</i>')+(d.q?'<br><i>'+esc(d.q)+'</i>':"")+(d.why?'<br>'+esc(d.why):"")+(d.script?'<div class="script">'+esc(d.script)+'</div>':"")+'</li>').join("")+'</ol>'+(p.script?'<p class="ask">音声のスクリプト</p><div class="script">'+esc(p.script)+'</div>':"")+'</details>';
+    h+='<details'+(X.part?" open":"")+'><summary class="note">答え合わせと解説</summary><ol class="ded">'+p.detail.map(d=>'<li>'+(d.ok?'<span class="ok-t">○</span>':'×')+' '+d.n+'　正解 <b>'+esc(d.key)+'</b>'+(d.ok?"":'　<i>あなた：'+esc(d.ans)+'</i>')+(d.q?'<br><i>'+esc(d.q)+'</i>':"")+(d.ja?'<br><i>'+esc(d.ja)+'</i>':"")+(d.why?'<br>'+esc(d.why):"")+(d.script?'<div class="script">'+esc(d.script)+'</div>':"")+'</li>').join("")+'</ol>'+(p.script?'<p class="ask">音声のスクリプト</p><div class="script">'+esc(p.script)+'</div>':"")+'</details>';
   }else if(p.kind==="writing"){
     h+=assessHtml(p,assessScale(),p.title);
   }else if(p.kind==="speaking"){
