@@ -209,6 +209,7 @@ if(LEGACY){
   fetch("/exam/"+encodeURIComponent(LEGACY)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(x=>{X=x;paintStart();}).catch(fail);
 }else if(BANK){
   fetch("/exam/"+encodeURIComponent(BANK)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(b=>{B=b;loadMp3(b.exam);
+    {const nm=/^eiken/.test(b.exam)?"英検":String(b.exam).toUpperCase();window.AP_LOCK_HEAD=nm+(b.exam==="toeic"?"対策も本コースで":"対策も本コースでみっちり");}   /* 鍵の案内の一言 */
     if(MODE&&b.modes&&b.modes[MODE]){X=fromPicks(b,MODE,PAT);paintStart();}
     else if(PART&&FREE){paintHub();apLock&&apLock("チャプター別トレーニング");}
     else if(PART&&b.parts.some(p=>p.id===PART)){X=fromPart(b,PART);paintStart();}
