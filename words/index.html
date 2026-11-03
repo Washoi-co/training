@@ -482,7 +482,7 @@ function grade(id, right){
 }
 
 /* ---------- 発音 ---------- */
-function speak(t){ try{ if(!("speechSynthesis" in window)) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.9; speechSynthesis.speak(u); }catch(e){} }
+function speak(t){ if(window.apSay) return apSay(t); try{ if(!("speechSynthesis" in window)) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.9; speechSynthesis.speak(u); }catch(e){} }
 
 function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
 function view(k){ ["home","learn","test","result","set","sync","howto"].forEach(function(n){ $("v-"+n).hidden=(n!==k); }); window.scrollTo(0,0); }
@@ -805,7 +805,7 @@ $("sy-leave").addEventListener("click",function(){
 GO ? goNext() : renderHome();
 })();
 </script>
-<script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
+<script src="/say.js"></script><script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
 <script src="/ui.js" defer></script>
 </body>
 </html>

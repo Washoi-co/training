@@ -208,7 +208,7 @@ const fail=()=>{$("x-title").textContent="テストが見つかりません";$("
 if(LEGACY){
   fetch("/exam/"+encodeURIComponent(LEGACY)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(x=>{X=x;paintStart();}).catch(fail);
 }else if(BANK){
-  fetch("/exam/"+encodeURIComponent(BANK)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(b=>{B=b;
+  fetch("/exam/"+encodeURIComponent(BANK)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(b=>{B=b;loadMp3(b.exam);
     if(MODE&&b.modes&&b.modes[MODE]){X=fromPicks(b,MODE,PAT);paintStart();}
     else if(PART&&FREE){paintHub();apLock&&apLock("チャプター別トレーニング");}
     else if(PART&&b.parts.some(p=>p.id===PART)){X=fromPart(b,PART);paintStart();}
@@ -369,7 +369,7 @@ function startTimer(sec,onEnd){
 $("sec-next").onclick=()=>finishSec(false);
 let finishing=false;
 async function finishSec(byTime){
-  if(finishing)return;finishing=true;clearInterval(timer);try{speechSynthesis.cancel();}catch(e){}
+  if(finishing)return;finishing=true;clearInterval(timer);stopAudio();
   const S=X.sections[I];
   try{
     if(S.kind==="listening"||S.kind==="reading")gradeLR(S);
@@ -396,11 +396,12 @@ function paintLR(S){
   b.innerHTML=h;
   S.questions.forEach((q,n)=>bindQ(q,n,S));
   if(S.kind==="listening"&&!perQ){
-    const play=()=>{speakAll(S.script,S.voice||X.voice||"en-US");$("l-play").disabled=true;$("l-play").textContent="▶ 再生中…";$("l-again").hidden=false;};
-    $("l-play").onclick=play;$("l-again").onclick=()=>{try{speechSynthesis.cancel();}catch(e){}speakAll(S.script,S.voice||"en-US");};
+    const set=(S.questions[0]||{}).set, lang=S.voice||X.voice||"en-US";
+    const play=()=>{playSet(set,S.script,lang);$("l-play").disabled=true;$("l-play").textContent="▶ 再生中…";$("l-again").hidden=false;};
+    $("l-play").onclick=play;$("l-again").onclick=()=>playSet(set,S.script,lang);
   }
-  if(perQ)b.querySelectorAll(".qplay").forEach(bt=>bt.onclick=()=>{const q=S.questions[+bt.dataset.q];try{speechSynthesis.cancel();}catch(e){}
-    speakAll(q.script+(q.spoken?"\n"+q.choices.map((c,i)=>LETTERS[i]+". "+c).join("\n"):""),S.voice||"en-US");bt.textContent="▶ もう一度";});
+  if(perQ)b.querySelectorAll(".qplay").forEach(bt=>bt.onclick=()=>{const q=S.questions[+bt.dataset.q];
+    playSet(q.set,q.script+(q.spoken?"\n"+q.choices.map((c,i)=>LETTERS[i]+". "+c).join("\n"):""),S.voice||X.voice||"en-US");bt.textContent="▶ もう一度";});
 }
 function qHtml(q,n,S,perQ){
   const num=(S.start||1)+n;
@@ -457,6 +458,18 @@ function speakAll(text,lang){
   });
 }
 try{speechSynthesis.getVoices();}catch(e){}
+/* 録音した音声（ElevenLabs の mp3・study に置く）。一覧 index.json に無いセットは、端末の読み上げに戻る */
+const AUD=((window.SITE||{}).free?"https://study.apush.jp":"")+"/exam/audio/";
+let MP3=new Set(), curAudio=null;
+function loadMp3(exam){fetch(AUD+encodeURIComponent(exam)+"/index.json",{cache:"no-store"}).then(r=>r.ok?r.json():[]).then(a=>{MP3=new Set(a);}).catch(()=>{});}
+function stopAudio(){try{speechSynthesis.cancel();}catch(e){}if(curAudio){curAudio.pause();curAudio=null;}}
+function playSet(set,text,lang){
+  stopAudio();
+  if(!(set&&X.exam&&MP3.has(set))){speakAll(text,lang);return;}
+  const a=curAudio=new Audio(AUD+encodeURIComponent(X.exam)+"/"+encodeURIComponent(set)+".mp3");let fell=false;
+  const back=()=>{if(fell||curAudio!==a)return;fell=true;curAudio=null;speakAll(text,lang);};
+  a.onerror=back;a.play().catch(back);
+}
 
 /* ---------- Writing ---------- */
 function paintWriting(S){
@@ -602,7 +615,7 @@ function assessHtml(p,sc,title){
   return h;
 }
 </script>
-<script src="/install.js" defer></script>
+<script src="/say.js"></script><script src="/install.js" defer></script>
 <script src="/ui.js" defer></script>
 </body>
 </html>

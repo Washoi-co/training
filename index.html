@@ -458,7 +458,7 @@ function segSlide(id){
   i.style.transform="translateX("+n*100+"%)";
 }
 function view(k){["quiz","repeat","adlib","fix","result"].forEach(n=>$("v-"+n).hidden=(n!==k));}
-function speak(t){try{if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
+function speak(t){if(window.apSay)return apSay(t);try{if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
 
 const SET=()=>MODE==="modal"?MODALS:MODE==="relative"?RELATIVES:TENSES;
 function sentenceOf(q){
@@ -782,6 +782,6 @@ Adlib.paintRev();
  else if(q.get("review")==="adlib")Adlib.openReview();}
 </script>
 <script src="/ui.js" defer></script>
-<script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
+<script src="/say.js"></script><script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
 </body>
 </html>
