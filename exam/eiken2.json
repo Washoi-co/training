@@ -1,0 +1,2429 @@
+{
+ "exam": "eiken2",
+ "examName": "英検®2級",
+ "group": "英検®",
+ "spelling": "American",
+ "voice": "en-US",
+ "assess": "eiken",
+ "score": {
+  "kind": "eiken",
+  "passRate": 0.62
+ },
+ "parts": [
+  {
+   "id": "G1",
+   "title": "大問1 短文の語句空所補充",
+   "kind": "reading",
+   "desc": "短い文や会話の空所に入る単語・熟語・文法を4つから選ぶ",
+   "tip": "まず空所の前後だけで品詞と形（自動詞か、後ろに前置詞が要るか）を絞る。次に2文目を読んで意味のヒント（理由・結果・逆接）を探す。形の似た語（submit / admit）に引っかからない。",
+   "secPerItem": 25,
+   "intro": "Read each item and choose the word or phrase that best fills the blank.",
+   "sets": [
+    {
+     "id": "G1-001",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Mika's teacher said her essay was well written, but it needed more ____ examples. Without them, readers might not believe her main points.",
+       "choices": [
+        "sudden",
+        "silent",
+        "narrow",
+        "specific"
+       ],
+       "answer": 3,
+       "why": "specific examples＝「具体的な例」。具体例が無いと主張が信じてもらえない、という流れ。sudden（突然の）、silent（静かな）、narrow（狭い）は例を説明できない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-002",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The new shopping mall is expected to ____ more than 500 jobs for local people. The city hopes this will help young people stay in the area.",
+       "choices": [
+        "pretend",
+        "generate",
+        "measure",
+        "declare"
+       ],
+       "answer": 1,
+       "why": "generate jobs＝「雇用を生み出す」。若者が地元に残れる、という2文目と合う。pretend（ふりをする）、measure（測る）、declare（宣言する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-003",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "A: How was your job interview, Tom?\nB: I think it went well. The manager seemed very ____ by my experience abroad, so I have a good chance.",
+       "choices": [
+        "ashamed",
+        "confused",
+        "impressed",
+        "bored"
+       ],
+       "answer": 2,
+       "why": "be impressed by ～＝「～に感心する」。so I have a good chance（受かりそう）につながるのはこれだけ。confused や bored では受かる理由にならない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-004",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Because of the heavy rain, the soccer game was ____ in the second half. The two teams will play the rest of the game next Saturday.",
+       "choices": [
+        "combined",
+        "rewarded",
+        "suspended",
+        "attended"
+       ],
+       "answer": 2,
+       "why": "suspend＝「一時中断する」。残りを来週行う、という2文目から、途中で止まったと分かる。combined（結合された）、rewarded（ほうびを受けた）、attended（出席された）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-005",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Ken spent an hour trying to ____ his little brother that ghosts are not real. In the end, he gave up and turned on all the lights in the house.",
+       "choices": [
+        "approve",
+        "convince",
+        "predict",
+        "ignore"
+       ],
+       "answer": 1,
+       "why": "convince 人 that ～＝「人に～だと納得させる」。that 節を「人」の後ろに取れるのは convince だけ。approve・predict・ignore は「人 + that 節」の形を取らない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-006",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The museum's new exhibition shows how people's ____ habits have changed over the last 100 years. For example, people now eat more meat and fewer vegetables.",
+       "choices": [
+        "financial",
+        "legal",
+        "dietary",
+        "vocal"
+       ],
+       "answer": 2,
+       "why": "dietary habits＝「食習慣」。肉と野菜を食べる量の例が続くので、食事に関する語が入る。financial（お金の）、legal（法律の）、vocal（声の）は例と合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-007",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Lisa's doctor told her to ____ the amount of sugar she eats. Since then, she has checked the ingredients of everything she buys and stopped drinking soda.",
+       "choices": [
+        "reduce",
+        "expand",
+        "reveal",
+        "obtain"
+       ],
+       "answer": 0,
+       "why": "reduce＝「減らす」。医者に言われて原材料を確かめ、炭酸飲料をやめた、という流れ。expand（広げる）、reveal（明らかにする）、obtain（手に入れる）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-008",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The scientist's ____ was that the plant would grow faster in cool weather. However, her experiments later showed exactly the opposite.",
+       "choices": [
+        "ceremony",
+        "mission",
+        "audience",
+        "theory"
+       ],
+       "answer": 3,
+       "why": "theory＝「理論・仮説」。実験で逆の結果が出た、という2文目から、予想・仮説の意味の語が入る。ceremony（式典）、mission（任務）、audience（観客）は実験で確かめる物ではない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-009",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "A: This old bridge looks a little dangerous.\nB: Don't worry. Engineers ____ it every year to make sure it is still safe for cars and people.",
+       "choices": [
+        "inspect",
+        "invent",
+        "imitate",
+        "insult"
+       ],
+       "answer": 0,
+       "why": "inspect＝「点検する」。安全か確かめるために毎年することなので inspect。invent（発明する）、imitate（まねる）、insult（侮辱する）は意味が通らない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-010",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Daniel's grandmother has a large ____ of old coins from many different countries. She started it when she was a little girl living in Spain.",
+       "choices": [
+        "direction",
+        "reflection",
+        "election",
+        "collection"
+       ],
+       "answer": 3,
+       "why": "a collection of ～＝「～の収集品・コレクション」。子どもの頃に始めた、と続くので集めた物。direction（方向）、reflection（反射・反省）、election（選挙）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-011",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The company decided to ____ its main office to a larger building downtown. The new place has enough space for all 200 of its workers.",
+       "choices": [
+        "recover",
+        "reserve",
+        "reject",
+        "relocate"
+       ],
+       "answer": 3,
+       "why": "relocate A to B＝「A を B に移転する」。もっと広い建物に入る、という2文目と合う。recover（取り戻す）、reserve（予約する）、reject（拒む）は to の後に場所を取って「移す」の意味にならない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-012",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Although the hiking trail was steep and ____, everyone in the group reached the top safely. They enjoyed a beautiful view of the lake below.",
+       "choices": [
+        "narrow",
+        "polite",
+        "humble",
+        "fluent"
+       ],
+       "answer": 0,
+       "why": "narrow＝「狭い」。Although（～だけれど）なので、道が大変だったことを表す語が入る。polite（礼儀正しい）、humble（謙虚な）、fluent（流ちょうな）は人の性質で道には使わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-013",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Many people in the town ____ to the library's fundraising event. Thanks to their help, the library was able to buy 1,000 new books for children.",
+       "choices": [
+        "contributed",
+        "complained",
+        "pretended",
+        "belonged"
+       ],
+       "answer": 0,
+       "why": "contribute to ～＝「～に貢献する・寄付する」。Thanks to their help（彼らの助けのおかげで）と合う。complained（文句を言った）、pretended（ふりをした）、belonged（属した）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-014",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The airline ____ to its passengers for the five-hour delay. It also gave each of them a free meal ticket to use at the airport.",
+       "choices": [
+        "proposed",
+        "graduated",
+        "surrendered",
+        "apologized"
+       ],
+       "answer": 3,
+       "why": "apologize to 人 for ～＝「～のことで人に謝る」。遅れのおわびに食事券を配った、という流れ。proposed（提案した）、graduated（卒業した）、surrendered（降伏した）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-015",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Jenny's new smartphone is ____ with most of her old accessories. Because of this, she did not have to buy a new charger or new headphones.",
+       "choices": [
+        "compatible",
+        "comfortable",
+        "considerable",
+        "responsible"
+       ],
+       "answer": 0,
+       "why": "be compatible with ～＝「～と互換性がある（一緒に使える）」。古い充電器が使えた、という2文目と合う。comfortable（快適な）、considerable（かなりの）、responsible（責任がある）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-016",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "In recent years, the city has seen rapid ____ in the number of tourists from overseas. Hotels near the station are now full almost every weekend.",
+       "choices": [
+        "shortage",
+        "failure",
+        "growth",
+        "absence"
+       ],
+       "answer": 2,
+       "why": "growth＝「増加・成長」。ホテルが毎週末満室、という2文目から観光客が増えたと分かる。shortage（不足）、failure（失敗）、absence（不在）は逆の意味になる。"
+      }
+     ]
+    },
+    {
+     "id": "G1-017",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "A: Why did you choose this apartment, Sam?\nB: Mainly because of its ____. The station and the supermarket are both just a two-minute walk away.",
+       "choices": [
+        "reputation",
+        "location",
+        "decoration",
+        "population"
+       ],
+       "answer": 1,
+       "why": "location＝「立地・場所」。駅もスーパーも歩いて2分、という説明と合う。reputation（評判）、decoration（飾り）、population（人口）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-018",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "After a long meeting, the design team finally reached an ____ on the new logo. Everyone voted to use the blue version instead of the red one.",
+       "choices": [
+        "argument",
+        "agreement",
+        "ambition",
+        "appointment"
+       ],
+       "answer": 1,
+       "why": "reach an agreement＝「合意に達する」。全員が青い方に投票した、と続く。argument（口論）、ambition（野心）、appointment（約束）は reach と結び付いて「決まった」の意味にならない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-019",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Mr. Sato's history lectures are always well ____. He explains each point step by step, so students find them easy to follow.",
+       "choices": [
+        "educated",
+        "delayed",
+        "organized",
+        "exhausted"
+       ],
+       "answer": 2,
+       "why": "well organized＝「よくまとまった」。一歩ずつ説明して分かりやすい、という2文目と合う。educated（教育を受けた）は人に使う語で、delayed・exhausted は意味が合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-020",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The goal of the volunteer group is to ____ the forest so that future generations can enjoy it. Members plant new trees and pick up trash every month.",
+       "choices": [
+        "abandon",
+        "divide",
+        "preserve",
+        "disturb"
+       ],
+       "answer": 2,
+       "why": "preserve＝「保護する・保存する」。未来の世代が楽しめるように木を植える、という目的と合う。abandon（見捨てる）、divide（分ける）、disturb（乱す）は逆の方向。"
+      }
+     ]
+    },
+    {
+     "id": "G1-021",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Emma was ____ when she heard that she had won first prize in the speech contest. She had not expected to win any prize at all.",
+       "choices": [
+        "ashamed",
+        "disappointed",
+        "annoyed",
+        "astonished"
+       ],
+       "answer": 3,
+       "why": "astonished＝「とても驚いた」。全く勝つと思っていなかった、という2文目と合う。1位を取って ashamed（恥ずかしい）・disappointed（がっかり）・annoyed（いらいら）は不自然。"
+      }
+     ]
+    },
+    {
+     "id": "G1-022",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The manager asked all staff members to ____ their ideas for the summer sale by Friday. She will choose the best one at next week's meeting.",
+       "choices": [
+        "admit",
+        "permit",
+        "submit",
+        "omit"
+       ],
+       "answer": 2,
+       "why": "submit＝「提出する」。金曜までにアイデアを出し、来週一番良い物を選ぶ流れ。admit（認める）、permit（許す）、omit（省く）は合わない。形の似た語に注意。"
+      }
+     ]
+    },
+    {
+     "id": "G1-023",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Dr. Lee says this new medicine is very ____. Most patients who take it start to feel better within a single day.",
+       "choices": [
+        "ordinary",
+        "temporary",
+        "effective",
+        "fragile"
+       ],
+       "answer": 2,
+       "why": "effective＝「効果がある」。1日以内に良くなる、という2文目と合う。ordinary（普通の）、temporary（一時的な）、fragile（壊れやすい）は理由にならない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-024",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Tickets for the summer festival are ____ only at the city hall. They will not be sold online or at the entrance on the day of the event.",
+       "choices": [
+        "available",
+        "valuable",
+        "reliable",
+        "capable"
+       ],
+       "answer": 0,
+       "why": "available＝「手に入る」。市役所でだけ買える、という意味。valuable（価値がある）、reliable（信頼できる）、capable（能力がある）は「どこで買えるか」を表さない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-025",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Kate had to ____ her trip to Paris because she broke her leg while skiing. She hopes to go there next spring instead.",
+       "choices": [
+        "bring up",
+        "call off",
+        "show off",
+        "look into"
+       ],
+       "answer": 1,
+       "why": "call off＝「中止する」。足を骨折して旅行をやめ、来春に行きたい、という流れ。bring up（育てる・話題に出す）、show off（見せびらかす）、look into（調べる）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-026",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "A: Could you ____ my cat while I'm away this weekend?\nB: Sure, no problem. Just leave me your key and enough cat food for three days.",
+       "choices": [
+        "turn down",
+        "look after",
+        "give in",
+        "carry out"
+       ],
+       "answer": 1,
+       "why": "look after＝「世話をする」。留守の間の猫の世話を頼んでいる。turn down（断る）、give in（屈する）、carry out（実行する）は猫を目的語にして意味が通らない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-027",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The students ____ a plan to raise money for their class trip. They decided to sell homemade cookies at the school festival in October.",
+       "choices": [
+        "caught up with",
+        "came up with",
+        "put up with",
+        "got along with"
+       ],
+       "answer": 1,
+       "why": "come up with＝「（考えを）思いつく」。お金を集める計画を考え、クッキーを売ると決めた流れ。caught up with（追いついた）、put up with（我慢した）、got along with（仲良くした）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-028",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Our office printer has ____ paper again, so I can't print the handouts for the meeting. Could you get some from the supply room?",
+       "choices": [
+        "run out of",
+        "made fun of",
+        "taken part in",
+        "kept track of"
+       ],
+       "answer": 0,
+       "why": "run out of ～＝「～を切らす」。紙が無くて印刷できない、という流れ。made fun of（からかった）、taken part in（参加した）、kept track of（記録した）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-029",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Everyone says that Mark really ____ his father. They both have the same curly hair and the same loud, friendly laugh.",
+       "choices": [
+        "makes up for",
+        "stands for",
+        "puts off",
+        "takes after"
+       ],
+       "answer": 3,
+       "why": "take after＝「（親に）似ている」。髪も笑い方も同じ、と続く。make up for（埋め合わせる）、stand for（表す）、put off（延期する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-030",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Whether the school picnic happens or not ____ the weather. If it rains tomorrow, the students will have lunch in the gym instead.",
+       "choices": [
+        "consists of",
+        "gets over",
+        "hands in",
+        "depends on"
+       ],
+       "answer": 3,
+       "why": "depend on ～＝「～次第である」。雨なら体育館、と天気で決まることが分かる。consists of（～から成る）、gets over（乗り越える）、hands in（提出する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-031",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Ms. Kim ____ a job offer from a large company in the capital. She wanted to stay in her hometown and help run her family's bakery.",
+       "choices": [
+        "filled in",
+        "turned down",
+        "set off",
+        "gave out"
+       ],
+       "answer": 1,
+       "why": "turn down＝「断る」。地元に残りたかったので、都会の会社の誘いを断った。filled in（記入した）、set off（出発した）、gave out（配った）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-032",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Jack wanted to ____ the soccer club at his new school, but its practice was on the same day as his piano lessons.",
+       "choices": [
+        "sign up for",
+        "make sense of",
+        "run into",
+        "break down"
+       ],
+       "answer": 0,
+       "why": "sign up for ～＝「～に申し込む・登録する」。but 以下で、練習日がピアノと重なるという問題が出てくる。make sense of（理解する）、run into（偶然会う）、break down（故障する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-033",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "In ____ to his full-time job at the bank, Ryan teaches guitar to children at the community center on weekends.",
+       "choices": [
+        "spite",
+        "addition",
+        "case",
+        "place"
+       ],
+       "answer": 1,
+       "why": "in addition to ～＝「～に加えて」。銀行の仕事に加えて、週末にギターも教えている。in spite of・in case of・in place of は to ではなく of を取るので、形からも外れる。"
+      }
+     ]
+    },
+    {
+     "id": "G1-034",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Our English teacher told us to ____ any new words in a dictionary. She said we should also write them down in our notebooks.",
+       "choices": [
+        "put on",
+        "take over",
+        "look up",
+        "give away"
+       ],
+       "answer": 2,
+       "why": "look up＝「（辞書などで）調べる」。新しい単語を辞書で、とあるので look up。put on（身につける）、take over（引き継ぐ）、give away（あげる）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-035",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "____ the bus was 20 minutes late, Yumi arrived at the meeting on time. She had left home earlier than usual that morning.",
+       "choices": [
+        "Because",
+        "Unless",
+        "Once",
+        "Although"
+       ],
+       "answer": 3,
+       "why": "Although＝「～だけれども」。バスが遅れた → それでも間に合った、という逆の関係。Because だと「遅れたから間に合った」でおかしい。Unless（～しない限り）、Once（いったん～すると）も合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-036",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "A: Did you visit your cousins in Canada last summer?\nB: No. If I ____ more time, I would have stayed with them for a week.",
+       "choices": [
+        "have had",
+        "had had",
+        "would have",
+        "have"
+       ],
+       "answer": 1,
+       "why": "過去の事実に反する仮定（仮定法過去完了）は If + had + 過去分詞, would have + 過去分詞。だから had had。have had・have は現在形、would have は if 節に使わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-037",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "A: Have you finished the book I lent you?\nB: Not yet. It's so long that I've only read half of it. I need a few more days ____ it.",
+       "choices": [
+        "to finish",
+        "finishing",
+        "finished",
+        "finish"
+       ],
+       "answer": 0,
+       "why": "need + 時間 + to do＝「～するのに…が必要だ」。目的を表す不定詞 to finish が入る。動名詞・過去分詞・原形はこの位置に置けない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-038",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The new ramen shop was so popular that we had to wait in line for an hour ____ we could finally get a table.",
+       "choices": [
+        "unless",
+        "while",
+        "whether",
+        "before"
+       ],
+       "answer": 3,
+       "why": "before＝「～する前に（～してやっと）」。1時間待ってやっと席に着けた、という順番。unless（～しない限り）、while（～している間）、whether（～かどうか）は意味が通らない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-039",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "This is the small town ____ my grandfather was born and grew up. He often tells me stories about the old castle near the river.",
+       "choices": [
+        "where",
+        "which",
+        "what",
+        "whose"
+       ],
+       "answer": 0,
+       "why": "後ろが主語・動詞のそろった完全な文（my grandfather was born）なので、場所を表す関係副詞 where。which は後ろに欠けた名詞が要る。what・whose も合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-040",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Hiroshi wants his English essay ____ by a native speaker before he sends it to the national speech contest next month.",
+       "choices": [
+        "to check",
+        "checking",
+        "checked",
+        "check"
+       ],
+       "answer": 2,
+       "why": "want + 物 + 過去分詞＝「物を～してもらいたい」。作文は「チェックされる」側なので過去分詞 checked。to check だと作文がチェックすることになる。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G2",
+   "title": "大問2 長文の語句空所補充",
+   "kind": "reading",
+   "desc": "約250語の説明文（3段落）の空所3つに入る語句を選ぶ",
+   "tip": "空所の後ろの1〜2文が答えの根拠になることが多い。つなぎ語の空所は、前後の関係（逆接・結果・追加・例）を先に決めてから選択肢を見る。",
+   "secPerItem": 60,
+   "intro": "Read the passage and choose the best word or phrase for each numbered blank.",
+   "sets": [
+    {
+     "id": "G2-001",
+     "passage": "Libraries of Things\n\nIn many towns, people are starting to borrow more than just books. So-called \"libraries of things\" lend everyday items such as drills, tents, and sewing machines. Members pay a small yearly fee and can take items home for up to a week. Supporters say the idea makes sense because many tools are used only a few times. A typical home drill, for instance, may be used for less than an hour in total during its whole life. Rather than every family buying its own, a neighborhood can ( 1 ).\n\nThe idea has other benefits, too. At the Brookfield Library of Things, volunteers check each item before and after it is lent out. They also hold free workshops where people learn how to repair broken household goods. Many members say that they have ( 2 ) through these events. One woman explained that she now knows several neighbors by name, even though she had lived on the same street for ten years without speaking to them.\n\nHowever, running such a library is not always easy. Items are sometimes returned late or damaged, and renting storage space can be expensive. ( 3 ), some libraries have started asking members to pay a small deposit, which is returned when items come back in good condition. Others work with local shops that offer free space in exchange for advertising. Organizers believe that, with careful planning, the idea can spread to many more communities.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "( 1 )",
+       "choices": [
+        "share a few good ones",
+        "sell them at higher prices",
+        "throw them away sooner",
+        "make them by hand"
+       ],
+       "answer": 0,
+       "why": "直前で「ドリルは一生で1時間も使わない」「各家庭が買う代わりに」とあるので、地域で数台を共有する、が入る。値上げ・早く捨てる・手作りは話の流れと関係ない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 2 )",
+       "choices": [
+        "saved money on books",
+        "started their own companies",
+        "moved to bigger houses",
+        "made new friends in their area"
+       ],
+       "answer": 3,
+       "why": "続く文で、10年話さなかった近所の人の名前を今は知っている、という例が出る。つまり地域で知り合いが増えた。本・会社・引っ越しの話は出てこない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 3 )",
+       "choices": [
+        "In spite of this",
+        "By contrast",
+        "To solve these problems",
+        "For example"
+       ],
+       "answer": 2,
+       "why": "前の文の問題（返却の遅れ・保管費）への対策として、保証金や店との協力が続く。だから「これらの問題を解決するために」。In spite of this（それにもかかわらず）や By contrast（対照的に）は対策の話につながらない。"
+      }
+     ]
+    },
+    {
+     "id": "G2-002",
+     "passage": "Walking Meetings\n\nMost office meetings take place around a table. Recently, however, some companies have been trying something different: walking meetings. Instead of sitting in a meeting room, two or three workers go for a walk together while they discuss their work. Supporters say that this ( 1 ). Employees who spend most of the day at a desk get some exercise, and many say that the fresh air helps them to think more clearly and come up with new ideas.\n\nWalking meetings may also change how people talk to each other. When two people sit across a table from one another, the conversation can feel formal, especially if one of them is a manager. Walking side by side, however, ( 2 ). They look in the same direction rather than at each other, and the atmosphere becomes more relaxed. As a result, junior employees may share honest opinions that they would not mention in a meeting room.\n\nOf course, walking meetings are not suitable for every situation. It is difficult to look at documents or take notes while walking, and bad weather can force people to stay inside. Large groups can also find it hard to hear one another on a busy street. ( 3 ), experts recommend using them mainly for short discussions between a few people, such as weekly check-ins between a manager and a team member. For longer meetings that require charts or computers, a traditional meeting room is still the better choice.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "( 1 )",
+       "choices": [
+        "costs companies a lot of money",
+        "only works in large groups",
+        "is good for both body and mind",
+        "makes meetings much longer"
+       ],
+       "answer": 2,
+       "why": "続く文で「運動になる」「外の空気で考えがはっきりする」と体と頭の両方の良さが挙がる。費用・大人数・長さの話ではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 2 )",
+       "choices": [
+        "people tend to feel more equal",
+        "workers have to speak louder",
+        "it is harder to hear the boss",
+        "managers make decisions faster"
+       ],
+       "answer": 0,
+       "why": "向かい合うと堅苦しい（特に上司と）→ 横に並ぶと雰囲気が和らぎ、若手も本音を言える、という流れ。立場の差を感じにくくなる、が合う。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 3 )",
+       "choices": [
+        "For this reason",
+        "In addition",
+        "By contrast",
+        "For example"
+       ],
+       "answer": 0,
+       "why": "前で「資料が見にくい」「天気」「大人数は聞こえにくい」と欠点を並べ、その結果として「短い少人数の話し合いに使うのがよい」と勧めている。理由→結論なので For this reason。"
+      }
+     ]
+    },
+    {
+     "id": "G2-003",
+     "passage": "The Painted Steps of Larkton\n\nLarkton is a small hillside town known for its long stone staircases. For many years, the steps were gray and plain, and few visitors stopped there on their way to the coast. In 1998, a local art teacher named Helen Ward had an idea to bring some life to the town. She asked her students to ( 1 ). With permission from the town council, they spent the summer covering one staircase with bright images of fish, boats, and flowers.\n\nAt first, some residents were unhappy with the project. They worried that the paint would become slippery when it rained and that the bright colors did not suit such an old town. ( 2 ), Ward tested several types of paint and chose one that contained fine sand to stop people from slipping. She also invited residents to vote on the designs for the next staircase, so that the whole community could take part in the decision.\n\nOver the next ten years, all twelve of the town's staircases were painted. Today, Larkton attracts thousands of tourists every summer, and new cafés and small shops have opened near the steps. The project has also ( 3 ). Many of Ward's former students still return each spring to help repaint the steps, and several of them have become art teachers themselves. As one of them said, \"We grew up feeling that this town was really ours.\"",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "( 1 )",
+       "choices": [
+        "count the number of visitors",
+        "paint pictures on the steps",
+        "build a new road to the coast",
+        "write letters to famous artists"
+       ],
+       "answer": 1,
+       "why": "次の文で、生徒たちが階段を魚や船の明るい絵で覆ったとある。だから「階段に絵を描く」。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 2 )",
+       "choices": [
+        "In other words",
+        "On the contrary",
+        "To address these concerns",
+        "For instance"
+       ],
+       "answer": 2,
+       "why": "前の文が住民の心配（すべる・古い町に合わない）、後ろがその対策（砂入りの塗料・デザインの投票）。だから「その心配に対応するために」。言い換え・反対・例ではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 3 )",
+       "choices": [
+        "made the steps more slippery",
+        "given young people a sense of pride in their town",
+        "forced many shops to close",
+        "caused tourists to stay away"
+       ],
+       "answer": 1,
+       "why": "続く文で、元生徒が今も毎年戻って塗り直し、「この町は自分たちの町だと感じて育った」と言っている。若者の町への誇り。他の3つは本文と逆。"
+      }
+     ]
+    },
+    {
+     "id": "G2-004",
+     "passage": "Learning by Teaching\n\nMost people think that teaching is something you can do only after you have learned a subject well. However, some educators believe that teaching others can actually be one of the best ways to learn. When students know that they will have to explain something to classmates, they ( 1 ). They organize their ideas, think about questions others might ask, and notice the parts that they do not yet understand themselves.\n\nAt Westfield High School, a group of older students visits a nearby elementary school once a week to help children with math. After one year, the teachers at both schools compared test results. The children's math skills had improved, as everyone expected. ( 2 ), the high school students' own scores had risen, too. Many of them said that explaining a problem in simple words to a ten-year-old had helped them to understand it much better.\n\nLearning by teaching does not work automatically, though. If students are given topics that are far too difficult, they may simply repeat what is written in the textbook without really understanding it. They may also lose confidence if the younger children ask questions that they cannot answer. Experts say that the method works best when ( 3 ). For example, teachers can check students' explanations before they share them, and they can discuss afterward what went well and what could be improved next time.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "( 1 )",
+       "choices": [
+        "often forget it quickly",
+        "stop asking questions",
+        "prefer to work alone",
+        "study it more carefully"
+       ],
+       "answer": 3,
+       "why": "後ろで「考えを整理し、質問を予想し、分からない所に気づく」と、より丁寧に学ぶ様子が続く。忘れる・質問しない・一人で、は逆。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 2 )",
+       "choices": [
+        "Instead",
+        "In addition",
+        "Otherwise",
+        "For example"
+       ],
+       "answer": 1,
+       "why": "子どもの成績が上がった → それに加えて高校生の成績も上がった（too）。Instead（その代わりに）だと子どもが伸びなかった意味になる。Otherwise（さもなければ）、For example（例えば）もつながらない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 3 )",
+       "choices": [
+        "students teach without preparing",
+        "classes are made much larger",
+        "textbooks are not used at all",
+        "teachers give students support and feedback"
+       ],
+       "answer": 3,
+       "why": "続く For example で、先生が説明を事前に確認し、後で振り返る、とある。先生の支えと助言。準備なし・大人数・教科書なしは本文に出ない。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G3A",
+   "title": "大問3A 長文の内容一致選択（Eメール）",
+   "kind": "reading",
+   "desc": "約230語のEメールを読み、内容に合う答えを3問選ぶ",
+   "tip": "設問は段落の順に1問ずつ出ることが多い。先に設問を読み、誰が・何を・なぜをメモしてから本文へ。正解は本文の語を言い換えている（hurt → injured など）。",
+   "secPerItem": 90,
+   "intro": "Read the e-mail and choose the best answer to each question.",
+   "sets": [
+    {
+     "id": "G3A-001",
+     "passage": "From: Olivia Turner <o.turner@example.com>\nTo: Sophie Hart <sophie.hart@example.net>\nDate: June 12\nSubject: A favor for the summer\n\nHi Sophie,\n\nI hope you and your family are doing well. As you know, my grandmother lives by herself in the countryside, and she recently hurt her back. My parents and I have decided to stay with her from July 1 until the end of August to help her around the house. I'm happy to be able to help her, but there's one problem. I have a small plot at the Maple Street Community Garden, and my tomato and cucumber plants will need water while I'm away.\n\nI was wondering if you could take care of them for me. They need to be watered every morning, or every other morning if it has rained. The garden has a rule that if a plot is not looked after for more than two weeks, the committee can give it to someone on the waiting list. I really don't want to lose my plot, because I've had it for three years now.\n\nOf course, you can take home as many vegetables as you like. My tomatoes are usually ready by the middle of July. Also, the garden holds a harvest party every September, and each member can bring one guest. If you help me, I'd love to take you as my guest. There's always delicious food, and the kids' pumpkin contest is a lot of fun.\n\nPlease let me know what you think.\n\nOlivia",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why will Olivia be away this summer?",
+       "choices": [
+        "She is going to work on a farm in the countryside.",
+        "Her parents are moving to a new house.",
+        "She is going to help her grandmother, who has been injured.",
+        "She has to take care of her grandmother's garden."
+       ],
+       "answer": 2,
+       "why": "第1段落：祖母が背中を痛めたので、7月1日から8月末まで祖母の家を手伝いに行く。hurt her back を has been injured と言い換えている。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Olivia say about the community garden?",
+       "choices": [
+        "Only members can water the plants there.",
+        "She has been on its waiting list for three years.",
+        "Members may lose their plots if they do not take care of them.",
+        "Its vegetables are sold to local shops in July."
+       ],
+       "answer": 2,
+       "why": "第2段落：2週間以上世話をしないと、順番待ちの人に区画を渡されるルールがある。3年は区画を持っている期間で、待っていた期間ではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Olivia offer to do for Sophie?",
+       "choices": [
+        "Teach her how to grow tomatoes.",
+        "Invite her to an event at the garden.",
+        "Pay her for watering the plants.",
+        "Enter her in the pumpkin contest."
+       ],
+       "answer": 1,
+       "why": "第3段落：9月の収穫パーティーには会員が1人ゲストを連れて行けるので、Sophie を招待したいと言っている。お金やカボチャのコンテストへの申し込みの話ではない。"
+      }
+     ]
+    },
+    {
+     "id": "G3A-002",
+     "passage": "From: Bayview Bicycle Shop <service@bayview-bikes.example.com>\nTo: Kevin Ross <k-ross@example.org>\nDate: October 3\nSubject: Your bicycle repair\n\nDear Mr. Ross,\n\nThank you for bringing your bicycle to Bayview Bicycle Shop last Saturday. Our mechanic has now checked it carefully. As you thought, the problem is with the gears. One of the parts inside has broken, and it needs to be replaced. Unfortunately, the part for your model is not in stock at the moment. We have ordered one from the maker, but it will take about two weeks to arrive.\n\nThere is another option. We have a part from a different company that would also fit your bicycle. It costs $15 more than the original part, but we could finish the repair by this Thursday. Please let us know by phone or e-mail which option you would prefer. Either way, the price will include a free safety check of your brakes and tires.\n\nWe understand that many of our customers ride their bicycles to work or school every day. If you choose to wait for the original part, you are welcome to borrow one of our rental bicycles at no cost until the repair is finished. Just bring a photo ID with you when you come to pick it up. Rental bicycles must be returned on the day you collect your own bicycle.\n\nThank you for your patience, and we look forward to hearing from you.\n\nBest regards,\nMartin Hughes\nBayview Bicycle Shop",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the problem with Mr. Ross's bicycle?",
+       "choices": [
+        "A part that is needed for the repair is not available now.",
+        "Its brakes and tires are badly damaged.",
+        "The mechanic could not find out what was wrong.",
+        "The maker has stopped selling his model."
+       ],
+       "answer": 0,
+       "why": "第1段落：ギアの部品が壊れていて、その部品が今は在庫切れで取り寄せに2週間かかる。ブレーキとタイヤは無料点検の対象で、壊れているとは書いていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "If Mr. Ross chooses the part from a different company,",
+       "choices": [
+        "he will not have to pay for the repair.",
+        "he will get a free rental bicycle.",
+        "the shop will not check his brakes.",
+        "his bicycle will be ready sooner."
+       ],
+       "answer": 3,
+       "why": "第2段落：別会社の部品は15ドル高いが、木曜までに修理が終わる（2週間待つより早い）。無料の貸し自転車は、元の部品を待つ場合の話。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Mr. Ross need to do to borrow a rental bicycle?",
+       "choices": [
+        "Pay a small fee in advance.",
+        "Show a document with his photo on it.",
+        "Call the shop before Thursday.",
+        "Return it within one week."
+       ],
+       "answer": 1,
+       "why": "第3段落：貸し自転車を受け取る時に写真付きの身分証を持ってくるように、とある。料金は無料（at no cost）で、返すのは自分の自転車を受け取る日。"
+      }
+     ]
+    },
+    {
+     "id": "G3A-003",
+     "passage": "From: Lucas Grant <l.grant@pinewood-center.example.org>\nTo: Pinewood Charity Run Volunteers\nDate: April 20\nSubject: Important changes to the charity run\n\nDear volunteers,\n\nThank you again for signing up to help at this year's Pinewood Charity Run on Sunday, May 11. Over 600 runners have already registered, which is a new record. The money we raise will be used to buy new equipment for the children's playroom at Pinewood Hospital.\n\nI'm writing to let you know about some changes. Because of construction work in Riverside Park, the race can no longer start and finish there. Instead, it will start and finish in the parking lot of Pinewood Sports Center, and the route will follow the bicycle path along the lake. This means we will need more people at water stations than last year, since the new route has fewer shady areas. If you originally signed up to hand out medals at the finish line, you may be asked to work at a water station instead.\n\nOn the day of the run, please arrive at the sports center by 7:30 a.m. so that we can explain your role before the race begins at nine. You will be given a yellow volunteer T-shirt, which you should wear during the event. Free coffee and sandwiches will be available in the sports center lobby for volunteers.\n\nIf you can no longer take part, please reply to this e-mail by May 1 so that we have time to find someone else.\n\nBest wishes,\nLucas Grant\nEvent Coordinator",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why has the location of the charity run changed?",
+       "choices": [
+        "The usual place is having construction work done.",
+        "Too many runners have registered this year.",
+        "The hospital asked for a quieter location.",
+        "The bicycle path is being repaired."
+       ],
+       "answer": 0,
+       "why": "第2段落：Riverside Park で工事があるため、そこで始められなくなった。参加者が多いのは記録の話で、場所の変更の理由ではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Lucas Grant say about the new route?",
+       "choices": [
+        "It is longer than last year's route.",
+        "Runners will finish in Riverside Park.",
+        "It has more trees and shady areas.",
+        "More volunteers will be needed to give out water."
+       ],
+       "answer": 3,
+       "why": "第2段落：新しいコースは日陰が少ないので、去年より給水所の人手が要る。shady areas は「少ない」と言っているので最後の選択肢は逆。"
+      },
+      {
+       "type": "mcq",
+       "q": "What should volunteers do if they cannot take part in the event?",
+       "choices": [
+        "Contact Lucas Grant before a certain date.",
+        "Find another person to take their place.",
+        "Come to the sports center at 7:30 a.m.",
+        "Return their volunteer T-shirts."
+       ],
+       "answer": 0,
+       "why": "最終段落：参加できなくなったら5月1日までにこのメールに返信する。代わりの人は主催者が探す（so that we have time to find someone else）。"
+      }
+     ]
+    },
+    {
+     "id": "G3A-004",
+     "passage": "From: Ben Carter <ben.carter@example.com>\nTo: Paul Carter <paul@carters-kitchen.example.com>\nDate: March 8\nSubject: Thank you, and a question\n\nDear Uncle Paul,\n\nThank you so much for the cookbook you sent for my birthday. I have already tried six of the recipes. Last weekend, I made the chicken curry for the whole family, and even my little sister, who usually hates spicy food, asked for a second plate. Mom says I'm now in charge of dinner every Saturday!\n\nCooking has become more than just a hobby for me. I've been thinking a lot about my future, and I'd like to become a chef someday. My school has a career program where students in my grade can get work experience during the summer vacation. I was wondering if I could help out at your restaurant for two weeks in August. I know a real kitchen is very busy, so I'd be happy to wash dishes or clean the floor. I just want to see what the job is really like.\n\nI talked to Mom and Dad about this, and they said it's fine as long as I finish my summer homework before I start. They also said I could stay at Grandma's house, since it's only a ten-minute bus ride from your restaurant.\n\nIf it's OK with you, could you tell me what I should prepare before August? For example, should I buy my own knife or special shoes?\n\nLove,\nBen",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What happened last weekend?",
+       "choices": [
+        "Ben's sister made a curry for the family.",
+        "Ben's mother bought him a new cookbook.",
+        "Ben ate at his uncle's restaurant.",
+        "Ben cooked a dish that his sister enjoyed."
+       ],
+       "answer": 3,
+       "why": "第1段落：Ben がチキンカレーを作り、辛い物が苦手な妹もおかわりした。本はおじさんからの誕生日プレゼント。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Ben ask his uncle?",
+       "choices": [
+        "Whether he can become a chef at the restaurant after school.",
+        "Whether he can work at the restaurant during the summer.",
+        "Whether his uncle could visit his school's career program.",
+        "Whether his uncle could teach him new recipes on Saturdays."
+       ],
+       "answer": 1,
+       "why": "第2段落：学校の職業体験として、8月に2週間レストランを手伝えないか尋ねている。"
+      },
+      {
+       "type": "mcq",
+       "q": "What did Ben's parents say?",
+       "choices": [
+        "He should take a bus to the restaurant every day from home.",
+        "He needs to buy his own knife and shoes.",
+        "He must finish his schoolwork first.",
+        "He should stay at his uncle's house."
+       ],
+       "answer": 2,
+       "why": "第3段落：夏休みの宿題を先に終えれば良い、と言った。泊まるのは祖母の家で、ナイフや靴はおじさんに聞いている質問。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G3B",
+   "title": "大問3B 長文の内容一致選択（説明文）",
+   "kind": "reading",
+   "desc": "約360語の説明文を読み、内容に合う答えを4問選ぶ",
+   "tip": "1問目〜3問目はほぼ段落の順。最後の「Which of the following statements is true?」は本文全体から1つ。数字（10トン・30%）や「一部の人」と「多くの人」の違いで外す選択肢が多いので、本文に戻って確かめる。",
+   "secPerItem": 120,
+   "intro": "Read the passage and choose the best answer to each question.",
+   "sets": [
+    {
+     "id": "G3B-001",
+     "passage": "Farms on the Roof\n\nIn many large cities, land is expensive and green space is limited. As a result, most of the vegetables that city residents eat are grown far away in the countryside and transported by truck. In recent years, however, a growing number of people have started to grow food in a place that is usually left empty: the roofs of buildings.\n\nRooftop farms come in many sizes. Some are just a few boxes of herbs on top of a restaurant, while others cover the roofs of entire shopping centers. One example is Greenline Farm, which was set up on the roof of an old factory in the city of Harborton. The farm produces about ten tons of vegetables each year, and most of them are sold to restaurants within two kilometers. Because the vegetables do not need to travel far, they can be picked in the morning and served at lunch the same day.\n\nSupporters say that rooftop farms have benefits beyond fresh food. Plants on a roof absorb sunlight that would otherwise heat the building, so the rooms below stay cooler in summer. This can reduce the amount of electricity needed for air conditioning. Rooftop farms can also give city residents, especially children, a chance to learn where their food comes from. Greenline Farm, for instance, invites local schools to visit, and students help to plant seeds and pick vegetables.\n\nHowever, building a farm on a roof is not simple. Soil and water are very heavy, so engineers must first check that a roof is strong enough. Older buildings often need expensive repairs before any plants can be grown. In addition, rooftops can be windy, and some crops, such as corn, are easily damaged. For these reasons, many rooftop farmers use light materials instead of soil and choose plants that grow low to the ground, such as lettuce and strawberries.\n\nDespite these challenges, interest in rooftop farming continues to grow. Some city governments now offer advice to building owners who want to start a farm. Experts do not expect rooftop farms to replace traditional farms, but they believe such farms can play a useful role in making cities greener and healthier places to live.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one reason that rooftop farms have become more common?",
+       "choices": [
+        "Trucks are no longer allowed in many city centers.",
+        "Farmers in the countryside have stopped growing vegetables.",
+        "Cities have little open land on which to grow food.",
+        "Restaurants are required to grow their own herbs."
+       ],
+       "answer": 2,
+       "why": "第1段落：都市は土地が高く緑地が限られている → 普段空いている屋上で育て始めた。トラック禁止や農家の生産中止の話は無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is true about Greenline Farm?",
+       "choices": [
+        "It was built on the roof of a new shopping center.",
+        "It produces about ten tons of vegetables every month.",
+        "Its vegetables are picked at lunchtime and served at dinner.",
+        "Most of its vegetables are sold close to the farm."
+       ],
+       "answer": 3,
+       "why": "第2段落：野菜の大部分は2キロ以内のレストランに売られる。屋上は古い工場、10トンは1年あたり、朝に収穫して昼に出す。"
+      },
+      {
+       "type": "mcq",
+       "q": "One problem with rooftop farms is that",
+       "choices": [
+        "children may be hurt while visiting them.",
+        "plants on roofs make buildings hotter in summer.",
+        "some roofs are not strong enough to hold soil and water.",
+        "lettuce and strawberries do not grow well in wind."
+       ],
+       "answer": 2,
+       "why": "第4段落：土と水は重いので、屋上が十分丈夫か確かめる必要があり、古い建物は修理が要る。植物はむしろ建物を涼しくする。レタスやイチゴは風に強い低い作物として挙げられている。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following statements is true?",
+       "choices": [
+        "Rooftop farms are expected to replace farms in the countryside.",
+        "Greenline Farm does not allow visitors from schools.",
+        "Some cities help building owners who want to start rooftop farms.",
+        "Corn is one of the most popular crops on rooftop farms."
+       ],
+       "answer": 2,
+       "why": "最終段落：市が屋上農園を始めたい持ち主に助言をしている。専門家は従来の農場の代わりになるとは考えていない。学校は招いている。トウモロコシは風で傷みやすいと書かれている。"
+      }
+     ]
+    },
+    {
+     "id": "G3B-002",
+     "passage": "The Night Market of Port Calder\n\nPort Calder is a fishing town on the northern coast of the small island of Merrow. Every Friday evening from June to September, its harbor turns into a busy night market. Hundreds of lanterns hang above the stalls, and visitors can buy grilled fish, homemade jam, wooden toys, and handmade clothes. Today, the market attracts around 5,000 people each week, but it began in a very small way.\n\nIn the 1960s, Port Calder's fishing boats usually returned to the harbor late in the afternoon. The fishermen's families started selling part of the day's catch directly from the boats to neighbors who came down to the water after work. Since there were no streetlights in the harbor at that time, people brought oil lamps so that they could see what they were buying. Over time, farmers from nearby villages joined them, bringing vegetables and eggs, and the market slowly grew.\n\nBy the 1980s, however, the market was in trouble. Large supermarkets had opened in the area, and many young people had moved to the cities to find work. Fewer stalls opened each year, and some people believed the market would soon disappear. Then, in 1987, a group of local residents formed the Harbor Market Society. They decided to change the market from a place for buying daily food into an event that would attract visitors. They invited craftspeople and musicians, and they replaced the old oil lamps with paper lanterns made by local schoolchildren.\n\nThe plan was successful. Tourists began to travel to Port Calder especially to visit the market, and some decided to stay in the town for the whole weekend. New guesthouses opened, and several young people who had left the town came back to start businesses. The society now has strict rules to protect the market's character. For example, at least half of the stalls must be run by people who live on the island, and everything sold must be made or grown locally.\n\nSome residents feel that the market has become too crowded and that it is now more for tourists than for local people. In response, the society started a second, smaller market on Tuesday mornings. It sells only fresh food and is mainly used by residents, just like the market of the 1960s.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How did the night market in Port Calder begin?",
+       "choices": [
+        "Farmers opened stalls to sell oil lamps.",
+        "Families sold fish to their neighbors near the boats.",
+        "Tourists asked the fishermen to sell their catch.",
+        "The town built streetlights in the harbor."
+       ],
+       "answer": 1,
+       "why": "第2段落：漁師の家族が、仕事帰りに海辺に来る近所の人へ船から魚を売り始めた。ランプは客が持ってきた物で、当時は街灯が無かった。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why was the market in trouble in the 1980s?",
+       "choices": [
+        "The harbor was too dark for people to see the stalls.",
+        "The fishing boats had stopped coming back to the harbor.",
+        "The Harbor Market Society had made too many rules.",
+        "People had other places to shop, and many young people had left."
+       ],
+       "answer": 3,
+       "why": "第3段落：大型スーパーができ、多くの若者が仕事を求めて都市へ移った。これを「他に買い物する場所ができ、若者が去った」と言い換えている。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is one of the Harbor Market Society's rules?",
+       "choices": [
+        "Products sold at the market must come from the local area.",
+        "Only people who live in Port Calder can visit the market.",
+        "All lanterns must be bought from local shops.",
+        "Stalls must close before the end of September."
+       ],
+       "answer": 0,
+       "why": "第4段落：売る物はすべて地元で作られた・育てられた物でなければならない。出店者の半分以上が島民、というルールはあるが、来場者の制限ではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following statements is true?",
+       "choices": [
+        "The night market is held every Friday throughout the year.",
+        "A newer market is mostly used by local residents.",
+        "The paper lanterns were first made by local craftspeople.",
+        "Most residents think the market should have fewer tourists."
+       ],
+       "answer": 1,
+       "why": "最終段落：火曜朝の小さな市場は主に住民が使っている。夜市は6〜9月だけ、ちょうちんは地元の小学生が作った。混みすぎと感じるのは「一部の住民」で、大多数とは書いていない。"
+      }
+     ]
+    },
+    {
+     "id": "G3B-003",
+     "passage": "Beautiful on the Inside\n\nEvery year, a large amount of fruit and vegetables is thrown away before it even reaches the shops. Much of this food is perfectly safe to eat. It is wasted simply because it does not look the way customers expect. A carrot might have two ends instead of one, an apple might have a small mark on its skin, or a potato might be too large to fit in a standard bag. Supermarkets have traditionally refused to sell such products, believing that shoppers would not buy them.\n\nIn the past few years, however, some stores have started to give these \"imperfect\" products a chance. The Fairfield supermarket chain, for example, began selling boxes of oddly shaped vegetables at about 30 percent below the usual price. At first, the company expected the boxes to be popular only with students and families trying to save money. To its surprise, many other customers bought them because they wanted to reduce food waste. The boxes now sell out in most stores by noon.\n\nFarmers have also benefited from this change. Previously, many of them had to sell imperfect crops cheaply to factories that make juice or animal food, or simply leave them in the fields. Now they can earn more from crops that they once considered almost worthless. Some farmers say that this extra income has allowed them to keep their farms running during years with poor weather.\n\nNot everyone is convinced, however. Some critics point out that selling cheaper imperfect vegetables may cause shoppers to buy fewer regular ones, which could reduce farmers' total income in the long run. Others say that the real problem is not supermarkets but households, because a large share of food waste happens after people take food home and forget to eat it. They believe that teaching people to plan meals and store food properly is more important.\n\nDespite these concerns, the popularity of imperfect produce seems to be changing how people think about food. A survey by a consumer group found that more than 60 percent of shoppers now say that appearance is not important when they choose vegetables. Many experts hope that this change in attitude will help people waste less food, both in stores and at home.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why have supermarkets usually not sold imperfect vegetables?",
+       "choices": [
+        "They thought customers would not want to buy them.",
+        "Such vegetables are often unsafe to eat.",
+        "Farmers prefer to sell them to factories.",
+        "They do not fit on supermarket shelves."
+       ],
+       "answer": 0,
+       "why": "第1段落：スーパーは、買い物客が買わないだろうと考えて売らなかった。多くは安全に食べられる、と書いてある。"
+      },
+      {
+       "type": "mcq",
+       "q": "What surprised the Fairfield supermarket chain?",
+       "choices": [
+        "Students did not want to buy the boxes at all.",
+        "The boxes were more expensive to make than expected.",
+        "Many people bought the boxes in order to help reduce waste.",
+        "Few stores were able to sell all their boxes."
+       ],
+       "answer": 2,
+       "why": "第2段落：安さ目当ての学生や家族だけでなく、食品ロスを減らしたい人が多く買ったことに驚いた。箱は昼までに売り切れる。"
+      },
+      {
+       "type": "mcq",
+       "q": "Some critics say that",
+       "choices": [
+        "imperfect vegetables are less healthy than regular ones.",
+        "much food is wasted in people's homes rather than in stores.",
+        "farmers should not sell crops to supermarkets.",
+        "supermarkets should raise the price of imperfect produce."
+       ],
+       "answer": 1,
+       "why": "第4段落：本当の問題はスーパーではなく家庭で、家に持ち帰った後に食べ忘れて捨てる量が多い、という意見。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following statements is true?",
+       "choices": [
+        "Many shoppers say that how vegetables look does not matter much to them.",
+        "Fairfield sells imperfect vegetables at the same price as regular ones.",
+        "Farmers now earn less money from imperfect crops than before.",
+        "Most food waste happens on farms because of poor weather."
+       ],
+       "answer": 0,
+       "why": "最終段落：60%以上の客が、野菜を選ぶ時に見た目は重要でないと答えた。Fairfield は約30%安く売り、農家の収入はむしろ増えた。"
+      }
+     ]
+    },
+    {
+     "id": "G3B-004",
+     "passage": "Time for a Nap\n\nIn many countries, taking a nap during the working day has long been seen as a sign of laziness. Employees who fall asleep at their desks may worry that their managers will think they are not working hard. Recently, however, a number of companies have started to encourage their workers to take short naps, and some have even built special rooms for this purpose.\n\nResearch suggests that a short nap can have real benefits. When people sleep for 15 to 20 minutes in the early afternoon, they often feel more awake and are able to concentrate better for the rest of the day. Some studies have also found that people make fewer mistakes after a nap. This may be especially important in jobs where errors can be costly, such as checking financial documents or writing computer programs.\n\nAt Northgate Software, a company with about 300 employees, a quiet room with six reclining chairs opened two years ago. Workers can book a 20-minute slot using an app on their phones. The room has soft lighting, and each chair has an alarm that wakes the user gently with vibrations. According to the company, the number of bugs found in its programs fell by about 15 percent in the first year. Many employees also say that they no longer need to drink several cups of coffee every afternoon.\n\nHowever, napping at work is not right for everyone. Experts warn that sleeping for longer than about 30 minutes can actually make people feel more tired, because they wake up from a deeper stage of sleep. Napping late in the afternoon may also make it harder to fall asleep at night. In addition, some employees feel uncomfortable sleeping in front of their co-workers, even in a special room.\n\nManagers also need to think about how nap rooms are used. At first, Northgate found that the room was always full just after lunch, while it was empty in the morning. The company solved this problem by limiting each worker to three bookings per week. It also reminds employees that naps cannot replace a good night's sleep. As one manager put it, \"A nap room is a helpful tool, but it is not a bed.\"",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What has traditionally been a common view of napping at work?",
+       "choices": [
+        "It helps employees to concentrate better.",
+        "It shows that a person is not working hard.",
+        "It is necessary for people who work at night.",
+        "It is a good way to prevent mistakes."
+       ],
+       "answer": 1,
+       "why": "第1段落：昼寝は怠けているしるしと見られてきた。集中力やミス防止は、最近の研究が示す利点で、昔からの見方ではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "At Northgate Software,",
+       "choices": [
+        "employees started drinking more coffee in the afternoon.",
+        "workers can use the nap room for up to one hour.",
+        "each chair plays loud music to wake people up.",
+        "there were fewer errors in programs after the nap room opened."
+       ],
+       "answer": 3,
+       "why": "第3段落：最初の1年でプログラムのバグが約15%減った。予約は20分、アラームは振動で優しく起こす、コーヒーは減った。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why do experts warn against long naps?",
+       "choices": [
+        "Workers may miss important meetings in the afternoon.",
+        "Nap rooms cannot hold enough employees at one time.",
+        "Co-workers may become angry with people who sleep.",
+        "People may feel more tired after waking from deep sleep."
+       ],
+       "answer": 3,
+       "why": "第4段落：30分を超えて眠ると、深い眠りの段階から起きることになり、かえって疲れを感じる。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following statements is true?",
+       "choices": [
+        "Northgate limited how often each employee could book the room.",
+        "Northgate's nap room is busiest in the morning.",
+        "Northgate thinks naps are as good as sleeping at night.",
+        "Northgate built the nap room for its managers only."
+       ],
+       "answer": 0,
+       "why": "最終段落：1人週3回までに予約を制限した。混むのは昼食直後、昼寝は夜の睡眠の代わりにならない、と会社自身が言っている。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "W1",
+   "title": "ライティング 英文要約",
+   "kind": "writing",
+   "desc": "約150語の英文（導入・利点・欠点）を45〜55語で要約する",
+   "tip": "段落ごとに「一番言いたいこと」を1つ選ぶ。例（たとえば～）は削り、具体的な語はまとめる語に（fruit, vegetables → food）。On the other hand / However で利点と欠点をつなぐ。",
+   "secPerItem": 900,
+   "intro": "Read the passage and summarize it in your own words.",
+   "sets": [
+    {
+     "id": "W1-001",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "These days, many people buy their food online instead of going to a supermarket. They choose items on a website or an app, and the groceries are delivered to their homes, sometimes within a few hours.\n\nOnline grocery shopping has several advantages. People who are busy with work or children can save time because they do not need to travel to a store and wait in line. Also, it is easier for shoppers to compare prices and keep to a budget, since they can see the total cost before they pay.\n\nHowever, there are also some disadvantages. Shoppers cannot check the fruit, vegetables, or meat with their own eyes, so they sometimes receive items that are not as fresh as they hoped. In addition, delivery fees can make the total cost higher, and some people feel that they lose a chance to talk with others in their neighborhood.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-002",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "In many supermarkets, customers can now pay for their shopping by using self-checkout machines. Instead of waiting for a cashier, they scan each item themselves and pay with cash or a card.\n\nThere are some good points about these machines. Because one staff member can watch several machines at once, stores can open more checkouts without hiring more workers. As a result, customers often spend less time waiting in line, especially when they are buying only a few items. Some shoppers also like being able to pack their bags at their own speed.\n\nOn the other hand, self-checkout machines can cause problems. Older people and people who are not used to new technology may find them confusing, and they often have to call for help when the machine stops working. Moreover, some people worry that if more stores use these machines, there will be fewer jobs for people who work as cashiers.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-003",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "In some cities, people can now rent electric scooters on the street. They use a smartphone app to find a scooter nearby, ride it to their destination, and then leave it there for the next person.\n\nSupporters say that these scooters are useful in several ways. They allow people to travel short distances quickly, for example from a train station to their office, without having to walk for a long time. Furthermore, because the scooters run on electricity, they produce less pollution than cars or motorcycles.\n\nHowever, rental scooters have also created new problems. Some riders leave scooters in the middle of sidewalks, which makes it difficult for people with baby strollers or wheelchairs to pass. Others ride too fast or on busy sidewalks, and accidents involving pedestrians have increased in some areas. Because of this, some city residents have asked for stricter rules on where scooters can be used and parked.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-004",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "Since the spread of fast internet connections, more and more companies have allowed their employees to work from home for part of the week. These workers attend meetings online and communicate with co-workers through messages and video calls.\n\nWorking from home has clear benefits for many people. They no longer need to spend time and money traveling to the office on crowded trains. They can use this extra time to sleep longer, exercise, or spend time with their families. Companies can also save money because they need smaller offices.\n\nOn the other hand, working from home is not always easy. Some workers find it difficult to separate their work and private lives, and they end up working late into the night. In addition, new employees may find it harder to learn their jobs, since they cannot easily watch and ask questions of more experienced co-workers.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-005",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "Every year, a number of high school students in Japan choose to spend several months or a year studying at a school in another country. They usually live with a local host family and take classes in the language of that country.\n\nStudying abroad at a young age can bring many benefits. Students can improve their foreign language skills quickly because they need to use the language every day. They also learn about a different culture and way of thinking, and many say that they become more independent after solving problems on their own.\n\nHowever, there are some disadvantages as well. Programs can be very expensive, so not every family can afford them. Also, students who study abroad for a long time may fall behind in some subjects at their school in Japan, and they may have to work hard to catch up before taking university entrance exams.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-006",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "In large cities, a growing number of young people are choosing to live in share houses. In a share house, each person has a private bedroom, but the kitchen, living room, and bathroom are used by everyone who lives there.\n\nLiving in a share house has some attractive points. The rent is often cheaper than that of a regular apartment of the same size, and furniture and kitchen tools are usually provided. In addition, people who have just moved to a new city can quickly make friends and get advice from the people they live with.\n\nOn the other hand, sharing a home with others can also be stressful. Residents may disagree about cleaning, noise, or the use of the kitchen, and it can be hard to relax when other people are always around. Some people also feel that they do not have enough privacy, especially when they want to invite friends over.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-007",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "Smart speakers have become common in many homes. These are devices that respond to voice commands. By speaking to them, people can play music, check the weather, set alarms, or turn the lights on and off.\n\nMany users find smart speakers very convenient. They can get information without looking at a screen, which is helpful when they are cooking or when their hands are full. Smart speakers can also support elderly people who live alone, because they can call family members or remind them to take their medicine.\n\nHowever, some people have concerns about these devices. Because smart speakers are always listening for commands, some users worry about their private conversations being recorded. In addition, smart speakers sometimes misunderstand what people say, especially when several people are talking at once, and this can be frustrating. Some parents also worry that children may spend less time asking their family members questions.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-008",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as much as possible, and write between 45 and 55 words.",
+     "minWords": 45,
+     "maxWords": 55,
+     "source": "In many countries, people are paying for things with smartphones and cards instead of cash. With a smartphone app, customers can pay at shops, restaurants, and even vending machines simply by holding their phone over a machine.\n\nCashless payment has several merits. It is quick and easy, so lines at shop registers move faster. Users also do not have to carry heavy coins or visit a bank to take out money. Moreover, many apps record every payment automatically, which makes it easier for people to see how much they have spent each month.\n\nOn the other hand, cashless payment has some weak points. Because spending money does not feel as real as handing over cash, some people spend more than they planned. Also, if a smartphone's battery runs out or the payment system stops working, people may not be able to pay at all. Some elderly people also find these apps difficult to use.",
+     "note": "1段落目（何の話か）・2段落目（利点）・3段落目（欠点）を1〜2文ずつ。本文の語をそのまま写さず言い換える。自分の意見は書かない。"
+    }
+   ]
+  },
+  {
+   "id": "W2",
+   "title": "ライティング 英作文（意見）",
+   "kind": "writing",
+   "desc": "TOPIC に対する意見と理由2つを80〜100語で書く",
+   "tip": "型を決めておく：I think ～. I have two reasons. First, ～. Second, ～. Therefore, ～. 理由は具体的に（「便利」ではなく「何が・どう便利か」）。難しい語より、間違えない語で。",
+   "secPerItem": 1200,
+   "intro": "Write an essay giving your opinion on the TOPIC and two reasons that support it.",
+   "sets": [
+    {
+     "id": "W2-001",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think more companies should let their employees work four days a week?\nPOINTS: Health, Productivity, Cost",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    },
+    {
+     "id": "W2-002",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think high school students should be allowed to use smartphones during school hours?\nPOINTS: Safety, Study, Communication",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    },
+    {
+     "id": "W2-003",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think people will read fewer paper books in the future?\nPOINTS: Technology, Price, Environment",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    },
+    {
+     "id": "W2-004",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think more people will choose to live in the countryside in the future?\nPOINTS: Remote work, Cost of living, Nature",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    },
+    {
+     "id": "W2-005",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think all high school students should do volunteer work?\nPOINTS: Experience, Time, Community",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    },
+    {
+     "id": "W2-006",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think online classes are as effective as classes in a classroom?\nPOINTS: Communication, Flexibility, Motivation",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    },
+    {
+     "id": "W2-007",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think it is important for children to learn how to cook at school?\nPOINTS: Health, Independence, Family",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    },
+    {
+     "id": "W2-008",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Do you think shops should be closed on Sundays so that their workers can rest?\nPOINTS: Workers, Customers, Business",
+     "minWords": 80,
+     "maxWords": 100,
+     "note": "最初に自分の意見（Yes / No）。理由を2つ、それぞれ1〜2文で支える。最後にもう一度意見。POINTS は参考で、使わなくてもよい。"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "リスニング第1部 会話の内容一致選択",
+   "kind": "listening",
+   "desc": "2人の会話（4〜5往復）を聞き、質問の答えを4つから選ぶ。放送は1回",
+   "tip": "放送の前に選択肢を見て、主語（He / She）と動詞から質問を予想する。会話の後半で予定が変わる（でも～、それなら～）ことが多いので、最後の発言まで聞く。",
+   "secPerItem": 15,
+   "intro": "Listen to the conversation and the question. Choose the best answer from the four choices.",
+   "sets": [
+    {
+     "id": "L1-001",
+     "script": "W: Hi, Mark. Are you coming to the office barbecue on Saturday?\nM: I'd love to, but my sister is moving into a new apartment that day. I promised to help her carry boxes.\nW: That's too bad. Everyone was hoping you'd bring your guitar.\nM: Well, maybe I can come for an hour in the evening after we finish. What time does it end?\nW: Around eight, I think.\nQuestion: What will the man do on Saturday?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the man do on Saturday?",
+       "choices": [
+        "Help his sister move.",
+        "Play the guitar at a concert.",
+        "Leave the barbecue early to go to work.",
+        "Buy boxes for his new apartment."
+       ],
+       "answer": 0,
+       "why": "男性は土曜に妹の引っ越しで箱を運ぶ約束をしている。新しいアパートは妹の物。"
+      }
+     ]
+    },
+    {
+     "id": "L1-002",
+     "script": "M: Hello, Lakeside Hotel. How may I help you?\nW: Hi. I have a reservation for two nights starting this Friday, but my flight has been changed. Could I arrive on Saturday and stay until Monday instead?\nM: Let me check. I'm sorry, but we're fully booked on Sunday night. We only have a room for Saturday.\nW: Hmm. In that case, I'll cancel my reservation and look for somewhere else.\nQuestion: What will the woman probably do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the woman probably do?",
+       "choices": [
+        "Stay at the hotel on Friday and Saturday.",
+        "Change her flight back to Friday.",
+        "Stay at the hotel only on Saturday night.",
+        "Book a room at another hotel."
+       ],
+       "answer": 3,
+       "why": "日曜が満室なので、予約を取り消して別の所を探すと言っている（look for somewhere else）。"
+      }
+     ]
+    },
+    {
+     "id": "L1-003",
+     "script": "W: Jason, have you started our science report yet?\nM: Not really. I've had basketball practice every day this week.\nW: It's due next Tuesday, you know. Why don't we meet at the library on Sunday and work on it together?\nM: Good idea. I can bring my laptop. Could you bring your notes from Mr. Brown's class?\nW: Sure. I'll see you there at ten.\nQuestion: What does the woman suggest?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman suggest?",
+       "choices": [
+        "Asking Mr. Brown for more time.",
+        "Working on the report together at the library.",
+        "Quitting the basketball team.",
+        "Borrowing Jason's laptop for the weekend."
+       ],
+       "answer": 1,
+       "why": "Why don't we ～? は提案。日曜に図書館で一緒にレポートをやろうと言っている。"
+      }
+     ]
+    },
+    {
+     "id": "L1-004",
+     "script": "M: Excuse me. I bought this jacket here last week, but the zipper broke after I wore it twice.\nW: I'm sorry to hear that. Would you like an exchange or a refund?\nM: Well, I really like the jacket. Do you have another one in medium?\nW: Let me see. We don't have a medium in black right now, but we have one in dark blue.\nM: Oh, that's fine. I'll take it.\nQuestion: What will the man do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the man do?",
+       "choices": [
+        "Get his money back.",
+        "Exchange his jacket for one in a different color.",
+        "Have the zipper repaired.",
+        "Buy a larger jacket in black."
+       ],
+       "answer": 1,
+       "why": "黒のMは無いが紺のMはあり、男性は I'll take it と言った。返金ではなく、色違いと交換する。"
+      }
+     ]
+    },
+    {
+     "id": "L1-005",
+     "script": "W: Honey, I'm going to be late tonight. My boss asked me to finish a presentation.\nM: OK. Should I cook dinner, then?\nW: That would be great. There's some chicken in the fridge. Could you use it before it goes bad?\nM: Sure. I'll make that chicken soup you like. And I'll pick up some bread on my way home.\nW: Thanks. I should be home by nine.\nQuestion: What does the woman ask the man to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman ask the man to do?",
+       "choices": [
+        "Use the chicken in the refrigerator.",
+        "Help her with her presentation.",
+        "Buy some chicken on his way home.",
+        "Eat dinner at a restaurant without her."
+       ],
+       "answer": 0,
+       "why": "冷蔵庫の鶏肉が悪くなる前に使ってほしいと頼んでいる。帰りに買うのはパンで、男性が自分から言ったこと。"
+      }
+     ]
+    },
+    {
+     "id": "L1-006",
+     "script": "M: Good morning. I'd like to see Dr. Patel today, if possible. I've had a sore throat since yesterday.\nW: I'm afraid Dr. Patel is fully booked today. Dr. Wong has an opening at 3:30, though.\nM: 3:30 is fine. I'll have to leave work a little early, but that's OK.\nW: All right. Please remember to bring your insurance card with you.\nQuestion: What do we learn about the man?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What do we learn about the man?",
+       "choices": [
+        "He has had a fever for several days.",
+        "He will see Dr. Patel tomorrow morning.",
+        "He will see a different doctor this afternoon.",
+        "He forgot to bring his insurance card."
+       ],
+       "answer": 2,
+       "why": "Patel 先生は満員なので、午後3時半に Wong 先生に診てもらう。症状は昨日からののどの痛み。"
+      }
+     ]
+    },
+    {
+     "id": "L1-007",
+     "script": "W: Steve, do you know how to use the new copy machine? I need to make 50 copies of this handout.\nM: Yes. You need to enter your staff number first. Then press the green button.\nW: I tried that, but it says \"Error.\"\nM: Oh, the paper tray might be empty. That happened to me yesterday. Let me check. Yes, it's empty. I'll get some paper.\nQuestion: What is the problem with the copy machine?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the problem with the copy machine?",
+       "choices": [
+        "The woman's staff number is wrong.",
+        "The green button is broken.",
+        "It has run out of paper.",
+        "It cannot make 50 copies at once."
+       ],
+       "answer": 2,
+       "why": "用紙トレイが空だった（the paper tray is empty）。run out of paper と言い換えている。"
+      }
+     ]
+    },
+    {
+     "id": "L1-008",
+     "script": "M: How was your trip to Canada, Amy?\nW: It was wonderful. We saw lots of beautiful lakes and mountains. But it rained for three of the five days.\nM: Oh no. What did you do when it rained?\nW: We visited museums and tried some local restaurants. Actually, the food was the best part of the whole trip.\nQuestion: What did the woman enjoy most about her trip?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What did the woman enjoy most about her trip?",
+       "choices": [
+        "The lakes and mountains.",
+        "The museums she visited.",
+        "The sunny weather.",
+        "The food she ate."
+       ],
+       "answer": 3,
+       "why": "the food was the best part（食べ物が一番良かった）と言っている。湖・山・博物館も話に出るが「一番」ではない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-009",
+     "script": "W: Excuse me. I'd like to borrow this book, but I forgot my library card.\nM: That's OK. If you show me some photo ID, I can find your account on the computer.\nW: I have my driver's license. Here you are.\nM: Thank you. Hmm, it says you still have two books that were due last week. You'll need to return those before you can borrow any more.\nW: Oh, I completely forgot about them.\nQuestion: Why can't the woman borrow the book today?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why can't the woman borrow the book today?",
+       "choices": [
+        "She does not have her driver's license.",
+        "The book is not available yet.",
+        "She has not returned some other books.",
+        "Her library card has expired."
+       ],
+       "answer": 2,
+       "why": "先週が期限の本を2冊まだ返していないので、それを返すまで借りられない。免許証は持っていた。"
+      }
+     ]
+    },
+    {
+     "id": "L1-010",
+     "script": "M: Mom, I'm thinking about getting a part-time job at the convenience store near the station.\nW: Really? What about your studies? Your exams start next month.\nM: I'd only work on Saturdays. I want to save money for a new bicycle.\nW: Well, I'll agree if you wait until your exams are over. Then you can start.\nM: OK, that's fair.\nQuestion: What does the woman tell her son?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman tell her son?",
+       "choices": [
+        "He should work on Sundays instead.",
+        "He should start working after his exams.",
+        "She will buy him a new bicycle.",
+        "He should find a job closer to home."
+       ],
+       "answer": 1,
+       "why": "試験が終わるまで待つなら賛成、と言っている。自転車は息子が自分のお金で買うつもり。"
+      }
+     ]
+    },
+    {
+     "id": "L1-011",
+     "script": "M: Good afternoon. I'm checking in for the flight to Chicago.\nW: May I see your passport, please? Thank you. Would you like a window seat or an aisle seat?\nM: An aisle seat, please. Also, is the flight on time?\nW: I'm afraid it's been delayed by about 40 minutes because of strong winds. Boarding will now start at 2:50.\nM: OK. I'll get something to eat, then.\nQuestion: What will the man probably do next?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the man probably do next?",
+       "choices": [
+        "Have a meal.",
+        "Change to a window seat.",
+        "Take a different flight.",
+        "Board the plane immediately."
+       ],
+       "answer": 0,
+       "why": "40分遅れると聞いて「じゃあ何か食べよう」と言っている。座席は通路側を選んだ。"
+      }
+     ]
+    },
+    {
+     "id": "L1-012",
+     "script": "W: Hi, Mr. Lewis. I'm going on a business trip next week. Could you collect my mail while I'm away?\nM: Of course. How long will you be gone?\nW: Five days, from Monday to Friday. I'll leave a spare key in your mailbox.\nM: No problem. Should I water your plants, too?\nW: That's kind of you, but my sister will come over to take care of them.\nQuestion: What does the woman ask the man to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman ask the man to do?",
+       "choices": [
+        "Pick up her mail.",
+        "Water her plants.",
+        "Lend her a spare key.",
+        "Take her to the airport."
+       ],
+       "answer": 0,
+       "why": "留守の間に郵便物を取ってほしいと頼んでいる。植物の水やりは妹がする。合いかぎを渡すのは女性の方。"
+      }
+     ]
+    },
+    {
+     "id": "L1-013",
+     "script": "M: Jessica, the meeting with the clients from Boston has been moved to Thursday.\nW: Thursday? But Room A is being painted that day.\nM: I know. I've already booked Room C instead. It's smaller, but there will only be six people.\nW: OK. I'll tell the others and change the time on the online calendar.\nQuestion: What is one thing the man has done?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one thing the man has done?",
+       "choices": [
+        "He has painted Room A.",
+        "He has invited more clients.",
+        "He has changed the online calendar.",
+        "He has reserved a different room."
+       ],
+       "answer": 3,
+       "why": "I've already booked Room C（もう C 室を予約した）。カレンダーを直すのは女性がこれからすること。"
+      }
+     ]
+    },
+    {
+     "id": "L1-014",
+     "script": "W: Excuse me. Do you have the new cookbook by Maria Lopez?\nM: I'm sorry, it's sold out. It's been very popular since it was on TV last week.\nW: Oh, I see. Can I order a copy?\nM: Yes. It should arrive in about five days. We'll call you when it comes in.\nW: Great. My mother's birthday is next Sunday, so that should be just in time.\nQuestion: Why does the woman want the book?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why does the woman want the book?",
+       "choices": [
+        "To use it at a cooking class.",
+        "To show it on a TV program.",
+        "To sell it at her store.",
+        "To give it to her mother."
+       ],
+       "answer": 3,
+       "why": "母の誕生日が来週の日曜で、それに間に合う、と言っている。プレゼントにするため。"
+      }
+     ]
+    },
+    {
+     "id": "L1-015",
+     "script": "M: Hi. I'm interested in joining this gym. How much does it cost?\nW: The regular plan is $60 a month. But if you only come before 4 p.m. on weekdays, it's $40.\nM: Hmm. I work until five, so I usually exercise in the evening.\nW: Then the regular plan would be best. This month, we're also giving new members a free towel.\nM: OK. I'll sign up for that.\nQuestion: How much will the man probably pay each month?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How much will the man probably pay each month?",
+       "choices": [
+        "$40.",
+        "$45.",
+        "$60.",
+        "$100."
+       ],
+       "answer": 2,
+       "why": "5時まで仕事で夕方に運動するので、平日昼の40ドルの安い方は使えない。普通の60ドルのプランに申し込む。"
+      }
+     ]
+    },
+    {
+     "id": "L1-016",
+     "script": "W: Did you see the new science fiction movie, Ken?\nM: Yes, I saw it on Friday. The special effects were amazing, but the story was a little hard to follow.\nW: Really? I've been planning to watch it this weekend.\nM: You should still go. Just read about the characters online before you see it. It'll help.\nQuestion: What does the man suggest the woman do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the man suggest the woman do?",
+       "choices": [
+        "Watch a different movie this weekend.",
+        "See the movie with him on Friday.",
+        "Avoid the movie because of its story.",
+        "Learn about the characters before watching the movie."
+       ],
+       "answer": 3,
+       "why": "見る前にネットで登場人物について読んでおくように勧めている。それでも見に行くべき（You should still go）と言っている。"
+      }
+     ]
+    },
+    {
+     "id": "L1-017",
+     "script": "M: Excuse me. Is this the right bus for the City Art Museum?\nW: No, this one goes to the airport. You need the number 12 bus. It stops across the street.\nM: Oh, thank you. Do you know how often it comes?\nW: Every 15 minutes, I think. But the museum is only a ten-minute walk from here. It might be faster to walk.\nM: Really? Then I'll walk.\nQuestion: How will the man get to the museum?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How will the man get to the museum?",
+       "choices": [
+        "By taking the number 12 bus.",
+        "By taxi.",
+        "On foot.",
+        "By taking the airport bus."
+       ],
+       "answer": 2,
+       "why": "歩いて10分の方が早いかもと聞いて Then I'll walk. と言った。on foot＝歩いて。"
+      }
+     ]
+    },
+    {
+     "id": "L1-018",
+     "script": "W: Brian, a few of us are going to try the new Thai restaurant for lunch. Do you want to come?\nM: I'd like to, but I brought lunch from home today. Also, I have to finish this sales report by one.\nW: OK. Maybe next time, then.\nM: Definitely. Actually, could you check if they deliver? If they do, I could order from there on busy days.\nQuestion: What does the man ask the woman to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the man ask the woman to do?",
+       "choices": [
+        "Help him finish his sales report.",
+        "Find out if the restaurant delivers food.",
+        "Buy him lunch at the restaurant.",
+        "Make a reservation for next time."
+       ],
+       "answer": 1,
+       "why": "could you check if they deliver?（配達するか確かめてくれる？）と頼んでいる。"
+      }
+     ]
+    },
+    {
+     "id": "L1-019",
+     "script": "W: Hello, this is Karen Miller, Lucy's mother. Lucy has a fever this morning, so she won't be at school today.\nM: I'm sorry to hear that, Mrs. Miller. Today, we're giving out the information sheet for the class trip.\nW: Oh, could her friend Emily bring it to our house? She lives next door.\nM: Sure. I'll ask Emily to take it home for Lucy.\nQuestion: How will Lucy get the information sheet?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How will Lucy get the information sheet?",
+       "choices": [
+        "Her neighbor will bring it to her.",
+        "Her mother will pick it up at school.",
+        "The teacher will mail it to her house.",
+        "She will get it on the class trip."
+       ],
+       "answer": 0,
+       "why": "隣に住む友達の Emily が持って帰ってくれる。lives next door を neighbor と言い換えている。"
+      }
+     ]
+    },
+    {
+     "id": "L1-020",
+     "script": "M: Hi. My laptop has become really slow, and it sometimes turns off by itself.\nW: How old is it?\nM: About six years old.\nW: Well, we could repair it, but it would cost about $200. A new laptop of a similar type costs around $450, and it would be much faster.\nM: Hmm. I think I'll buy a new one, then. My old one has had a lot of problems.\nQuestion: What does the man decide to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the man decide to do?",
+       "choices": [
+        "Have his laptop repaired.",
+        "Buy a new laptop.",
+        "Wait until prices go down.",
+        "Use his old laptop for another year."
+       ],
+       "answer": 1,
+       "why": "I think I'll buy a new one（新しいのを買う）と決めた。修理は200ドルかかると言われた選択肢。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L2",
+   "title": "リスニング第2部 文の内容一致選択",
+   "kind": "listening",
+   "desc": "1人が話す物語・説明・アナウンスを聞き、質問の答えを4つから選ぶ。放送は1回",
+   "tip": "最初の1文で「物語か・説明か・アナウンスか」をつかむ。物語は最後の出来事、アナウンスは「お願い・変更」、説明は However の後が問われやすい。数字はメモする。",
+   "secPerItem": 15,
+   "intro": "Listen to the passage and the question. Choose the best answer from the four choices.",
+   "sets": [
+    {
+     "id": "L2-001",
+     "script": "Rachel has worked at a bank for ten years. Last year, she decided to learn how to make pottery. Every Thursday evening, she goes to a small studio near her office. At first, her cups and bowls were uneven, but her teacher encouraged her to keep trying. Now, she often gives her pottery to friends as presents. Next month, some of her pieces will be shown at a local café.\nQuestion: What will happen next month?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will happen next month?",
+       "choices": [
+        "Rachel will start a new job at a café.",
+        "Some of Rachel's pottery will be displayed.",
+        "Rachel will open her own studio.",
+        "Rachel will begin teaching pottery."
+       ],
+       "answer": 1,
+       "why": "最後の文：来月、作品の一部が地元のカフェで展示される（will be shown → will be displayed）。"
+      }
+     ]
+    },
+    {
+     "id": "L2-002",
+     "script": "Attention, shoppers. Thank you for visiting Grandview Department Store. Today only, all winter coats on the third floor are 30 percent off. Also, customers who spend more than 50 dollars can receive a free gift bag at the service counter on the first floor. Please remember that the store will close one hour earlier than usual today, at 7 p.m., because of maintenance work. Thank you.\nQuestion: What is one thing customers can do today?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one thing customers can do today?",
+       "choices": [
+        "Buy winter coats at half price.",
+        "Shop until 8 p.m.",
+        "Get a gift bag on the third floor.",
+        "Get a free gift if they spend over 50 dollars."
+       ],
+       "answer": 3,
+       "why": "50ドル以上買うと1階でギフトバッグがもらえる。コートは30%引き（半額ではない）、閉店は7時。"
+      }
+     ]
+    },
+    {
+     "id": "L2-003",
+     "script": "Many people believe that camels store water in their humps. In fact, the humps are mostly made of fat. When food is hard to find in the desert, camels can use this fat for energy. Camels can also go for many days without drinking, partly because their bodies lose very little water. When they finally find water, they can drink more than 100 liters at one time.\nQuestion: What is one thing we learn about camels?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one thing we learn about camels?",
+       "choices": [
+        "They need to drink water every few hours.",
+        "Their humps are full of water.",
+        "Their humps contain fat that gives them energy.",
+        "They cannot live in very hot places."
+       ],
+       "answer": 2,
+       "why": "こぶは主に脂肪で、食べ物が無い時にエネルギーとして使う。「水が入っている」は多くの人の誤解として紹介されている。"
+      }
+     ]
+    },
+    {
+     "id": "L2-004",
+     "script": "Takeshi is a high school student who loves soccer. Last summer, he broke his ankle and could not play for three months. Instead of staying at home, he started helping his coach with the team's training. He recorded the players' times and gave them advice. Takeshi enjoyed this so much that he now wants to study sports science at university and become a coach himself.\nQuestion: What does Takeshi want to do in the future?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does Takeshi want to do in the future?",
+       "choices": [
+        "Work as a coach.",
+        "Become a professional soccer player.",
+        "Work as a doctor.",
+        "Teach science at a high school."
+       ],
+       "answer": 0,
+       "why": "最後の文：大学でスポーツ科学を学び、コーチになりたい。science は「スポーツ科学」で、理科の先生ではない。"
+      }
+     ]
+    },
+    {
+     "id": "L2-005",
+     "script": "Attention, passengers. Because of a signal problem near Oakwood Station, all trains on the Green Line are running about 20 minutes behind schedule. Passengers traveling to the airport are advised to take the Blue Line from Platform 4 and change trains at Central Station. We are sorry for the inconvenience. Updated information will be shown on the screens above each platform.\nQuestion: What are passengers going to the airport asked to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What are passengers going to the airport asked to do?",
+       "choices": [
+        "Use a different train line.",
+        "Wait 20 minutes at Platform 4.",
+        "Get off at Oakwood Station.",
+        "Ask for information at the station office."
+       ],
+       "answer": 0,
+       "why": "空港へ行く人は4番線の Blue Line に乗り、Central 駅で乗り換えるよう勧められている。Green Line とは別の路線。"
+      }
+     ]
+    },
+    {
+     "id": "L2-006",
+     "script": "Before modern technology was developed, lighthouses were very important for ships. Each lighthouse had its own pattern of flashing light, so sailors at night could tell exactly which lighthouse they were looking at. In the past, lighthouse keepers lived in or near the lighthouse and kept the light burning all night. Today, most lighthouses work automatically, and some old ones have become museums or hotels.\nQuestion: Why did each lighthouse have its own pattern of light?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why did each lighthouse have its own pattern of light?",
+       "choices": [
+        "So that keepers could save energy.",
+        "So that ships could travel faster.",
+        "So that visitors could find the museum.",
+        "So that sailors could recognize it."
+       ],
+       "answer": 3,
+       "why": "光り方が灯台ごとに違うので、船乗りがどの灯台を見ているか分かった（tell which → recognize）。"
+      }
+     ]
+    },
+    {
+     "id": "L2-007",
+     "script": "When Linda was a child, her grandmother often made apple pie for her. After her grandmother moved into a care home, Linda realized that she had never learned the recipe. She called her grandmother and asked her to explain it step by step. Linda wrote everything down and practiced many times. Last weekend, she brought a pie to the care home, and her grandmother said it tasted just like hers.\nQuestion: Why did Linda call her grandmother?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why did Linda call her grandmother?",
+       "choices": [
+        "To invite her to a party.",
+        "To learn how to make apple pie.",
+        "To ask her to move into a care home.",
+        "To tell her about a new bakery."
+       ],
+       "answer": 1,
+       "why": "レシピを習っていなかったと気づき、電話で一つずつ説明してもらった。"
+      }
+     ]
+    },
+    {
+     "id": "L2-008",
+     "script": "Welcome to the Harbor City Science Museum. Today, our planetarium show will begin at 11 a.m. and 2 p.m. Tickets can be bought at the main entrance. Please note that the dinosaur exhibition on the second floor is closed this week while we add new displays. It will reopen next Monday. Also, photography is allowed in all areas except the planetarium. Enjoy your visit.\nQuestion: What is one thing the speaker says?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one thing the speaker says?",
+       "choices": [
+        "The planetarium show starts at noon.",
+        "Photography is allowed in the planetarium.",
+        "Tickets are sold on the second floor.",
+        "The dinosaur exhibition is closed now."
+       ],
+       "answer": 3,
+       "why": "2階の恐竜展は新しい展示を入れるため今週は閉まっている。ショーは11時と2時、プラネタリウムだけ撮影禁止。"
+      }
+     ]
+    },
+    {
+     "id": "L2-009",
+     "script": "Many people use their smartphones in bed before going to sleep. However, doctors say that this can make it harder to fall asleep. The bright light from the screen tells the brain that it is still daytime. In addition, reading messages or watching videos can make people feel excited. To sleep better, experts recommend putting phones away at least one hour before bedtime and reading a paper book instead.\nQuestion: What do experts recommend?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What do experts recommend?",
+       "choices": [
+        "Using a brighter screen at night.",
+        "Watching relaxing videos in bed.",
+        "Stopping phone use an hour before going to bed.",
+        "Reading messages just before sleeping."
+       ],
+       "answer": 2,
+       "why": "寝る1時間前には電話をしまい、紙の本を読むよう勧めている。"
+      }
+     ]
+    },
+    {
+     "id": "L2-010",
+     "script": "Carlos opened a small bakery in his hometown three years ago. At first, few people came, because the shop was on a quiet street. Then Carlos had an idea. He started selling bread and cakes at a stand outside the train station every morning. Many busy commuters stopped to buy breakfast, and soon they began visiting his shop on weekends, too. Now, Carlos is planning to hire two more workers.\nQuestion: How did Carlos get more customers?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How did Carlos get more customers?",
+       "choices": [
+        "He moved his shop to a busier street.",
+        "He lowered the prices of his cakes.",
+        "He sold his products near the station.",
+        "He opened his shop only on weekends."
+       ],
+       "answer": 2,
+       "why": "毎朝、駅の外の売り場でパンとケーキを売った。店を移したわけではない。"
+      }
+     ]
+    },
+    {
+     "id": "L2-011",
+     "script": "Good morning, everyone. This is an announcement about this Friday's school festival. Because rain is forecast, the outdoor food stands will be moved into the gym. The music performances will still take place in the auditorium as planned. Students in charge of the food stands should meet in the gym after school on Thursday to set up the tables. Thank you for your cooperation.\nQuestion: What should students in charge of food stands do on Thursday?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What should students in charge of food stands do on Thursday?",
+       "choices": [
+        "Perform music in the auditorium.",
+        "Prepare tables in the gym.",
+        "Move the food stands outside.",
+        "Check the weather forecast."
+       ],
+       "answer": 1,
+       "why": "木曜の放課後に体育館に集まってテーブルを並べる（set up → prepare）。"
+      }
+     ]
+    },
+    {
+     "id": "L2-012",
+     "script": "Bamboo is one of the fastest-growing plants in the world. Some types can grow almost one meter in a single day. Because it grows so quickly and is also very strong, bamboo has been used for building houses, bridges, and furniture for thousands of years. Today, some companies make toothbrushes and cups from bamboo as an alternative to plastic.\nQuestion: What is one reason bamboo is used to build things?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one reason bamboo is used to build things?",
+       "choices": [
+        "It is lighter than plastic.",
+        "It can grow in very cold places.",
+        "It lives for only one year.",
+        "It is strong and grows quickly."
+       ],
+       "answer": 3,
+       "why": "成長が速く、とても丈夫なので、家・橋・家具に使われてきた。"
+      }
+     ]
+    },
+    {
+     "id": "L2-013",
+     "script": "Mei moved to Australia to study at a university. During her first month, she felt lonely because she was too shy to talk to her classmates. One day, she saw a poster for a language exchange club. She decided to join, and she began teaching Chinese to local students while they helped her with English. Now, Mei has many friends, and her English has improved a lot.\nQuestion: How did Mei make friends?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How did Mei make friends?",
+       "choices": [
+        "She moved into a student dormitory.",
+        "She took an extra English class.",
+        "She joined a club where people teach each other languages.",
+        "She made posters for her university."
+       ],
+       "answer": 2,
+       "why": "言語交換クラブに入り、中国語を教えて英語を教えてもらった。ポスターは見ただけで、作っていない。"
+      }
+     ]
+    },
+    {
+     "id": "L2-014",
+     "script": "Good afternoon, passengers. This is your captain speaking. We are now flying at 10,000 meters, and we expect to arrive in Vancouver about 15 minutes early. The weather there is cloudy, with a temperature of 12 degrees. In a few minutes, our flight attendants will be serving drinks and a light meal. Please keep your seat belts fastened while you are seated. Thank you.\nQuestion: What does the captain say about the flight?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the captain say about the flight?",
+       "choices": [
+        "It will arrive earlier than planned.",
+        "It will be 15 minutes late.",
+        "No meals will be served.",
+        "The weather in Vancouver is sunny."
+       ],
+       "answer": 0,
+       "why": "予定より15分早く着く（15 minutes early）。軽食は出る、天気はくもり。"
+      }
+     ]
+    },
+    {
+     "id": "L2-015",
+     "script": "Glass is one of the easiest materials to recycle. Unlike some plastics, glass can be melted down and made into new bottles again and again without losing its quality. Recycling glass also saves energy, because recycled glass melts at a lower temperature than the raw materials. However, glass must be sorted by color before it is recycled, so many towns ask people to separate clear, green, and brown bottles.\nQuestion: Why do many towns ask people to separate glass bottles?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why do many towns ask people to separate glass bottles?",
+       "choices": [
+        "Glass must be sorted by color before recycling.",
+        "Brown bottles cannot be recycled.",
+        "Clear glass melts at a higher temperature.",
+        "Some bottles are made of plastic."
+       ],
+       "answer": 0,
+       "why": "リサイクルの前に色で分ける必要があるので、透明・緑・茶色に分けてもらう。"
+      }
+     ]
+    },
+    {
+     "id": "L2-016",
+     "script": "Last year, Hannah decided to run a full marathon for the first time. She started training by running five kilometers three times a week, and gradually she increased the distance. Two months before the race, however, she hurt her knee and had to stop running for a while. Instead of giving up, she went swimming to stay fit. In the end, she finished the marathon in just under five hours.\nQuestion: What did Hannah do after she hurt her knee?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What did Hannah do after she hurt her knee?",
+       "choices": [
+        "She gave up the marathon.",
+        "She went swimming.",
+        "She ran shorter races.",
+        "She ran five kilometers every day."
+       ],
+       "answer": 1,
+       "why": "ひざを痛めた後、あきらめずに水泳で体力を保った。最後は完走している。"
+      }
+     ]
+    },
+    {
+     "id": "L2-017",
+     "script": "Thank you for visiting Riverside Zoo. We would like to remind you that the penguin feeding will take place at 3 p.m. near the north gate. Visitors are welcome to watch, but please do not give any food to the animals yourself. Also, the zoo will close at 5 p.m. today, although the gift shop near the main entrance will stay open until 5:30.\nQuestion: What is one thing visitors are asked to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one thing visitors are asked to do?",
+       "choices": [
+        "Go to the north gate at 5 p.m.",
+        "Buy tickets at the gift shop.",
+        "Leave the zoo by 3 p.m.",
+        "Not feed the animals."
+       ],
+       "answer": 3,
+       "why": "見るのは良いが、自分で動物に食べ物をあげないように、とお願いしている。"
+      }
+     ]
+    },
+    {
+     "id": "L2-018",
+     "script": "In recent years, some companies have started allowing workers to bring their dogs to the office. Supporters say that having dogs around helps reduce stress and encourages employees to talk with one another. Some workers also take short walks with their dogs, which gives them a chance to rest. However, companies must make sure that employees who are afraid of dogs or have allergies can still work comfortably.\nQuestion: What is one thing companies must think about?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is one thing companies must think about?",
+       "choices": [
+        "The cost of buying dog food.",
+        "Places where dogs can sleep at night.",
+        "Workers who have allergies to dogs.",
+        "Workers who want to bring cats."
+       ],
+       "answer": 2,
+       "why": "最後の文：犬が怖い人やアレルギーがある人も快適に働けるようにしなければならない。"
+      }
+     ]
+    },
+    {
+     "id": "L2-019",
+     "script": "After Mr. Tanaka retired from his job as an engineer, he wanted to do something useful with his free time. A friend told him that a local elementary school needed volunteers to read books to children. At first, Mr. Tanaka was nervous because he had never spoken in front of children before. However, the children loved his stories. Now he visits the school twice a week and has even started writing his own stories.\nQuestion: Why was Mr. Tanaka nervous at first?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why was Mr. Tanaka nervous at first?",
+       "choices": [
+        "He did not like reading books.",
+        "He had no experience speaking to children.",
+        "He had never worked as an engineer.",
+        "His friend could not come with him."
+       ],
+       "answer": 1,
+       "why": "子どもの前で話したことが一度も無かったので緊張した。"
+      }
+     ]
+    },
+    {
+     "id": "L2-020",
+     "script": "Hot-air balloons work because hot air is lighter than cool air. A burner heats the air inside the balloon, and this makes the balloon rise. To go down, the pilot lets the air cool. Pilots cannot steer balloons directly. Instead, they move up or down to find winds blowing in the direction they want to go. For this reason, most balloon flights take place in the early morning, when the winds are calm.\nQuestion: How do pilots control the direction of a balloon?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How do pilots control the direction of a balloon?",
+       "choices": [
+        "By changing its height to find different winds.",
+        "By turning the burner to the left or right.",
+        "By flying only in strong winds.",
+        "By letting the air inside cool quickly."
+       ],
+       "answer": 0,
+       "why": "直接かじは取れないので、上下に動いて行きたい方向の風を探す。空気を冷ますのは降りる時。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S1",
+   "title": "二次試験 面接",
+   "kind": "speaking",
+   "desc": "約60語の文を音読し、内容の質問1つと意見の質問2つに答える（イラスト問題は省略）",
+   "tip": "No.1 は by doing so / in this way の前の部分が答え。主語を They に変え、By ～ing で答える。No.3・No.4 は「立場 → 理由2つ」。沈黙より短い文で言い切る。",
+   "secPerItem": 30,
+   "intro": "Read the card silently for 20 seconds, read it aloud, then answer the questions.",
+   "sets": [
+    {
+     "id": "S1-001",
+     "tasks": [
+      {
+       "type": "Read aloud",
+       "prompt": "Please read the passage aloud.",
+       "timeSec": 30,
+       "readAloud": "Bicycles for Everyone\n\nToday, many cities have bicycle-sharing services. People can rent a bicycle at one station and return it at another, so they do not need to own one. Some cities offer these services near train stations, and by doing so they help people travel short distances easily. Such services are also expected to reduce traffic in city centers.",
+       "ja": "まず20秒で黙読してから、タイトルも含めて音読。意味の切れ目で区切る。"
+      },
+      {
+       "type": "No. 1",
+       "prompt": "According to the passage, how do some cities help people travel short distances easily?",
+       "timeSec": 20,
+       "ja": "答えの形：By offering bicycle-sharing services near train stations.（by doing so の前を見る）"
+      },
+      {
+       "type": "No. 3",
+       "prompt": "Some people say that more people should use bicycles instead of cars in cities. What do you think about that?",
+       "timeSec": 30,
+       "ja": "I agree / I disagree で立場を言い、理由を2文で。"
+      },
+      {
+       "type": "No. 4",
+       "prompt": "Today, many people exercise at gyms. Do you think it is necessary to go to a gym to stay healthy? Why or why not?",
+       "timeSec": 30,
+       "ja": "Yes. / No. の後に理由を2文。具体例があると良い。"
+      }
+     ]
+    },
+    {
+     "id": "S1-002",
+     "tasks": [
+      {
+       "type": "Read aloud",
+       "prompt": "Please read the passage aloud.",
+       "timeSec": 30,
+       "readAloud": "Doctors Online\n\nNowadays, some hospitals let patients talk with doctors through video calls. This is helpful for people who live far from hospitals or are too busy to visit one. Patients can receive advice without leaving home, and in this way they can save time. However, doctors cannot examine patients directly, so some people think online visits should only be used for simple problems.",
+       "ja": "まず20秒で黙読してから、タイトルも含めて音読。意味の切れ目で区切る。"
+      },
+      {
+       "type": "No. 1",
+       "prompt": "According to the passage, how can patients save time?",
+       "timeSec": 20,
+       "ja": "答えの形：By receiving advice from doctors without leaving home.（in this way の前を見る）"
+      },
+      {
+       "type": "No. 3",
+       "prompt": "Some people say that more hospitals should offer online visits in the future. What do you think about that?",
+       "timeSec": 30,
+       "ja": "I agree / I disagree で立場を言い、理由を2文で。"
+      },
+      {
+       "type": "No. 4",
+       "prompt": "Today, many people look for health information on the internet. Do you think the information on the internet is useful? Why or why not?",
+       "timeSec": 30,
+       "ja": "Yes. / No. の後に理由を2文。具体例があると良い。"
+      }
+     ]
+    },
+    {
+     "id": "S1-003",
+     "tasks": [
+      {
+       "type": "Read aloud",
+       "prompt": "Please read the passage aloud.",
+       "timeSec": 30,
+       "readAloud": "Work Experience for Students\n\nMany schools give students a chance to work at local businesses for a few days. Students might help at shops, offices, or day-care centers. They see what adults do at work every day, and by doing so they can think about what kind of job they want in the future. Many businesses welcome these students, too.",
+       "ja": "まず20秒で黙読してから、タイトルも含めて音読。意味の切れ目で区切る。"
+      },
+      {
+       "type": "No. 1",
+       "prompt": "According to the passage, how can students think about what kind of job they want in the future?",
+       "timeSec": 20,
+       "ja": "答えの形：By seeing what adults do at work every day."
+      },
+      {
+       "type": "No. 3",
+       "prompt": "Some people say that students should start thinking about their future jobs at a young age. What do you think about that?",
+       "timeSec": 30,
+       "ja": "I agree / I disagree で立場を言い、理由を2文で。"
+      },
+      {
+       "type": "No. 4",
+       "prompt": "Do you think young people today spend enough time playing outside? Why or why not?",
+       "timeSec": 30,
+       "ja": "Yes. / No. の後に理由を2文。具体例があると良い。"
+      }
+     ]
+    },
+    {
+     "id": "S1-004",
+     "tasks": [
+      {
+       "type": "Read aloud",
+       "prompt": "Please read the passage aloud.",
+       "timeSec": 30,
+       "readAloud": "Choosing How Much to Eat\n\nSome restaurants now offer smaller portions at lower prices. Customers can choose the amount of food they want to eat, and in this way restaurants can reduce the amount of food that is thrown away. Some restaurants also give customers boxes to take leftover food home. Such efforts are becoming more common as people grow more interested in protecting the environment.",
+       "ja": "まず20秒で黙読してから、タイトルも含めて音読。意味の切れ目で区切る。"
+      },
+      {
+       "type": "No. 1",
+       "prompt": "According to the passage, how can restaurants reduce the amount of food that is thrown away?",
+       "timeSec": 20,
+       "ja": "答えの形：By letting customers choose the amount of food they want to eat.（in this way の前）"
+      },
+      {
+       "type": "No. 3",
+       "prompt": "Some people say that people today waste too much food. What do you think about that?",
+       "timeSec": 30,
+       "ja": "I agree / I disagree で立場を言い、理由を2文で。"
+      },
+      {
+       "type": "No. 4",
+       "prompt": "Do you think more people will cook at home rather than eat out in the future? Why or why not?",
+       "timeSec": 30,
+       "ja": "Yes. / No. の後に理由を2文。具体例があると良い。"
+      }
+     ]
+    },
+    {
+     "id": "S1-005",
+     "tasks": [
+      {
+       "type": "Read aloud",
+       "prompt": "Please read the passage aloud.",
+       "timeSec": 30,
+       "readAloud": "Cafés for the Community\n\nIn some towns, community cafés have opened in public buildings such as libraries. These cafés are often run by local volunteers, and they serve drinks and snacks at low prices. Elderly people who live alone can chat with their neighbors there, and by doing so they can feel less lonely. Such cafés are also becoming places where parents with small children meet.",
+       "ja": "まず20秒で黙読してから、タイトルも含めて音読。意味の切れ目で区切る。"
+      },
+      {
+       "type": "No. 1",
+       "prompt": "According to the passage, how can elderly people who live alone feel less lonely?",
+       "timeSec": 20,
+       "ja": "答えの形：By chatting with their neighbors at community cafés."
+      },
+      {
+       "type": "No. 3",
+       "prompt": "Some people say that it is important for neighbors to know each other well. What do you think about that?",
+       "timeSec": 30,
+       "ja": "I agree / I disagree で立場を言い、理由を2文で。"
+      },
+      {
+       "type": "No. 4",
+       "prompt": "Do you think libraries are still useful for people today? Why or why not?",
+       "timeSec": 30,
+       "ja": "Yes. / No. の後に理由を2文。具体例があると良い。"
+      }
+     ]
+    },
+    {
+     "id": "S1-006",
+     "tasks": [
+      {
+       "type": "Read aloud",
+       "prompt": "Please read the passage aloud.",
+       "timeSec": 30,
+       "readAloud": "Robots in Restaurants\n\nThese days, some restaurants use robots to carry food to customers' tables. Many restaurants have difficulty finding enough workers, so robots can be very helpful. Robots carry dishes from the kitchen, and in this way staff members can spend more time talking with customers. However, some customers say that they still prefer being served by people.",
+       "ja": "まず20秒で黙読してから、タイトルも含めて音読。意味の切れ目で区切る。"
+      },
+      {
+       "type": "No. 1",
+       "prompt": "According to the passage, how can staff members spend more time talking with customers?",
+       "timeSec": 20,
+       "ja": "答えの形：Because robots carry dishes from the kitchen for them.（in this way の前）"
+      },
+      {
+       "type": "No. 3",
+       "prompt": "Some people say that robots will do many of the jobs people do now. What do you think about that?",
+       "timeSec": 30,
+       "ja": "I agree / I disagree で立場を言い、理由を2文で。"
+      },
+      {
+       "type": "No. 4",
+       "prompt": "Do you think it is a good idea for high school students to have part-time jobs? Why or why not?",
+       "timeSec": 30,
+       "ja": "Yes. / No. の後に理由を2文。具体例があると良い。"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "modes": {
+  "ten": {
+   "minutes": 10,
+   "pick": [
+    {
+     "part": "G1",
+     "items": 8
+    },
+    {
+     "part": "G3A",
+     "sets": 1
+    },
+    {
+     "part": "L1",
+     "items": 3
+    }
+   ]
+  },
+  "challenge": {
+   "minutes": 25,
+   "pick": [
+    {
+     "part": "G1",
+     "items": 10
+    },
+    {
+     "part": "G2",
+     "sets": 1
+    },
+    {
+     "part": "G3B",
+     "sets": 1
+    },
+    {
+     "part": "L1",
+     "items": 5
+    },
+    {
+     "part": "L2",
+     "items": 5
+    },
+    {
+     "part": "W2",
+     "sets": 1
+    }
+   ]
+  }
+ }
+}

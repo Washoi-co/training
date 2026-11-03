@@ -1,0 +1,4989 @@
+{
+ "exam": "toefl",
+ "examName": "TOEFL iBT",
+ "group": "TOEFL",
+ "spelling": "American",
+ "voice": "en-US",
+ "assess": "toefl",
+ "score": {
+  "kind": "toefl"
+ },
+ "parts": [
+  {
+   "id": "R1",
+   "title": "Reading: Complete the Words",
+   "kind": "reading",
+   "desc": "学術的な短い段落で、後ろ半分が消えた10語を完成させる",
+   "tip": "最初の1文は完全な形なので、まず話題をつかむ。消えた語の前後（a/the の後は名詞、主語の後は動詞）と、残った文字数から形を決める。単数・複数、時制の -s / -ed まで合わせる。",
+   "secPerItem": 20,
+   "intro": "Read the paragraph. Some words are incomplete. Type the missing letters (or the whole word) for each numbered word.",
+   "sets": [
+    {
+     "id": "R1-01",
+     "passage": "Honeybee communication\n\nHoneybees share information about food through a movement known as the waggle dance. When a for_ _ _ _ (1) returns t_ (2) the hi_ _ (3), she wa_ _ _ (4) in a stra_ _ _ _ (5) line wh_ _ _ (6) shaking h_ _ (7) body fr_ _ (8) side t_ (9) side. T_ _ (10) direction of this run shows other bees where the flowers are in relation to the sun, and its length tells them how far away the food is. Using this simple code, a colony can send many workers to the best source within a short time.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: for____ (4 letters missing)",
+       "answer": [
+        "forager",
+        "ager"
+       ],
+       "why": "forager（えさを集めに出るハチ）。a の後なので名詞。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: t____ (1 letter missing)",
+       "answer": [
+        "to",
+        "o"
+       ],
+       "why": "returns to（〜に戻る）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: hi____ (2 letters missing)",
+       "answer": [
+        "hive",
+        "ve"
+       ],
+       "why": "the hive（巣箱）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: wa____ (3 letters missing)",
+       "answer": [
+        "walks",
+        "lks"
+       ],
+       "why": "she walks（歩く）。主語 she なので -s。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: stra____ (4 letters missing)",
+       "answer": [
+        "straight",
+        "ight"
+       ],
+       "why": "a straight line（まっすぐな線）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: wh____ (3 letters missing)",
+       "answer": [
+        "while",
+        "ile"
+       ],
+       "why": "while shaking（〜しながら）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: h____ (2 letters missing)",
+       "answer": [
+        "her",
+        "er"
+       ],
+       "why": "her body（彼女の体）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: fr____ (2 letters missing)",
+       "answer": [
+        "from",
+        "om"
+       ],
+       "why": "from side to side（左右に）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: t____ (1 letter missing)",
+       "answer": [
+        "to",
+        "o"
+       ],
+       "why": "from side to side の to。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: T____ (2 letters missing)",
+       "answer": [
+        "the",
+        "he"
+       ],
+       "why": "The direction（その方向）。文の始まり。"
+      }
+     ]
+    },
+    {
+     "id": "R1-02",
+     "passage": "Glacial valleys\n\nMany mountain valleys owe their shape to ancient glaciers. As a gla_ _ _ _ (1) moves slo_ _ _ (2) downhill, i_ (3) carries ro_ _ _ (4) that scr_ _ _ (5) the gro_ _ _ (6) beneath i_ (7) like coa_ _ _ (8) sandpaper. Ov_ _ (9) thousands o_ (10) years, this action widens the floor of a narrow river valley and steepens its sides. The result is a broad valley with a rounded base, which geologists often describe as U-shaped. Such valleys remain long after the ice has melted away.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: gla____ (4 letters missing)",
+       "answer": [
+        "glacier",
+        "cier"
+       ],
+       "why": "a glacier（氷河）。as の後の主語。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: slo____ (3 letters missing)",
+       "answer": [
+        "slowly",
+        "wly"
+       ],
+       "why": "moves slowly（ゆっくり）。動詞を説明する副詞。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: i____ (1 letter missing)",
+       "answer": [
+        "it",
+        "t"
+       ],
+       "why": "it carries（それは運ぶ）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: ro____ (3 letters missing)",
+       "answer": [
+        "rocks",
+        "cks"
+       ],
+       "why": "rocks（岩）。carries の目的語。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: scr____ (3 letters missing)",
+       "answer": [
+        "scrape",
+        "ape"
+       ],
+       "why": "that scrape（こする）。複数の rocks に合わせて -s なし。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: gro____ (3 letters missing)",
+       "answer": [
+        "ground",
+        "und"
+       ],
+       "why": "the ground（地面）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: i____ (1 letter missing)",
+       "answer": [
+        "it",
+        "t"
+       ],
+       "why": "beneath it（その下）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: coa____ (3 letters missing)",
+       "answer": [
+        "coarse",
+        "rse"
+       ],
+       "why": "coarse sandpaper（目の粗い紙やすり）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: Ov____ (2 letters missing)",
+       "answer": [
+        "over",
+        "er"
+       ],
+       "why": "Over thousands of years（何千年もかけて）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: o____ (1 letter missing)",
+       "answer": [
+        "of",
+        "f"
+       ],
+       "why": "thousands of years の of。"
+      }
+     ]
+    },
+    {
+     "id": "R1-03",
+     "passage": "Early printing\n\nThe arrival of the printing press changed how knowledge spread in Europe. Before i_ (1) was intro_ _ _ _ _ (2), books h_ _ (3) to b_ (4) copied b_ (5) hand, s_ (6) they we_ _ (7) rare a_ _ (8) very expe_ _ _ _ _ (9). Once prin_ _ _ _ (10) could produce hundreds of identical pages in a day, the price of books fell and more people learned to read. Ideas that once took decades to travel could now reach distant cities within months.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: i____ (1 letter missing)",
+       "answer": [
+        "it",
+        "t"
+       ],
+       "why": "Before it was introduced の it（＝印刷機）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: intro____ (5 letters missing)",
+       "answer": [
+        "introduced",
+        "duced"
+       ],
+       "why": "was introduced（導入された）。受け身。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: h____ (2 letters missing)",
+       "answer": [
+        "had",
+        "ad"
+       ],
+       "why": "books had to（〜しなければならなかった）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: b____ (1 letter missing)",
+       "answer": [
+        "be",
+        "e"
+       ],
+       "why": "had to be copied の be。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: b____ (1 letter missing)",
+       "answer": [
+        "by",
+        "y"
+       ],
+       "why": "by hand（手で）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: s____ (1 letter missing)",
+       "answer": [
+        "so",
+        "o"
+       ],
+       "why": "so（だから）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: we____ (2 letters missing)",
+       "answer": [
+        "were",
+        "re"
+       ],
+       "why": "they were（それらは〜だった）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: a____ (2 letters missing)",
+       "answer": [
+        "and",
+        "nd"
+       ],
+       "why": "rare and very expensive の and。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: expe____ (5 letters missing)",
+       "answer": [
+        "expensive",
+        "nsive"
+       ],
+       "why": "very expensive（とても高価な）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: prin____ (4 letters missing)",
+       "answer": [
+        "printers",
+        "ters"
+       ],
+       "why": "printers（印刷業者）。could produce の主語。"
+      }
+     ]
+    },
+    {
+     "id": "R1-04",
+     "passage": "Painting outdoors\n\nIn the nineteenth century, some painters began to work outside rather than in their studios. New me_ _ _ (1) tubes f_ _ (2) paint ma_ _ (3) it ea_ _ (4) to ca_ _ _ (5) colors in_ _ (6) fields a_ _ (7) along riv_ _ _ (8). Working i_ (9) the op_ _ (10) air, these artists tried to capture the changing light at a particular moment of the day. Their quick brushstrokes and bright colors puzzled many critics at first, but the style later became widely admired.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: me____ (3 letters missing)",
+       "answer": [
+        "metal",
+        "tal"
+       ],
+       "why": "metal tubes（金属のチューブ）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: f____ (2 letters missing)",
+       "answer": [
+        "for",
+        "or"
+       ],
+       "why": "tubes for paint（絵の具用の）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: ma____ (2 letters missing)",
+       "answer": [
+        "made",
+        "de"
+       ],
+       "why": "made it easy（簡単にした）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: ea____ (2 letters missing)",
+       "answer": [
+        "easy",
+        "sy"
+       ],
+       "why": "made it easy の easy。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: ca____ (3 letters missing)",
+       "answer": [
+        "carry",
+        "rry"
+       ],
+       "why": "to carry（運ぶ）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: in____ (2 letters missing)",
+       "answer": [
+        "into",
+        "to"
+       ],
+       "why": "into fields（野原の中へ）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: a____ (2 letters missing)",
+       "answer": [
+        "and",
+        "nd"
+       ],
+       "why": "fields and along rivers の and。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: riv____ (3 letters missing)",
+       "answer": [
+        "rivers",
+        "ers"
+       ],
+       "why": "along rivers（川沿いに）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: i____ (1 letter missing)",
+       "answer": [
+        "in",
+        "n"
+       ],
+       "why": "Working in the open air の in。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: op____ (2 letters missing)",
+       "answer": [
+        "open",
+        "en"
+       ],
+       "why": "the open air（屋外）。"
+      }
+     ]
+    },
+    {
+     "id": "R1-05",
+     "passage": "Sleep and memory\n\nPsychologists have found that sleep plays an important role in forming long-term memories. During t_ _ (1) day, n_ _ (2) information i_ (3) stored on_ _ (4) briefly i_ (5) a part o_ (6) the br_ _ _ (7) that h_ _ (8) limited sp_ _ _ (9). While w_ (10) sleep, the brain seems to replay these recent experiences and move them to more permanent storage. This may explain why students who sleep well after studying usually remember more than those who stay awake all night.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: t____ (2 letters missing)",
+       "answer": [
+        "the",
+        "he"
+       ],
+       "why": "During the day（昼の間）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: n____ (2 letters missing)",
+       "answer": [
+        "new",
+        "ew"
+       ],
+       "why": "new information（新しい情報）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: i____ (1 letter missing)",
+       "answer": [
+        "is",
+        "s"
+       ],
+       "why": "is stored（蓄えられる）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: on____ (2 letters missing)",
+       "answer": [
+        "only",
+        "ly"
+       ],
+       "why": "only briefly（ほんの短い間だけ）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: i____ (1 letter missing)",
+       "answer": [
+        "in",
+        "n"
+       ],
+       "why": "in a part（〜の一部に）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: o____ (1 letter missing)",
+       "answer": [
+        "of",
+        "f"
+       ],
+       "why": "a part of the brain の of。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: br____ (3 letters missing)",
+       "answer": [
+        "brain",
+        "ain"
+       ],
+       "why": "the brain（脳）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: h____ (2 letters missing)",
+       "answer": [
+        "has",
+        "as"
+       ],
+       "why": "that has（〜を持つ）。単数の part に合わせて has。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: sp____ (3 letters missing)",
+       "answer": [
+        "space",
+        "ace"
+       ],
+       "why": "limited space（限られた空間）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: w____ (1 letter missing)",
+       "answer": [
+        "we",
+        "e"
+       ],
+       "why": "While we sleep（眠っている間）。"
+      }
+     ]
+    },
+    {
+     "id": "R1-06",
+     "passage": "Prices as signals\n\nIn a market economy, prices carry information as well as costs. If a pro_ _ _ _ (1) suddenly bec_ _ _ _ (2) scarce, i_ _ (3) price te_ _ _ (4) to ri_ _ (5) quickly. Th_ _ (6) increase te_ _ _ (7) buyers t_ (8) use le_ _ (9) of t_ _ (10) product and encourages producers to make more of it. In this way, millions of separate decisions can be coordinated without any central planner. Economists often describe this process as one of the main strengths of free markets.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: pro____ (4 letters missing)",
+       "answer": [
+        "product",
+        "duct"
+       ],
+       "why": "a product（製品）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: bec____ (4 letters missing)",
+       "answer": [
+        "becomes",
+        "omes"
+       ],
+       "why": "becomes scarce（不足する）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: i____ (2 letters missing)",
+       "answer": [
+        "its",
+        "ts"
+       ],
+       "why": "its price（その値段）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: te____ (3 letters missing)",
+       "answer": [
+        "tends",
+        "nds"
+       ],
+       "why": "tends to（〜しがちだ）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: ri____ (2 letters missing)",
+       "answer": [
+        "rise",
+        "se"
+       ],
+       "why": "to rise（上がる）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: Th____ (2 letters missing)",
+       "answer": [
+        "this",
+        "is"
+       ],
+       "why": "This increase（この上昇）。文の始まり。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: te____ (3 letters missing)",
+       "answer": [
+        "tells",
+        "lls"
+       ],
+       "why": "tells buyers（買い手に伝える）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: t____ (1 letter missing)",
+       "answer": [
+        "to",
+        "o"
+       ],
+       "why": "tells buyers to use の to。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: le____ (2 letters missing)",
+       "answer": [
+        "less",
+        "ss"
+       ],
+       "why": "use less（より少なく使う）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: t____ (2 letters missing)",
+       "answer": [
+        "the",
+        "he"
+       ],
+       "why": "of the product の the。"
+      }
+     ]
+    },
+    {
+     "id": "R1-07",
+     "passage": "Coral partnerships\n\nReef-building corals depend on a close partnership with tiny algae. The al_ _ _ (1) live ins_ _ _ (2) the co_ _ _ (3) tissue a_ _ (4) use sunl_ _ _ _ (5) to ma_ _ (6) sugars, mu_ _ (7) of wh_ _ _ (8) they pa_ _ (9) to th_ _ _ (10) host. In return, the coral gives them shelter and a steady supply of the nutrients they need. When ocean water becomes too warm, however, this relationship can break down and the coral may lose its color.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: al____ (3 letters missing)",
+       "answer": [
+        "algae",
+        "gae"
+       ],
+       "why": "The algae（藻類）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: ins____ (3 letters missing)",
+       "answer": [
+        "inside",
+        "ide"
+       ],
+       "why": "live inside（〜の内部に住む）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: co____ (3 letters missing)",
+       "answer": [
+        "coral",
+        "ral"
+       ],
+       "why": "the coral tissue（サンゴの組織）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: a____ (2 letters missing)",
+       "answer": [
+        "and",
+        "nd"
+       ],
+       "why": "live inside … and use の and。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: sunl____ (4 letters missing)",
+       "answer": [
+        "sunlight",
+        "ight"
+       ],
+       "why": "use sunlight（日光を使う）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: ma____ (2 letters missing)",
+       "answer": [
+        "make",
+        "ke"
+       ],
+       "why": "to make sugars（糖を作る）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: mu____ (2 letters missing)",
+       "answer": [
+        "much",
+        "ch"
+       ],
+       "why": "much of which（そのうちの多く）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: wh____ (3 letters missing)",
+       "answer": [
+        "which",
+        "ich"
+       ],
+       "why": "much of which の which。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: pa____ (2 letters missing)",
+       "answer": [
+        "pass",
+        "ss"
+       ],
+       "why": "they pass（渡す）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: th____ (3 letters missing)",
+       "answer": [
+        "their",
+        "eir"
+       ],
+       "why": "to their host（宿主に）。"
+      }
+     ]
+    },
+    {
+     "id": "R1-08",
+     "passage": "Volcanic soils\n\nLand near active volcanoes is often surprisingly good for farming. Each erup_ _ _ _ (1) covers t_ _ (2) ground wi_ _ (3) ash th_ _ (4) contains mine_ _ _ _ (5) such a_ (6) potassium a_ _ (7) phosphorus. A_ (8) this a_ _ (9) breaks do_ _ (10) over time, it forms a dark soil that holds water well and feeds crops for many years. For this reason, farmers in many regions have chosen to live close to volcanoes despite the obvious danger.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: erup____ (4 letters missing)",
+       "answer": [
+        "eruption",
+        "tion"
+       ],
+       "why": "Each eruption（噴火）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: t____ (2 letters missing)",
+       "answer": [
+        "the",
+        "he"
+       ],
+       "why": "covers the ground の the。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: wi____ (2 letters missing)",
+       "answer": [
+        "with",
+        "th"
+       ],
+       "why": "with ash（灰で覆う）。cover A with B。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: th____ (2 letters missing)",
+       "answer": [
+        "that",
+        "at"
+       ],
+       "why": "ash that contains（〜を含む）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: mine____ (4 letters missing)",
+       "answer": [
+        "minerals",
+        "rals"
+       ],
+       "why": "minerals（鉱物）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: a____ (1 letter missing)",
+       "answer": [
+        "as",
+        "s"
+       ],
+       "why": "such as（〜のような）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: a____ (2 letters missing)",
+       "answer": [
+        "and",
+        "nd"
+       ],
+       "why": "potassium and phosphorus の and。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: A____ (1 letter missing)",
+       "answer": [
+        "as",
+        "s"
+       ],
+       "why": "As this ash（〜につれて）。文の始まり。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: a____ (2 letters missing)",
+       "answer": [
+        "ash",
+        "sh"
+       ],
+       "why": "this ash（この灰）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: do____ (2 letters missing)",
+       "answer": [
+        "down",
+        "wn"
+       ],
+       "why": "breaks down（分解される）。"
+      }
+     ]
+    },
+    {
+     "id": "R1-09",
+     "passage": "The anchoring effect\n\nPeople are strongly influenced by the first number they see when making a judgment. In o_ _ (1) type o_ (2) experiment, partic_ _ _ _ _ _ (3) are sh_ _ _ (4) a random num_ _ _ (5) before th_ _ (6) are as_ _ _ (7) to esti_ _ _ _ (8) a price. Th_ _ _ (9) who s_ _ (10) a high number usually give much larger estimates than those who see a low one, even though the number has nothing to do with the question. Researchers call this tendency the anchoring effect.",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 1: o____ (2 letters missing)",
+       "answer": [
+        "one",
+        "ne"
+       ],
+       "why": "In one type（ある種類の）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 2: o____ (1 letter missing)",
+       "answer": [
+        "of",
+        "f"
+       ],
+       "why": "one type of experiment の of。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 3: partic____ (6 letters missing)",
+       "answer": [
+        "participants",
+        "ipants"
+       ],
+       "why": "participants（参加者）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 4: sh____ (3 letters missing)",
+       "answer": [
+        "shown",
+        "own"
+       ],
+       "why": "are shown（見せられる）。受け身。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 5: num____ (3 letters missing)",
+       "answer": [
+        "number",
+        "ber"
+       ],
+       "why": "a random number（数字）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 6: th____ (2 letters missing)",
+       "answer": [
+        "they",
+        "ey"
+       ],
+       "why": "before they are asked の they。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 7: as____ (3 letters missing)",
+       "answer": [
+        "asked",
+        "ked"
+       ],
+       "why": "are asked（たずねられる）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 8: esti____ (4 letters missing)",
+       "answer": [
+        "estimate",
+        "mate"
+       ],
+       "why": "to estimate（見積もる）。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 9: Th____ (3 letters missing)",
+       "answer": [
+        "those",
+        "ose"
+       ],
+       "why": "Those who see（〜する人たち）。文の始まり。"
+      },
+      {
+       "type": "gap",
+       "limit": "MISSING LETTERS OR WHOLE WORD",
+       "q": "Word 10: s____ (2 letters missing)",
+       "answer": [
+        "see",
+        "ee"
+       ],
+       "why": "who see（見る）。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R2",
+   "title": "Reading: Read in Daily Life",
+   "kind": "reading",
+   "desc": "メール・掲示・メッセージなど日常の短い文を読んで2〜3問",
+   "tip": "先に設問を見て、探す情報（時間・場所・条件）を決めてから読む。「〜だけ」「〜以外」「変更前・変更後」の条件に注意。目的の問いは件名と最初の文が手がかり。",
+   "secPerItem": 45,
+   "intro": "Read the text and answer the questions.",
+   "sets": [
+    {
+     "id": "R2-01",
+     "passage": "Email from the housing office\n\nTo: All residents of Maple Hall\nFrom: Campus Housing Office\nSubject: Water shut-off on Thursday\n\nDear residents,\n\nPlumbers will replace a main pipe in Maple Hall this Thursday. Water will be turned off from 9:00 a.m. to about 1:00 p.m. During this time, please use the showers and restrooms in Birch Hall, next door. Your key card will open Birch Hall's side entrance on Thursday only.\n\nWe apologize for the inconvenience.\nCampus Housing Office",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the main purpose of the email?",
+       "choices": [
+        "To tell residents about a temporary loss of water",
+        "To explain how to get a new key card",
+        "To announce that Birch Hall is closing",
+        "To ask residents to report broken pipes"
+       ],
+       "answer": 0,
+       "why": "件名と第1文：水道管の交換で木曜に断水すると知らせている。"
+      },
+      {
+       "type": "mcq",
+       "q": "What can Maple Hall residents do on Thursday?",
+       "choices": [
+        "Shower in Maple Hall after 9:00 a.m.",
+        "Pick up a free key card",
+        "Leave their rooms open for the plumbers",
+        "Enter Birch Hall through a side door"
+       ],
+       "answer": 3,
+       "why": "最後の段落：key card will open Birch Hall's side entrance on Thursday only。"
+      }
+     ]
+    },
+    {
+     "id": "R2-02",
+     "passage": "Cafeteria sign\n\nNORTH CAFETERIA — NEW HOURS\nStarting Monday, October 6\nBreakfast 7:00–9:30\nLunch 11:00–2:00\nDinner 5:00–8:00 (was 5:00–9:00)\n\nLate-night snacks are now available at the Student Center Café until midnight.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What change does the sign announce?",
+       "choices": [
+        "The cafeteria will open at midnight.",
+        "Breakfast will start one hour later.",
+        "Dinner will end one hour earlier.",
+        "Lunch will no longer be served."
+       ],
+       "answer": 2,
+       "why": "Dinner 5:00–8:00 (was 5:00–9:00)：夕食が1時間早く終わる。"
+      },
+      {
+       "type": "mcq",
+       "q": "Where can students get food after 8:00 p.m.?",
+       "choices": [
+        "Only in their dormitories",
+        "At the Student Center Café",
+        "At the North Cafeteria",
+        "Nowhere on campus"
+       ],
+       "answer": 1,
+       "why": "最後の文：Late-night snacks … at the Student Center Café until midnight。"
+      }
+     ]
+    },
+    {
+     "id": "R2-03",
+     "passage": "Text messages between classmates\n\nDana (4:12 p.m.): Are you still coming to the study group tonight?\nLeo (4:15 p.m.): Yes, but my lab runs late. I won't get there until 7:30.\nDana (4:16 p.m.): No problem. We moved to Room 214 because 108 was booked.\nLeo (4:18 p.m.): Got it. I'll bring the practice problems we talked about.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why will Leo be late?",
+       "choices": [
+        "He has to print practice problems.",
+        "His lab session ends late.",
+        "He cannot find Room 214.",
+        "His bus is delayed."
+       ],
+       "answer": 1,
+       "why": "Leo の1通目：my lab runs late。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Dana tell Leo?",
+       "choices": [
+        "The study group has been canceled.",
+        "He should come before 7:30.",
+        "Room 108 is now available.",
+        "The group is meeting in a different room."
+       ],
+       "answer": 3,
+       "why": "Dana の2通目：We moved to Room 214 because 108 was booked。"
+      },
+      {
+       "type": "mcq",
+       "q": "What will Leo probably do at the meeting?",
+       "choices": [
+        "Book a room for next week",
+        "Lead a lab experiment",
+        "Share some practice questions",
+        "Collect money for snacks"
+       ],
+       "answer": 2,
+       "why": "Leo の最後：I'll bring the practice problems。"
+      }
+     ]
+    },
+    {
+     "id": "R2-04",
+     "passage": "Library notice\n\nQUIET FLOOR RULES (3rd Floor)\n• Phones on silent. Take calls in the stairwell.\n• Group study rooms are on the 2nd floor.\n• Covered drinks are fine; no food, please.\n• Laptops may be used, but keyboards must not be noisy.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Which of the following is allowed on the third floor?",
+       "choices": [
+        "A drink with a lid",
+        "A phone call at a desk",
+        "A group discussion",
+        "A sandwich"
+       ],
+       "answer": 0,
+       "why": "Covered drinks are fine：ふた付きの飲み物はよい。食べ物・通話・グループは不可。"
+      },
+      {
+       "type": "mcq",
+       "q": "Where should students go to work together?",
+       "choices": [
+        "To the stairwell",
+        "To the main entrance",
+        "To the second floor",
+        "To the third floor"
+       ],
+       "answer": 2,
+       "why": "Group study rooms are on the 2nd floor。"
+      }
+     ]
+    },
+    {
+     "id": "R2-05",
+     "passage": "Post on a club's page\n\nHiking Club ⛰️\nOur Saturday trip to Pine Ridge is ON! The forecast changed, and it now looks sunny. Meet at the east parking lot at 7:00 a.m. The van leaves at 7:15 sharp. Bring lunch, water, and a warm layer — it gets windy at the top. If you signed up but can't come, message Priya by Friday night so someone on the waiting list can take your seat.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is suggested about the trip?",
+       "choices": [
+        "It is open only to new members.",
+        "It had been in doubt because of the weather.",
+        "It will take place on Friday night.",
+        "It will begin at the top of Pine Ridge."
+       ],
+       "answer": 1,
+       "why": "is ON! The forecast changed：天気のせいで中止かもしれなかったと分かる。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why should members contact Priya?",
+       "choices": [
+        "To borrow a warm jacket",
+        "To ask about the lunch menu",
+        "To get directions to the parking lot",
+        "To give their seat to another person"
+       ],
+       "answer": 3,
+       "why": "最後の文：someone on the waiting list can take your seat。"
+      }
+     ]
+    },
+    {
+     "id": "R2-06",
+     "passage": "Bookstore return policy\n\nCAMPUS BOOKSTORE — RETURNS\nTextbooks may be returned for a full refund within 14 days of purchase with a receipt. After 14 days, or without a receipt, we can offer store credit only. Books that have been written in, and digital access codes that have been opened, cannot be returned.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "A student bought a textbook 20 days ago and kept the receipt. What can the student get?",
+       "choices": [
+        "Store credit",
+        "A free digital code",
+        "Nothing at all",
+        "A full refund"
+       ],
+       "answer": 0,
+       "why": "After 14 days … store credit only：14日を過ぎたので返金ではなく店のクレジット。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which item cannot be returned?",
+       "choices": [
+        "A book with notes written in it",
+        "A book with a receipt",
+        "A book that is still wrapped",
+        "A book bought ten days ago"
+       ],
+       "answer": 0,
+       "why": "Books that have been written in … cannot be returned。"
+      }
+     ]
+    },
+    {
+     "id": "R2-07",
+     "passage": "Shuttle bus update\n\nCampus Shuttle — Route B Update\nBecause of road work on Elm Street, Route B will not stop at the Science Library from November 3 to November 21. Please use the temporary stop on Oak Avenue, a two-minute walk away. All other stops and times are unchanged.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why is the Science Library stop closed?",
+       "choices": [
+        "The library is being repaired.",
+        "Route B has been canceled.",
+        "The bus schedule has changed.",
+        "Work is being done on a nearby road."
+       ],
+       "answer": 3,
+       "why": "Because of road work on Elm Street。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is true about the change?",
+       "choices": [
+        "It moves the stop far from the library.",
+        "It will last about three weeks.",
+        "It affects every shuttle route.",
+        "It begins at the end of November."
+       ],
+       "answer": 1,
+       "why": "11月3日〜21日の約3週間。Oak Avenue は歩いて2分なので遠くない。"
+      }
+     ]
+    },
+    {
+     "id": "R2-08",
+     "passage": "Lab safety email\n\nSubject: Before Tuesday's chemistry lab\n\nHi everyone,\n\nOn Tuesday we will work with acids for the first time. Long pants and closed shoes are required — students in shorts or sandals will not be allowed to start. Safety glasses are provided, but if you wear contact lenses, please wear your regular glasses instead.\n\nSee you then,\nMs. Ortega (Lab Assistant)",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will happen to students who come in sandals?",
+       "choices": [
+        "They will be given closed shoes.",
+        "They will lose points on their report.",
+        "They will not be allowed to begin the lab.",
+        "They will work in a separate room."
+       ],
+       "answer": 2,
+       "why": "students in shorts or sandals will not be allowed to start。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Ms. Ortega ask contact lens wearers to do?",
+       "choices": [
+        "Bring their own safety glasses",
+        "Take out their lenses during the lab",
+        "Wear their usual glasses",
+        "Sit near the door"
+       ],
+       "answer": 2,
+       "why": "if you wear contact lenses, please wear your regular glasses instead。"
+      }
+     ]
+    },
+    {
+     "id": "R2-09",
+     "passage": "Apartment message board\n\nFREE: Desk and chair\nI'm moving out on the 30th and can't take my desk (120 cm wide) or the chair that goes with it. Both are in good condition; the chair has a small tear on one arm. You must be able to pick them up from the 4th floor — there is no elevator. First come, first served. Text Sam at the number on the door of 4B.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is mentioned about the chair?",
+       "choices": [
+        "It has already been taken.",
+        "It is 120 cm wide.",
+        "It is sold separately.",
+        "It is slightly damaged."
+       ],
+       "answer": 3,
+       "why": "the chair has a small tear on one arm：小さな破れがある。"
+      },
+      {
+       "type": "mcq",
+       "q": "What will someone who wants the items need to do?",
+       "choices": [
+        "Pay Sam before the 30th",
+        "Carry them down the stairs",
+        "Bring a measuring tape",
+        "Visit the building manager"
+       ],
+       "answer": 1,
+       "why": "4階からで elevator が無い＝階段で運ぶ必要がある。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why is Sam giving the items away?",
+       "choices": [
+        "Sam is leaving the apartment.",
+        "The items are too small.",
+        "Sam bought a new desk.",
+        "The building does not allow them."
+       ],
+       "answer": 0,
+       "why": "I'm moving out on the 30th。"
+      }
+     ]
+    },
+    {
+     "id": "R2-10",
+     "passage": "Event flyer\n\nINTERNATIONAL FOOD FAIR\nFriday, 5–8 p.m. · Student Center Hall\nTaste dishes from more than 20 student groups. Entry is free; food tickets are $1 each, and most dishes cost 2 or 3 tickets. Volunteers who help set up from 3–5 p.m. receive 10 free tickets. Sign up at the front desk of the Student Center.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How can a student get free food tickets?",
+       "choices": [
+        "By arriving before 5 p.m.",
+        "By bringing a dish from home",
+        "By joining a student group",
+        "By helping to prepare the hall"
+       ],
+       "answer": 3,
+       "why": "Volunteers who help set up … receive 10 free tickets。"
+      },
+      {
+       "type": "mcq",
+       "q": "How much does a typical dish cost?",
+       "choices": [
+        "One dollar",
+        "Two or three dollars",
+        "Ten dollars",
+        "Nothing"
+       ],
+       "answer": 1,
+       "why": "1枚 $1、ほとんどの料理は2〜3枚＝2〜3ドル。入場は無料だが料理は有料。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R3",
+   "title": "Reading: Read an Academic Passage",
+   "kind": "reading",
+   "desc": "約200語の学術文を読んで5問（主旨・詳細・語彙・推測・目的）",
+   "tip": "段落ごとに「何の段落か」を一言でつかむ。語彙問題は前後の文で意味を確かめ、置き換えて読む。「なぜ筆者は〜に触れたか」は直前・直後の主張を探す。",
+   "secPerItem": 70,
+   "intro": "Read the passage and answer the questions.",
+   "sets": [
+    {
+     "id": "R3-01",
+     "passage": "Magnetic navigation in birds\n\nEvery autumn, many songbirds fly thousands of kilometers to warmer regions, often at night and over unfamiliar land. For decades, scientists wondered how such small animals could hold a course with so few visible landmarks. One important answer appears to be the Earth's magnetic field.\n\nIn laboratory studies, researchers placed migrating birds in round cages surrounded by electric coils. When the coils were switched on, they shifted the direction of the magnetic field. The birds responded by hopping toward a new side of the cage, as if they were trying to fly in a different direction. This suggested that the birds were sensing magnetic north.\n\nHow they sense it is still debated. One theory points to special proteins in the eye that react to magnetism when struck by light. If this is correct, birds might literally see the magnetic field as a faint pattern across their view. Notably, the birds' magnetic sense seems to work poorly in complete darkness, which supports this idea. Most researchers now believe that birds combine this sense with the positions of the stars and the sun.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the passage mainly about?",
+       "choices": [
+        "Why songbirds migrate at night rather than during the day",
+        "How migrating birds may use the Earth's magnetic field to find their way",
+        "Why birds become confused by unfamiliar landmarks",
+        "How electric coils are used to protect birds during migration"
+       ],
+       "answer": 1,
+       "why": "第1段落末で答え（地磁気）を出し、実験と仕組みの説で展開している。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to paragraph 2, what did the birds do when the coils were switched on?",
+       "choices": [
+        "They tried to escape from the top of the cage.",
+        "They stopped moving completely.",
+        "They moved toward a different part of the cage.",
+        "They began to sing more loudly."
+       ],
+       "answer": 2,
+       "why": "第2段落：hopping toward a new side of the cage。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"faint\" in the passage is closest in meaning to",
+       "choices": [
+        "weak",
+        "moving",
+        "colorful",
+        "sharp"
+       ],
+       "answer": 0,
+       "why": "faint pattern＝かすかな模様。weak が最も近い。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the author mention that the magnetic sense works poorly in complete darkness?",
+       "choices": [
+        "To show that birds cannot migrate at night",
+        "To argue that stars are more important than magnetism",
+        "To explain why the laboratory studies failed",
+        "To support the idea that light is involved in sensing magnetism"
+       ],
+       "answer": 3,
+       "why": "光で反応するタンパク質説の直後に which supports this idea とある。"
+      },
+      {
+       "type": "mcq",
+       "q": "What can be inferred about bird navigation from the final sentence?",
+       "choices": [
+        "The magnetic sense is useless without the sun.",
+        "Birds probably rely on more than one source of information.",
+        "Scientists have stopped studying the magnetic sense.",
+        "Stars are visible to birds only in autumn."
+       ],
+       "answer": 1,
+       "why": "combine this sense with the stars and the sun＝複数の手がかりを使う。"
+      }
+     ]
+    },
+    {
+     "id": "R3-02",
+     "passage": "Reading rock layers\n\nCliffs and canyon walls often show bands of rock stacked on top of one another. These layers, called strata, form when sediment such as sand, mud, or shells settles in water and is slowly pressed into stone. Because new sediment is laid down on top of older material, geologists generally assume that lower layers are older than the ones above them. This simple rule allows them to place events in order even without knowing exact dates.\n\nThe record is rarely perfect, however. In some places, a layer is missing because rivers or wind removed it before the next layer formed. These gaps, known as unconformities, can represent millions of years. In mountain regions, powerful forces in the crust may even fold rock layers so sharply that older strata end up above younger ones.\n\nTo deal with such problems, geologists compare layers across wide areas. A distinctive layer, such as one containing a particular fossil or a thin band of volcanic ash, can serve as a marker. If the same marker appears in two distant cliffs, the rocks around it are probably of similar age.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "According to the passage, why are lower strata usually older?",
+       "choices": [
+        "Newer sediment settles on top of older sediment.",
+        "Older rock is heavier and sinks.",
+        "Lower layers contain more shells.",
+        "Water pressure is greater near the bottom."
+       ],
+       "answer": 0,
+       "why": "第1段落：new sediment is laid down on top of older material。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"distinctive\" in the passage is closest in meaning to",
+       "choices": [
+        "extremely thin",
+        "commonly found",
+        "very old",
+        "easy to recognize"
+       ],
+       "answer": 3,
+       "why": "distinctive＝はっきり区別できる。marker として使えるのは見分けやすいから。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following is NOT mentioned as a reason the rock record can be incomplete or confusing?",
+       "choices": [
+        "Rivers removing a layer",
+        "Wind removing a layer",
+        "Sediment hardening too slowly",
+        "Layers being folded in mountains"
+       ],
+       "answer": 2,
+       "why": "第2段落は川・風による除去と褶曲を挙げる。固まる速さは書かれていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is the purpose of paragraph 3?",
+       "choices": [
+        "To explain a method geologists use to overcome problems in the record",
+        "To argue that fossils are more useful than dates",
+        "To give an example of an unconformity",
+        "To describe how volcanic ash is formed"
+       ],
+       "answer": 0,
+       "why": "第3段落冒頭：To deal with such problems＝前段の問題への対処法。"
+      },
+      {
+       "type": "mcq",
+       "q": "What can be inferred about two cliffs that both contain the same thin ash layer?",
+       "choices": [
+        "Their lower layers are missing.",
+        "They were once part of the same mountain.",
+        "Their rocks near that layer likely formed at about the same time.",
+        "They contain no fossils."
+       ],
+       "answer": 2,
+       "why": "最終文：the rocks around it are probably of similar age。"
+      }
+     ]
+    },
+    {
+     "id": "R3-03",
+     "passage": "Roman concrete\n\nMany structures built by the ancient Romans are still standing after nearly two thousand years, including harbor walls that have been beaten by seawater for centuries. Modern concrete, by contrast, often begins to crack within a few decades. This difference has led engineers to take a closer look at the Roman recipe.\n\nRoman builders mixed lime with volcanic ash and pieces of rock. When seawater seeped into marine structures made with this mixture, it reacted with the ash to form new minerals inside the concrete. Rather than weakening the material, these minerals filled small cracks and made it stronger over time.\n\nResearchers have also found small white lumps of lime scattered throughout Roman concrete. These were once dismissed as a sign of careless mixing. More recent studies, however, suggest that the lumps were useful: when water entered a crack, it dissolved some of the lime, which then hardened again and sealed the gap. Engineers are now testing whether similar self-healing ingredients could extend the life of modern buildings, although Roman concrete is weaker than modern concrete when first poured.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the main idea of the passage?",
+       "choices": [
+        "Roman builders were careless when mixing materials.",
+        "Seawater is the main cause of damage to buildings.",
+        "Modern concrete is stronger than Roman concrete in every way.",
+        "Features of Roman concrete may explain why it lasts so long."
+       ],
+       "answer": 3,
+       "why": "長持ちする理由（海水との反応・石灰の塊）を説明する文章。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to paragraph 2, what happened when seawater entered Roman marine structures?",
+       "choices": [
+        "The volcanic ash washed away.",
+        "New minerals formed and strengthened the concrete.",
+        "The lime turned into sand.",
+        "Large cracks quickly appeared."
+       ],
+       "answer": 1,
+       "why": "第2段落：form new minerals … made it stronger over time。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"dismissed\" in the passage is closest in meaning to",
+       "choices": [
+        "quickly removed",
+        "widely praised",
+        "carefully measured",
+        "rejected as unimportant"
+       ],
+       "answer": 3,
+       "why": "were once dismissed as a sign of careless mixing＝取るに足らない物として退けられた。"
+      },
+      {
+       "type": "mcq",
+       "q": "How did the lime lumps help the concrete, according to recent studies?",
+       "choices": [
+        "They stopped water from entering the concrete.",
+        "They dissolved in water and then hardened to seal cracks.",
+        "They reacted with sunlight to change color.",
+        "They made the concrete lighter."
+       ],
+       "answer": 1,
+       "why": "第3段落：dissolved some of the lime, which then hardened again and sealed the gap。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the author suggest about Roman concrete in the last sentence?",
+       "choices": [
+        "It was used only for harbor walls.",
+        "It cannot be studied in laboratories.",
+        "It has a weakness as well as advantages.",
+        "It should replace modern concrete immediately."
+       ],
+       "answer": 2,
+       "why": "although … weaker than modern concrete when first poured＝利点だけでなく弱点もある。"
+      }
+     ]
+    },
+    {
+     "id": "R3-04",
+     "passage": "Pigments in cave art\n\nSome of the oldest known paintings were made on the walls of caves tens of thousands of years ago. Their images of horses, deer, and handprints are mostly red, yellow, brown, and black. These limited colors reflect the materials that early artists could find.\n\nThe reds and yellows came mainly from ochre, a type of earth rich in iron. By heating yellow ochre in a fire, painters could turn it red, which gave them a wider range of shades. Black usually came from charcoal or from minerals containing manganese. The colored powders were mixed with water, animal fat, or plant juices so they would stick to the rock.\n\nAnalysis of these pigments has become a valuable tool for archaeologists. Charcoal contains carbon, which can be dated, so black lines can reveal when a painting was made. In some caves, chemical tests have shown that the ochre came from sources many kilometers away. This suggests that the artists either traveled long distances or traded with other groups, a sign that their communities were more connected than once believed.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "According to paragraph 1, why were the colors in cave paintings limited?",
+       "choices": [
+        "Artists could use only the materials available to them.",
+        "The cave walls could not hold other colors.",
+        "Bright colors were considered dangerous.",
+        "Animals were seen only in a few colors."
+       ],
+       "answer": 0,
+       "why": "第1段落最終文：reflect the materials that early artists could find。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the passage say about heating yellow ochre?",
+       "choices": [
+        "It made the ochre stick to rock.",
+        "It removed the iron from the ochre.",
+        "It turned the ochre into charcoal.",
+        "It changed the ochre to red."
+       ],
+       "answer": 3,
+       "why": "第2段落：By heating yellow ochre … could turn it red。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the author mention that charcoal contains carbon?",
+       "choices": [
+        "To show why black was the most popular color",
+        "To describe how charcoal was made",
+        "To explain how black lines can help date a painting",
+        "To compare charcoal with manganese"
+       ],
+       "answer": 2,
+       "why": "carbon, which can be dated → 絵の年代が分かる、という流れ。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"reveal\" in the passage is closest in meaning to",
+       "choices": [
+        "hide",
+        "show",
+        "change",
+        "protect"
+       ],
+       "answer": 1,
+       "why": "reveal when a painting was made＝いつ描かれたかを明らかにする。"
+      },
+      {
+       "type": "mcq",
+       "q": "What can be inferred from the fact that some ochre came from distant sources?",
+       "choices": [
+        "Early communities had more contact with each other than once thought.",
+        "Caves were used only by traveling groups.",
+        "Local ochre was of poor quality.",
+        "Ochre was more valuable than charcoal."
+       ],
+       "answer": 0,
+       "why": "最終文：communities were more connected than once believed。"
+      }
+     ]
+    },
+    {
+     "id": "R3-05",
+     "passage": "Cognitive dissonance\n\nPeople generally want their beliefs and actions to fit together. When they notice a conflict between the two, they often feel uncomfortable. Psychologists call this feeling cognitive dissonance, and they have found that people work hard to reduce it.\n\nIn a well-known type of experiment, participants complete a boring task and are then asked to tell the next participant that it was enjoyable. Some are paid a large amount for saying this, while others receive only a small amount. Later, when asked how much they actually liked the task, those who were paid very little tend to rate it more positively. The researchers' explanation is that well-paid participants could justify their statement by the money. Poorly paid participants had no such excuse, so they reduced their discomfort by changing their opinion of the task.\n\nDissonance can affect many everyday decisions. After buying an expensive product, for example, shoppers often pay more attention to positive reviews and ignore negative ones. By focusing on information that supports their choice, they protect themselves from the feeling that they may have made a mistake.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "According to paragraph 1, what is cognitive dissonance?",
+       "choices": [
+        "A preference for agreeing with others",
+        "A habit of changing beliefs very often",
+        "Discomfort caused by a conflict between beliefs and actions",
+        "The ability to complete boring tasks"
+       ],
+       "answer": 2,
+       "why": "第1段落：conflict between the two … feel uncomfortable＝cognitive dissonance。"
+      },
+      {
+       "type": "mcq",
+       "q": "In the experiment, which participants rated the task most positively?",
+       "choices": [
+        "Those who received a large payment",
+        "Those who did not tell anyone about it",
+        "Those who found the task interesting at first",
+        "Those who received a small payment"
+       ],
+       "answer": 3,
+       "why": "those who were paid very little tend to rate it more positively。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"justify\" in the passage is closest in meaning to",
+       "choices": [
+        "give a reason for",
+        "hide",
+        "apologize for",
+        "repeat"
+       ],
+       "answer": 0,
+       "why": "justify their statement by the money＝お金を理由に説明がつく。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the author mention shoppers who buy expensive products?",
+       "choices": [
+        "To explain why reviews are often negative",
+        "To give an everyday example of reducing dissonance",
+        "To show that expensive products are better",
+        "To describe a second laboratory experiment"
+       ],
+       "answer": 1,
+       "why": "第3段落：Dissonance can affect many everyday decisions → For example。"
+      },
+      {
+       "type": "mcq",
+       "q": "Based on the passage, which of the following would a person feeling dissonance most likely do?",
+       "choices": [
+        "Tell others about a mistake immediately",
+        "Avoid making any decisions",
+        "Change an opinion so it matches an action already taken",
+        "Ask for more money before doing a task"
+       ],
+       "answer": 2,
+       "why": "実験の低報酬グループは意見を変えて不快感を減らした。"
+      }
+     ]
+    },
+    {
+     "id": "R3-06",
+     "passage": "Urban heat islands\n\nOn summer evenings, the center of a large city can be several degrees warmer than the surrounding countryside. This pattern is known as the urban heat island effect. It occurs mainly because city surfaces such as asphalt, concrete, and dark roofs absorb a great deal of sunlight during the day and release the heat slowly after sunset.\n\nOther factors add to the problem. Cities have fewer trees and less open soil, so less water evaporates to cool the air. Tall buildings can block wind that would otherwise carry heat away. Cars, air conditioners, and factories also give off heat directly.\n\nThe effect is more than a matter of comfort. Higher night temperatures can make heat waves more dangerous, especially for older people, and they increase the demand for electricity. As a result, many cities are experimenting with solutions. Painting roofs white or light gray reflects sunlight instead of absorbing it. Planting street trees provides shade, and parks with grass and ponds help cool nearby neighborhoods. Some cities have even replaced parking lots with surfaces that allow rainwater to soak into the ground.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "According to paragraph 1, what is the main cause of the urban heat island effect?",
+       "choices": [
+        "Cities receive more sunlight than the countryside.",
+        "City surfaces store heat during the day and release it at night.",
+        "Wind brings warm air from rural areas.",
+        "Rain rarely falls in large cities."
+       ],
+       "answer": 1,
+       "why": "第1段落最終文：absorb … sunlight during the day and release the heat slowly after sunset。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following is NOT mentioned as a factor that adds to city heat?",
+       "choices": [
+        "Large numbers of people walking outdoors",
+        "Heat from cars and air conditioners",
+        "Buildings that block wind",
+        "A lack of trees"
+       ],
+       "answer": 0,
+       "why": "第2段落は木の少なさ・風を遮るビル・車やエアコンの熱。歩行者は出てこない。"
+      },
+      {
+       "type": "mcq",
+       "q": "The phrase \"give off\" in the passage is closest in meaning to",
+       "choices": [
+        "repair",
+        "require",
+        "reduce",
+        "release"
+       ],
+       "answer": 3,
+       "why": "give off heat＝熱を出す。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the author mention older people?",
+       "choices": [
+        "To explain who uses the most electricity",
+        "To show that the effect can harm health",
+        "To describe who lives in city centers",
+        "To argue that parks should be built for them"
+       ],
+       "answer": 1,
+       "why": "The effect is more than a matter of comfort → 熱波で危険＝健康への害。"
+      },
+      {
+       "type": "mcq",
+       "q": "What do the solutions in paragraph 3 have in common?",
+       "choices": [
+        "They reduce the amount of heat that city areas hold.",
+        "They require replacing tall buildings.",
+        "They make cities warmer in winter.",
+        "They are all paid for by electricity companies."
+       ],
+       "answer": 0,
+       "why": "白い屋根・街路樹・公園・水が染み込む舗装は、どれも街にたまる熱を減らす。"
+      }
+     ]
+    },
+    {
+     "id": "R3-07",
+     "passage": "Life at deep-sea vents\n\nFor a long time, scientists assumed that almost all life on Earth depended on energy from the sun. Plants capture sunlight, and animals eat plants or other animals. That assumption was challenged when explorers discovered communities of animals living around hot springs on the dark ocean floor.\n\nThese hot springs, called hydrothermal vents, release water heated by volcanic activity beneath the seabed. The water is rich in dissolved chemicals such as hydrogen sulfide, which is poisonous to most animals. Yet certain bacteria can use these chemicals to make food, a process called chemosynthesis. The bacteria form the base of a food web that includes giant tube worms, clams, shrimp, and crabs.\n\nSome vent animals have formed remarkable partnerships with the bacteria. Adult giant tube worms have no mouth or stomach. Instead, they carry bacteria inside their bodies and supply them with chemicals from the water, and the bacteria in turn provide the worms with nutrients. Discoveries like these have encouraged scientists to consider whether life might exist in similar dark environments elsewhere, such as the oceans thought to lie beneath the ice of some moons.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What assumption was challenged by the discovery of vent communities?",
+       "choices": [
+        "That bacteria are always harmful",
+        "That animals cannot live in cold water",
+        "That volcanoes exist only on land",
+        "That nearly all life depends on sunlight"
+       ],
+       "answer": 3,
+       "why": "第1段落：almost all life … depended on energy from the sun という前提が覆された。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to paragraph 2, how do bacteria at the vents make food?",
+       "choices": [
+        "By capturing faint sunlight",
+        "By absorbing heat from the rocks",
+        "By using chemicals in the vent water",
+        "By eating small shrimp"
+       ],
+       "answer": 2,
+       "why": "certain bacteria can use these chemicals to make food（化学合成）。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"remarkable\" in the passage is closest in meaning to",
+       "choices": [
+        "simple",
+        "temporary",
+        "unusual and impressive",
+        "dangerous"
+       ],
+       "answer": 2,
+       "why": "remarkable partnerships＝驚くべき共生関係。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is stated about adult giant tube worms?",
+       "choices": [
+        "They leave the vents to find food.",
+        "They produce hydrogen sulfide.",
+        "They eat clams and shrimp.",
+        "They depend on bacteria living inside them for nutrients."
+       ],
+       "answer": 3,
+       "why": "口も胃も無く、体内の細菌から栄養をもらう。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the author mention moons with oceans beneath their ice?",
+       "choices": [
+        "To suggest places where life might exist without sunlight",
+        "To compare the temperature of different oceans",
+        "To show that tube worms live in space",
+        "To explain where hydrothermal vents came from"
+       ],
+       "answer": 0,
+       "why": "最終文：life might exist in similar dark environments elsewhere。"
+      }
+     ]
+    },
+    {
+     "id": "R3-08",
+     "passage": "Perspective in Renaissance painting\n\nBefore the fifteenth century, many European paintings showed figures and buildings in a way that looked flat. Important people were often painted larger than others, regardless of where they stood in the scene. During the Renaissance, however, artists in Italy developed a system called linear perspective that made flat surfaces appear to have depth.\n\nThe key idea of linear perspective is the vanishing point. Lines that are parallel in real life, such as the edges of a road or the rows of tiles on a floor, are drawn so that they meet at a single point on the horizon. Objects are also made smaller as they move farther from the viewer. Together, these rules create a convincing sense of distance.\n\nThe new method spread quickly, partly because it was closely linked to mathematics and could be taught step by step. Artists' guidebooks explained how to construct a scene with rulers and measured lines. Perspective changed not only painting but also architecture and stage design, and it remained the standard way of representing space in Western art for several centuries.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "According to paragraph 1, how were important people often shown before the fifteenth century?",
+       "choices": [
+        "Standing on the horizon",
+        "Larger than other figures",
+        "In darker colors",
+        "Farther away from the viewer"
+       ],
+       "answer": 1,
+       "why": "第1段落：Important people were often painted larger than others。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following best describes a vanishing point?",
+       "choices": [
+        "The largest object in a painting",
+        "A point where the artist signs the work",
+        "The place where lines that are parallel in reality appear to meet",
+        "The edge of the painting where objects disappear"
+       ],
+       "answer": 2,
+       "why": "第2段落：parallel lines are drawn so that they meet at a single point on the horizon。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"convincing\" in the passage is closest in meaning to",
+       "choices": [
+        "colorful",
+        "temporary",
+        "surprising",
+        "believable"
+       ],
+       "answer": 3,
+       "why": "convincing sense of distance＝本物らしく感じられる奥行き。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to paragraph 3, why did linear perspective spread quickly?",
+       "choices": [
+        "It was cheaper than older methods.",
+        "It could be learned through clear, mathematical steps.",
+        "It required no tools at all.",
+        "It was demanded by architects."
+       ],
+       "answer": 1,
+       "why": "closely linked to mathematics and could be taught step by step。"
+      },
+      {
+       "type": "mcq",
+       "q": "What can be inferred about linear perspective from the final sentence?",
+       "choices": [
+        "Its influence went beyond painting and lasted a long time.",
+        "It was soon replaced by flatter styles.",
+        "It was difficult for architects to apply.",
+        "It was used only in Italy."
+       ],
+       "answer": 0,
+       "why": "建築・舞台にも広がり、数世紀にわたり標準だった。"
+      }
+     ]
+    },
+    {
+     "id": "R3-09",
+     "passage": "Railways and standard time\n\nUntil the nineteenth century, most towns kept their own local time. Clocks were set so that noon was the moment the sun stood highest in the sky. Because the sun reaches that point at slightly different moments in different places, a town to the east would be a few minutes ahead of a town to the west.\n\nThese small differences caused few problems when travel was slow. The spread of railways changed that. A train might pass through dozens of towns, each with its own time, and printed timetables became extremely confusing. Some stations displayed several clocks at once, one for each railway company that used them.\n\nTo solve the problem, railway companies began to adopt standard time, in which every place within a large region used the same clock time. The idea met some resistance at first, as people were used to following the sun. Over time, however, governments made standard time official, and the world was eventually divided into time zones. The change shows how a new technology can reshape something as basic as the way people measure the day.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why did towns once keep different times?",
+       "choices": [
+        "Governments required each town to choose a time.",
+        "Clocks in the past were not accurate.",
+        "Railway companies set the time in each town.",
+        "Each town set noon by the position of the sun."
+       ],
+       "answer": 3,
+       "why": "第1段落：noon was the moment the sun stood highest。場所ごとに違う。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to paragraph 2, why did local time become a problem?",
+       "choices": [
+        "Towns refused to share their clocks.",
+        "Trains could not run at night.",
+        "Railways made timetables across many towns confusing.",
+        "The sun's position became harder to measure."
+       ],
+       "answer": 2,
+       "why": "鉄道が多くの町を通るので timetables became extremely confusing。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the author mention stations with several clocks?",
+       "choices": [
+        "To describe a popular decoration",
+        "To illustrate how confusing time had become",
+        "To show that stations were well equipped",
+        "To explain how standard time was measured"
+       ],
+       "answer": 1,
+       "why": "混乱ぶりの具体例として挙げている。"
+      },
+      {
+       "type": "mcq",
+       "q": "The word \"resistance\" in the passage is closest in meaning to",
+       "choices": [
+        "opposition",
+        "support",
+        "delay",
+        "confusion"
+       ],
+       "answer": 0,
+       "why": "met some resistance＝反対にあった。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is the author's main point in the final sentence?",
+       "choices": [
+        "Railways are the most important invention in history.",
+        "People should return to following the sun.",
+        "Technology can change even basic parts of daily life.",
+        "Time zones are still controversial today."
+       ],
+       "answer": 2,
+       "why": "a new technology can reshape something as basic as … measure the day。"
+      }
+     ]
+    },
+    {
+     "id": "R3-10",
+     "passage": "Default options\n\nTraditional economic theory assumes that people make choices by carefully weighing costs and benefits. Behavioral economists, however, have shown that the way choices are presented can strongly influence what people decide, even when the options themselves stay the same.\n\nOne powerful example is the default option, which is what happens if a person does nothing. In many workplaces, employees can join a retirement savings plan. When joining requires filling out a form, a large share of workers never sign up. When workers are enrolled automatically and must fill out a form to leave, participation often rises sharply. The plan and its benefits are identical in both cases; only the default has changed.\n\nSeveral explanations have been offered. Making a decision takes effort, and people tend to put off tasks that are not urgent. Some may also see the default as a recommendation from the employer. Supporters argue that well-designed defaults can help people act in their own long-term interest. Critics reply that defaults may push people toward choices they would not make on reflection, so they should be used openly and with care.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the passage mainly about?",
+       "choices": [
+        "Why traditional economic theory is always correct",
+        "How employers design application forms",
+        "Why retirement plans have become more expensive",
+        "How the presentation of choices, especially defaults, affects decisions"
+       ],
+       "answer": 3,
+       "why": "第1段落で提示の仕方が影響すると述べ、デフォルトの例で展開している。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to paragraph 2, what happens when workers are enrolled automatically?",
+       "choices": [
+        "The benefits of the plan increase.",
+        "Many more workers end up in the savings plan.",
+        "Fewer workers stay with the company.",
+        "Workers must pay a fee to leave the plan."
+       ],
+       "answer": 1,
+       "why": "participation often rises sharply。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the author state that the plan and its benefits are identical in both cases?",
+       "choices": [
+        "To show that only the default explains the difference",
+        "To suggest that employers are dishonest",
+        "To explain why forms are necessary",
+        "To argue that the plan is not worth joining"
+       ],
+       "answer": 0,
+       "why": "only the default has changed＝違いの原因はデフォルトだけ。"
+      },
+      {
+       "type": "mcq",
+       "q": "The phrase \"put off\" in the passage is closest in meaning to",
+       "choices": [
+        "finish",
+        "delay",
+        "enjoy",
+        "refuse"
+       ],
+       "answer": 1,
+       "why": "put off tasks that are not urgent＝急がない仕事を先延ばしする。"
+      },
+      {
+       "type": "mcq",
+       "q": "What do the critics mentioned in paragraph 3 believe?",
+       "choices": [
+        "Defaults should be used openly because they can steer people's choices.",
+        "Defaults have no real effect on behavior.",
+        "Workers should never save for retirement.",
+        "Forms should be removed from all workplaces."
+       ],
+       "answer": 0,
+       "why": "push people toward choices … should be used openly and with care。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Listening: Listen and Choose a Response",
+   "kind": "listening",
+   "desc": "1文を聞いて、一番自然な返事を4つから選ぶ",
+   "tip": "最初の1〜2語（疑問詞・Do/Can/Would）で、何を求められているかを決める。同じ語や似た音をくり返す選択肢はひっかけのことが多い。質問でない文には、提案や気づかいで返すのが自然。",
+   "secPerItem": 20,
+   "intro": "You will hear a person speak. Choose the best response.",
+   "sets": [
+    {
+     "id": "L1-01",
+     "script": "Do you know when the library closes tonight?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "No, I haven't read it yet.",
+        "Yes, I closed it last night.",
+        "The library has three floors.",
+        "I think it's open until eleven."
+       ],
+       "answer": 3,
+       "why": "閉館時間を聞かれているので時刻で答える。closed / read は音や連想のひっかけ。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-02",
+     "script": "Would you mind lending me your notes from Monday's lecture?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Yes, I lent it to the professor.",
+        "I don't mind the noise.",
+        "Sure, I'll send you a copy tonight.",
+        "The lecture starts on Monday."
+       ],
+       "answer": 2,
+       "why": "Would you mind …? への承諾。Sure, … が自然。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-03",
+     "script": "Why wasn't Professor Lee in class today?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "She teaches biology and chemistry.",
+        "Apparently she's at a conference this week.",
+        "Because the class starts at ten.",
+        "Yes, she was very clear today."
+       ],
+       "answer": 1,
+       "why": "Why の理由に答えている。Yes/No では答えない。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-04",
+     "script": "I can't find my student ID anywhere.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Did you check the pocket of your jacket?",
+        "Yes, it's anywhere you like.",
+        "I found the student center.",
+        "Your ID number is very long."
+       ],
+       "answer": 0,
+       "why": "なくした相手に探す場所を提案するのが自然な返事。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-05",
+     "script": "Is it too late to drop the statistics course?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Statistics is a difficult subject.",
+        "Yes, it was dropped on the floor.",
+        "You have until Friday to do it.",
+        "I'm usually late on Fridays."
+       ],
+       "answer": 2,
+       "why": "履修の取り消し期限を伝えている。drop の別の意味のひっかけに注意。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-06",
+     "script": "Have you started the group presentation yet?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Not yet, we're meeting tomorrow to plan it.",
+        "The group is very large.",
+        "Yes, the present was wrapped.",
+        "I'll start the car."
+       ],
+       "answer": 0,
+       "why": "まだ／もう始めたか、に答え、予定も添えている。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-07",
+     "script": "The printer on the second floor is out of paper again.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "I'm out of the office.",
+        "It printed in color.",
+        "The second floor is quieter.",
+        "I'll let the front desk know."
+       ],
+       "answer": 3,
+       "why": "問題の報告に対して、対応を申し出る返事。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-08",
+     "script": "Which bus goes to the science building?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Science is my favorite subject.",
+        "Take the number 4; it stops right in front.",
+        "The bus was very crowded.",
+        "It goes every day except Sunday."
+       ],
+       "answer": 1,
+       "why": "Which bus に対して具体的なバスを答える。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-09",
+     "script": "Could you remind me what the homework was?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "We have to read chapter six and answer the questions.",
+        "Homework is due in the mailbox.",
+        "It was a nice reminder.",
+        "I'll remind you of my name."
+       ],
+       "answer": 0,
+       "why": "宿題の内容をたずねられている。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-10",
+     "script": "I'm thinking of joining the photography club.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "The club meets on the photo.",
+        "I took the picture yesterday.",
+        "The photos are on the wall.",
+        "You should — they go on some great trips."
+       ],
+       "answer": 3,
+       "why": "入ろうかと思う→勧める返事が自然。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-11",
+     "script": "How long did it take you to finish the essay?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "It was about five pages long.",
+        "It's due next week.",
+        "About three hours, including editing.",
+        "I finished it on the bus."
+       ],
+       "answer": 2,
+       "why": "How long did it take＝かかった時間。長さ(pages)ではない。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-12",
+     "script": "Do you want to grab lunch after the lab?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Lunch was served at the party.",
+        "I'd love to, but I have a meeting at noon.",
+        "The lab has new equipment.",
+        "I grabbed it from the shelf."
+       ],
+       "answer": 1,
+       "why": "誘いへの返事。理由を添えて断っている。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-13",
+     "script": "Wasn't the seminar supposed to be in Room 210?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Room 210 has a projector.",
+        "It was moved to the auditorium this morning.",
+        "Yes, I'm supposed to go there.",
+        "The seminar was really interesting."
+       ],
+       "answer": 1,
+       "why": "否定疑問で場所の確認。変更を伝えるのが自然。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-14",
+     "script": "I heard the cafeteria is closed for repairs.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "I heard it on the radio, too, about music.",
+        "The repairs were cheap.",
+        "Then let's try the café in the student center.",
+        "Yes, I'm closing the door."
+       ],
+       "answer": 2,
+       "why": "閉まっている→代わりの場所を提案。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-15",
+     "script": "Who's in charge of booking the room for our study group?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "The room is booked every Tuesday.",
+        "I'm studying in my room.",
+        "We charge five dollars.",
+        "Mina said she'd take care of it."
+       ],
+       "answer": 3,
+       "why": "Who に人で答える。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-16",
+     "script": "Can I pay for the field trip by card?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Only cash, I'm afraid.",
+        "I'll send you a card.",
+        "The trip is to the museum.",
+        "Yes, the field is very big."
+       ],
+       "answer": 0,
+       "why": "支払い方法の質問。cash のみと答えている。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-17",
+     "script": "This assignment is much harder than I expected.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "It was assigned by the professor.",
+        "I expected you at three.",
+        "Maybe we could work on it together.",
+        "Yes, it's very hard to find."
+       ],
+       "answer": 2,
+       "why": "難しいという嘆き→一緒にやろうと提案。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-18",
+     "script": "When are the results of the exam going to be posted?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "The exam was in the main hall.",
+        "Probably by the end of next week.",
+        "It resulted in a good grade.",
+        "I posted the letter this morning."
+       ],
+       "answer": 1,
+       "why": "When に時期で答える。post の別の意味に注意。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-19",
+     "script": "Shouldn't we email the professor about the deadline?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Good idea — I'll write to her now.",
+        "I don't have her phone.",
+        "The deadline is a long line.",
+        "We should leave by email."
+       ],
+       "answer": 0,
+       "why": "提案に賛成して行動を申し出る。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-20",
+     "script": "I left my umbrella in the lecture hall.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "The hall is very large.",
+        "It's raining in the lecture.",
+        "I left early, too.",
+        "The lost and found is next to the main office."
+       ],
+       "answer": 3,
+       "why": "忘れ物→遺失物の場所を教える。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-21",
+     "script": "Are you going home for the winter break?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Yes, winter is my favorite season.",
+        "My home has three bedrooms.",
+        "No, I'm staying here to work on my thesis.",
+        "The break was only five minutes."
+       ],
+       "answer": 2,
+       "why": "帰省するか→No と理由。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-22",
+     "script": "The professor wants our drafts by Thursday instead of Friday.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Friday is a holiday next month.",
+        "Really? Then I'd better start tonight.",
+        "The draft is on the second page.",
+        "She drafted it on Thursday."
+       ],
+       "answer": 1,
+       "why": "締め切りが早まった→焦って予定を変える返事。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-23",
+     "script": "What did you think of the guest speaker?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Her talk was more practical than I expected.",
+        "The guest stayed for two nights.",
+        "I think it's in the hall.",
+        "She's speaking at four."
+       ],
+       "answer": 0,
+       "why": "感想をたずねられている。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-24",
+     "script": "Is this seat taken?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Yes, I took the bus.",
+        "I'll take it to class.",
+        "It's a comfortable chair.",
+        "No, go ahead."
+       ],
+       "answer": 3,
+       "why": "席が空いているか→No, go ahead が定番。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-25",
+     "script": "I'm not sure which topic to choose for my paper.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "The paper is in the printer.",
+        "I'm sure it's on the topic.",
+        "Choose the paper size first.",
+        "Why don't you ask your advisor for suggestions?"
+       ],
+       "answer": 3,
+       "why": "迷っている相手へアドバイス。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-26",
+     "script": "Did you register for next semester's classes?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Yes, but one of them was already full.",
+        "I registered the car.",
+        "The register is near the door.",
+        "Next semester starts in fall."
+       ],
+       "answer": 0,
+       "why": "登録したか→Yes と状況。register の別の意味に注意。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-27",
+     "script": "Let's meet in front of the gym at six.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "The gym closes on Sundays.",
+        "Six people came to the gym.",
+        "Sounds good. See you then.",
+        "I met him in front of the store."
+       ],
+       "answer": 2,
+       "why": "待ち合わせの提案に同意。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-28",
+     "script": "How do I get permission to use the chemistry lab on weekends?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "I got permission yesterday, too.",
+        "You need to fill out a form at the department office.",
+        "Chemistry is fun on weekends.",
+        "The lab is on the third floor."
+       ],
+       "answer": 1,
+       "why": "How do I …? に手順で答える。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-29",
+     "script": "Your presentation was really clear.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Thanks — I practiced it a lot.",
+        "I presented it on Monday.",
+        "Yes, the sky was clear.",
+        "It was clearly yours."
+       ],
+       "answer": 0,
+       "why": "ほめられたらお礼と一言。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-30",
+     "script": "Do you know if the bookstore sells used textbooks?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "The bookstore is very old.",
+        "I know the textbook well.",
+        "I used it last semester.",
+        "Yes, they have a section in the back."
+       ],
+       "answer": 3,
+       "why": "売っているか→Yes と場所。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-31",
+     "script": "Hasn't the shuttle bus come yet?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Yes, I've come by bus.",
+        "It came from the airport last year.",
+        "It's running late because of the snow.",
+        "The shuttle has twenty seats."
+       ],
+       "answer": 2,
+       "why": "まだ来ないのか→遅れの理由。",
+       "spoken": true
+      }
+     ]
+    },
+    {
+     "id": "L1-32",
+     "script": "I'd like to change my advisor. Where should I start?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Choose the best response.",
+       "choices": [
+        "Start the car in the morning.",
+        "Talk to the department secretary first.",
+        "My advisor is very kind.",
+        "I'd like to change, too."
+       ],
+       "answer": 1,
+       "why": "どこから始めるか→最初にすることを答える。",
+       "spoken": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L2",
+   "title": "Listening: Listen to a Conversation",
+   "kind": "listening",
+   "desc": "キャンパスでの2人の短い会話を聞いて2問",
+   "tip": "最初のやりとりで「誰が何に困っているか」をつかむ。後半の提案や決めたこと（I'll … / Why don't you …）が次の行動の問いになる。",
+   "secPerItem": 35,
+   "intro": "Listen to a conversation. Then answer the questions.",
+   "sets": [
+    {
+     "id": "L2-01",
+     "script": "W: Hi, I'm trying to find the tutoring center. Is it in this building?\nM: It used to be, but it moved to the library last month. It's on the ground floor, right next to the café.\nW: Oh, good. Do I need an appointment?\nM: For writing help, yes. You can book online. For math, you can just walk in any afternoon.\nW: Great, I need math help, so I'll go now.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman want to find?",
+       "choices": [
+        "The writing department",
+        "A math classroom",
+        "The library café",
+        "The tutoring center"
+       ],
+       "answer": 3,
+       "why": "最初の発言：trying to find the tutoring center。"
+      },
+      {
+       "type": "mcq",
+       "q": "What will the woman probably do next?",
+       "choices": [
+        "Ask a math professor for help",
+        "Go to the library without an appointment",
+        "Wait until next month",
+        "Book a writing session online"
+       ],
+       "answer": 1,
+       "why": "数学は予約不要（walk in any afternoon）。I'll go now。"
+      }
+     ]
+    },
+    {
+     "id": "L2-02",
+     "script": "M: Excuse me, I ordered a lab manual for Biology 101, but I got the one for Biology 102.\nW: I'm sorry about that. Do you have your receipt?\nM: Yes, here it is.\nW: Thanks. Unfortunately, we're out of the 101 manual right now. We can order one, and it should arrive by Wednesday.\nM: My first lab is on Tuesday, though.\nW: In that case, ask your instructor for a printed copy of the first lab. Most instructors have extras.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the man's problem?",
+       "choices": [
+        "He lost his receipt.",
+        "He was charged twice.",
+        "He received the wrong lab manual.",
+        "His lab was canceled."
+       ],
+       "answer": 2,
+       "why": "I got the one for Biology 102（違う物が届いた）。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the woman suggest?",
+       "choices": [
+        "Getting a copy of the first lab from his instructor",
+        "Using the Biology 102 manual for now",
+        "Changing to a Wednesday lab",
+        "Buying the manual online"
+       ],
+       "answer": 0,
+       "why": "最後の発言：ask your instructor for a printed copy。"
+      }
+     ]
+    },
+    {
+     "id": "L2-03",
+     "script": "W: Are you going to the career fair on Thursday?\nM: I wasn't planning to. I'm only a sophomore, so I thought it was for seniors.\nW: Not really. A lot of companies are offering summer internships for second-year students.\nM: Hmm. I don't even have a résumé yet.\nW: The career office is reviewing résumés all this week. You could have one ready by Thursday.\nM: OK, I'll stop by there after class.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why was the man not planning to attend the career fair?",
+       "choices": [
+        "He has a class on Thursday.",
+        "He thought it was only for students in their final year.",
+        "He already has an internship.",
+        "He does not like large events."
+       ],
+       "answer": 1,
+       "why": "I thought it was for seniors。"
+      },
+      {
+       "type": "mcq",
+       "q": "What will the man do after class?",
+       "choices": [
+        "Apply for an internship",
+        "Buy a new suit",
+        "Visit the career office",
+        "Meet the woman at the fair"
+       ],
+       "answer": 2,
+       "why": "最後の発言：I'll stop by there（career office）。"
+      }
+     ]
+    },
+    {
+     "id": "L2-04",
+     "script": "M: Hey, are you still looking for a roommate for next year?\nW: I am. The apartment I like is close to campus, but the rent is too high for one person.\nM: My friend Raj needs a place. He's quiet and studies a lot.\nW: That sounds perfect. Does he mind cats? I have one.\nM: Actually, he's allergic. Sorry.\nW: Oh well. Thanks anyway — let me know if you hear of anyone else.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why does the woman need a roommate?",
+       "choices": [
+        "She cannot afford the rent alone.",
+        "She wants to live farther from campus.",
+        "Her current roommate is moving out.",
+        "She wants someone to take care of her cat."
+       ],
+       "answer": 0,
+       "why": "the rent is too high for one person。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why is Raj not a good match?",
+       "choices": [
+        "He already has an apartment.",
+        "He studies very little.",
+        "He is too noisy.",
+        "He is allergic to cats."
+       ],
+       "answer": 3,
+       "why": "he's allergic（彼女は猫を飼っている）。"
+      }
+     ]
+    },
+    {
+     "id": "L2-05",
+     "script": "W: Professor Hall, do you have a minute? I missed the quiz on Monday because I was sick.\nM: I'm sorry to hear that. Are you feeling better?\nW: Much better, thanks. Is there any way I can make it up?\nM: Yes. Bring a note from the health center, and you can take it during my office hours on Thursday.\nW: Thursday afternoon?\nM: Right, between two and four.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why does the student go to see the professor?",
+       "choices": [
+        "To ask for a higher grade",
+        "To ask about making up a missed quiz",
+        "To explain why she will miss Thursday's class",
+        "To return a note from the health center"
+       ],
+       "answer": 1,
+       "why": "missed the quiz … Is there any way I can make it up?"
+      },
+      {
+       "type": "mcq",
+       "q": "What must the student bring?",
+       "choices": [
+        "A note from the health center",
+        "A friend's lecture notes",
+        "A request form from the office",
+        "Her graded quiz"
+       ],
+       "answer": 0,
+       "why": "Bring a note from the health center。"
+      }
+     ]
+    },
+    {
+     "id": "L2-06",
+     "script": "M: I'm thinking about switching my major from chemistry to environmental science.\nW: Really? Why?\nM: I liked the field trip we did in geology last semester much more than lab work.\nW: Well, environmental science has a lot of fieldwork. But you'd need to take two extra courses.\nM: Would that delay my graduation?\nW: Not if you take one of them in the summer.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why does the man want to change his major?",
+       "choices": [
+        "He failed a geology course.",
+        "He wants to graduate earlier.",
+        "Chemistry courses are too expensive.",
+        "He prefers working outdoors to working in a lab."
+       ],
+       "answer": 3,
+       "why": "field trip … much more than lab work。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the woman say about graduation?",
+       "choices": [
+        "He cannot change majors before graduating.",
+        "He must finish all courses this semester.",
+        "He can still graduate on time by taking a summer course.",
+        "He will have to stay one more year."
+       ],
+       "answer": 2,
+       "why": "Not if you take one of them in the summer。"
+      }
+     ]
+    },
+    {
+     "id": "L2-07",
+     "script": "W: Did you hear the art museum on campus is free for students now?\nM: Since when?\nW: Since this month. You just show your ID.\nM: Nice. I've been meaning to see the new exhibit on Japanese woodblock prints for my art history class.\nW: You should go on a weekday. It gets really crowded on Saturdays.\nM: Good tip. Maybe Wednesday, then.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What news does the woman share?",
+       "choices": [
+        "The museum is closed on weekdays.",
+        "The woodblock exhibit is closing.",
+        "The museum has moved to a new building.",
+        "Students can now visit the museum for free."
+       ],
+       "answer": 3,
+       "why": "the art museum on campus is free for students now。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the woman recommend a weekday visit?",
+       "choices": [
+        "The museum is less crowded then.",
+        "Guided tours are offered only then.",
+        "Tickets are cheaper on weekdays.",
+        "The museum is closed on Saturdays."
+       ],
+       "answer": 0,
+       "why": "It gets really crowded on Saturdays。"
+      }
+     ]
+    },
+    {
+     "id": "L2-08",
+     "script": "M: Hi, I'd like to reserve a group study room for tomorrow afternoon.\nW: Sure. How many people?\nM: Six.\nW: Our larger rooms are all booked tomorrow, I'm afraid. The small ones hold four.\nM: Hmm. What about the day after?\nW: Room 3B is free from one to three on Friday. It has a whiteboard and a screen.\nM: Perfect. I'll take that.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why can't the man book a room for tomorrow?",
+       "choices": [
+        "His group has more than ten people.",
+        "The rooms big enough for his group are taken.",
+        "The library is closed tomorrow.",
+        "He did not bring his student ID."
+       ],
+       "answer": 1,
+       "why": "larger rooms are all booked … small ones hold four（6人には小さい）。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the man decide to do?",
+       "choices": [
+        "Meet in the café instead",
+        "Use two small rooms",
+        "Reserve a room for Friday",
+        "Ask his group to meet in the morning"
+       ],
+       "answer": 2,
+       "why": "Room 3B … on Friday → I'll take that。"
+      }
+     ]
+    },
+    {
+     "id": "L2-09",
+     "script": "W: How's your psychology experiment going?\nM: Slowly. I need forty participants, and I only have fifteen.\nW: Have you tried posting on the student message board?\nM: I did, but not many people responded.\nW: Maybe offer something. When I ran mine, I gave everyone a free coffee card, and I had enough people in a week.\nM: That's a good idea. I'll ask my advisor if there's money for that.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the man's problem?",
+       "choices": [
+        "He does not have enough people for his study.",
+        "His advisor rejected his experiment.",
+        "He lost the results of his experiment.",
+        "He cannot find a room for his study."
+       ],
+       "answer": 0,
+       "why": "need forty participants … only have fifteen。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the woman suggest?",
+       "choices": [
+        "Changing the topic of the experiment",
+        "Giving participants a small reward",
+        "Running the experiment online",
+        "Asking fewer questions"
+       ],
+       "answer": 1,
+       "why": "offer something … a free coffee card。"
+      }
+     ]
+    },
+    {
+     "id": "L2-10",
+     "script": "M: Is the gym pool open this weekend?\nW: Saturday, yes. But on Sunday it's closed for a swim competition.\nM: Oh no. Sunday is the only day I'm free.\nW: The community center downtown has a pool, and students get a discount there.\nM: How do I get there?\nW: The number 9 bus stops right outside.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why is the pool closed on Sunday?",
+       "choices": [
+        "The staff are on holiday.",
+        "It is being cleaned.",
+        "A swimming competition is being held.",
+        "The heating is broken."
+       ],
+       "answer": 2,
+       "why": "closed for a swim competition。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the woman recommend?",
+       "choices": [
+        "Joining the swim competition",
+        "Swimming on Saturday instead",
+        "Asking for a refund",
+        "Using a pool at the community center"
+       ],
+       "answer": 3,
+       "why": "The community center downtown has a pool, and students get a discount。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L3",
+   "title": "Listening: Listen to an Announcement",
+   "kind": "listening",
+   "desc": "授業・キャンパスのお知らせを聞いて2〜3問",
+   "tip": "お知らせの目的は最初の2文で言われることが多い（変更・中止・募集）。日時・場所・条件（must / only / instead）をメモする。",
+   "secPerItem": 35,
+   "intro": "Listen to an announcement. Then answer the questions.",
+   "sets": [
+    {
+     "id": "L3-01",
+     "script": "Attention, students in Introduction to Economics. This Thursday's lecture will not be held in Hamilton Hall as usual. Because of a problem with the heating system, we will meet in Room 105 of the Business Building instead. The lecture will begin at the normal time, ten a.m. Also, please remember that the first problem set is due at the start of class. If you cannot attend, you may submit it online before ten.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the main purpose of the announcement?",
+       "choices": [
+        "To explain how to use the heating system",
+        "To cancel Thursday's lecture",
+        "To announce a change of location for a lecture",
+        "To introduce a new professor"
+       ],
+       "answer": 2,
+       "why": "Hamilton Hall ではなく Business Building で行う＝場所の変更。"
+      },
+      {
+       "type": "mcq",
+       "q": "What should students who cannot attend do?",
+       "choices": [
+        "Bring the problem set next week",
+        "Submit the problem set online before ten",
+        "Email the professor after class",
+        "Go to Hamilton Hall"
+       ],
+       "answer": 1,
+       "why": "If you cannot attend, you may submit it online before ten。"
+      }
+     ]
+    },
+    {
+     "id": "L3-02",
+     "script": "Good afternoon, everyone. This is a reminder that the main library will extend its hours during final exam week. From December eighth to December nineteenth, the library will stay open twenty-four hours a day. Free coffee will be available in the lobby after midnight. Please note that the quiet floors will be strictly enforced, and group study rooms can be booked for a maximum of two hours.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What change is being announced?",
+       "choices": [
+        "The library will be open all day and night for two weeks.",
+        "Group study rooms will be removed.",
+        "The lobby will be closed after midnight.",
+        "The library will close early during exams."
+       ],
+       "answer": 0,
+       "why": "twenty-four hours a day（12月8日〜19日）。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is said about group study rooms?",
+       "choices": [
+        "They are available only to seniors.",
+        "They will be used for exams.",
+        "They will be free after midnight.",
+        "They can be reserved for up to two hours."
+       ],
+       "answer": 3,
+       "why": "booked for a maximum of two hours。"
+      }
+     ]
+    },
+    {
+     "id": "L3-03",
+     "script": "Hello, first-year students. The campus recycling program is looking for volunteers for its Green Week, which starts next Monday. Volunteers will help sort materials at collection points around campus for two hours a day. No experience is needed, and you'll receive a free T-shirt. More importantly, volunteer hours count toward the community service requirement for your first-year seminar. To sign up, visit the sustainability office in the Student Center by Friday.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What are volunteers asked to do?",
+       "choices": [
+        "Design T-shirts",
+        "Sort recyclable materials",
+        "Teach a first-year seminar",
+        "Plant trees on campus"
+       ],
+       "answer": 1,
+       "why": "help sort materials at collection points。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to the speaker, what is the most important benefit?",
+       "choices": [
+        "Volunteers can work any hours they like.",
+        "Volunteers get free meals.",
+        "The hours count toward a course requirement.",
+        "Volunteers receive a free T-shirt."
+       ],
+       "answer": 2,
+       "why": "More importantly, volunteer hours count toward the community service requirement。"
+      },
+      {
+       "type": "mcq",
+       "q": "How can students sign up?",
+       "choices": [
+        "By attending a Monday meeting",
+        "By emailing their seminar instructor",
+        "By calling the recycling company",
+        "By going to an office in the Student Center"
+       ],
+       "answer": 3,
+       "why": "visit the sustainability office in the Student Center by Friday。"
+      }
+     ]
+    },
+    {
+     "id": "L3-04",
+     "script": "Attention, please. Due to strong winds, the outdoor graduation rehearsal planned for this afternoon on the main lawn has been moved indoors to the Sports Center. The start time has been pushed back thirty minutes, to three-thirty. Graduates should bring their gowns but do not need to wear them. Family members are not required to attend the rehearsal.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why has the rehearsal been moved?",
+       "choices": [
+        "Because of the weather",
+        "Because the Sports Center is larger",
+        "Because more families are attending",
+        "Because the lawn is being repaired"
+       ],
+       "answer": 0,
+       "why": "Due to strong winds。"
+      },
+      {
+       "type": "mcq",
+       "q": "What time will the rehearsal start?",
+       "choices": [
+        "At two-thirty",
+        "At four o'clock",
+        "At three o'clock",
+        "At three-thirty"
+       ],
+       "answer": 3,
+       "why": "pushed back thirty minutes, to three-thirty。"
+      }
+     ]
+    },
+    {
+     "id": "L3-05",
+     "script": "Welcome to Chemistry 210. Before we begin, a quick note about lab safety training. Every student must complete the online safety module before their first lab session next week. The module takes about forty minutes and ends with a short quiz. You need to score at least eighty percent to pass, but you may retake the quiz as many times as you like. Students who have not passed by Monday will not be allowed into the lab.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What must students do before their first lab?",
+       "choices": [
+        "Read the lab manual aloud",
+        "Buy safety glasses",
+        "Complete an online safety module",
+        "Meet with the instructor"
+       ],
+       "answer": 2,
+       "why": "must complete the online safety module before their first lab。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is true about the quiz?",
+       "choices": [
+        "It takes about forty minutes.",
+        "Students can take it more than once.",
+        "It is given in the lab on Monday.",
+        "Students need a perfect score."
+       ],
+       "answer": 1,
+       "why": "you may retake the quiz as many times as you like。40分はモジュール全体。"
+      }
+     ]
+    },
+    {
+     "id": "L3-06",
+     "script": "This is an announcement from the campus health center. Free flu shots will be offered to all students and staff next Tuesday and Wednesday, from ten a.m. to four p.m., in the Student Center ballroom. No appointment is necessary, but please bring your campus ID card. If you have had a reaction to a flu shot in the past, please speak with a nurse at the health center before getting one.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is being offered?",
+       "choices": [
+        "Free flu shots",
+        "Free health check-ups",
+        "A first-aid class",
+        "Discounted medicine"
+       ],
+       "answer": 0,
+       "why": "Free flu shots will be offered。"
+      },
+      {
+       "type": "mcq",
+       "q": "What should people who had a reaction before do?",
+       "choices": [
+        "Come only on Wednesday",
+        "Make an appointment online",
+        "Bring a doctor's note",
+        "Talk to a nurse first"
+       ],
+       "answer": 3,
+       "why": "speak with a nurse at the health center before getting one。"
+      }
+     ]
+    },
+    {
+     "id": "L3-07",
+     "script": "Hi, everyone. For our history seminar, the field trip to the county archives is now confirmed for Saturday the fourteenth. The bus will leave from the main gate at eight-thirty sharp and return by four. Lunch will not be provided, so please bring your own or money to buy something nearby. At the archives, you'll be handling original documents, so pencils only — no pens are allowed in the reading room.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Where will the students go?",
+       "choices": [
+        "To a history museum downtown",
+        "To a library at the main gate",
+        "To a building that stores historical records",
+        "To a university in another county"
+       ],
+       "answer": 2,
+       "why": "the county archives＝記録を保管する施設。"
+      },
+      {
+       "type": "mcq",
+       "q": "What are students told about the reading room?",
+       "choices": [
+        "They may eat lunch there.",
+        "They may use only pencils there.",
+        "They must bring their own documents.",
+        "It closes at four."
+       ],
+       "answer": 1,
+       "why": "pencils only — no pens are allowed in the reading room。"
+      },
+      {
+       "type": "mcq",
+       "q": "What should students bring?",
+       "choices": [
+        "Their own lunch or money for food",
+        "A copy of their ID only",
+        "A pen and notebook",
+        "A camera for photographs"
+       ],
+       "answer": 0,
+       "why": "Lunch will not be provided, so please bring your own or money。"
+      }
+     ]
+    },
+    {
+     "id": "L3-08",
+     "script": "Attention, residents of West Hall. The fire alarm system will be tested tomorrow between nine and eleven in the morning. You may hear the alarm several times during this period. There is no need to leave the building during the test. However, if the alarm sounds at any other time tomorrow, treat it as a real emergency and leave by the nearest stairway.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will happen tomorrow morning?",
+       "choices": [
+        "The stairways will be closed.",
+        "There will be a fire drill outside.",
+        "Residents must leave the building.",
+        "The fire alarm system will be checked."
+       ],
+       "answer": 3,
+       "why": "The fire alarm system will be tested。"
+      },
+      {
+       "type": "mcq",
+       "q": "What should residents do if the alarm sounds in the afternoon?",
+       "choices": [
+        "Wait in their rooms",
+        "Ignore it",
+        "Leave the building",
+        "Call the front desk"
+       ],
+       "answer": 2,
+       "why": "at any other time … treat it as a real emergency and leave。"
+      }
+     ]
+    },
+    {
+     "id": "L3-09",
+     "script": "Good morning. I'd like to remind everyone in the psychology department that the deadline for summer research assistant applications has been extended. Applications are now due on March twentieth instead of March tenth. You'll need a short statement explaining your interests and one letter of recommendation from a faculty member. Successful applicants will be paid and can work up to fifteen hours a week.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What change is announced?",
+       "choices": [
+        "Applications must be sent by March tenth.",
+        "The application deadline is later than before.",
+        "The positions are no longer paid.",
+        "Fewer research positions are available."
+       ],
+       "answer": 1,
+       "why": "has been extended … March twentieth instead of March tenth。"
+      },
+      {
+       "type": "mcq",
+       "q": "What must applicants include?",
+       "choices": [
+        "A statement and a faculty recommendation",
+        "Two letters from employers",
+        "A research paper they wrote",
+        "A copy of their grades only"
+       ],
+       "answer": 0,
+       "why": "a short statement … one letter of recommendation from a faculty member。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L4",
+   "title": "Listening: Listen to an Academic Talk",
+   "kind": "listening",
+   "desc": "約200語の講義を聞いて4問（主題・詳細・例の目的・推測）",
+   "tip": "最初に言う「今日の話題」を必ずつかむ。例（For example / Imagine …）は、直前の主張を説明するために出てくる。But / Now, here's something interesting の後は大事な点。",
+   "secPerItem": 45,
+   "intro": "Listen to part of a talk in a class. Then answer the questions.",
+   "sets": [
+    {
+     "id": "L4-01",
+     "script": "Today let's look at an animal that lives in two very different worlds: the frog. Most frogs begin life as eggs laid in water. The eggs hatch into tadpoles, which breathe through gills and swim with a tail, a lot like fish. Over a few weeks or months, the tadpole goes through a dramatic change called metamorphosis. It grows legs, its tail is absorbed into its body, and it develops lungs so it can breathe air. Now, here's something interesting. Adult frogs also breathe through their skin. That's why their skin has to stay moist. And it's also why frogs are often called indicator species. Because chemicals in the water and air pass easily through their skin, frogs are very sensitive to pollution. So when frog populations in an area start to decline, scientists take it as an early warning that something may be wrong with the environment.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the talk mainly about?",
+       "choices": [
+        "The life cycle of frogs and their sensitivity to the environment",
+        "How fish and frogs are related",
+        "How scientists remove pollution from water",
+        "Why tadpoles live longer than adult frogs"
+       ],
+       "answer": 0,
+       "why": "変態の説明から、皮膚呼吸と環境指標の話へ進む。"
+      },
+      {
+       "type": "mcq",
+       "q": "What happens during metamorphosis?",
+       "choices": [
+        "The tadpole grows a longer tail.",
+        "The frog lays eggs in water.",
+        "The tadpole develops legs and lungs.",
+        "The frog's skin becomes dry."
+       ],
+       "answer": 2,
+       "why": "grows legs … develops lungs。尾は吸収される。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why must a frog's skin stay moist?",
+       "choices": [
+        "It protects them from the sun.",
+        "It helps them swim faster.",
+        "It keeps predators away.",
+        "Frogs breathe partly through their skin."
+       ],
+       "answer": 3,
+       "why": "Adult frogs also breathe through their skin. That's why …"
+      },
+      {
+       "type": "mcq",
+       "q": "According to the professor, what does a decline in frog numbers suggest?",
+       "choices": [
+        "The frogs have moved to cleaner water.",
+        "There may be a problem in the environment.",
+        "Scientists have counted incorrectly.",
+        "Too many tadpoles have hatched."
+       ],
+       "answer": 1,
+       "why": "an early warning that something may be wrong with the environment。"
+      }
+     ]
+    },
+    {
+     "id": "L4-02",
+     "script": "Last week we talked about how minerals form. Today I want to focus on one way geologists identify them: hardness. In the early nineteenth century, a scale was developed that ranks minerals from one to ten. Talc, which is soft enough to scratch with a fingernail, is a one. Diamond, the hardest natural mineral, is a ten. The test is simple. If mineral A can scratch mineral B, then A is harder. Now, one common misunderstanding is that the scale is evenly spaced. It isn't. The scale only tells you the order. Diamond, at ten, is actually several times harder than corundum, at nine. So the jump from nine to ten is much bigger than the jump from one to two. In the field, geologists often carry simple tools to test hardness — a steel nail, a piece of glass, even a copper coin — because these have known positions on the scale.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the main topic of the talk?",
+       "choices": [
+        "Why some minerals are more valuable than others",
+        "How diamonds are formed",
+        "The history of geology in the nineteenth century",
+        "A scale used to measure the hardness of minerals"
+       ],
+       "answer": 3,
+       "why": "Today I want to focus on … hardness。"
+      },
+      {
+       "type": "mcq",
+       "q": "How do geologists decide which of two minerals is harder?",
+       "choices": [
+        "They weigh both minerals.",
+        "They check which one can scratch the other.",
+        "They compare their colors.",
+        "They heat both minerals."
+       ],
+       "answer": 1,
+       "why": "If mineral A can scratch mineral B, then A is harder。"
+      },
+      {
+       "type": "mcq",
+       "q": "What misunderstanding does the professor mention?",
+       "choices": [
+        "That the steps on the scale are equal in size",
+        "That talc is harder than diamond",
+        "That hardness cannot be tested in the field",
+        "That the scale has twelve levels"
+       ],
+       "answer": 0,
+       "why": "the scale is evenly spaced. It isn't。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the professor mention a steel nail and a copper coin?",
+       "choices": [
+        "They can scratch diamond.",
+        "They are examples of minerals.",
+        "They are simple objects with known hardness used in the field.",
+        "They were used to create the scale."
+       ],
+       "answer": 2,
+       "why": "these have known positions on the scale。"
+      }
+     ]
+    },
+    {
+     "id": "L4-03",
+     "script": "When we think of the Silk Road, we often picture a single road running from China to the Mediterranean. In reality, it was a huge network of routes over land and sea, and very few traders ever traveled the whole distance. Instead, goods were passed from one merchant to the next, often changing hands many times. A bolt of silk might be traded at a market in Central Asia, carried further west by another group, and sold again before reaching its final buyer. Each time, the price went up. And it wasn't just silk. Spices, paper, glass, horses, and precious metals moved along these routes. But perhaps the most important things that traveled weren't goods at all. Ideas did too: religions, languages, farming techniques, and even mathematical knowledge. In that sense, the Silk Road was as much a network of communication as a network of trade.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What point does the professor make about the Silk Road?",
+       "choices": [
+        "It was used mainly for sea travel.",
+        "It was a network of many routes rather than a single road.",
+        "It connected only two cities.",
+        "It was built by one powerful empire."
+       ],
+       "answer": 1,
+       "why": "In reality, it was a huge network of routes。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to the professor, why did prices rise as goods moved west?",
+       "choices": [
+        "Taxes were charged only at the final market.",
+        "Silk became rarer in the west.",
+        "Goods were sold many times by different merchants.",
+        "Traders traveled very slowly."
+       ],
+       "answer": 2,
+       "why": "changing hands many times … Each time, the price went up。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following is NOT mentioned as something that traveled along the routes?",
+       "choices": [
+        "Farming techniques",
+        "Horses",
+        "Spices",
+        "Printed books"
+       ],
+       "answer": 3,
+       "why": "spices, paper, glass, horses, metals, ideas。印刷された本は言っていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the professor imply in the final sentence?",
+       "choices": [
+        "The exchange of ideas was as significant as the exchange of goods.",
+        "Languages slowed down trade.",
+        "Communication was impossible between traders.",
+        "Trade on the Silk Road was not profitable."
+       ],
+       "answer": 0,
+       "why": "as much a network of communication as a network of trade。"
+      }
+     ]
+    },
+    {
+     "id": "L4-04",
+     "script": "Let's talk about why some colors seem to move or vibrate in a painting, even though the paint is perfectly still. It has to do with something called complementary colors. On a color wheel, complementary colors sit directly opposite each other — red and green, blue and orange, yellow and purple. When you place two complementary colors side by side, each one makes the other look more intense. Painters have used this for centuries, but in the nineteenth and twentieth centuries some artists made it a central part of their work. By putting small dots or strokes of complementary colors next to each other, they created surfaces that seemed to shimmer. There's actually a biological reason for this. When you stare at one color for a while, the cells in your eye that respond to it get tired, and you start to see its complement. Artists didn't always know the science, but they understood the effect from experience.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the talk mainly about?",
+       "choices": [
+        "How to mix paint on a color wheel",
+        "Why some paintings fade over time",
+        "How complementary colors create strong visual effects",
+        "The history of a single famous painting"
+       ],
+       "answer": 2,
+       "why": "complementary colors が強い効果を生む理由の講義。"
+      },
+      {
+       "type": "mcq",
+       "q": "What happens when complementary colors are placed next to each other?",
+       "choices": [
+        "Each color appears more intense.",
+        "The colors seem to blend into one.",
+        "Both colors appear gray.",
+        "The colors look darker."
+       ],
+       "answer": 0,
+       "why": "each one makes the other look more intense。"
+      },
+      {
+       "type": "mcq",
+       "q": "What biological explanation does the professor give?",
+       "choices": [
+        "Bright light damages the eye.",
+        "Eye cells that respond to a color become tired.",
+        "The brain cannot see two colors at once.",
+        "Some people cannot see green."
+       ],
+       "answer": 1,
+       "why": "the cells in your eye that respond to it get tired。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the professor imply about the artists?",
+       "choices": [
+        "They studied biology before painting.",
+        "They avoided using complementary colors.",
+        "They invented the color wheel.",
+        "They learned about the effect through practice rather than science."
+       ],
+       "answer": 3,
+       "why": "didn't always know the science, but understood the effect from experience。"
+      }
+     ]
+    },
+    {
+     "id": "L4-05",
+     "script": "Have you ever noticed that you remember unfinished tasks better than finished ones? This idea goes back to early research in psychology. A researcher noticed that waiters could remember complex orders perfectly — until the bill was paid. After that, they forgot the details almost immediately. To test this, experiments were designed in which people were given a series of simple tasks, like puzzles, and were interrupted before finishing some of them. Later, when asked to recall the tasks, participants remembered the interrupted ones about twice as often. This became known as the Zeigarnik effect, after the researcher. Now, later studies have shown that the effect isn't always strong; it depends on things like how motivated people are to finish. But it does suggest a practical study tip. If you stop studying in the middle of a section rather than at the end, you may find it easier to pick up where you left off.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What observation led to the early research?",
+       "choices": [
+        "People could not finish simple tasks.",
+        "Waiters forgot orders once the customers had paid.",
+        "Students remembered puzzles better than words.",
+        "Customers often forgot what they ordered."
+       ],
+       "answer": 1,
+       "why": "waiters … remember orders perfectly — until the bill was paid。"
+      },
+      {
+       "type": "mcq",
+       "q": "What did the experiments find?",
+       "choices": [
+        "Interrupted tasks were remembered more often.",
+        "Finished tasks were remembered twice as often.",
+        "Interruptions made people angry.",
+        "Puzzles were harder than other tasks."
+       ],
+       "answer": 0,
+       "why": "remembered the interrupted ones about twice as often。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the professor say about later studies?",
+       "choices": [
+        "They showed the effect is stronger in waiters.",
+        "They proved the effect does not exist.",
+        "They used only puzzles.",
+        "They found the effect depends on factors such as motivation."
+       ],
+       "answer": 3,
+       "why": "isn't always strong; it depends on … how motivated people are。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the professor mention stopping in the middle of a section?",
+       "choices": [
+        "To criticize students who study too long",
+        "To show that interruptions are harmful",
+        "To give a practical application of the effect",
+        "To explain how the experiments were designed"
+       ],
+       "answer": 2,
+       "why": "it does suggest a practical study tip。"
+      }
+     ]
+    },
+    {
+     "id": "L4-06",
+     "script": "Today's topic is something economists call the tragedy of the commons. Imagine a village pasture that anyone can use to feed their cows. For each farmer, adding one more cow is a good deal: the farmer gets all the benefit of the extra milk, while the cost — a little less grass — is shared by everyone. The problem is that every farmer thinks the same way. So more and more cows are added until the grass is gone, and everyone loses. The same pattern appears with fishing in open waters, with groundwater, and even with traffic on a free road. Now, for a long time, people assumed the only solutions were government rules or private ownership. But research on real communities found a third option. Many groups have managed shared resources successfully for generations by setting their own rules — limiting how much each member can take and watching each other to make sure the rules are followed.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the main idea of the tragedy of the commons?",
+       "choices": [
+        "Milk prices rise when grass is scarce.",
+        "Governments always manage land poorly.",
+        "Individuals acting in their own interest can destroy a shared resource.",
+        "Villages should not allow farmers to own cows."
+       ],
+       "answer": 2,
+       "why": "各自が得をしようとして、全員が損をする。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does each farmer want to add another cow?",
+       "choices": [
+        "The farmer gains the full benefit but shares the cost.",
+        "Cows eat less grass in large groups.",
+        "The pasture is owned by the farmer.",
+        "The government pays for each cow."
+       ],
+       "answer": 0,
+       "why": "gets all the benefit … the cost is shared by everyone。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the professor mention fishing and traffic?",
+       "choices": [
+        "To explain how roads are built",
+        "To argue that fishing should be banned",
+        "To compare different types of farming",
+        "To show that the same problem occurs in other situations"
+       ],
+       "answer": 3,
+       "why": "The same pattern appears with fishing … traffic。"
+      },
+      {
+       "type": "mcq",
+       "q": "What third option does the professor describe?",
+       "choices": [
+        "Selling the pasture to one farmer",
+        "Communities creating and enforcing their own rules",
+        "Removing all cows from the pasture",
+        "Asking a government to set prices"
+       ],
+       "answer": 1,
+       "why": "groups … setting their own rules … watching each other。"
+      }
+     ]
+    },
+    {
+     "id": "L4-07",
+     "script": "Most people think of deserts as places where nothing grows. But many plants have adapted to survive there. Let's look at three strategies. First, some plants store water. Cactuses, for example, have thick stems that can swell after rain and shrink during long dry periods. Second, some plants reduce water loss. Instead of broad leaves, cactuses have spines, which lose much less water and also protect the plant from animals. Many desert plants also open the tiny holes in their surfaces, called stomata, only at night, when it's cooler and less water evaporates. The third strategy is avoidance. Some desert flowers spend most of their lives as seeds in the soil. When a heavy rain finally comes, they sprout, flower, and produce new seeds within just a few weeks, and then they die. So the desert can suddenly fill with color for a short time after a storm.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How does the professor organize the talk?",
+       "choices": [
+        "By describing three survival strategies",
+        "By comparing deserts on different continents",
+        "By listing plants from smallest to largest",
+        "By telling the history of desert research"
+       ],
+       "answer": 0,
+       "why": "Let's look at three strategies。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is one function of cactus spines mentioned in the talk?",
+       "choices": [
+        "They help the plant grow taller.",
+        "They collect rainwater.",
+        "They protect the plant from animals.",
+        "They attract insects."
+       ],
+       "answer": 2,
+       "why": "lose much less water and also protect the plant from animals。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why do many desert plants open their stomata only at night?",
+       "choices": [
+        "They need moonlight to grow.",
+        "Animals are less active at night.",
+        "The soil is wetter at night.",
+        "Less water is lost when it is cooler."
+       ],
+       "answer": 3,
+       "why": "when it's cooler and less water evaporates。"
+      },
+      {
+       "type": "mcq",
+       "q": "What can be inferred about the desert flowers described at the end?",
+       "choices": [
+        "They live for many years above ground.",
+        "They complete their life cycle very quickly after rain.",
+        "They grow only in winter.",
+        "They store water in thick stems."
+       ],
+       "answer": 1,
+       "why": "数週間で発芽・開花・種まで終えて枯れる。"
+      }
+     ]
+    },
+    {
+     "id": "L4-08",
+     "script": "In the early days of photography, many painters worried that the camera would make them unnecessary. After all, a photograph could record a face or a landscape more accurately than any brush. And in fact, the market for small painted portraits did shrink as photography studios opened. But the effect on art turned out to be more complicated. Freed from the job of simply copying what they saw, some painters began to explore what a camera couldn't do — expressing emotion, playing with color, or showing a scene from several angles at once. At the same time, photography itself influenced painting. Photographs captured moments that the eye usually misses, such as the exact position of a running horse's legs. Some painters studied these images closely and changed the way they showed motion. So rather than replacing painting, photography pushed it in new directions.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What did many painters fear when photography appeared?",
+       "choices": [
+        "That photography would be too expensive",
+        "That photographs would damage paintings",
+        "That studios would stop selling paint",
+        "That cameras would replace their work"
+       ],
+       "answer": 3,
+       "why": "the camera would make them unnecessary。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does the professor say about small painted portraits?",
+       "choices": [
+        "They became more popular.",
+        "There was less demand for them.",
+        "They were painted only by photographers.",
+        "They were copied from photographs."
+       ],
+       "answer": 1,
+       "why": "the market for small painted portraits did shrink。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why does the professor mention a running horse?",
+       "choices": [
+        "To explain why painters disliked photography",
+        "To describe a famous painting",
+        "To illustrate how photographs revealed details people normally miss",
+        "To show that horses were difficult to photograph"
+       ],
+       "answer": 2,
+       "why": "moments that the eye usually misses の例。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is the professor's main conclusion?",
+       "choices": [
+        "Photography encouraged painting to change and develop.",
+        "Photography completely replaced painting.",
+        "Painters should avoid using photographs.",
+        "Painting had no effect on photography."
+       ],
+       "answer": 0,
+       "why": "rather than replacing painting, photography pushed it in new directions。"
+      }
+     ]
+    },
+    {
+     "id": "L4-09",
+     "script": "Why do bubbles form in markets? A bubble happens when the price of something — houses, stocks, even flowers — rises far above what most experts think it's really worth. One key factor is expectations. If people believe a price will keep rising, they buy, not because they need the item, but because they expect to sell it later for more. That buying pushes the price higher, which seems to confirm their belief, and even more people join in. For a while, this cycle feeds itself. But at some point, buyers start to doubt that prices can go any higher. When enough people try to sell at the same time, prices can fall very quickly. Economists still debate how to identify a bubble before it bursts. The difficulty is that a rising price doesn't always mean a bubble; sometimes the value has genuinely increased.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How does the professor define a bubble?",
+       "choices": [
+        "A price far above what most experts believe something is worth",
+        "Any price that rises quickly",
+        "A sudden fall in the price of flowers",
+        "A market where nothing is sold"
+       ],
+       "answer": 0,
+       "why": "rises far above what most experts think it's really worth。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to the professor, why do people buy during a bubble?",
+       "choices": [
+        "They need the item for daily use.",
+        "Prices are lower than usual.",
+        "They expect to sell later at a higher price.",
+        "The government encourages them."
+       ],
+       "answer": 2,
+       "why": "because they expect to sell it later for more。"
+      },
+      {
+       "type": "mcq",
+       "q": "What causes prices to fall quickly?",
+       "choices": [
+        "New buyers entering the market",
+        "A shortage of the item",
+        "Experts changing their definitions",
+        "Many people trying to sell at once"
+       ],
+       "answer": 3,
+       "why": "When enough people try to sell at the same time。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why is it difficult to identify a bubble in advance?",
+       "choices": [
+        "Bubbles happen only with houses.",
+        "A rising price may reflect a real increase in value.",
+        "Prices never rise for long.",
+        "Economists do not study prices."
+       ],
+       "answer": 1,
+       "why": "a rising price doesn't always mean a bubble。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "W1",
+   "title": "Writing: Build a Sentence",
+   "kind": "reading",
+   "desc": "会話の返事を、ばらばらの語句を並べて1文にする（Writing セクション）",
+   "tip": "まず主語と動詞を見つけて骨組みを作り、残りを後ろにつなぐ。疑問文か、間接疑問（I'm not sure who …）か、時制の一致はどうかを確かめる。全部の語句を1回ずつ使う。",
+   "secPerItem": 35,
+   "intro": "Make an appropriate reply by putting the words and phrases in the correct order. Type the full sentence.",
+   "sets": [
+    {
+     "id": "W1-01",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Where did you leave the lab key?”  Reply: ____  [ I / at / the front desk / left it ]",
+       "answer": [
+        "I left it at the front desk"
+       ],
+       "why": "主語＋動詞＋目的語＋場所の順。left it at …。"
+      }
+     ]
+    },
+    {
+     "id": "W1-02",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Do you know when the essay is due?”  Reply: ____  [ Monday / I think / it's due / next ]",
+       "answer": [
+        "I think it's due next Monday"
+       ],
+       "why": "I think の後に普通の語順の文（it's due …）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-03",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Why are you taking the bus today?”  Reply: ____  [ has / my bike / a / flat tire ]",
+       "answer": [
+        "my bike has a flat tire"
+       ],
+       "why": "主語 my bike ＋ has a flat tire（パンクしている）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-04",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Can you tell me where the career office is?”  Reply: ____  [ the student center / of / it's / on the second floor ]",
+       "answer": [
+        "it's on the second floor of the student center"
+       ],
+       "why": "場所は on the second floor of … と「階→建物」の順。"
+      }
+     ]
+    },
+    {
+     "id": "W1-05",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“What did the professor say about the quiz?”  Reply: ____  [ she said / it / postponed / would be ]",
+       "answer": [
+        "she said it would be postponed"
+       ],
+       "why": "時制の一致：said の後は would be postponed。"
+      }
+     ]
+    },
+    {
+     "id": "W1-06",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Have you finished the reading?”  Reply: ____  [ but / I'll / finish it tonight / not yet ]",
+       "answer": [
+        "not yet but I'll finish it tonight"
+       ],
+       "why": "Not yet, but I'll … が自然な返事。"
+      }
+     ]
+    },
+    {
+     "id": "W1-07",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Could you help me move this table?”  Reply: ____  [ to put it / sure / do you want / where ]",
+       "answer": [
+        "sure where do you want to put it"
+       ],
+       "why": "Where do you want to put it? 疑問詞＋do you want＋to 不定詞。"
+      }
+     ]
+    },
+    {
+     "id": "W1-08",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Did you enjoy the guest lecture?”  Reply: ____  [ more interesting / it was / yes / than I expected ]",
+       "answer": [
+        "yes it was more interesting than I expected"
+       ],
+       "why": "比較：more interesting than I expected。"
+      }
+     ]
+    },
+    {
+     "id": "W1-09",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“I can't open the course website.”  Reply: ____  [ logging in / have you tried / with / your student ID ]",
+       "answer": [
+        "have you tried logging in with your student ID"
+       ],
+       "why": "have you tried ＋ -ing（〜してみた？）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-10",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Who is leading tomorrow's discussion?”  Reply: ____  [ who / lead it / I'm not sure / will ]",
+       "answer": [
+        "I'm not sure who will lead it"
+       ],
+       "why": "間接疑問：I'm not sure who will lead it（疑問文の語順にしない）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-11",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Is the library open on Sunday?”  Reply: ____  [ at / noon / on weekends / it opens ]",
+       "answer": [
+        "it opens at noon on weekends"
+       ],
+       "why": "時刻 at noon、曜日のくくり on weekends。"
+      }
+     ]
+    },
+    {
+     "id": "W1-12",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“How was your field trip?”  Reply: ____  [ some amazing / saw / we / rock formations ]",
+       "answer": [
+        "we saw some amazing rock formations"
+       ],
+       "why": "主語＋動詞＋形容詞＋名詞。"
+      }
+     ]
+    },
+    {
+     "id": "W1-13",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Why didn't you come to the meeting?”  Reply: ____  [ it had been / I / didn't know / moved to today ]",
+       "answer": [
+        "I didn't know it had been moved to today"
+       ],
+       "why": "過去完了：it had been moved（知らなかった時点より前に変更）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-14",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Should I bring anything to the study group?”  Reply: ____  [ from last week / could you / the notes / bring ]",
+       "answer": [
+        "could you bring the notes from last week"
+       ],
+       "why": "Could you bring …? 依頼の形。"
+      }
+     ]
+    },
+    {
+     "id": "W1-15",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“What are you doing this summer?”  Reply: ____  [ to get / an internship / I'm hoping / at a museum ]",
+       "answer": [
+        "I'm hoping to get an internship at a museum"
+       ],
+       "why": "hope to ＋動詞。I'm hoping to get …。"
+      }
+     ]
+    },
+    {
+     "id": "W1-16",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Did you find a roommate?”  Reply: ____  [ next month / is moving in / yes / a friend of mine ]",
+       "answer": [
+        "yes a friend of mine is moving in next month"
+       ],
+       "why": "現在進行形で近い未来の予定：is moving in next month。"
+      }
+     ]
+    },
+    {
+     "id": "W1-17",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Where can I print my poster?”  Reply: ____  [ up to one meter wide / can print / posters / the copy center ]",
+       "answer": [
+        "the copy center can print posters up to one meter wide"
+       ],
+       "why": "主語 the copy center ＋ can print ＋目的語＋説明。"
+      }
+     ]
+    },
+    {
+     "id": "W1-18",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Are you going to the concert tonight?”  Reply: ____  [ I have / but / I'd like to / an exam tomorrow ]",
+       "answer": [
+        "I'd like to but I have an exam tomorrow"
+       ],
+       "why": "I'd like to, but … 断りの定番。"
+      }
+     ]
+    },
+    {
+     "id": "W1-19",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“How long have you been studying Spanish?”  Reply: ____  [ I've been / about two years / for / studying it ]",
+       "answer": [
+        "I've been studying it for about two years"
+       ],
+       "why": "現在完了進行形＋for ＋期間。"
+      }
+     ]
+    },
+    {
+     "id": "W1-20",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Can I borrow your calculator?”  Reply: ____  [ of course / after class / just / give it back ]",
+       "answer": [
+        "of course just give it back after class"
+       ],
+       "why": "Of course, just give it back after class. 命令文。"
+      }
+     ]
+    },
+    {
+     "id": "W1-21",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Is Dr. Patel's office in this building?”  Reply: ____  [ her office / across / is / the hall ]",
+       "answer": [
+        "her office is across the hall"
+       ],
+       "why": "across the hall（廊下の向かい）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-22",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“What should I do if I miss the bus?”  Reply: ____  [ call / you / can / a campus taxi ]",
+       "answer": [
+        "you can call a campus taxi"
+       ],
+       "why": "助動詞 can ＋動詞の原形。"
+      }
+     ]
+    },
+    {
+     "id": "W1-23",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Why is the café so crowded?”  Reply: ____  [ free / giving away / coffee today / they're ]",
+       "answer": [
+        "they're giving away free coffee today"
+       ],
+       "why": "現在進行形 they're giving away（無料で配っている）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-24",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Did the experiment work?”  Reply: ____  [ not / what we expected / were / the results ]",
+       "answer": [
+        "the results were not what we expected"
+       ],
+       "why": "what we expected＝「私たちが予想したこと」。名詞のかたまり。"
+      }
+     ]
+    },
+    {
+     "id": "W1-25",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Do you know whose jacket this is?”  Reply: ____  [ I / to Ken / it belongs / think ]",
+       "answer": [
+        "I think it belongs to Ken"
+       ],
+       "why": "belong to ＋人（〜の物だ）。"
+      }
+     ]
+    },
+    {
+     "id": "W1-26",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“When does registration open?”  Reply: ____  [ opens / two weeks / before the semester / it ]",
+       "answer": [
+        "it opens two weeks before the semester"
+       ],
+       "why": "期間＋before ＋名詞。"
+      }
+     ]
+    },
+    {
+     "id": "W1-27",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Have you seen my blue notebook?”  Reply: ____  [ I / in the lounge / saw one / on the table ]",
+       "answer": [
+        "I saw one on the table in the lounge",
+        "in the lounge I saw one on the table"
+       ],
+       "why": "目的語の後に場所を「小→大」で並べる。"
+      }
+     ]
+    },
+    {
+     "id": "W1-28",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Could you explain how to use this machine?”  Reply: ____  [ you need / your card / first / to insert ]",
+       "answer": [
+        "first you need to insert your card",
+        "you need to insert your card first"
+       ],
+       "why": "First, you need to insert … 手順の説明。"
+      }
+     ]
+    },
+    {
+     "id": "W1-29",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Which topic did you choose for your paper?”  Reply: ____  [ local farming / the history of / I'm writing / about ]",
+       "answer": [
+        "I'm writing about the history of local farming"
+       ],
+       "why": "write about ＋名詞句。the history of local farming。"
+      }
+     ]
+    },
+    {
+     "id": "W1-30",
+     "questions": [
+      {
+       "type": "gap",
+       "limit": "TYPE THE FULL SENTENCE",
+       "q": "“Is it OK if I sit here?”  Reply: ____  [ is / sure / nobody / using that seat ]",
+       "answer": [
+        "sure nobody is using that seat"
+       ],
+       "why": "Nobody is using that seat. 否定の主語 nobody。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "W2",
+   "title": "Writing: Write an Email",
+   "kind": "writing",
+   "desc": "状況に合わせてメールを書く（7分）",
+   "tip": "書き出し（Dear …,）→用件1文→指示された3つの点→結び（Thank you … / Best regards,）。3つの点を全部入れることが一番大事。相手に合わせて丁寧さを変える。",
+   "secPerItem": 420,
+   "intro": "Read the situation and write an email. You have 7 minutes.",
+   "sets": [
+    {
+     "id": "W2-01",
+     "type": "Write an Email",
+     "prompt": "You are taking an online course in environmental science. The professor has asked each student to visit a local park and write a short report, but the park near you has been closed for repairs for the next month.\n\nWrite an email to your professor. In your email:\n- explain the problem\n- suggest another way to complete the assignment\n- ask whether the deadline can be changed",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "3つの点をすべて書く。丁寧な書き出しと結びを入れる。"
+    },
+    {
+     "id": "W2-02",
+     "type": "Write an Email",
+     "prompt": "You recently joined a university hiking club. The club's next trip is on a weekend when you have a family event, but you would still like to take part in the club's activities.\n\nWrite an email to the club leader. In your email:\n- explain why you cannot go on the next trip\n- describe what kind of activities you enjoy\n- ask how else you can be involved this month",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "理由・好み・質問の3つを段落かつなぎ語で分ける。"
+    },
+    {
+     "id": "W2-03",
+     "type": "Write an Email",
+     "prompt": "You bought a used textbook from the campus bookstore. When you got home, you found that several pages were missing.\n\nWrite an email to the bookstore manager. In your email:\n- describe the problem with the book\n- explain why you need the book soon\n- say what you would like the store to do",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "苦情でも丁寧に。具体的に（何ページ・いつ必要か）。"
+    },
+    {
+     "id": "W2-04",
+     "type": "Write an Email",
+     "prompt": "Your study group has been meeting in a library room every Tuesday evening. This week, the library has told you the room is no longer available on Tuesdays.\n\nWrite an email to the members of your study group. In your email:\n- explain what has happened\n- suggest a new time or place\n- ask members to reply with their preference",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "仲間あてなので少しくだけてよいが、文は正確に。"
+    },
+    {
+     "id": "W2-05",
+     "type": "Write an Email",
+     "prompt": "You would like to work as a research assistant for a professor whose class you enjoyed last semester. You have not talked with the professor about this before.\n\nWrite an email to the professor. In your email:\n- introduce yourself and mention the class you took\n- explain why you are interested in the research\n- ask whether any positions are available",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "自己紹介→理由→質問の順。I am writing to … で始めると楽。"
+    },
+    {
+     "id": "W2-06",
+     "type": "Write an Email",
+     "prompt": "The air conditioner in your dormitory room has stopped working, and it has been very hot for several days. You reported it once, but nobody has come to fix it.\n\nWrite an email to the housing office. In your email:\n- describe the problem and how long it has lasted\n- explain how it is affecting you\n- request a specific action",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "経過（いつ報告したか）を入れると説得力が出る。"
+    },
+    {
+     "id": "W2-07",
+     "type": "Write an Email",
+     "prompt": "A classmate lent you a book for a project, but you accidentally spilled coffee on it and damaged several pages.\n\nWrite an email to your classmate. In your email:\n- explain what happened\n- apologize\n- offer a way to make up for the damage",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "謝罪は具体的に。償いの方法を1つ提案する。"
+    },
+    {
+     "id": "W2-08",
+     "type": "Write an Email",
+     "prompt": "You read on the university website that the campus gym is planning to reduce its weekend hours. You use the gym mostly on weekends.\n\nWrite an email to the gym director. In your email:\n- explain how you use the gym\n- describe how the change would affect you and other students\n- suggest an alternative",
+     "minWords": 80,
+     "maxWords": 150,
+     "note": "反対意見＋代案。感情ではなく理由で。"
+    }
+   ]
+  },
+  {
+   "id": "W3",
+   "title": "Writing: Write for an Academic Discussion",
+   "kind": "writing",
+   "desc": "教授の問いと学生2人の投稿を読み、自分の意見を書く（10分・100語以上）",
+   "tip": "1文目で自分の立場をはっきり書く。他の学生の意見に一言触れ、2人が言っていない理由か具体例を足す。最後に短くまとめる。",
+   "secPerItem": 600,
+   "intro": "Read the professor's question and the two student posts. Write a post that adds your own opinion to the discussion. You have 10 minutes.",
+   "sets": [
+    {
+     "id": "W3-01",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on psychology. Write a post responding to the professor's question.\n\nProfessor: Many students study while listening to music. Some researchers say music helps people stay focused, while others say it divides attention. In your experience, does listening to music while studying help or hurt learning? Why?\n\nMaya: Music helps me a lot. When I study in silence, I get bored and start checking my phone. Calm music without words keeps me at my desk longer.\n\nTom: I think it depends on the task. Music is fine for simple work like organizing notes, but when I read difficult material, any sound distracts me.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "自分の立場を最初に。2人の意見に一言触れ、新しい理由か例を足す。"
+    },
+    {
+     "id": "W3-02",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on economics. Write a post responding to the professor's question.\n\nProfessor: Some cities charge drivers a fee to enter the city center during busy hours. Supporters say it reduces traffic and pollution; critics say it is unfair to people with lower incomes. Do you think such fees are a good policy? Why or why not?\n\nLena: I support the fees. Traffic in city centers wastes time and damages health. If driving costs more, people will choose buses and trains.\n\nOmar: I disagree. Workers who live far away may have no good public transport. A fee would punish people who have no choice.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "Lena と Omar のどちらに近いかを示し、2人が言っていない理由を1つ。"
+    },
+    {
+     "id": "W3-03",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on history. Write a post responding to the professor's question.\n\nProfessor: When we study history, we can focus on famous leaders and major events, or on the daily lives of ordinary people. Which approach do you think helps students understand the past better? Why?\n\nKenji: Leaders and major events shaped everything else. Without understanding them, the daily lives of ordinary people do not make sense.\n\nSara: I prefer learning about ordinary people. Most people in history were farmers and workers, and their lives tell us what the past was really like.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "どちらか一方を選ぶか、両方の良さを言ってから自分の重みづけを示す。"
+    },
+    {
+     "id": "W3-04",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on biology. Write a post responding to the professor's question.\n\nProfessor: Zoos spend large amounts of money to protect endangered animals through breeding programs. Some people believe that money would be better spent protecting the animals' natural habitats. Which do you think is more important, and why?\n\nAna: Protecting habitats is more important. If the forests and wetlands disappear, there will be nowhere to return the animals bred in zoos.\n\nDavid: Zoos are necessary because some species are so rare that they could disappear before their habitats are protected. Breeding programs buy time.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "具体例（森・海など）を1つ入れると展開点が上がる。"
+    },
+    {
+     "id": "W3-05",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on education. Write a post responding to the professor's question.\n\nProfessor: Some universities now require all students to take at least one course outside their major, such as an art course for engineering students. Do you think this kind of requirement is valuable? Why or why not?\n\nChris: Yes. Taking a course in a different field helps students think creatively and solve problems in new ways.\n\nYuna: I am not sure. University is expensive, and students should be free to spend their time on courses that prepare them for their careers.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "自分の経験を短く1つ入れると説得力が出る。"
+    },
+    {
+     "id": "W3-06",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on art. Write a post responding to the professor's question.\n\nProfessor: Many museums now offer virtual tours online, where people can view artworks from home. Do you think virtual tours can replace visiting a museum in person? Why or why not?\n\nLiam: Virtual tours are great because anyone can see famous works without traveling. For many people, this is the only way to see them.\n\nNora: Seeing a painting online is not the same. The size, texture, and atmosphere of a real museum cannot be shown on a screen.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "「完全には置き換えられない、ただし…」のような条件付きの立場もよい。"
+    },
+    {
+     "id": "W3-07",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on sociology. Write a post responding to the professor's question.\n\nProfessor: More companies are allowing employees to work from home several days a week. Some say this improves workers' lives; others worry that it weakens teamwork. In your opinion, what is the biggest effect of working from home, and why?\n\nPaulo: The biggest effect is more free time. Without a long commute, people can exercise, cook, and spend time with family.\n\nHana: I think the biggest effect is on young employees. They miss the chance to learn by watching experienced colleagues in the office.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "「一番大きい影響」を1つに絞り、理由と例で支える。"
+    },
+    {
+     "id": "W3-08",
+     "type": "Write for an Academic Discussion",
+     "prompt": "Your professor is teaching a class on environmental science. Write a post responding to the professor's question.\n\nProfessor: To reduce plastic waste, governments can either ban certain plastic products or encourage companies to develop better recycling systems. Which approach do you think is more effective? Why?\n\nIsabel: Bans are more effective. Recycling has existed for decades, yet most plastic still ends up in landfills or the ocean.\n\nMarcus: Bans can create new problems, such as replacing plastic with materials that use more energy. Improving recycling solves the problem without these side effects.",
+     "minWords": 100,
+     "maxWords": 180,
+     "note": "どちらかを選び、相手の意見への反論を1文入れると構成がよくなる。"
+    }
+   ]
+  },
+  {
+   "id": "S1",
+   "title": "Speaking: Listen and Repeat",
+   "kind": "speaking",
+   "desc": "場面に合った文を、聞いたとおりにくり返す（7文・だんだん長く）",
+   "tip": "本番は音声だけ。アプリでは文を一度読んだら目を離して、意味のかたまりごとに言う。語を足したり抜いたりしない。最後まで同じ速さで、はっきり。",
+   "secPerItem": 12,
+   "intro": "Look at the sentence once, then look away and repeat it exactly. (In the real test you only hear it.)",
+   "sets": [
+    {
+     "id": "S1-01",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are new at a university. A student guide is showing you around the campus.\nRepeat the sentence exactly.",
+       "readAloud": "Welcome to the main campus.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are new at a university. A student guide is showing you around the campus.\nRepeat the sentence exactly.",
+       "readAloud": "The library is on your left.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are new at a university. A student guide is showing you around the campus.\nRepeat the sentence exactly.",
+       "readAloud": "Most classes are held in this building.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are new at a university. A student guide is showing you around the campus.\nRepeat the sentence exactly.",
+       "readAloud": "You can buy snacks at the café near the entrance.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are new at a university. A student guide is showing you around the campus.\nRepeat the sentence exactly.",
+       "readAloud": "If you get lost, ask anyone at the information desk.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are new at a university. A student guide is showing you around the campus.\nRepeat the sentence exactly.",
+       "readAloud": "Students can borrow laptops from the library for up to three days.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are new at a university. A student guide is showing you around the campus.\nRepeat the sentence exactly.",
+       "readAloud": "The sports center, which opened last year, is free for all registered students.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    },
+    {
+     "id": "S1-02",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are starting a job at a science museum. A supervisor is explaining your tasks.\nRepeat the sentence exactly.",
+       "readAloud": "Please wear your badge.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are starting a job at a science museum. A supervisor is explaining your tasks.\nRepeat the sentence exactly.",
+       "readAloud": "Visitors may touch this exhibit.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are starting a job at a science museum. A supervisor is explaining your tasks.\nRepeat the sentence exactly.",
+       "readAloud": "Check the tickets at the front door.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are starting a job at a science museum. A supervisor is explaining your tasks.\nRepeat the sentence exactly.",
+       "readAloud": "The dinosaur hall is our most popular room.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are starting a job at a science museum. A supervisor is explaining your tasks.\nRepeat the sentence exactly.",
+       "readAloud": "School groups usually arrive between nine and ten.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are starting a job at a science museum. A supervisor is explaining your tasks.\nRepeat the sentence exactly.",
+       "readAloud": "If a child gets separated from a group, call the security office.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are starting a job at a science museum. A supervisor is explaining your tasks.\nRepeat the sentence exactly.",
+       "readAloud": "At the end of the day, make sure the lights in every gallery have been turned off.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    },
+    {
+     "id": "S1-03",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending a laboratory orientation. A lab assistant is giving instructions.\nRepeat the sentence exactly.",
+       "readAloud": "Wear your safety glasses.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending a laboratory orientation. A lab assistant is giving instructions.\nRepeat the sentence exactly.",
+       "readAloud": "Wash your hands before you leave.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending a laboratory orientation. A lab assistant is giving instructions.\nRepeat the sentence exactly.",
+       "readAloud": "Never eat or drink in the lab.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending a laboratory orientation. A lab assistant is giving instructions.\nRepeat the sentence exactly.",
+       "readAloud": "Chemicals must be returned to the shelf after use.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending a laboratory orientation. A lab assistant is giving instructions.\nRepeat the sentence exactly.",
+       "readAloud": "Write down every measurement in your notebook.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending a laboratory orientation. A lab assistant is giving instructions.\nRepeat the sentence exactly.",
+       "readAloud": "If something spills, tell the instructor before you try to clean it.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending a laboratory orientation. A lab assistant is giving instructions.\nRepeat the sentence exactly.",
+       "readAloud": "Broken glass should go in the yellow box, not in the regular trash can.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    },
+    {
+     "id": "S1-04",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are volunteering at a public library. A librarian is explaining the job.\nRepeat the sentence exactly.",
+       "readAloud": "Returned books go here.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are volunteering at a public library. A librarian is explaining the job.\nRepeat the sentence exactly.",
+       "readAloud": "Children's books are upstairs.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are volunteering at a public library. A librarian is explaining the job.\nRepeat the sentence exactly.",
+       "readAloud": "Please keep your voice down.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are volunteering at a public library. A librarian is explaining the job.\nRepeat the sentence exactly.",
+       "readAloud": "Sort the books by the numbers on their spines.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are volunteering at a public library. A librarian is explaining the job.\nRepeat the sentence exactly.",
+       "readAloud": "The printers need paper every morning.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are volunteering at a public library. A librarian is explaining the job.\nRepeat the sentence exactly.",
+       "readAloud": "Some visitors may need help finding books in the online catalog.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are volunteering at a public library. A librarian is explaining the job.\nRepeat the sentence exactly.",
+       "readAloud": "On Saturdays, we hold a reading hour for young children in the room next to the stairs.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    },
+    {
+     "id": "S1-05",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You have joined a university gym. A trainer is showing you how things work.\nRepeat the sentence exactly.",
+       "readAloud": "Lockers are free to use.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You have joined a university gym. A trainer is showing you how things work.\nRepeat the sentence exactly.",
+       "readAloud": "Please wipe the machines after use.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You have joined a university gym. A trainer is showing you how things work.\nRepeat the sentence exactly.",
+       "readAloud": "The pool opens at six in the morning.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You have joined a university gym. A trainer is showing you how things work.\nRepeat the sentence exactly.",
+       "readAloud": "Towels can be borrowed from the front desk.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You have joined a university gym. A trainer is showing you how things work.\nRepeat the sentence exactly.",
+       "readAloud": "Group classes are listed on the board by the door.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You have joined a university gym. A trainer is showing you how things work.\nRepeat the sentence exactly.",
+       "readAloud": "You should warm up for at least five minutes before using the weights.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You have joined a university gym. A trainer is showing you how things work.\nRepeat the sentence exactly.",
+       "readAloud": "If a machine is not working properly, put a sign on it and tell a member of staff.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    },
+    {
+     "id": "S1-06",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are on a field trip to a national park. A ranger is speaking to your group.\nRepeat the sentence exactly.",
+       "readAloud": "Stay on the marked trails.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are on a field trip to a national park. A ranger is speaking to your group.\nRepeat the sentence exactly.",
+       "readAloud": "Please don't feed the animals.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are on a field trip to a national park. A ranger is speaking to your group.\nRepeat the sentence exactly.",
+       "readAloud": "The visitor center closes at five.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are on a field trip to a national park. A ranger is speaking to your group.\nRepeat the sentence exactly.",
+       "readAloud": "These trees are more than three hundred years old.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are on a field trip to a national park. A ranger is speaking to your group.\nRepeat the sentence exactly.",
+       "readAloud": "Drinking water is available at the top of the hill.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are on a field trip to a national park. A ranger is speaking to your group.\nRepeat the sentence exactly.",
+       "readAloud": "If you see a bear, stay calm and slowly move away from it.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are on a field trip to a national park. A ranger is speaking to your group.\nRepeat the sentence exactly.",
+       "readAloud": "The lake was formed thousands of years ago when a glacier melted at the end of the ice age.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    },
+    {
+     "id": "S1-07",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are working at a university bookstore. A manager is explaining your duties.\nRepeat the sentence exactly.",
+       "readAloud": "The store opens at eight.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are working at a university bookstore. A manager is explaining your duties.\nRepeat the sentence exactly.",
+       "readAloud": "Textbooks are sorted by course.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are working at a university bookstore. A manager is explaining your duties.\nRepeat the sentence exactly.",
+       "readAloud": "Ask customers if they need a bag.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are working at a university bookstore. A manager is explaining your duties.\nRepeat the sentence exactly.",
+       "readAloud": "Used books are marked with a green sticker.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are working at a university bookstore. A manager is explaining your duties.\nRepeat the sentence exactly.",
+       "readAloud": "Students must show their receipt to return an item.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are working at a university bookstore. A manager is explaining your duties.\nRepeat the sentence exactly.",
+       "readAloud": "During the first week of classes, the store is extremely busy.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are working at a university bookstore. A manager is explaining your duties.\nRepeat the sentence exactly.",
+       "readAloud": "If a book is out of stock, we can order it and email the student when it arrives.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    },
+    {
+     "id": "S1-08",
+     "tasks": [
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending orientation for new international students. An advisor is giving advice.\nRepeat the sentence exactly.",
+       "readAloud": "Keep your passport safe.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending orientation for new international students. An advisor is giving advice.\nRepeat the sentence exactly.",
+       "readAloud": "Your student card is also your library card.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending orientation for new international students. An advisor is giving advice.\nRepeat the sentence exactly.",
+       "readAloud": "Classes begin next Monday morning.",
+       "timeSec": 8,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending orientation for new international students. An advisor is giving advice.\nRepeat the sentence exactly.",
+       "readAloud": "You can open a bank account on campus.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending orientation for new international students. An advisor is giving advice.\nRepeat the sentence exactly.",
+       "readAloud": "Our office is open every weekday until four.",
+       "timeSec": 10,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending orientation for new international students. An advisor is giving advice.\nRepeat the sentence exactly.",
+       "readAloud": "Make sure you register for health insurance before the end of this month.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      },
+      {
+       "type": "Listen and Repeat",
+       "prompt": "You are attending orientation for new international students. An advisor is giving advice.\nRepeat the sentence exactly.",
+       "readAloud": "Many students find that joining a club is the easiest way to make friends and practice English.",
+       "timeSec": 12,
+       "ja": "本番は音声のみ。文を見たら目を離して、そのまま言う。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "title": "Speaking: Take an Interview",
+   "kind": "speaking",
+   "desc": "模擬インタビューで4つの質問に答える（各45秒）",
+   "tip": "最初の1文で答えを言い、理由か具体例を1〜2つ足す。後半の質問ほど意見・予測が求められるので、「Personally, I think … because …」の形を準備しておく。45秒を使い切る。",
+   "secPerItem": 45,
+   "intro": "An interviewer will ask you four questions. Answer each one. You have 45 seconds for each answer.",
+   "sets": [
+    {
+     "id": "S2-01",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher at a university is studying how students manage their time. You have agreed to answer some questions.\n\nThank you for joining us. To start, can you describe what a typical weekday looks like for you?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher at a university is studying how students manage their time. You have agreed to answer some questions.\n\nWhat do you usually do when you have too many tasks and not enough time?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher at a university is studying how students manage their time. You have agreed to answer some questions.\n\nSome people say that making a detailed schedule every day is the best way to manage time. Do you agree? Why or why not?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher at a university is studying how students manage their time. You have agreed to answer some questions.\n\nMany students today work part-time while studying. In your opinion, how does this affect their education, and what could universities do to help them?",
+       "timeSec": 45
+      }
+     ]
+    },
+    {
+     "id": "S2-02",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how people use technology to learn. You have agreed to take part in an interview.\n\nLet's begin. What kinds of apps or websites do you use to learn new things?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how people use technology to learn. You have agreed to take part in an interview.\n\nTell me about something useful you learned online recently. How did you learn it?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how people use technology to learn. You have agreed to take part in an interview.\n\nDo you think online videos can teach a skill as well as a teacher in a classroom? Why or why not?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how people use technology to learn. You have agreed to take part in an interview.\n\nSome schools have started using artificial intelligence to give students feedback on their work. What benefits and risks do you think this might bring?",
+       "timeSec": 45
+      }
+     ]
+    },
+    {
+     "id": "S2-03",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "A city planning office is interviewing residents about life in their neighborhood.\n\nThanks for your time. Could you tell me a little about the area where you live?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A city planning office is interviewing residents about life in their neighborhood.\n\nWhat do you usually do in your neighborhood on weekends?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A city planning office is interviewing residents about life in their neighborhood.\n\nIf the city could add one new facility to your area, such as a park, library, or sports center, which would you choose and why?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A city planning office is interviewing residents about life in their neighborhood.\n\nSome people think cities should limit the number of cars in residential areas. Do you think this is a good idea? Explain your view.",
+       "timeSec": 45
+      }
+     ]
+    },
+    {
+     "id": "S2-04",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "A university research team is studying people's eating habits. You have agreed to answer a few questions.\n\nTo begin, what do you usually eat for breakfast?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A university research team is studying people's eating habits. You have agreed to answer a few questions.\n\nDo you prefer cooking at home or eating out? Why?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A university research team is studying people's eating habits. You have agreed to answer a few questions.\n\nSome people believe that schools should teach cooking as a required subject. What is your opinion?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A university research team is studying people's eating habits. You have agreed to answer a few questions.\n\nIn many countries, people are eating more processed food than before. Why do you think this is happening, and what could be done about it?",
+       "timeSec": 45
+      }
+     ]
+    },
+    {
+     "id": "S2-05",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "A travel company is interviewing young people about their travel experiences.\n\nThank you for joining us. Can you tell me about a trip you enjoyed?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A travel company is interviewing young people about their travel experiences.\n\nWhen you plan a trip, what information do you look for first, and where do you find it?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A travel company is interviewing young people about their travel experiences.\n\nSome travelers prefer guided tours, while others like to explore on their own. Which do you prefer, and why?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A travel company is interviewing young people about their travel experiences.\n\nTourism can bring money to a region, but it can also cause problems. What do you think popular tourist areas should do to protect local residents?",
+       "timeSec": 45
+      }
+     ]
+    },
+    {
+     "id": "S2-06",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how students choose their careers. You have agreed to be interviewed.\n\nLet's start with an easy question. What kind of job did you want when you were a child?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how students choose their careers. You have agreed to be interviewed.\n\nWho or what has influenced your ideas about your future career?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how students choose their careers. You have agreed to be interviewed.\n\nDo you think it is better to choose a job you love or a job that pays well? Why?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A researcher is studying how students choose their careers. You have agreed to be interviewed.\n\nMany experts predict that technology will change or replace many jobs in the next twenty years. How should young people prepare for this?",
+       "timeSec": 45
+      }
+     ]
+    },
+    {
+     "id": "S2-07",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "An environmental group is interviewing students about daily habits and the environment.\n\nThanks for talking with us. What do you do in your daily life that helps the environment?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "An environmental group is interviewing students about daily habits and the environment.\n\nDescribe a time when you saw a lot of waste, for example at an event or a store. What happened?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "An environmental group is interviewing students about daily habits and the environment.\n\nSome people think individuals can make a real difference to the environment, while others think only governments and companies can. What is your view?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "An environmental group is interviewing students about daily habits and the environment.\n\nIf you were in charge of your university, what one change would you make to reduce its impact on the environment, and how would you convince others to support it?",
+       "timeSec": 45
+      }
+     ]
+    },
+    {
+     "id": "S2-08",
+     "tasks": [
+      {
+       "type": "Take an Interview",
+       "prompt": "A language school is interviewing learners about their experience learning English.\n\nThank you for joining us. When and how did you start learning English?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A language school is interviewing learners about their experience learning English.\n\nWhat part of learning English has been the most difficult for you, and what did you do about it?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A language school is interviewing learners about their experience learning English.\n\nSome people say the best way to learn a language is to live in a country where it is spoken. Do you agree? Why or why not?",
+       "timeSec": 45
+      },
+      {
+       "type": "Take an Interview",
+       "prompt": "A language school is interviewing learners about their experience learning English.\n\nAs translation apps improve, some people wonder whether learning foreign languages will still be necessary. What do you think, and why?",
+       "timeSec": 45
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "modes": {
+  "ten": {
+   "minutes": 10,
+   "pick": [
+    {
+     "part": "R2",
+     "sets": 1
+    },
+    {
+     "part": "W2",
+     "sets": 1
+    }
+   ]
+  },
+  "challenge": {
+   "minutes": 30,
+   "pick": [
+    {
+     "part": "R3",
+     "sets": 1
+    },
+    {
+     "part": "L4",
+     "sets": 1
+    },
+    {
+     "part": "W3",
+     "sets": 1
+    },
+    {
+     "part": "S2",
+     "sets": 1
+    }
+   ]
+  }
+ }
+}

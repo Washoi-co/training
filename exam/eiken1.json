@@ -1,0 +1,2123 @@
+{
+ "exam": "eiken1",
+ "examName": "英検®1級",
+ "group": "英検®",
+ "spelling": "American",
+ "voice": "en-US",
+ "assess": "eiken",
+ "score": {
+  "kind": "eiken",
+  "passRate": 0.7
+ },
+ "parts": [
+  {
+   "id": "G1",
+   "title": "大問1 短文の語句空所補充",
+   "kind": "reading",
+   "desc": "1〜2文の空所に入る難しい単語・句動詞を4つから選ぶ",
+   "tip": "まず文全体を読み、空所の語が「良い意味か悪い意味か」「強めか弱めか」を決める。セミコロンや because・although の後ろが言い換えの手がかり。知らない語は接頭辞（in- / dis- / ex-）と語根から消去法で絞る。",
+   "secPerItem": 25,
+   "intro": "Read each sentence and choose the word or phrase from the four choices that best completes it.",
+   "sets": [
+    {
+     "id": "G1-001",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The committee's report was so ____ that even experts struggled to follow it; its main arguments were buried under pages of technical detail and unexplained abbreviations.",
+       "choices": [
+        "candid",
+        "frugal",
+        "placid",
+        "abstruse"
+       ],
+       "answer": 3,
+       "why": "abstruse＝「難解な」。専門家でも追えない、細部と略語に埋もれている、という説明と合う。candid（率直な）、frugal（質素な）、placid（穏やかな）は報告書の分かりにくさを表さない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-002",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "After months of negotiation, the two firms finally signed a deal, but analysts warned that the ____ agreement could collapse if either side changed its priorities.",
+       "choices": [
+        "lucid",
+        "tenuous",
+        "opulent",
+        "verbose"
+       ],
+       "answer": 1,
+       "why": "tenuous＝「もろい・根拠の弱い」。どちらかの方針が変われば崩れかねない、という警告と合う。lucid（明快な）、opulent（豪華な）、verbose（言葉数の多い）は「崩れやすさ」を表さない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-003",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The novelist was famously ____ in interviews, often answering long questions with a single word and refusing to discuss anything about her private life.",
+       "choices": [
+        "gregarious",
+        "voracious",
+        "taciturn",
+        "pliant"
+       ],
+       "answer": 2,
+       "why": "taciturn＝「無口な」。長い質問に一語で答える、私生活を話さない、と合う。gregarious（社交的な）は逆。voracious（貪欲な）、pliant（従順な）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-004",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Dr. Hale tried to ____ his theory with data from three separate studies, but critics argued that the samples were far too small to prove anything.",
+       "choices": [
+        "obfuscate",
+        "relinquish",
+        "corroborate",
+        "castigate"
+       ],
+       "answer": 2,
+       "why": "corroborate＝「（証拠で）裏付ける」。3つの研究のデータで、しかし標本が小さすぎて証明にならない、と続く。obfuscate（わざと分かりにくくする）、relinquish（手放す）、castigate（厳しく非難する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-005",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Although the union leader seemed ____ at first, refusing to consider any form of compromise, he eventually agreed to a modest pay increase for workers.",
+       "choices": [
+        "magnanimous",
+        "intransigent",
+        "ebullient",
+        "gullible"
+       ],
+       "answer": 1,
+       "why": "intransigent＝「妥協しない・頑固な」。どんな妥協も拒む、と言い換えている。magnanimous（寛大な）は逆。ebullient（元気あふれる）、gullible（だまされやすい）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-006",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Heavy snow ____ the climbers' progress throughout the afternoon, and they reached the mountain hut nearly three hours later than they had planned.",
+       "choices": [
+        "enunciated",
+        "exonerated",
+        "impeded",
+        "emulated"
+       ],
+       "answer": 2,
+       "why": "impede＝「妨げる・遅らせる」。雪のせいで3時間遅れた、という結果と合う。enunciate（はっきり発音する）、exonerate（無実を証明する）、emulate（見習う）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-007",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Paul's apology struck his colleagues as ____; he had made exactly the same promise twice before and had never actually changed his behavior.",
+       "choices": [
+        "disingenuous",
+        "indelible",
+        "impeccable",
+        "incessant"
+       ],
+       "answer": 0,
+       "why": "disingenuous＝「不誠実な・本心でない」。同じ約束を2回破っている、という根拠と合う。indelible（消えない）、impeccable（非の打ちどころがない）、incessant（絶え間ない）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-008",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Years of ____ spending left the family with almost no savings, so they were forced to sell their vacation home when Mr. Lowe lost his job.",
+       "choices": [
+        "austere",
+        "tacit",
+        "nascent",
+        "profligate"
+       ],
+       "answer": 3,
+       "why": "profligate＝「浪費的な」。貯金がほとんど無くなった原因になる。austere（切り詰めた）は逆。tacit（暗黙の）、nascent（生まれたばかりの）は spending を説明しない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-009",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The professor's lecture contained several ____ remarks about rival researchers, and a number of students later complained that the comments had been unprofessional.",
+       "choices": [
+        "disparaging",
+        "exculpatory",
+        "conciliatory",
+        "salubrious"
+       ],
+       "answer": 0,
+       "why": "disparaging＝「見くびった・けなすような」。学生がプロらしくないと苦情を言った、と合う。exculpatory（無罪を示す）、conciliatory（なだめるような）、salubrious（健康に良い）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-010",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "When the company's sales began to ____ last year, the board replaced the chief executive and announced an ambitious plan to enter overseas markets.",
+       "choices": [
+        "coalesce",
+        "reverberate",
+        "germinate",
+        "dwindle"
+       ],
+       "answer": 3,
+       "why": "dwindle＝「次第に減る」。社長交代と海外進出の計画、という立て直しの対応と合う。coalesce（合体する）、reverberate（反響する）、germinate（発芽する）は売上に使わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-011",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The mediator managed to ____ the tension in the room by making a joke about the broken air conditioner, and the talks continued calmly after that.",
+       "choices": [
+        "exacerbate",
+        "emancipate",
+        "encapsulate",
+        "defuse"
+       ],
+       "answer": 3,
+       "why": "defuse＝「（緊張・危機を）和らげる」。冗談の後、話し合いが落ち着いて続いた。exacerbate（悪化させる）は逆。emancipate（解放する）、encapsulate（要約する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-012",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The documentary was criticized for its ____ treatment of a complex scientific debate, presenting only one side and ignoring decades of contrary evidence.",
+       "choices": [
+        "tendentious",
+        "meticulous",
+        "venerable",
+        "sonorous"
+       ],
+       "answer": 0,
+       "why": "tendentious＝「偏った・特定の主張に肩入れした」。一方の側だけを見せ、反対の証拠を無視した。meticulous（細心の）、venerable（尊い）、sonorous（よく響く）は批判の理由にならない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-013",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The hotel's ____ lobby, with its marble floors, crystal chandeliers, and gold-framed mirrors, impressed guests the moment they walked through the doors.",
+       "choices": [
+        "opulent",
+        "dilapidated",
+        "austere",
+        "rudimentary"
+       ],
+       "answer": 0,
+       "why": "opulent＝「豪華な」。大理石の床・シャンデリア・金縁の鏡、という例と合う。dilapidated（荒れ果てた）、austere（簡素な）、rudimentary（初歩的な）は逆の印象。"
+      }
+     ]
+    },
+    {
+     "id": "G1-014",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Although Mr. Grant had ____ his support for the project at the first meeting, he changed his mind after reading the final budget and voted against it.",
+       "choices": [
+        "dispelled",
+        "abdicated",
+        "extricated",
+        "avowed"
+       ],
+       "answer": 3,
+       "why": "avow＝「公言する」。最初は支持を表明 → 予算を見て反対、という Although の対比。dispel（払いのける）、abdicate（退位する・放棄する）、extricate（救い出す）は support と組まない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-015",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Dr. Moreno was ____ by her failed experiments; instead of giving up, she redesigned her equipment and began a new series of trials the following week.",
+       "choices": [
+        "undaunted",
+        "incensed",
+        "belittled",
+        "encumbered"
+       ],
+       "answer": 0,
+       "why": "undaunted＝「ひるまない」。あきらめずに翌週また始めた、と合う。incensed（激怒した）、belittled（けなされた）、encumbered（重荷を負った）は instead of giving up とつながらない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-016",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Critics ____ the director for casting inexperienced actors in the main roles, saying that their stiff performances ruined an otherwise excellent script.",
+       "choices": [
+        "commended",
+        "vindicated",
+        "lambasted",
+        "placated"
+       ],
+       "answer": 2,
+       "why": "lambaste＝「酷評する」。演技が脚本を台無しにした、という批判と合う。commend（ほめる）は逆。vindicate（正しさを証明する）、placate（なだめる）も合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-017",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "To ____ the risk of mold, the museum keeps its rare manuscripts in special rooms where both the temperature and the humidity are carefully controlled.",
+       "choices": [
+        "aggravate",
+        "mitigate",
+        "emulate",
+        "extrapolate"
+       ],
+       "answer": 1,
+       "why": "mitigate＝「（危険・害を）和らげる」。温度と湿度を管理するのはカビの危険を減らすため。aggravate（悪化させる）は逆。emulate（見習う）、extrapolate（推定する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-018",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Jenny's ____ curiosity led her to read everything she could find about deep-sea creatures, from picture books for children to graduate-level textbooks.",
+       "choices": [
+        "impassive",
+        "insatiable",
+        "infallible",
+        "innocuous"
+       ],
+       "answer": 1,
+       "why": "insatiable＝「飽くことのない」。見つけた物は絵本から大学院の教科書まで全部読んだ。impassive（無表情な）、infallible（絶対に誤らない）、innocuous（無害な）は好奇心の強さを表さない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-019",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The economist's model rested on a ____ assumption: that all consumers behave rationally, an idea that research in psychology has repeatedly shown to be false.",
+       "choices": [
+        "sanguine",
+        "opportune",
+        "fallacious",
+        "palatable"
+       ],
+       "answer": 2,
+       "why": "fallacious＝「誤った」。心理学の研究で何度も否定された、と続く。sanguine（楽観的な）、opportune（時宜を得た）、palatable（口に合う・受け入れやすい）は「誤り」の意味にならない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-020",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "After the factory closed, the once-busy town fell into a long period of economic ____, with shops boarded up and young people moving away.",
+       "choices": [
+        "proliferation",
+        "exuberance",
+        "malaise",
+        "remuneration"
+       ],
+       "answer": 2,
+       "why": "malaise＝「（経済などの）不振・沈滞」。店が閉まり若者が出て行く様子と合う。proliferation（急増）、exuberance（活気）、remuneration（報酬）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-021",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The company tried to ____ public criticism of its new product by offering free repairs, but many customers had already switched to rival brands.",
+       "choices": [
+        "incite",
+        "exalt",
+        "emanate",
+        "deflect"
+       ],
+       "answer": 3,
+       "why": "deflect criticism＝「批判をかわす」。無料修理という対策と合う。incite（あおる）は逆。exalt（称える）、emanate（発する。自動詞）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-022",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Engineers spent several weeks trying to ____ the cause of the software failure, eventually tracing it to a single line of outdated code.",
+       "choices": [
+        "ameliorate",
+        "promulgate",
+        "ascertain",
+        "recuperate"
+       ],
+       "answer": 2,
+       "why": "ascertain＝「（事実を）突き止める」。原因を探し、1行のコードにたどり着いた。ameliorate（改善する）、promulgate（公布する）、recuperate（回復する）は the cause と組まない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-023",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Many first-time visitors find the old city's ____ alleyways confusing; without a good map, it is easy to walk in circles for an hour or more.",
+       "choices": [
+        "pristine",
+        "sedentary",
+        "labyrinthine",
+        "perennial"
+       ],
+       "answer": 2,
+       "why": "labyrinthine＝「迷路のような」。地図が無いと同じ所を回ってしまう、と合う。pristine（汚れていない）、sedentary（座りがちな）、perennial（長年続く）は道を説明しない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-024",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Although the position was ____, offering a high salary and generous annual bonuses, Kenji resigned after a year because he found the work unfulfilling.",
+       "choices": [
+        "lucrative",
+        "frivolous",
+        "ominous",
+        "clandestine"
+       ],
+       "answer": 0,
+       "why": "lucrative＝「もうかる」。高い給料とボーナス、と言い換えている。frivolous（軽薄な）、ominous（不吉な）、clandestine（秘密の）は給料の良さを表さない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-025",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The young biologist's findings were ____ by many of her peers at first, but within a decade her theory had become widely accepted in the field.",
+       "choices": [
+        "lauded",
+        "derided",
+        "augmented",
+        "annexed"
+       ],
+       "answer": 1,
+       "why": "deride＝「あざける・ばかにする」。but 以下の「後に広く受け入れられた」と対比になる。lauded（称賛された）では対比にならない。augmented（増やされた）、annexed（併合された）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-026",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The guide warned the tourists that the river was ____ in several places and told them not to cross without holding firmly onto the rope.",
+       "choices": [
+        "placid",
+        "treacherous",
+        "arid",
+        "docile"
+       ],
+       "answer": 1,
+       "why": "treacherous＝「（見かけによらず）危険な」。ロープにつかまって渡れ、という警告と合う。placid（穏やかな）は逆。arid（乾燥した）、docile（おとなしい）も合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-027",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The two firms decided to ____ their research departments, hoping that combining their expertise would speed up the development of new medicines.",
+       "choices": [
+        "fragment",
+        "amalgamate",
+        "emancipate",
+        "decimate"
+       ],
+       "answer": 1,
+       "why": "amalgamate＝「合併する・統合する」。combining their expertise（専門知識を合わせる）と同じ意味。fragment（分割する）は逆。emancipate（解放する）、decimate（大量に減らす）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-028",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The old theater was ____ with mice that had nested inside its walls, so the owners closed it for several weeks while pest-control workers dealt with the problem.",
+       "choices": [
+        "infested",
+        "imbued",
+        "endowed",
+        "adorned"
+       ],
+       "answer": 0,
+       "why": "be infested with ～＝「（害虫などが）はびこっている」。駆除の間閉館した。imbued（染み込んだ）、endowed（恵まれた）、adorned（飾られた）は害のある物には使わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-029",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Rachel's ____ comments about the new logo hurt her colleague's feelings, though she later insisted that she had only been trying to be honest.",
+       "choices": [
+        "benign",
+        "effusive",
+        "cordial",
+        "caustic"
+       ],
+       "answer": 3,
+       "why": "caustic＝「辛辣な」。相手を傷つけた、正直に言っただけだと弁解した、と合う。benign（優しい）、cordial（心のこもった）は逆。effusive（感情をあふれさせた・大げさにほめる）も人を傷つけない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-030",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Ms. Rivera was ____ to accept the promotion at first, worried that the extra responsibilities would leave her very little time for her young family.",
+       "choices": [
+        "privy",
+        "akin",
+        "rife",
+        "loath"
+       ],
+       "answer": 3,
+       "why": "be loath to do＝「～するのに気が進まない」。家族との時間が減るのを心配した。privy to（～を内々に知る）、akin to（～に似た）、rife with（～だらけの）は後ろに動詞の原形を取れない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-031",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The small bakery has developed a ____ following; on weekends, customers line up outside before dawn to buy its famous sourdough bread.",
+       "choices": [
+        "fleeting",
+        "fervent",
+        "nominal",
+        "desultory"
+       ],
+       "answer": 1,
+       "why": "fervent＝「熱烈な」。夜明け前から並ぶ客、という例と合う。fleeting（つかの間の）、nominal（名ばかりの）、desultory（気まぐれな）は熱心さと逆の意味。"
+      }
+     ]
+    },
+    {
+     "id": "G1-032",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Because the instructions were so ____, half of the participants misunderstood what they were supposed to do and had to repeat the experiment.",
+       "choices": [
+        "nebulous",
+        "explicit",
+        "punctual",
+        "prolific"
+       ],
+       "answer": 0,
+       "why": "nebulous＝「あいまいな・漠然とした」。半数が誤解した原因になる。explicit（明確な）は逆。punctual（時間を守る）、prolific（多作の）は指示を説明しない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-033",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The chef's new menu was a ____ success; within a month, reservations had doubled and critics were praising it in several national magazines.",
+       "choices": [
+        "marginal",
+        "resounding",
+        "specious",
+        "perfunctory"
+       ],
+       "answer": 1,
+       "why": "a resounding success＝「大成功」。予約が倍、全国誌でほめられた。marginal（わずかな）、perfunctory（おざなりの）は成功の大きさを表さない。specious（もっともらしいがうそっぽい）も合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-034",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The sale of the house almost ____ when the buyer discovered serious problems with the roof, but the owner agreed to lower the price by ten percent.",
+       "choices": [
+        "drew up",
+        "set off",
+        "fell through",
+        "turned in"
+       ],
+       "answer": 2,
+       "why": "fall through＝「（計画・取引が）だめになる」。屋根の問題で売買が流れかけた → 値下げで助かった。draw up（作成する）、set off（出発する）、turn in（提出する・寝る）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-035",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Mark's parents told him he could not keep ____ his decision about which university to attend, since the application deadline was only a week away.",
+       "choices": [
+        "bringing about",
+        "running over",
+        "handing out",
+        "putting off"
+       ],
+       "answer": 3,
+       "why": "put off＝「先延ばしにする」。締め切りが1週間後なので、決断を延ばせない。bring about（引き起こす）、run over（ひく・ざっと見直す）、hand out（配る）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-036",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The excitement over the new phone soon ____ when users discovered that its battery lasted only half a day and that the camera often froze.",
+       "choices": [
+        "chipped in",
+        "wore off",
+        "stood out",
+        "pulled through"
+       ],
+       "answer": 1,
+       "why": "wear off＝「（効果・感情が）薄れる」。電池が半日しかもたないと分かり、熱が冷めた。chip in（お金を出し合う）、stand out（目立つ）、pull through（切り抜ける）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-037",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "After working for a large bakery chain for twelve years, Alan finally had enough savings to ____ on his own and open a small shop downtown.",
+       "choices": [
+        "strike out",
+        "bear out",
+        "pore over",
+        "fend off"
+       ],
+       "answer": 0,
+       "why": "strike out on one's own＝「独立する」。大手を辞めて自分の店を開く。bear out（裏付ける）、pore over（熟読する）、fend off（撃退する）は on one's own と組まない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-038",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The speaker ____ on minor details of the project's history for so long that she had no time left to explain its most important results.",
+       "choices": [
+        "embarked",
+        "reneged",
+        "encroached",
+        "dwelt"
+       ],
+       "answer": 3,
+       "why": "dwell on ～＝「～についてくどくど話す」。細かい話に時間を使い、肝心の結果を話す時間が無くなった。embark on（乗り出す）、renege on（約束を破る）、encroach on（侵害する）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-039",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "The marketing team had to ____ a completely new campaign in just two days after the original one was cancelled at the last minute.",
+       "choices": [
+        "throw together",
+        "write off",
+        "stave off",
+        "look down"
+       ],
+       "answer": 0,
+       "why": "throw together＝「急ごしらえで作る」。2日で新しいキャンペーンを作った。write off（帳消しにする・見切る）、stave off（食い止める）、look down（見下ろす）は合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G1-040",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "When the hikers ran out of food on the third day, they had to ____ on the few energy bars that one member had packed at the bottom of his bag.",
+       "choices": [
+        "cash in",
+        "hold out",
+        "fall back",
+        "chime in"
+       ],
+       "answer": 2,
+       "why": "fall back on ～＝「（いざという時に）～に頼る」。食料が尽きて、残りの栄養バーに頼った。cash in on（～で利益を得る）、hold out on（～に隠し事をする）、chime in（口をはさむ）は合わない。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G2",
+   "title": "大問2 長文の語句空所補充",
+   "kind": "reading",
+   "desc": "約350語の説明文・評論文の空所3つに入る語句を4つから選ぶ",
+   "tip": "空所の後ろの1〜2文（具体例・言い換え）が根拠になることが多い。段落の頭の空所は「前の段落と逆か・続きか」を先に決める。選択肢は本文の語を使った引っかけが多いので、意味で選ぶ。",
+   "secPerItem": 70,
+   "intro": "Read each passage and choose the best phrase from among the four choices for each numbered blank.",
+   "sets": [
+    {
+     "id": "G2-001",
+     "passage": "Too Many Choices?\n\nFor decades, economists took it for granted that having more options could only benefit consumers. If a shopper finds a selection too large, the reasoning went, she can simply ignore the items that do not interest her and focus on the rest. In one frequently cited experiment, however, this assumption appeared to break down. Researchers set up a tasting stand in a grocery store that offered either six or twenty-four varieties of olive oil. Although the larger display attracted more visitors, shoppers who saw only six varieties were far more likely to buy a bottle. Many of those who stopped at the larger display tasted several oils, hesitated, and walked away empty-handed. The researchers concluded that an abundance of options can ( 1 ).\n\nThe idea, which became known as \"choice overload,\" quickly spread beyond the university. Business consultants advised companies to trim their product lines, and some employers reduced the number of investment funds offered in their retirement-savings plans. Popular books on decision-making cited the study as evidence that modern consumers were suffering from too much freedom. ( 2 ), the phenomenon proved surprisingly difficult to reproduce. When other research teams repeated similar experiments with products ranging from chocolates to music downloads, many found that larger assortments had little or no negative effect on purchases. One review that combined the results of dozens of studies concluded that, on average, the effect was close to zero.\n\nThis does not mean that choice overload is simply a myth. Rather, many researchers now believe that it appears only under particular conditions. People are most likely to feel overwhelmed when the options are difficult to compare, when they are under time pressure, or when they ( 3 ). A wine expert choosing from a list of fifty bottles, for example, can quickly narrow down the possibilities by region and grape, whereas a beginner may find the same list bewildering and leave without ordering anything at all. The key question, then, may not be how many options people are given, but whether they have the knowledge and tools to make sense of them. Stores and websites that help customers sort and filter products may therefore be able to offer wide selections without driving buyers away.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "( 1 )",
+       "choices": [
+        "make shoppers more willing to spend",
+        "improve the quality of the products sold",
+        "encourage stores to lower their prices",
+        "paralyze rather than empower decision-makers"
+       ],
+       "answer": 3,
+       "why": "品数が多いと人は集まるが、買う人は少ない、という実験結果のまとめ。選択肢の多さが決断を妨げる（paralyze）。もっとお金を使う・品質が上がる・値下げは実験の内容と関係ない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 2 )",
+       "choices": [
+        "Under closer scrutiny, however",
+        "As a result of this popularity",
+        "In much the same way",
+        "For precisely this reason"
+       ],
+       "answer": 0,
+       "why": "前は「考えが広まった」、後ろは「再現が難しかった・効果はほぼゼロ」。逆の流れなので however を含む「よく調べると、しかし」。As a result・In much the same way・For precisely this reason は順接で合わない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 3 )",
+       "choices": [
+        "have already made similar purchases",
+        "are shopping with experienced friends",
+        "lack a clear sense of what they prefer",
+        "know the products extremely well"
+       ],
+       "answer": 2,
+       "why": "直後の例で、専門家はすぐ絞れるが初心者は戸惑う、とある。だから「何が好みか分かっていない時」に圧倒される。know the products extremely well は専門家側で逆。他の2つは本文に根拠が無い。"
+      }
+     ]
+    },
+    {
+     "id": "G2-002",
+     "passage": "Keeping Time on the Rails\n\nUntil the middle of the nineteenth century, most towns set their clocks according to local solar time, declaring it noon when the sun reached its highest point in the sky. Because the sun's position changes as one travels east or west, towns only a short distance apart often kept slightly different times. A town fifty miles to the west of another might be several minutes behind it. In most communities, a clock on the town hall served as the official reference, and residents adjusted their pocket watches to match it. For centuries, ( 1 ). Few people traveled far in a single day, and a journey by horse-drawn coach was so slow that a difference of a few minutes hardly mattered.\n\nThe arrival of the railways changed this situation dramatically. Trains could cover in an hour a distance that had once taken a full day, and passengers relied on printed timetables to plan their journeys. At first, each railway company simply used the time kept at its own headquarters, so a single station might display several clocks showing different times for different lines. Travelers who misread a timetable could easily miss a connection, and the risk of collisions on shared tracks made accurate timekeeping a matter of safety as well as convenience. Railway companies ( 2 ), dividing the land into broad zones in which every clock showed the same hour.\n\nThe change was not welcomed by everyone. Some critics complained that time belonged to the sun, not to businesses, and argued that ordinary people should not have to adjust their lives to suit train schedules. A number of towns stubbornly continued to keep their own local time for years, and some public clocks were even fitted with two minute hands, one for local time and one for railway time. Over the following decades, however, standard time was ( 3 ). Schools, banks, and post offices gradually followed the railways' lead, and the second minute hand disappeared from public clocks. Today, most people would be surprised to learn that the hour on their watch was once a matter of local custom rather than a fixed, shared agreement.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "( 1 )",
+       "choices": [
+        "travelers complained constantly about the confusion",
+        "these discrepancies caused few practical problems",
+        "towns competed to keep the most accurate time",
+        "clocks were regarded as too expensive to own"
+       ],
+       "answer": 1,
+       "why": "直後に「1日に遠くへ行く人は少なく、馬車は遅いので数分の差は問題にならなかった」とある。だから時刻のずれは困らなかった。constantly complained は逆。正確さの競争・時計の値段は本文に無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 2 )",
+       "choices": [
+        "eventually agreed to adopt a common time",
+        "decided to stop publishing timetables",
+        "began building separate tracks for each line",
+        "allowed passengers to set their own schedules"
+       ],
+       "answer": 0,
+       "why": "後ろの「地域を大きな帯に分け、その中の時計はすべて同じ時刻」から、共通の時刻を採用したと分かる。時刻表をやめる・路線ごとの線路・乗客が決める、は混乱の解決にならない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 3 )",
+       "choices": [
+        "woven so deeply into daily life that few questioned it",
+        "abandoned in favor of the older system",
+        "used only by the railway companies themselves",
+        "considered a threat to public safety"
+       ],
+       "answer": 0,
+       "why": "However で反対派の話から転じ、「今では昔は地域ごとだったと知ると驚く」と続く。だから標準時が生活に深く根付いた。旧制度に戻った・鉄道だけが使った・安全への脅威、は最後の文と矛盾する。"
+      }
+     ]
+    },
+    {
+     "id": "G2-003",
+     "passage": "The Return of the Beaver\n\nIn many parts of Europe, beavers were hunted almost to extinction for their fur and meat, and by the early twentieth century only a few small populations remained. In recent decades, however, conservation groups have reintroduced the animals to rivers where they had been absent for hundreds of years. Ecologists often describe beavers as \"ecosystem engineers\" because few other creatures reshape their surroundings so thoroughly. Their sharp front teeth, which never stop growing, allow them to cut through trunks far thicker than their own bodies. By felling trees and building dams from branches and mud, a single family of beavers can transform a narrow stream into a series of ponds and marshes.\n\nThese changes ( 1 ). The still water behind a dam provides breeding grounds for frogs and insects, which in turn attract birds and bats. Fallen trees create open, sunny areas where new plants can take root, and the dead wood offers shelter for beetles and fungi. Researchers have also found that beaver ponds store water during dry periods and slow the movement of water after heavy rain, releasing it gradually rather than all at once. In some places, streams that once dried up every summer now flow throughout the year.\n\nNot everyone, however, is pleased to see beavers return. Farmers have complained that dams cause water to spread onto their fields, damaging crops and making the ground too soft for machinery. Landowners have also lost valuable trees, and blocked drainage pipes can cost a great deal to repair. Some residents also worry that the animals may wander into towns and block the channels that carry water under roads. ( 2 ), several regions have introduced programs that pay for devices that control water levels behind dams, as well as compensation for landowners whose property is damaged. In extreme cases, wildlife officers are permitted to move a beaver family to a more suitable location. Supporters of reintroduction admit that these measures require time and money, but they argue that the ecological benefits far outweigh the costs. As one ecologist put it, the long-term success of the project may depend less on the beavers themselves than on ( 3 ).",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "( 1 )",
+       "choices": [
+        "mostly harm the fish living downstream",
+        "make the rivers too cold for wildlife",
+        "benefit a wide range of other species",
+        "are usually reversed within a few years"
+       ],
+       "answer": 2,
+       "why": "直後に、カエル・昆虫・鳥・コウモリ・植物・甲虫など多くの生き物が得をする例が並ぶ。下流の魚に害・川が冷たくなる・数年で元に戻る、は本文に無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 2 )",
+       "choices": [
+        "Regardless of these complaints",
+        "Long before beavers returned",
+        "Contrary to farmers' wishes",
+        "In response to such conflicts"
+       ],
+       "answer": 3,
+       "why": "前の段落は農家・地主の被害。空所の後は水位の調整装置や補償の制度。被害への対応なので「こうした対立に応えて」。Regardless（気にせず）・Contrary to farmers' wishes は逆の意味。Long before（帰ってくるずっと前）は時期が合わない。"
+      },
+      {
+       "type": "mcq",
+       "q": "( 3 )",
+       "choices": [
+        "the amount of fur the animals produce",
+        "people's willingness to share the landscape with them",
+        "the speed at which they build their dams",
+        "the number of predators in the area"
+       ],
+       "answer": 1,
+       "why": "段落全体が人間との対立と、その折り合いの付け方の話。成功は「ビーバー自身より、人間が土地を共有する気があるか」で決まる。毛皮・ダムの速さ・天敵の数は段落の話と関係ない。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G3A",
+   "title": "大問3A 長文の内容一致選択（約500語）",
+   "kind": "reading",
+   "desc": "約500語の説明文・評論文を読み、内容に合う答えを3問選ぶ",
+   "tip": "設問はほぼ段落の順。先に設問を読み、何を探すか決めてから該当段落を精読する。正解は本文の言い換えで、本文の語をそのまま使った選択肢ほど疑う。however の後ろが筆者の言いたいことになりやすい。",
+   "secPerItem": 120,
+   "intro": "Read the passage and choose the best answer from among the four choices for each question.",
+   "sets": [
+    {
+     "id": "G3A-001",
+     "passage": "Learning Through Productive Failure\n\nIn a typical mathematics classroom, lessons follow a familiar pattern. The teacher first demonstrates a method, works through several examples, and then asks students to practice similar problems on their own. This approach is efficient, and it allows students to experience success quickly. In recent years, however, a number of education researchers have argued that it may be reversing the most effective order of learning. They advocate an approach known as \"productive failure,\" in which students are given challenging, unfamiliar problems before receiving any instruction on how to solve them. Proponents argue that this initial struggle, far from being wasted time, prepares the mind to learn. Predictably, most students fail to find the correct solution. Only afterward does the teacher explain the standard method, often by comparing it with the students' own attempts.\n\nSupporters point to a study conducted at the Westbrook Institute of Education, in which two groups of thirteen-year-olds were taught how to measure the spread of a set of data. One group received a conventional lesson followed by practice, while the other spent the first half of the lesson struggling to invent its own measures. When both groups were tested a week later, their performance on routine calculation questions was almost identical. On questions that required students to explain why a formula worked, or to apply it to an unfamiliar situation, however, the group that had struggled first scored considerably higher. The researchers suggested that generating several flawed solutions had forced students to draw on what they already knew and made them aware of the gaps in their understanding. As a result, when the correct method was finally presented, they could appreciate what problem it solved rather than simply memorizing its steps.\n\nCritics caution that the benefits of struggle are far from guaranteed. For failure to be productive, the initial problem must be carefully designed: difficult enough to require genuine thought, yet accessible enough that students can make several reasonable attempts. Students who lack basic background knowledge may be unable to generate any meaningful ideas at all, and for them, a long period of confusion can lead to frustration and a loss of confidence rather than deeper understanding. Teachers, too, report that the approach is demanding. They must resist the urge to rescue struggling students, manage the anxiety that some students feel when they cannot find an answer, and explain to parents why lessons seem to involve so much getting things wrong. Lessons built around initial failure also take longer to plan and to teach, which can be a serious drawback in schools where teachers must cover a crowded curriculum before national examinations.\n\nMost researchers therefore recommend using productive failure selectively. Rather than replacing conventional instruction altogether, it may be most valuable when introducing a small number of core concepts that students will build on for years. Some researchers also recommend that teachers openly discuss with students why the struggle is part of the plan, so that failure is seen as a normal step rather than a personal shortcoming. Used in this way, a carefully planned failure may turn out to be one of the most useful experiences a student can have.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What distinguishes the \"productive failure\" approach from conventional mathematics instruction?",
+       "choices": [
+        "Students practice a large number of similar problems until they can solve them without errors.",
+        "Teachers deliberately give students incorrect methods so that they learn to spot mistakes.",
+        "Students are asked to work on problems before they have been taught a method for solving them.",
+        "Students are allowed to choose which problems they want to work on during the lesson."
+       ],
+       "answer": 2,
+       "why": "第1段落：指導を受ける前に難しい未知の問題を与え、後で正しい方法を説明する。大量の練習は従来型の方。先生がわざと誤った方法を教える、生徒が問題を選ぶ、は本文に無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "What did the study at the Westbrook Institute of Education suggest?",
+       "choices": [
+        "Struggling first seemed to deepen students' understanding of why a method works, though it did not improve routine calculation.",
+        "Students who received a conventional lesson were better at explaining formulas than those who struggled first.",
+        "The students who struggled first became faster at performing calculations than the other group.",
+        "Both groups performed equally well on every type of question, showing that the order of teaching is unimportant."
+       ],
+       "answer": 0,
+       "why": "第2段落：計算問題はほぼ同じ、説明や応用の問題で先に苦労した組がかなり上。計算が速くなったとは書いていない。従来組が説明で上、すべての問題で同じ、は逆。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is one concern that critics raise about productive failure?",
+       "choices": [
+        "Parents often demand that teachers use the approach in every lesson.",
+        "Well-designed problems make the lessons too easy for most students.",
+        "Teachers tend to give students the correct answers too late in the year.",
+        "Students without sufficient prior knowledge may become discouraged instead of learning more deeply."
+       ],
+       "answer": 3,
+       "why": "第3段落：基礎知識が無い生徒は意味のある案を出せず、混乱が続くと自信を失う。保護者は「なぜ間違えてばかりか」を説明される側で、全授業での使用を求めてはいない。他も本文と合わない。"
+      }
+     ]
+    },
+    {
+     "id": "G3A-002",
+     "passage": "The Ocean's Twilight Zone\n\nBetween roughly 200 and 1,000 meters below the surface of the ocean lies a region that scientists call the mesopelagic zone, or, more evocatively, the \"twilight zone.\" Sunlight here is too faint to support plant growth, yet the zone is home to an astonishing variety of animals, from tiny shrimp-like crustaceans to fish no longer than a finger that produce their own light. Because it is so difficult and expensive to study, the twilight zone remains one of the least understood environments on the planet. Most of what is known about it comes from brief expeditions using specialized nets, cameras, and underwater robots.\n\nOne of its most remarkable features is a daily movement of animals that some researchers describe as the largest migration on Earth. Each evening, enormous numbers of fish and other creatures rise toward the surface to feed on plankton under the cover of darkness. Before dawn, they descend again to the dim depths, where they are less visible to predators. Some animals travel several hundred meters each way, a journey comparable to a person walking many kilometers twice a day. This journey has consequences far beyond the animals themselves. Plankton near the surface absorb carbon from the atmosphere, and when migrating animals eat them and then release waste or die at depth, much of that carbon is carried down into the deep ocean, where it can remain for centuries. The twilight zone, in other words, plays a significant role in regulating the planet's climate.\n\nFor many years, scientists believed that the total mass of fish in the zone was relatively modest. These estimates were based largely on catches made with research nets. More recently, however, surveys using sound waves to detect fish have produced figures many times higher. Researchers now suspect that the earlier surveys greatly underestimated the population, partly because many twilight zone fish are able to sense approaching nets and swim away from them. Other species are so fragile that they are torn apart inside the nets, leaving little trace in the catch.\n\nThese new estimates have attracted the attention of the fishing industry. Twilight zone fish are generally too small and oily to be eaten by people, but they could be ground into fishmeal and oil for use in fish farming, an industry that has grown rapidly as demand for seafood has risen. Supporters argue that this vast, untouched resource could reduce pressure on overfished species closer to the surface. Several countries have already shown interest in issuing licenses for experimental fishing. Many marine scientists, however, urge caution. They point out that so little is known about the zone's food webs that it is impossible to predict how large-scale fishing would affect them. If the number of migrating animals fell sharply, less carbon might be transported to the deep ocean, and the consequences for the climate could be serious. Moreover, many larger animals, such as tuna and whales, depend on twilight zone species for food. For now, the scientists argue, the priority should be to understand this hidden world before deciding whether it can safely be exploited.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the author say about the daily movement of animals in the twilight zone?",
+       "choices": [
+        "It occurs mainly because the animals are searching for warmer water at night.",
+        "It has become less common as predators near the surface have increased.",
+        "It helps transfer carbon from the surface of the ocean to much greater depths.",
+        "It is the main reason that plants are unable to grow in the zone."
+       ],
+       "answer": 2,
+       "why": "第2段落：表層でプランクトンを食べ、深い所で排せつ・死ぬことで炭素が深海に運ばれる。夜に上がるのは暖かい水ではなくエサのため。捕食者の増加・植物が育たない原因、は本文に無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why have estimates of the number of fish in the twilight zone changed?",
+       "choices": [
+        "Fishing companies have recently released their own data on catches in the zone.",
+        "New survey methods revealed that net-based studies had probably missed many fish.",
+        "The fish population has grown because fewer predators now live in the zone.",
+        "Researchers discovered that fish from the surface were moving into deeper water."
+       ],
+       "answer": 1,
+       "why": "第3段落：音波を使った調査で何倍もの数字が出た。網に近づくと逃げる魚が多く、網の調査は少なく見積もっていた。漁業会社のデータ・天敵の減少・表層の魚の移動は書かれていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What is the main concern of the marine scientists mentioned in the final paragraph?",
+       "choices": [
+        "Large-scale fishing could disrupt important natural processes before they are properly understood.",
+        "Fishmeal made from twilight zone fish would be unsafe for use in fish farming.",
+        "The fishing industry lacks the technology needed to catch fish at such depths.",
+        "Demand for seafood will soon fall, making the new fishery unprofitable."
+       ],
+       "answer": 0,
+       "why": "最終段落：食物網がほとんど分かっていないので影響が予測できず、炭素の運搬やマグロ・クジラのエサに響くおそれ。まず理解を、という主張。魚粉の安全性・技術不足・需要の減少は述べられていない。"
+      }
+     ]
+    },
+    {
+     "id": "G3A-003",
+     "passage": "Designing Cities for the Ear\n\nFor most of the twentieth century, city planners treated sound as a form of pollution. Noise from traffic, construction, and industry was measured in decibels, and the goal of policy was simple: reduce the numbers. Laws limited how loud machines could be, and walls were built along highways to block the roar of passing vehicles. These measures brought real benefits, since long-term exposure to loud noise has been linked to sleep problems and stress. In many cities, maps were produced showing which streets exceeded legal limits, and money was spent on quieter engines and road surfaces.\n\nIn recent decades, however, a growing number of researchers have argued that decibel readings tell only part of the story. Advocates of what is known as the \"soundscape\" approach point out that people do not experience sound simply as volume. The splash of a fountain or the chatter of a busy market can be just as loud as nearby traffic, yet most people find such sounds pleasant or even calming. What matters, these researchers argue, is how people perceive and interpret the sounds around them, and that perception depends heavily on context, expectations, and the meaning people attach to a sound. A dog barking in the distance may go unnoticed in a farming village but feel intrusive in a quiet apartment late at night.\n\nOne often-cited example is the redesign of Marlow Square, a busy public space in a mid-sized city. Rather than attempting to block the noise of the surrounding roads, designers added a series of fountains, planted trees to attract birds, and arranged seating so that visitors faced away from the traffic. Measurements taken after the project showed that overall sound levels in the square had barely changed. Yet in surveys, residents described the area as far more relaxing than before, and the number of people who used the square during their lunch breaks more than doubled. Visitors also reported that they were less aware of the traffic, even though it was still clearly audible. For supporters, the results showed that cities can improve people's experience of sound without the enormous expense of eliminating noise at its source.\n\nNot everyone is convinced. Some public health experts warn that pleasant sounds may merely mask harmful noise rather than reduce it, and that the body may continue to react to traffic noise even when the mind no longer notices it. Others worry that the soundscape approach could provide officials with an attractive excuse to avoid more costly measures, such as rerouting heavy vehicles or installing quieter road surfaces. Neighborhoods located beside busy highways, they argue, need genuine reductions in noise, not decorative fountains.\n\nMost researchers in the field see the two approaches as complementary rather than competing. Reducing harmful noise remains essential, but once the worst problems have been addressed, thoughtful design can help turn a merely tolerable environment into one that people actively enjoy. Several cities have begun to involve residents in \"sound walks,\" in which participants note which sounds they value and which they would like to see removed.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How does the soundscape approach differ from traditional noise control?",
+       "choices": [
+        "It aims to eliminate all sounds from public spaces in cities.",
+        "It focuses on how people perceive sounds rather than only on how loud they are.",
+        "It relies on stricter laws that limit the volume of machines.",
+        "It measures noise more accurately than earlier decibel readings."
+       ],
+       "answer": 1,
+       "why": "第2段落：音を音量だけで捉えず、人がどう受け取り解釈するかが大事、とする。すべての音をなくす・法律での規制は従来型の側。測定の正確さの話ではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What was the result of the Marlow Square project?",
+       "choices": [
+        "Residents found the square more pleasant even though sound levels hardly changed.",
+        "Sound levels in the square fell sharply after the fountains were added.",
+        "Fewer people used the square because the fountains were too noisy.",
+        "The project cost more than eliminating the traffic noise would have."
+       ],
+       "answer": 0,
+       "why": "第3段落：全体の音の大きさはほとんど変わらないのに、住民はずっとくつろげると答え、昼休みの利用者は2倍以上。音量が大きく下がった・利用者が減った、は逆。費用の比較は書かれていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why are some critics cautious about the soundscape approach?",
+       "choices": [
+        "They believe fountains and trees are too costly for most cities to maintain.",
+        "They think residents near highways prefer the sound of traffic to fountains.",
+        "They argue that birdsong can cause stress when it is heard for long periods.",
+        "They fear it may be used to avoid the more expensive work of reducing harmful noise."
+       ],
+       "answer": 3,
+       "why": "第4段落：心地よい音は有害な騒音を隠すだけかもしれず、交通の迂回や静かな舗装など費用のかかる対策を避ける口実になりうる、と心配している。維持費・住民の好み・鳥の声のストレスは本文に無い。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G3B",
+   "title": "大問3B 長文の内容一致選択（約870語）",
+   "kind": "reading",
+   "desc": "約870語の長い評論文を読み、内容に合う答えを4問選ぶ",
+   "tip": "段落ごとに「誰の・どんな立場か」を1語でメモ（支持・批判・反論・結論）。最後の問いは本文全体や筆者の考えを問うので、最終段落と照らす。言い過ぎ（all / never / completely）の選択肢は外れやすい。",
+   "secPerItem": 150,
+   "intro": "Read the passage and choose the best answer from among the four choices for each question.",
+   "sets": [
+    {
+     "id": "G3B-001",
+     "passage": "Do Trees Talk to Each Other?\n\nOver the past three decades, few ideas in ecology have captured the public imagination as powerfully as the \"wood wide web.\" According to this idea, the trees in a forest are linked underground by vast networks of fungi that grow around and into their roots. These fungi, known as mycorrhizal fungi, are said to act like a living internet, allowing trees to share sugars, water, and even chemical warning signals with one another. In the most popular versions of the story, large, old \"mother trees\" use the networks to feed their own seedlings growing in the shade, and dying trees pass their remaining resources on to their neighbors. Some versions even suggest that trees can recognize their relatives and send them a larger share of resources than they send to unrelated neighbors. The forest, in this view, is less a collection of competing individuals than a cooperative community.\n\nIt is not difficult to see why the idea became so popular. It appeared in best-selling books, award-winning documentaries, and even feature films, and it offered a moving picture of nature that seemed to challenge the image of the forest as a place of ruthless competition for light and nutrients. For many readers, the notion that trees nurture their young and support their sick neighbors was not only fascinating but also deeply comforting. Some foresters and conservation groups began citing the networks as a reason to protect old trees, arguing that cutting them down would destroy the hubs on which the whole forest depended.\n\nIn recent years, however, a number of scientists have begun to question whether the evidence supports such dramatic claims. One team of researchers carefully reviewed several dozen field studies that had been cited in support of the wood wide web. Their conclusions were striking. First, they found that there was surprisingly little direct evidence that fungal networks connecting many trees are common in real forests. Proving that two trees are linked by the same fungus is technically difficult, and only a handful of studies had attempted to do so, most of them in a small number of forest types. Moreover, the fungal species involved can change over time, so a link observed in one season may not exist in the next. Second, although some experiments had shown that carbon could move from one tree to another, it was often unclear whether it had traveled through the fungal network or by some other route, such as through the soil. And even where transfer did occur, the amounts were usually too small to make a meaningful difference to the receiving tree.\n\nThe third finding concerned the claim that networks help seedlings survive. When the reviewers examined experiments that tested this idea, they found that the results were remarkably inconsistent. In some studies, seedlings connected to older trees grew better; in others, they grew worse; and in many, there was no noticeable difference at all. The reviewers argued that the positive results had been widely publicized, while the negative or neutral ones had been largely overlooked.\n\nThis last point raised a broader concern about how scientific ideas spread. The reviewers analyzed how often the original studies had been cited in later research papers, and they discovered a clear pattern. Studies that appeared to support the wood wide web were cited far more often than those that did not, and when they were cited, their findings were frequently described in stronger terms than the original authors had used. A cautious statement that carbon \"may\" move between trees under certain laboratory conditions, for example, might become a confident claim that trees \"share\" food in nature. Over time, the reviewers suggested, these small exaggerations accumulated until the public story bore only a loose resemblance to the underlying evidence.\n\nNot all scientists accept this critique. Some researchers who helped develop the idea argue that the reviewers set an unreasonably high standard of proof, and that the overall pattern of evidence, though incomplete, still points toward meaningful connections between trees. They also note that forests are enormously complex, and that the absence of evidence in a few studies does not prove that networks are unimportant. They also point out that seedlings planted in sterilized soil, without access to fungi, often struggle to survive. Both sides, however, agree on several basic points: mycorrhizal fungi are essential to the health of most trees, they exchange nutrients with their host plants, and far more research under natural conditions is needed.\n\nThe debate also has practical implications. If the strongest claims about mother trees turn out to be exaggerated, does that mean old trees are less valuable than conservationists have argued? Not necessarily. Large, old trees store huge amounts of carbon, provide habitats for countless species, and influence the conditions in which younger trees grow, regardless of whether they feed them through fungal networks. The lesson of the controversy, some ecologists suggest, is not that the forest is a simple battleground after all, but that policies are on firmer ground when they rest on what has actually been demonstrated rather than on the most appealing version of a story. Some researchers add that the episode should encourage scientists and journalists alike to use more modest language when describing new findings to the public.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What made the idea of the \"wood wide web\" so appealing to the general public?",
+       "choices": [
+        "It proved that trees compete fiercely with one another for light and nutrients.",
+        "It was based on a large number of studies conducted in many types of forest.",
+        "It suggested that old trees could be cut down without harming the forest.",
+        "It portrayed forests as caring communities, a picture many people found emotionally moving."
+       ],
+       "answer": 3,
+       "why": "第2段落：木が子を育て弱った仲間を支える、という像が魅力的で心を慰めるものだった。競争の場というイメージを覆したので、激しい競争を証明したは逆。研究が多かった、は第3段落で否定。老木を切ってよい、も逆。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to the review described in the passage, what was one problem with the evidence for carbon transfer between trees?",
+       "choices": [
+        "The amounts of carbon transferred were usually large enough to harm the receiving tree.",
+        "Researchers had found that fungi prevent carbon from moving through the soil.",
+        "It was often uncertain whether the carbon had passed through fungi or along another path.",
+        "Most experiments had been carried out on trees that were already dying."
+       ],
+       "answer": 2,
+       "why": "第3段落：炭素が別の木へ移っても、菌のネットワーク経由か土など別の経路かが分からないことが多かった。量は「意味のある差を生むには少なすぎた」ので、害を与えるほど多いは逆。他の2つは本文に無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "What did the reviewers discover when they examined how the original studies had been cited?",
+       "choices": [
+        "Studies that did not support the idea were usually cited first in later papers.",
+        "Supportive findings were cited more often and were often described more confidently than their authors intended.",
+        "Most researchers had refused to cite studies about mycorrhizal fungi at all.",
+        "The original authors had made stronger claims than later researchers repeated."
+       ],
+       "answer": 1,
+       "why": "第5段落：支持する研究ほど多く引用され、しかも元の著者より強い言い方で紹介された（may → share）。支持しない研究が先に引用された、元の著者の方が強く言った、は逆。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following statements would the author of the passage most likely agree with?",
+       "choices": [
+        "Even if some claims about tree networks were exaggerated, there are still good reasons to protect old trees.",
+        "The debate has shown that mycorrhizal fungi play no important role in forest health.",
+        "Scientists who developed the wood wide web idea have now abandoned it completely.",
+        "Forest policy should be based on whichever version of a scientific story is most popular."
+       ],
+       "answer": 0,
+       "why": "最終段落：老木は炭素を蓄え多くの生き物のすみかになるので、ネットワーク説が誇張でも価値は残る。菌は健康に不可欠と両者が同意しているので「役割なし」は誤り。提唱者は反論しているので放棄していない。最後の文は「魅力的な話より実証されたことに基づく方がよい」なので4つ目は逆。"
+      }
+     ]
+    },
+    {
+     "id": "G3B-002",
+     "passage": "Bringing a Language Back\n\nOn the small, windswept island of Varn, lying some forty kilometers off the northern coast of the mainland, a language called Ostrani was once spoken in nearly every home. For centuries, islanders used it to bargain at the harbor, to sing at weddings, and to name the hundreds of rocks, currents, and fishing grounds that surrounded their coast. By the end of the twentieth century, however, fewer than three hundred fluent speakers remained, almost all of them over the age of sixty. Linguists who visited the island predicted that within a generation Ostrani would disappear entirely.\n\nThe decline had not been caused by any single event. As the island's fishing industry shrank from the 1950s onward, many young people moved to the mainland in search of work, and the national language became essential for anyone hoping to find a job or continue their education. Schools on the island taught exclusively in the national language, and teachers often advised parents that speaking Ostrani at home would only confuse their children. Many parents, wanting the best possible future for their sons and daughters, took this advice. They continued to speak Ostrani with their own parents and neighbors but switched to the national language when addressing their children. Within a single generation, the chain of transmission from parent to child had been broken. The children grew up understanding some Ostrani but rarely speaking it, and their own children grew up knowing almost none. Over time, the language also came to be associated with poverty and an old-fashioned way of life, which made some young islanders reluctant to use it even when they could.\n\nThe turning point came in the 1990s, when a group of islanders, many of them the children of those who had stopped speaking the language at home, formed an association to revive it. They began by recording elderly speakers telling stories and describing traditional crafts, creating an archive of several thousand hours of conversation. Volunteers transcribed the recordings and added translations, so that learners could study them at home. Their most ambitious project, however, was a \"language nest,\" a preschool in which children between the ages of two and five spent their days with older speakers who used nothing but Ostrani. The idea was based on the observation that young children acquire languages most easily through everyday interaction rather than formal lessons. At first, only six families enrolled their children. Today, the nest has a waiting list, and its graduates can continue their education in Ostrani at a primary school that teaches most subjects in the language.\n\nFor adults, the association developed a different approach. In its \"master and apprentice\" program, a fluent elder and a younger learner commit to spending at least ten hours a week together, cooking, fishing, or repairing nets while speaking only Ostrani. Participants say the program has benefits that go beyond language. Elders who had once felt that their knowledge was worthless report a renewed sense of purpose, and learners describe forming relationships with people they might otherwise never have met. The program has also produced practical knowledge: several apprentices have compiled dictionaries of fishing terms and place names that had never been written down.\n\nThe revival has not been free of tension, however. Because Ostrani had never had a standard written form, the association needed to create one in order to produce textbooks and teaching materials. In doing so, it chose spellings and grammatical forms based mainly on the variety spoken in the island's largest village. Elders from other parts of the island sometimes complain that the young people who learn from these textbooks speak a version of the language that sounds artificial to them, and a few have refused to take part in the program altogether. Others have proposed allowing several spellings to coexist, though teachers say this would make materials far harder to prepare. Some young learners, for their part, feel discouraged when older speakers correct them constantly or tell them that their Ostrani \"is not the real thing.\" Linguists who study language revival say that such disagreements are common, and that the emergence of \"new speakers\" whose language differs from that of earlier generations is a natural part of the process rather than a sign of failure.\n\nMeasuring the success of the revival is not straightforward. According to the association's most recent survey, around nine hundred people on the island can now hold a conversation in Ostrani, triple the number of thirty years ago. Yet most of them use the language mainly at school, at association events, or online, and only a few dozen families speak it as their main language at home. Some supporters worry that Ostrani is becoming a language that people study rather than one they live in. The association has responded by organizing weekly gatherings in cafés and at the harbor, where speakers of all ages are encouraged to use the language informally. Others are more optimistic. They point out that the first generation of language-nest graduates is now beginning to have children of its own, and that several of these young parents have chosen to raise their children in Ostrani. If that trend continues, the chain that was broken half a century ago may finally be restored.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why did the number of children speaking Ostrani decline?",
+       "choices": [
+        "Many parents spoke the national language to their children because they thought it would give them better opportunities.",
+        "The government passed a law that banned the use of Ostrani on the island.",
+        "Elderly speakers refused to teach the language to people outside their families.",
+        "Children found Ostrani too difficult to learn because it had no written form."
+       ],
+       "answer": 0,
+       "why": "第2段落：仕事や教育に国の言葉が必要になり、先生の助言もあって、親が子どもには国の言葉で話すようになった。法律での禁止は書かれていない。お年寄りの拒否・書き言葉が無いから難しい、も理由として出てこない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What was a key feature of the language nest established by the association?",
+       "choices": [
+        "Children studied Ostrani grammar in formal lessons before they started school.",
+        "Young children spent their days with older people who spoke to them only in Ostrani.",
+        "Parents were required to attend classes with their children every morning.",
+        "Children listened to recordings of elders instead of speaking with teachers."
+       ],
+       "answer": 1,
+       "why": "第3段落：2〜5歳の子どもが、Ostrani だけを使う年配の話者と1日を過ごす。正式な授業ではなく日常のやり取りで覚える、という考え。保護者の出席・録音を聞くだけ、は本文に無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why have some elders been critical of the young people learning Ostrani?",
+       "choices": [
+        "They believe the young people spend too little time practicing with apprentices.",
+        "They think the language should be written using the national language's spelling.",
+        "They are worried that the young people will leave the island to find work.",
+        "They feel that the standardized version taught in textbooks does not sound authentic."
+       ],
+       "answer": 3,
+       "why": "第5段落：教科書は一番大きな村の言い方を基準にしたので、他の地域のお年寄りには人工的に聞こえる。練習時間・つづりの方式・島を出る心配は、批判の理由として書かれていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "Which of the following statements about the Ostrani revival is true?",
+       "choices": [
+        "Linguists believe the appearance of new speakers shows that the revival has failed.",
+        "The master and apprentice program has mainly benefited the young learners rather than the elders.",
+        "Although more people can now speak Ostrani, relatively few families use it as their main language at home.",
+        "The number of people able to converse in Ostrani has stayed about the same for thirty years."
+       ],
+       "answer": 2,
+       "why": "最終段落：話せる人は約900人と3倍になったが、家庭で主に使うのは数十家族だけ。言語学者は新しい話者を「失敗の印ではない」と言う。弟子制度はお年寄りにも生きがいを与えた。人数は3倍で「同じ」ではない。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "W1",
+   "title": "ライティング 英文要約",
+   "kind": "writing",
+   "desc": "約370語の英文（3〜4段落）を90〜110語で要約する",
+   "tip": "まず各段落の主題文を探し、「何の話か→支持する側の論点→批判する側の論点→結論」の骨組みを作る。具体例はまとめ語に（cars, buses → vehicles）。Supporters argue … / Critics, however, … のように立場を示す語でつなぐと短くまとまる。",
+   "secPerItem": 1200,
+   "intro": "Read the passage and summarize it in your own words as far as possible. Your summary should be between 90 and 110 words.",
+   "sets": [
+    {
+     "id": "W1-001",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as far as possible. Your summary should be between 90 and 110 words.",
+     "minWords": 90,
+     "maxWords": 110,
+     "source": "In laboratories around the world, scientists are now able to grow real animal meat without raising and slaughtering animals. The process begins with a small sample of cells taken from a living animal. These cells are placed in large steel tanks filled with a nutrient-rich liquid, where they multiply until they form tissue that can be shaped into products such as burgers or chicken nuggets. Several start-up companies have already offered cultivated meat to diners in a small number of restaurants, and investors have poured large sums of money into the industry.\n\nSupporters believe that cultivated meat could solve several problems at once. Conventional livestock farming requires vast areas of land for grazing and for growing animal feed, and it is responsible for a significant share of the world's greenhouse gas emissions. Producing meat in tanks, they argue, could dramatically reduce the land and water needed to feed a growing global population. In addition, animal welfare groups point out that the technology would allow people to continue eating meat without causing animals to suffer.\n\nSkeptics, however, question whether these promises can be fulfilled. At present, producing cultivated meat is extremely expensive, partly because the nutrient liquid in which the cells grow is costly to make. Scaling up production to the level of an industrial meat plant would require enormous investments in equipment and energy, and some researchers have calculated that, if that energy comes from fossil fuels, the environmental benefits could be much smaller than advertised. There are also doubts about whether consumers will accept the product. In surveys, many people say they find the idea of meat grown in a factory unnatural or even disturbing.\n\nFarmers' organizations have raised further concerns. They worry that if cultivated meat becomes popular, rural communities that depend on livestock farming could lose their main source of income, and traditional knowledge about raising animals could disappear. Some have called for strict labeling rules so that consumers can clearly distinguish between conventional and cultivated products. Whether the technology becomes a common part of people's diets or remains a costly curiosity may depend as much on public attitudes and government regulation as on scientific progress.",
+     "note": "段落ごとに要点を1文ずつ（話題・賛成側・反対側・今後）。例や数字は削り、本文の語句はできるだけ言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-002",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as far as possible. Your summary should be between 90 and 110 words.",
+     "minWords": 90,
+     "maxWords": 110,
+     "source": "A growing number of companies now use computer software to help them decide which job applicants to interview. These programs scan résumés for relevant skills and experience, and some go further, analyzing applicants' answers to online questionnaires or even their facial expressions and tone of voice in recorded video interviews. For employers that receive thousands of applications for a single position, such tools promise to make the hiring process far faster and cheaper.\n\nAdvocates argue that automated screening can also make hiring fairer. Human recruiters, they point out, are influenced by unconscious biases. They may favor applicants who attended the same university as themselves or who have names that sound familiar, and they may judge candidates differently depending on how tired they are at the end of the day. A well-designed program, by contrast, applies the same criteria to every applicant. Some companies that have adopted such tools report that they now interview a more diverse range of candidates than before.\n\nCritics, however, warn that automated systems can reproduce and even magnify the very biases they are supposed to remove. Many programs learn what a \"good\" employee looks like by studying data about a company's past hires. If those hires were mostly drawn from a narrow group, the software may learn to rank similar applicants more highly and quietly screen out others. Because the programs' decision-making processes are often complex and kept secret by the companies that sell them, it can be extremely difficult for rejected applicants to find out why they were turned down, or to challenge the decision.\n\nThere are also concerns about the methods used in some systems. Experts in psychology have questioned whether facial expressions or speech patterns recorded during a short video can reveal anything meaningful about a person's ability to do a job. In response to such criticism, some governments have begun to consider rules that would require employers to inform applicants when software is used, and to have the systems tested regularly for unfair outcomes. Others argue that the final decision on whom to hire should always be made by a human being.",
+     "note": "段落ごとに要点を1文ずつ（話題・賛成側・反対側・今後）。例や数字は削り、本文の語句はできるだけ言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-003",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as far as possible. Your summary should be between 90 and 110 words.",
+     "minWords": 90,
+     "maxWords": 110,
+     "source": "Many large cities have long struggled with heavy traffic in their central districts. Traffic jams waste time, raise transportation costs for businesses, and contribute to air pollution. In an attempt to address these problems, a number of cities have introduced what are known as congestion charges. Under such schemes, drivers must pay a fee to enter the city center during busy hours, with cameras recording the license plates of vehicles that cross the boundary. Drivers who fail to pay within a set period receive a fine, while residents of the zone and some essential vehicles may be given discounts.\n\nSupporters say the results have been impressive. In cities that have adopted congestion charges, the number of vehicles entering the center has often fallen significantly within the first year, and travel times for buses and delivery vehicles have improved. Air quality in central streets has also tended to get better. Moreover, the money raised by the charges is frequently used to improve public transportation, for instance by adding bus routes or extending train services, which gives residents more alternatives to driving.\n\nNevertheless, congestion charges remain controversial. Opponents argue that the fees fall most heavily on people with lower incomes, who may have no choice but to drive into the city for work, especially if they work at night when public transportation is limited. Wealthier drivers, on the other hand, can simply pay the charge and enjoy emptier roads. Some small business owners in charging zones have also complained that customers now prefer to shop at suburban malls with free parking, leading to a drop in sales, though others say that quieter streets have made their areas more attractive to shoppers on foot.\n\nIn addition, critics note that the benefits of the schemes depend heavily on local conditions. In cities without good public transportation, a congestion charge may simply push traffic onto the roads just outside the charging zone, creating new jams in residential neighborhoods. For this reason, many urban planners argue that a charge should be introduced only as part of a wider strategy that includes investment in public transportation and safe routes for cyclists and pedestrians. Without such measures, they warn, a congestion charge may be seen by residents as little more than an unfair tax.",
+     "note": "段落ごとに要点を1文ずつ（話題・賛成側・反対側・今後）。例や数字は削り、本文の語句はできるだけ言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-004",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as far as possible. Your summary should be between 90 and 110 words.",
+     "minWords": 90,
+     "maxWords": 110,
+     "source": "For generations, a university degree has been regarded as the most reliable route to a well-paid professional career. In recent years, however, a growing number of people have been turning to so-called \"micro-credentials.\" These are short courses, often offered online by universities, technology companies, or professional associations, that certify a person's skills in a specific area, such as data analysis or project management. Many can be completed in a few weeks or months and cost only a fraction of a traditional degree.\n\nSupporters argue that micro-credentials are well suited to a rapidly changing job market. As new technologies transform industries, workers increasingly need to update their skills throughout their careers rather than relying on what they learned in their early twenties. Short, focused courses allow them to do so without leaving their jobs. Supporters also point out that micro-credentials can open doors for people who cannot afford the time or money required for a full degree, such as working parents or those living far from a university. Employers, too, can use them to train staff quickly in the specific skills they need.\n\nHowever, critics have raised questions about the value of these qualifications. Because they are offered by so many different organizations, their quality varies enormously, and employers may find it hard to judge what a particular certificate actually represents. Some surveys suggest that, although employers say they value specific skills, many still prefer to hire applicants with traditional degrees. There is a risk, critics say, that workers will spend money on a series of short courses that do little to improve their job prospects.\n\nEducators have expressed another concern. A university education, they argue, is not only about acquiring job-related skills. It also aims to develop critical thinking, communication, and the ability to understand complex problems from different perspectives, abilities that are difficult to teach in a short online course. Some universities are now trying to combine the two approaches by allowing students to build up micro-credentials that can later be counted toward a full degree. Whether this model becomes widespread may depend on how much trust employers and students come to place in these new forms of certification.",
+     "note": "段落ごとに要点を1文ずつ（話題・賛成側・反対側・今後）。例や数字は削り、本文の語句はできるだけ言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-005",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as far as possible. Your summary should be between 90 and 110 words.",
+     "minWords": 90,
+     "maxWords": 110,
+     "source": "Only a decade ago, analyzing a person's genes was an expensive procedure carried out mainly in hospitals and research laboratories. Today, anyone can order a genetic testing kit online for a modest price. After sending a small sample of saliva to the company, customers receive a report that may describe their ancestry, their likelihood of developing certain medical conditions, and even traits such as how their bodies respond to caffeine. Millions of people around the world have now used these services.\n\nMany customers find the results valuable. Learning that they have an increased risk of a particular disease can motivate people to change their diet, exercise more, or arrange regular medical checkups, potentially allowing problems to be detected at an early stage. For others, information about their family origins has led to a deeper understanding of their identity, and in some cases, people have even discovered relatives they never knew existed.\n\nMedical experts, however, caution that such tests can be misleading. Most common diseases are influenced by many genes as well as by lifestyle and environment, so a report stating that a person has a \"slightly elevated risk\" may be of little practical use. Some customers who receive worrying results experience considerable anxiety, while others who receive reassuring results may wrongly conclude that they do not need to take care of their health. Unlike tests ordered by doctors, these kits are usually not accompanied by professional advice to help people interpret what they mean, and few companies explain the limits of their predictions in a way that ordinary customers can easily understand.\n\nPrivacy is another major concern. Genetic data reveals information not only about the person who provided the sample, but also about their parents, children, and other relatives, none of whom agreed to the test. Companies may share data with research partners, and critics worry that it could one day be used by insurers or employers. Although some companies promise to protect their customers' information, the rules governing how genetic data can be stored and shared differ widely between countries. Many experts are therefore calling for clearer regulations before the technology becomes even more widespread.",
+     "note": "段落ごとに要点を1文ずつ（話題・賛成側・反対側・今後）。例や数字は削り、本文の語句はできるだけ言い換える。自分の意見は書かない。"
+    },
+    {
+     "id": "W1-006",
+     "type": "Summary",
+     "prompt": "Read the passage below and write a summary of it in English. Use your own words as far as possible. Your summary should be between 90 and 110 words.",
+     "minWords": 90,
+     "maxWords": 110,
+     "source": "In recent years, the number of international tourists has grown rapidly, driven by cheaper flights and the spread of online booking services. While tourism brings money and jobs to many communities, some popular destinations have begun to feel overwhelmed. Historic town centers are crowded with visitors, rents have risen as apartments are converted into short-term rentals, and residents complain about noise and litter. In response, a number of cities and regions have introduced special taxes that visitors must pay, often added to the cost of a hotel room or charged as a daily entrance fee.\n\nSupporters argue that such taxes are a fair way to share the costs of tourism. Large numbers of visitors place heavy demands on public services, such as waste collection, public transportation, and the maintenance of historic sites, and it seems reasonable that tourists, rather than local taxpayers alone, should help pay for them. The revenue can also be used to protect the environment or to support affordable housing for residents. Some supporters also hope that higher costs will discourage short day trips, which bring crowds but relatively little income, and encourage visitors to stay longer and spend more money at local businesses.\n\nCritics, however, doubt that such taxes are effective. In many cases, the fees are too small to change visitors' behavior, and popular destinations remain just as crowded as before. If the fees are raised high enough to make a difference, on the other hand, tourism could become a privilege available only to the wealthy. Business owners in the tourism industry also worry that visitors will choose cheaper destinations instead, leading to lost income and jobs.\n\nThere are also questions about how the money is spent. In some places, residents complain that tourist tax revenue disappears into general government budgets rather than being used to address the problems caused by tourism. Experts suggest that taxes are most likely to win public support when the authorities clearly explain how the money will be used and when they are combined with other measures, such as limits on short-term rentals or systems that require visitors to book entry to popular sites in advance.",
+     "note": "段落ごとに要点を1文ずつ（話題・賛成側・反対側・今後）。例や数字は削り、本文の語句はできるだけ言い換える。自分の意見は書かない。"
+    }
+   ]
+  },
+  {
+   "id": "W2",
+   "title": "ライティング 意見論述",
+   "kind": "writing",
+   "desc": "TOPIC について、理由3つを挙げた200〜240語のエッセイを書く",
+   "tip": "序論（立場）→本論（理由3つを1段落ずつ）→結論の4〜5段落。理由は「経済・社会・個人」など別の角度から選び、重ならないようにする。各理由に具体例か因果の説明を1つ付ける。",
+   "secPerItem": 1800,
+   "intro": "Write an essay on the TOPIC. Give THREE reasons to support your answer, and organize your essay with an introduction, a main body, and a conclusion. Your essay should be between 200 and 240 words.",
+   "sets": [
+    {
+     "id": "W2-001",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Should governments do more to encourage people to move from large cities to rural areas?",
+     "minWords": 200,
+     "maxWords": 240,
+     "note": "序論で立場をはっきり言う。本論で理由を3つ、それぞれ具体例や根拠で支える。結論で立場と理由を言い換えてまとめる。"
+    },
+    {
+     "id": "W2-002",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Agree or disagree: The benefits of artificial intelligence will outweigh its risks for society.",
+     "minWords": 200,
+     "maxWords": 240,
+     "note": "序論で立場をはっきり言う。本論で理由を3つ、それぞれ具体例や根拠で支える。結論で立場と理由を言い換えてまとめる。"
+    },
+    {
+     "id": "W2-003",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Should university education be provided free of charge to all students?",
+     "minWords": 200,
+     "maxWords": 240,
+     "note": "序論で立場をはっきり言う。本論で理由を3つ、それぞれ具体例や根拠で支える。結論で立場と理由を言い換えてまとめる。"
+    },
+    {
+     "id": "W2-004",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Agree or disagree: Economic growth and environmental protection can be achieved at the same time.",
+     "minWords": 200,
+     "maxWords": 240,
+     "note": "序論で立場をはっきり言う。本論で理由を3つ、それぞれ具体例や根拠で支える。結論で立場と理由を言い換えてまとめる。"
+    },
+    {
+     "id": "W2-005",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Is space exploration worth the large amount of money that countries spend on it?",
+     "minWords": 200,
+     "maxWords": 240,
+     "note": "序論で立場をはっきり言う。本論で理由を3つ、それぞれ具体例や根拠で支える。結論で立場と理由を言い換えてまとめる。"
+    },
+    {
+     "id": "W2-006",
+     "type": "Opinion essay",
+     "prompt": "TOPIC: Should companies be required to give their employees the option of working remotely?",
+     "minWords": 200,
+     "maxWords": 240,
+     "note": "序論で立場をはっきり言う。本論で理由を3つ、それぞれ具体例や根拠で支える。結論で立場と理由を言い換えてまとめる。"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "リスニング Part 1 Dialogues",
+   "kind": "listening",
+   "desc": "2人の会話（約140語）を聞き、質問の答えを印刷された4つから選ぶ。放送は1回",
+   "tip": "放送の前に選択肢を見て、主語と動詞から設問（何をするか・何を提案するか・何を言いたいか）を予想する。会話の後半で But / Actually / How about … の後に方針が変わることが多い。言い換えに注意（split the cost → share the expense）。",
+   "secPerItem": 15,
+   "intro": "Listen to each dialogue and the question that follows. Then choose the best answer from the four printed choices. The dialogue will be played only once.",
+   "sets": [
+    {
+     "id": "L1-001",
+     "script": "M: Sandra, have you got a minute? It's about the Hartley account.\nW: Sure, Ben. Is there a problem?\nM: Not exactly. They've asked whether we could take on their product launch in March, and I'd really like to lead it. The thing is, I'm already swamped with the quarterly client reports.\nW: I appreciate your enthusiasm, but I don't want you burning out. You were here until ten every night last month.\nM: I know, but this kind of opportunity doesn't come along often.\nW: All right. How about this? Let Priya handle the quarterly reports until the launch is over. She's been asking for more responsibility anyway. Then you can give Hartley your full attention.\nM: That would work. I'll brief her this afternoon.\nQuestion: What does the woman suggest?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman suggest?",
+       "choices": [
+        "Temporarily passing some of the man's work to a colleague.",
+        "Turning down the Hartley product launch.",
+        "Working late only until the end of March.",
+        "Asking the client to delay the launch."
+       ],
+       "answer": 0,
+       "why": "Let Priya handle the quarterly reports until the launch is over＝発表が終わるまで四半期報告を同僚に任せる。引き受けを断る・残業・延期の依頼は出てこない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-002",
+     "script": "W: The contractor sent over his estimate for the kitchen this morning.\nM: And? Don't keep me in suspense.\nW: It's nearly double what we budgeted. Apparently the wiring behind the walls doesn't meet current safety standards, so it all has to be replaced.\nM: Double? For that kind of money, we could almost put a down payment on a bigger place.\nW: I've been thinking the same thing. But we'd have to fix the wiring before selling anyway. No buyer would accept it as it is.\nM: True. So the wiring gets done either way.\nW: Right. Why don't we have that taken care of first and hold off on the new cabinets and countertops until we decide whether we're staying?\nM: That sounds sensible.\nQuestion: What do the speakers decide to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What do the speakers decide to do?",
+       "choices": [
+        "Sell the house without making any repairs.",
+        "Find a cheaper contractor for the whole kitchen.",
+        "Buy new cabinets before replacing the wiring.",
+        "Have only the electrical work done for now."
+       ],
+       "answer": 3,
+       "why": "売るにしても配線は直す必要がある → まず配線だけ直し、棚や天板は住み続けるか決めるまで保留（hold off）。修理せずに売る・業者を替える・棚を先に買う、は逆か話に出ない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-003",
+     "script": "M: Professor Lin, I was hoping to talk to you about my thesis deadline.\nW: Let me guess. You'd like an extension.\nM: Well, yes. The survey data I was counting on came in much later than expected, and I've only just started the analysis.\nW: I see. The department is quite strict about the May deadline, I'm afraid. Extensions are only granted for medical reasons.\nM: I was afraid you'd say that. I really don't want to rush the analysis and end up with weak conclusions.\nW: However, there's nothing stopping you from narrowing the scope. Instead of analyzing all five regions, focus on two and discuss the others as a direction for future research. Examiners often prefer depth to breadth anyway.\nM: That's a relief. I'll revise my outline tonight.\nQuestion: What does the professor recommend?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the professor recommend?",
+       "choices": [
+        "Applying for an extension for medical reasons.",
+        "Reducing the number of regions covered in his analysis.",
+        "Collecting new survey data from all five regions.",
+        "Submitting his thesis after the May deadline."
+       ],
+       "answer": 1,
+       "why": "narrowing the scope＝範囲を絞る。5地域ではなく2地域に集中せよ、と言っている。延長は医療上の理由のみで、学生には当てはまらない。締め切り後の提出もできない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-004",
+     "script": "W: Excuse me, Mr. Patel? I'm Jodie from next door. Do you have a moment?\nM: Of course. What can I do for you?\nW: It's about the oak tree on your side of the fence. Some of its branches are hanging over our roof, and the leaves keep blocking our gutters. Last week water overflowed and stained our wall.\nM: Oh dear, I'm sorry. I had no idea. I've been meaning to have it trimmed, but tree surgeons charge a fortune these days.\nW: Actually, my brother-in-law does that kind of work. He could probably give you a reasonable price, and I'd be happy to split the cost since it affects us too.\nM: That's very generous. Please give him my number.\nQuestion: What does the woman offer to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman offer to do?",
+       "choices": [
+        "Cut the branches herself this weekend.",
+        "Share the expense of having the tree trimmed.",
+        "Pay to repair the stain on the man's wall.",
+        "Have the oak tree removed completely."
+       ],
+       "answer": 1,
+       "why": "I'd be happy to split the cost＝費用を半分持つ。切るのは義理の兄で本人ではない。汚れたのは女性の家の壁。木を丸ごと切り倒す話ではない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-005",
+     "script": "W: Did you see the email? The Lisbon conference has been moved online this year.\nM: I did. Honestly, I'm a little disappointed. Half the value of those events is the conversations you have over coffee.\nW: Really? I thought you'd be relieved. You always complain about the long flight.\nM: Oh, the flight is miserable, no question. But last year I met two of our biggest clients in the hallway between sessions. You just can't replicate that on a video call.\nW: The organizers say they'll have virtual networking rooms.\nM: I've tried those before. Everyone just sits there with their cameras off, waiting for someone else to talk. It's about as natural as a job interview.\nQuestion: What is the man's opinion of the online conference?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the man's opinion of the online conference?",
+       "choices": [
+        "It will offer fewer chances for meaningful informal contact.",
+        "It will be more convenient because he dislikes flying.",
+        "Its virtual networking rooms will help him find new clients.",
+        "It will have fewer sessions than last year's event."
+       ],
+       "answer": 0,
+       "why": "価値の半分はコーヒーを飲みながらの会話、廊下で大口顧客に会えた、オンラインでは再現できない、と言っている。飛行機は嫌いだが、それより残念さが勝つ。仮想交流室には否定的。"
+      }
+     ]
+    },
+    {
+     "id": "L1-006",
+     "script": "M: So, Ms. Novak, how has the knee been since your last visit?\nW: Better, thanks. The swelling has gone down, and I can walk without the brace now. But it still aches after I run.\nM: You've started running again already?\nW: Just short distances. I have a half marathon in June, so I didn't want to lose too much fitness.\nM: I understand, but if you push it now, you could end up out for the whole season. For the next month, I'd like you to switch to swimming or cycling. They'll keep your fitness up without putting weight on the joint.\nW: A whole month? Well, I suppose it's better than missing the race altogether.\nQuestion: What will the woman probably do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the woman probably do?",
+       "choices": [
+        "Withdraw from the half marathon in June.",
+        "Continue running short distances every day.",
+        "Exercise in ways that put less stress on her knee.",
+        "Wear her knee brace whenever she exercises."
+       ],
+       "answer": 2,
+       "why": "医師は1か月、水泳か自転車（ひざに体重がかからない運動）に切り替えるよう言い、女性はレースに出られないよりまし、と受け入れた。大会は辞退しない。走るのはやめる。"
+      }
+     ]
+    },
+    {
+     "id": "L1-007",
+     "script": "W: Marco, we need to talk about the menu. Our supplier just raised the price of seafood again.\nM: Again? That's the third time this year.\nW: I know. If we keep the prices as they are, we'll be losing money on the seafood pasta.\nM: We can't just raise prices, though. Our regulars already think we're expensive, and the new place across the street is offering lunch specials. We'd lose customers within a month.\nW: What if we kept the pasta but used a smaller portion of shrimp and added more seasonal vegetables? It might even make the dish lighter.\nM: Hmm. I could try that. I'll experiment with a few versions tomorrow, and you can taste them.\nQuestion: What will the man do tomorrow?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the man do tomorrow?",
+       "choices": [
+        "Raise the price of the seafood pasta.",
+        "Look for a new seafood supplier.",
+        "Test a revised version of a dish.",
+        "Visit the restaurant across the street."
+       ],
+       "answer": 2,
+       "why": "エビを減らし野菜を足す案を受けて、明日いくつかの版を試作すると言っている。値上げはできないと言った。仕入れ先を替える・向かいの店に行く、は出てこない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-008",
+     "script": "M: Have you looked at the brochure from Ridgeview Academy?\nW: I have. The facilities are impressive, and they offer that robotics program Emma's been asking about.\nM: But it's a forty-minute drive each way. Lakeside Elementary is a ten-minute walk.\nW: I know. And Lakeside's test scores are perfectly respectable. My worry is that Emma gets bored there. She's finished her math homework before I've even sat down. She needs more of a challenge.\nM: Couldn't we sign her up for an after-school robotics club instead? There's one at the community center on Thursdays.\nW: That might be the best of both worlds. She'd stay with her friends, and we wouldn't be spending two hours in the car every day.\nQuestion: What will the couple probably do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the couple probably do?",
+       "choices": [
+        "Move Emma to Ridgeview Academy next year.",
+        "Ask Lakeside Elementary to start a robotics program.",
+        "Drive Emma to the community center every day.",
+        "Keep their daughter at the nearby school and find an extra activity for her."
+       ],
+       "answer": 3,
+       "why": "近い学校のまま、木曜の放課後ロボット教室に通わせる案に女性が賛成（best of both worlds）。遠い私立には移さない。センターは毎日ではなく木曜。"
+      }
+     ]
+    },
+    {
+     "id": "L1-009",
+     "script": "M: How did your pitch to the board go this morning?\nW: Don't ask. I'd rehearsed it a dozen times and had every number memorized, or so I thought. But the projector froze right in the middle of my financial slides.\nM: Oh no. That's every presenter's nightmare. What did you do?\nW: I tried to talk them through the figures from memory, but I could see their eyes glazing over. The chairman eventually suggested we pick it up next week.\nM: Well, at least they didn't reject the proposal outright. That's something, isn't it?\nW: That's true. And to be honest, a few of them asked questions I hadn't anticipated, so the extra time will let me strengthen those sections.\nQuestion: What does the woman imply?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman imply?",
+       "choices": [
+        "The board rejected her proposal.",
+        "She had not prepared for the presentation.",
+        "The delay may turn out to be beneficial.",
+        "The chairman criticized her financial figures."
+       ],
+       "answer": 2,
+       "why": "最後に「予想外の質問が出たので、時間ができて補強できる」と言い、延期を前向きにとらえている。却下はされていない（didn't reject outright）。12回も練習した。会長は数字を批判していない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-010",
+     "script": "W: So, have you made up your mind about the car?\nM: I'm leaning toward the electric one. The running costs are so much lower, and there's a government rebate this year.\nW: But you drive to your parents' place in the mountains almost every weekend. Are there even charging stations out there?\nM: There's one in the town nearest to them, but it's often out of order, from what I've read.\nW: Then you might end up stranded. What about the hybrid? You'd still save on fuel, and you wouldn't have to worry about finding a charger.\nM: You've got a point. I'll take a closer look at the hybrid models before I commit to anything.\nQuestion: Why does the woman have doubts about the electric car?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why does the woman have doubts about the electric car?",
+       "choices": [
+        "It does not qualify for the government rebate.",
+        "The man may have trouble charging it on his regular trips.",
+        "Its running costs are higher than a hybrid's.",
+        "The man's parents dislike electric vehicles."
+       ],
+       "answer": 1,
+       "why": "毎週末山の実家へ行くが、近くの充電所はよく故障している → 立ち往生（stranded）するかも、が女性の心配。補助金はあり、維持費は電気自動車の方が安い。親の好みは出てこない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-011",
+     "script": "M: I heard you got an offer from the Singapore office. Congratulations!\nW: Thanks, but I haven't accepted yet. It's a big step up in salary, and the role itself is exactly what I want.\nM: So what's holding you back?\nW: My husband's job, mainly. His company doesn't have a branch there, and he's just been promoted.\nM: Could he work remotely?\nW: He asked, but they want him in the office at least three days a week. They did say they might reconsider in a year.\nM: Maybe you could ask Singapore to push back your start date.\nW: Actually, I'm meeting HR tomorrow to see if they'd let me start next spring. That would give us time to figure things out.\nQuestion: What will the woman do tomorrow?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the woman do tomorrow?",
+       "choices": [
+        "Ask whether she can begin the new job at a later date.",
+        "Accept the offer from the Singapore office.",
+        "Ask her husband's company about remote work.",
+        "Turn down the position in Singapore."
+       ],
+       "answer": 0,
+       "why": "明日人事と会い、来春から始められるか確かめる。まだ受諾も辞退もしていない。在宅勤務は夫がすでに会社に聞いて断られた。"
+      }
+     ]
+    },
+    {
+     "id": "L1-012",
+     "script": "W: Are you still helping out at the film festival this weekend?\nM: I'm supposed to be, but I've run into a scheduling problem. They've put me on the ticket desk Saturday morning, and that's exactly when my cousin's wedding rehearsal is.\nW: Oh no. Can't you just tell them you're unavailable? Or swap shifts with another volunteer?\nM: I tried. The coordinator says all the other Saturday slots are full, and she's too busy to reorganize the schedule.\nW: I'm volunteering on Sunday afternoon. If you can take my shift, I could probably cover yours on Saturday. I'm free that morning.\nM: Really? Are you sure you don't mind? That would save me. I'll let the coordinator know right away.\nQuestion: What does the woman offer to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman offer to do?",
+       "choices": [
+        "Exchange volunteer shifts with the man.",
+        "Attend the wedding rehearsal in his place.",
+        "Ask the coordinator to change the schedule.",
+        "Work both weekend shifts by herself."
+       ],
+       "answer": 0,
+       "why": "女性の日曜午後の担当を男性が、男性の土曜朝を女性が受け持つ＝交換。調整役は忙しくて組み直せないと言っている。両方を1人で、ではない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-013",
+     "script": "M: Have you had a chance to review the draft labels for the fossil exhibition?\nW: I have, and I'm a bit concerned. They're accurate, but they read like extracts from a scientific journal.\nM: Well, our curators wrote them. They want to make sure nothing is oversimplified.\nW: I understand, but our visitor surveys show most people spend less than ten seconds reading each label. Families with young children make up nearly half our audience.\nM: So what do you propose?\nW: Keep a short, engaging headline and two or three plain sentences on each label. The detailed information can go on the museum's website, with a code visitors can scan.\nM: The curators might push back, but I'll put it to them.\nQuestion: What does the woman want to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman want to do?",
+       "choices": [
+        "Ask the curators to write longer labels.",
+        "Remove the labels from the exhibition entirely.",
+        "Conduct another survey of museum visitors.",
+        "Make the labels simpler and move the detailed content online."
+       ],
+       "answer": 3,
+       "why": "見出しと平易な2〜3文に短くし、詳しい情報はウェブサイトへ、という提案。長くする・全部なくす、は逆。調査はすでにある。"
+      }
+     ]
+    },
+    {
+     "id": "L1-014",
+     "script": "W: I've found a lovely cottage by the lake for our anniversary, but it's booked solid in August.\nM: What about September? The kids will be back at school, so it might be quieter anyway.\nW: That's the problem. If we go in September, we'd need my mother to look after them for the week, and she's having her hip operation then.\nM: Ah, right. Could we ask my sister?\nW: She's just started a new job. I'd hate to impose on her.\nM: Then why don't we bring the kids along in late July? It wouldn't be quite as romantic, but they'd love the lake.\nW: I suppose it'd be nice to go as a family. I'll check if there's anything available.\nQuestion: What will the woman probably do next?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the woman probably do next?",
+       "choices": [
+        "Ask the man's sister to look after the children.",
+        "Book the cottage for a week in September.",
+        "Cancel their anniversary trip.",
+        "See whether the cottage can be booked for late July."
+       ],
+       "answer": 3,
+       "why": "7月下旬に子ども連れで、という案に賛成し、空きを調べると言った。妹は新しい仕事なので頼みたくない。9月は母の手術で無理。旅行はやめない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-015",
+     "script": "M: The investor from Crestline called. They're willing to put in two million, but they want a seat on our board.\nW: A seat on the board? That would give them a say in every major decision.\nM: I know. On the other hand, without that money we can't hire the engineers we need to launch by autumn.\nW: What about the bank loan we discussed?\nM: The bank offered only half the amount, and at a high interest rate.\nW: Hmm. Let's not rush into anything. Could you ask Crestline whether they'd accept observer status instead? They'd attend meetings but wouldn't have a vote.\nM: Worth a try. I'll call them back this afternoon.\nQuestion: What does the woman want the man to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the woman want the man to do?",
+       "choices": [
+        "Accept the investor's offer as it stands.",
+        "Apply for a larger loan from the bank.",
+        "Propose giving the investor a more limited role.",
+        "Delay the launch until next year."
+       ],
+       "answer": 2,
+       "why": "取締役の席の代わりに、議決権の無いオブザーバーでどうか聞いてほしい＝役割を限る提案。そのまま受ける、は慌てるなと言っている。銀行・延期の話はしていない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-016",
+     "script": "W: Kevin, I've just read the complaint from Mrs. Ortega about her delayed order.\nM: I know. I dealt with her on the phone yesterday. She was pretty upset, and I can't say I blame her. She'd been waiting nearly three weeks.\nW: According to her email, you told her the delay was the warehouse's fault.\nM: Well, it was. They shipped the wrong item.\nW: That may be true, but blaming another department makes the whole company look disorganized. Next time, apologize, explain what you're doing to fix the problem, and leave the internal details out of it.\nM: Understood. I guess I was just trying to show it wasn't my fault. Should I call her again?\nW: Yes, and offer her free express shipping on the replacement.\nQuestion: What is the woman's main point?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What is the woman's main point?",
+       "choices": [
+        "The warehouse was not responsible for the mistake.",
+        "Mrs. Ortega's complaint was unreasonable.",
+        "The man should have offered her a full refund.",
+        "The man should avoid blaming other departments when dealing with customers."
+       ],
+       "answer": 3,
+       "why": "他部署のせいにすると会社全体がだらしなく見える、謝って対応を説明し内部の事情は言うな、が要点。倉庫のミスは否定していない（That may be true）。提案は返金ではなく速達無料。"
+      }
+     ]
+    },
+    {
+     "id": "L1-017",
+     "script": "M: Have you finished the grant application yet? It's due on Friday.\nW: Almost. I'm just struggling with the section on public impact. The reviewers want to know how our research will benefit society, and honestly, it's pretty theoretical.\nM: What about the collaboration with the water treatment company? Our models could help them detect contamination faster.\nW: That's true, but we haven't signed anything with them yet. I'd hate to promise something we can't deliver.\nM: You don't need a contract. A letter from their research director saying they're interested would be enough to show potential applications.\nW: Good idea. That would make the section much more concrete. I'll email her today and ask if she can send one by Thursday.\nQuestion: What will the woman do next?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What will the woman do next?",
+       "choices": [
+        "Sign a contract with a water treatment company.",
+        "Ask for an extension on the grant deadline.",
+        "Request a letter of support from a company.",
+        "Rewrite the theoretical part of the application."
+       ],
+       "answer": 2,
+       "why": "研究責任者に、関心を示す手紙を木曜までに送ってもらうようメールする。契約は不要と言われた。締め切りの延長や理論部分の書き直しは話に出ない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-018",
+     "script": "W: You look exhausted, Tom.\nM: I am. I nearly fell asleep in this morning's meeting. The couple who moved in upstairs have a baby, and it cries for hours every night. I haven't had a decent night's sleep in weeks.\nW: That's tough. Have you spoken to them?\nM: What could I say? It's not as if they can switch the baby off. They're probably more exhausted than I am.\nW: Fair enough. Babies don't exactly come with a volume control. Have you thought about moving your bed to the other room? Or getting a white-noise machine? My sister swears by hers.\nM: Actually, the spare room is directly above the lobby, so it's quieter. I'll try sleeping there for a few nights.\nQuestion: What does the man decide to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the man decide to do?",
+       "choices": [
+        "Complain to the couple living upstairs.",
+        "Sleep in a different room in his apartment.",
+        "Buy a white-noise machine.",
+        "Move to a new apartment."
+       ],
+       "answer": 1,
+       "why": "空き部屋はロビーの上で静かなので、数晩そこで寝てみる。上の夫婦に言っても仕方ない、と苦情は否定。ホワイトノイズの機械は女性の提案で、男性は選んでいない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-019",
+     "script": "W: Daniel, I finished reading your manuscript over the weekend. The writing is wonderful.\nM: Thank you. I sense a \"but\" coming.\nW: But it's about 40,000 words longer than our usual length for this kind of book. The printing costs alone would make it hard to price competitively.\nM: I've already cut so much. I took out nearly a hundred pages last spring, and every chapter that's left feels essential.\nW: I'd suggest looking at chapters six through eight. They're fascinating, but they wander away from your central story. They could make an excellent separate essay collection later.\nM: I hadn't thought of it that way. Those chapters did start life as separate pieces. Let me reread them with that in mind.\nQuestion: What does the editor suggest?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the editor suggest?",
+       "choices": [
+        "Removing some chapters that could be published separately later.",
+        "Raising the price of the book.",
+        "Adding more detail to the central story.",
+        "Publishing the manuscript in two volumes."
+       ],
+       "answer": 0,
+       "why": "6〜8章は本筋から外れるので削り、後で別のエッセイ集にできる、という提案。値上げは競争できないので逆。本筋を足す・2巻に分ける、は言っていない。"
+      }
+     ]
+    },
+    {
+     "id": "L1-020",
+     "script": "M: Thanks for showing me around. The garden is beautiful, but I'm worried about the weather. Our reception is in late October.\nW: That's a common concern. If it rains, we can move everything into the glass pavilion. It holds up to 150 guests.\nM: We're expecting about 180, though.\nW: I see. In that case, we could put up a heated marquee on the lawn as a backup. It's an extra charge, but we only set it up if the forecast looks bad two days before.\nM: And if it's not needed?\nW: Then you'd only pay a small reservation fee, which is about a tenth of the full price.\nM: That sounds reasonable. Let's include that in the contract.\nQuestion: What does the man decide to do?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does the man decide to do?",
+       "choices": [
+        "Reduce the number of guests to 150.",
+        "Reserve a tent that will be put up only if the weather looks bad.",
+        "Hold the reception in the glass pavilion.",
+        "Change the date of the reception."
+       ],
+       "answer": 1,
+       "why": "marquee＝大きなテント。2日前の予報が悪い時だけ立てる予備のテントを契約に入れる。招待客は約180人でガラスの建物には入らない。日付の変更はしていない。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L2",
+   "title": "リスニング Part 2 Passages",
+   "kind": "listening",
+   "desc": "約200語の説明文（科学・社会・文化）を聞き、質問2つの答えを4つから選ぶ。放送は1回",
+   "tip": "放送前に2問分の選択肢を見て、話題と問われそうな点（理由・研究結果・批判）を予想する。However / Recent studies suggest の後に話の転換が来る。1問目は前半、2問目は後半から出ることが多い。",
+   "secPerItem": 20,
+   "intro": "Listen to each passage and the questions that follow. Then choose the best answer to each question from the four printed choices. The passage will be played only once.",
+   "sets": [
+    {
+     "id": "L2-001",
+     "script": "For a long time, psychologists paid little attention to boredom, regarding it as a trivial and purely unpleasant feeling. In recent years, however, researchers have begun to argue that boredom serves an important purpose. According to this view, boredom acts as a signal, telling us that our current activity is no longer meaningful or rewarding and pushing us to look for something better. In this sense, it resembles pain or hunger: uncomfortable, but useful.\n\nSome studies suggest that this push can even encourage creativity. In one experiment, participants first spent fifteen minutes copying numbers from a telephone directory, a deliberately dull task. They were then asked to think of as many uses as possible for a pair of plastic cups. Compared with a group that had skipped the dull task, the bored participants came up with more ideas, and their ideas were judged to be more original.\n\nResearchers caution, however, that boredom is beneficial only when people respond to it constructively. Those who experience boredom frequently and intensely, a condition known as boredom proneness, are more likely to seek quick distractions, such as checking their phones, rather than pursuing more meaningful goals.\nQuestion 1: What do some researchers now believe about boredom?\nQuestion 2: What did the experiment described by the speaker show?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What do some researchers now believe about boredom?",
+       "choices": [
+        "It is a trivial emotion with no real function.",
+        "It encourages people to look for more rewarding activities.",
+        "It is caused mainly by hunger or physical pain.",
+        "It makes people less willing to change their goals."
+       ],
+       "answer": 1,
+       "why": "boredom acts as a signal … pushing us to look for something better。痛みや空腹は「似ている」例えで、原因ではない。trivial は昔の見方。"
+      },
+      {
+       "type": "mcq",
+       "q": "What did the experiment described by the speaker show?",
+       "choices": [
+        "People who skipped the dull task thought of more original uses.",
+        "Copying numbers improved participants' memory for details.",
+        "Bored participants refused to complete the second task.",
+        "People who had first done a dull task produced more creative ideas."
+       ],
+       "answer": 3,
+       "why": "退屈な作業をした組の方がアイデアが多く、独創的だった。作業を飛ばした組の方が、は逆。記憶力や作業の拒否は話に出ない。"
+      }
+     ]
+    },
+    {
+     "id": "L2-002",
+     "script": "Many structures built by the ancient Romans, including harbor walls that have been battered by seawater for two thousand years, are still standing today. Modern concrete, by contrast, often begins to crack and crumble within a few decades. Scientists have long tried to understand what made the Roman material so durable.\n\nOne clue lies in small white lumps of lime that are scattered throughout Roman concrete. For many years, researchers assumed that these lumps were simply a sign of poor-quality materials or careless mixing. Recent studies, however, suggest that they may have been essential to the concrete's strength. When a crack forms and water seeps in, it reacts with the lime in the lumps to produce a mineral that gradually fills the crack. In effect, the concrete can repair itself. Experiments indicate that the Romans may have created these lumps deliberately by mixing their materials at very high temperatures.\n\nEngineers are now exploring whether similar techniques could be used in modern construction. If concrete could heal its own cracks, buildings and bridges might last much longer and require fewer repairs. Since producing concrete releases large amounts of carbon dioxide, longer-lasting structures could also help reduce the industry's environmental impact.\nQuestion 1: What did researchers previously believe about the white lumps in Roman concrete?\nQuestion 2: Why are engineers interested in the Roman technique?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What did researchers previously believe about the white lumps in Roman concrete?",
+       "choices": [
+        "They indicated that the concrete had been poorly made.",
+        "They were added to make the concrete lighter.",
+        "They had been created by seawater over time.",
+        "They were the main reason for the concrete's strength."
+       ],
+       "answer": 0,
+       "why": "For many years … a sign of poor-quality materials or careless mixing＝質の悪さの証拠と思われていた。強さの理由というのは最近の見方で、以前の考えではない。"
+      },
+      {
+       "type": "mcq",
+       "q": "Why are engineers interested in the Roman technique?",
+       "choices": [
+        "It would make concrete cheaper to transport.",
+        "It could allow buildings to be constructed more quickly.",
+        "It would eliminate the need for lime in concrete.",
+        "It might allow modern structures to last longer with fewer repairs."
+       ],
+       "answer": 3,
+       "why": "ひびを自分で直せれば建物や橋が長持ちし、修理も減り、二酸化炭素も減らせる。運送費・工期・石灰をなくす、は話に出ない。"
+      }
+     ]
+    },
+    {
+     "id": "L2-003",
+     "script": "As laptops and tablets have become common in classrooms, many students now take notes by typing rather than writing by hand. Typing is faster, and it allows students to record a lecture almost word for word. Surprisingly, however, several studies suggest that this speed may come at a cost.\n\nIn a typical experiment, students watched a recorded lecture and took notes either on a laptop or with pen and paper. Afterward, they answered questions about the content. On questions that simply required them to recall facts, the two groups performed similarly. On questions that required them to understand and apply the main ideas, however, the students who had written by hand tended to do better. Researchers believe the reason is that handwriting is slow. Because students cannot write down everything, they are forced to listen carefully, decide what is important, and summarize it in their own words, a process that strengthens understanding.\n\nNot all researchers agree with these findings. Some later studies have found smaller differences or none at all, and critics note that students can be trained to type summaries rather than copying everything. Still, many teachers now encourage students to put their laptops away during at least part of each lesson.\nQuestion 1: According to the speaker, why might handwriting help students understand lectures?\nQuestion 2: What do critics of these findings point out?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "According to the speaker, why might handwriting help students understand lectures?",
+       "choices": [
+        "It allows them to record every word the lecturer says.",
+        "It requires them to select and summarize key points.",
+        "It prevents them from becoming distracted by the internet.",
+        "It makes it easier for them to read their notes later."
+       ],
+       "answer": 1,
+       "why": "手書きは遅いので全部は書けず、大事な点を選び自分の言葉でまとめる → 理解が深まる。全部書き取れるのはタイピングの方。ネットの誘惑・読み返しやすさは話に出ない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What do critics of these findings point out?",
+       "choices": [
+        "Students could learn to type in a way that involves summarizing.",
+        "Handwritten notes are usually much harder to read.",
+        "Laptops help students remember facts more accurately.",
+        "Most teachers have stopped allowing laptops in class."
+       ],
+       "answer": 0,
+       "why": "critics note that students can be trained to type summaries＝要約しながら打つよう訓練できる。事実の記憶はどちらも同じだった。先生の話は最後の「一部の時間しまわせる」だけ。"
+      }
+     ]
+    },
+    {
+     "id": "L2-004",
+     "script": "Honeybees are famous for their \"waggle dance,\" a series of movements that a worker bee performs inside the hive after discovering a good source of food. By waggling her body while moving in a straight line, she communicates both the direction of the food relative to the sun and its distance from the hive. Other bees then use this information to fly directly to the flowers.\n\nFor decades, scientists assumed that the dance was entirely instinctive, meaning that bees were born knowing how to perform it. A recent study, however, suggests that learning also plays an important role. Researchers raised groups of young bees in colonies where they could not observe older bees dancing. When these bees eventually began to dance, their movements were noticeably less precise, and they made more errors in signaling distance than bees that had grown up watching experienced dancers.\n\nInterestingly, the inexperienced bees did improve with practice, but some of their errors in communicating distance never fully disappeared. The researchers concluded that, much like human language, the waggle dance depends on a combination of inborn ability and social learning. The findings have led some scientists to wonder how many other animal behaviors once thought to be purely instinctive are in fact partly learned.\nQuestion 1: What information does the waggle dance communicate?\nQuestion 2: What did the study find about bees raised without older dancers?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What information does the waggle dance communicate?",
+       "choices": [
+        "Which bees in the hive are the most experienced.",
+        "How much food the hive has stored for winter.",
+        "Where food is located and how far away it is.",
+        "Whether the flowers are safe from predators."
+       ],
+       "answer": 2,
+       "why": "太陽に対する食べ物の方向と巣からの距離を伝える。経験・貯蔵量・安全性は伝えていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "What did the study find about bees raised without older dancers?",
+       "choices": [
+        "They were completely unable to perform the dance.",
+        "Their dances contained more mistakes, some of which never disappeared.",
+        "They danced more accurately than other bees after practice.",
+        "They learned the dance by watching bees from other colonies."
+       ],
+       "answer": 1,
+       "why": "動きが不正確で、練習で良くなったが距離の誤りの一部は消えなかった。踊れなかったわけではない。他より正確になった、は逆。他の巣の蜂を見る話は無い。"
+      }
+     ]
+    },
+    {
+     "id": "L2-005",
+     "script": "Imagine a coffee shop that sells a small coffee for three dollars and a large one for five. Many customers choose the small size. Now suppose the shop adds a medium coffee priced at four dollars and eighty cents. Suddenly, a much larger proportion of customers choose the large size. The medium option is rarely purchased, but its presence changes customers' decisions. Economists and psychologists call this the \"decoy effect.\"\n\nThe effect works because people often find it difficult to judge whether a price is reasonable in isolation. Instead, they evaluate options by comparing them with one another. When the large coffee costs only twenty cents more than the medium, it suddenly appears to be a bargain, even though its price has not changed at all. Businesses ranging from cinemas to software companies use similar strategies to guide customers toward more expensive products.\n\nSome researchers, however, argue that the decoy effect is weaker in real life than in laboratory experiments. When people are familiar with a product or have a clear idea of what they want, they are less easily influenced by an extra option. Nevertheless, understanding the effect can help consumers recognize when their choices are being shaped by the way options are presented.\nQuestion 1: Why does adding a medium-sized coffee increase sales of the large size?\nQuestion 2: According to some researchers, when is the decoy effect weaker?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Why does adding a medium-sized coffee increase sales of the large size?",
+       "choices": [
+        "It makes the large size seem like good value by comparison.",
+        "It lowers the price that customers pay for the large size.",
+        "It reduces the number of small coffees the shop can sell.",
+        "It gives customers more time to decide what they want."
+       ],
+       "answer": 0,
+       "why": "中サイズより20セント高いだけなので、大サイズがお得に見える（比べて判断する）。大サイズの値段は変わっていない。"
+      },
+      {
+       "type": "mcq",
+       "q": "According to some researchers, when is the decoy effect weaker?",
+       "choices": [
+        "When businesses offer more than three options.",
+        "When customers are shopping at a cinema.",
+        "When people already know a product well or know what they want.",
+        "When the decoy option is the cheapest one available."
+       ],
+       "answer": 2,
+       "why": "When people are familiar with a product or have a clear idea of what they want＝よく知っている・欲しい物がはっきりしている時。選択肢の数・映画館・最安の囮、は話に出ない。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L3",
+   "title": "リスニング Part 3 Real-Life",
+   "kind": "listening",
+   "desc": "印刷された状況（Situation）を読み、アナウンス・留守電などを聞いて、自分がすべきことを4つから選ぶ。放送は1回",
+   "tip": "放送前の10秒で Situation の条件（時間・予算・人数・荷物の有無など）に下線を引く。放送では「If you …」の条件分けが続くので、自分に当てはまる条件だけを追う。他の条件の人向けの答えが誤答に並ぶ。",
+   "secPerItem": 20,
+   "intro": "Read the situation and the question. Then listen to the passage and choose the best answer from the four printed choices. The passage will be played only once.",
+   "sets": [
+    {
+     "id": "L3-001",
+     "script": "Attention, passengers booked on Flight 418 to Denver. We regret to inform you that this flight has been canceled due to a mechanical problem. All passengers will be rebooked automatically on tomorrow morning's 7:15 flight, and hotel vouchers can be collected at the service desk next to Gate 12. Passengers who need to reach Denver this evening may request a seat on our partner airline's 9:40 p.m. flight, which departs from Terminal B. Seats are limited, and requests must be made in person at the transfer desk on the lower level of Terminal A. Please note that if you have checked luggage, you must ask staff at the transfer desk to move your bags to the partner airline before you go to Terminal B. Bags will not be transferred automatically. Passengers without checked luggage may go directly to Terminal B and request a seat at the partner airline's counter. We apologize for the inconvenience.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Situation: You are at an airport. Your connecting flight to Denver has just been canceled. You have checked luggage and want to reach Denver tonight.\nQuestion: What should you do?",
+       "choices": [
+        "Go directly to the partner airline's counter in Terminal B.",
+        "Collect a hotel voucher at the desk next to Gate 12.",
+        "Wait to be rebooked on the 7:15 flight automatically.",
+        "Go to the transfer desk on the lower level of Terminal A."
+       ],
+       "answer": 3,
+       "why": "今夜着きたい＋預け荷物あり → ターミナルAの下の階の乗り継ぎデスクで荷物の移し替えと座席を頼む。直接ターミナルBへ行けるのは荷物の無い人。ホテル券と翌朝便は今夜着きたい人には合わない。"
+      }
+     ]
+    },
+    {
+     "id": "L3-002",
+     "script": "Hi, this is Gloria from Westside Auto, calling about your car. We've finished the inspection, and the main problem is the brake pads, which are badly worn. We can replace them for $380, and that job can be done by Thursday afternoon. We also noticed that the timing belt is close to the end of its life. Replacing it would cost another $450. It's not urgent, but we'd recommend doing it within the next three months. If you'd like us to do both jobs now, we'd need to order the belt, and the car wouldn't be ready until Monday. Alternatively, you could have the brakes done this week and come back for the belt another time. Just give me a call back and let me know which option you prefer. If we don't hear from you by noon tomorrow, we won't be able to finish anything by Thursday.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Situation: You need your car for a business trip on Friday morning. You can spend up to $600 on repairs. You receive this voicemail from the repair shop.\nQuestion: What should you do?",
+       "choices": [
+        "Call the shop by noon tomorrow and ask for only the brakes to be replaced.",
+        "Ask the shop to replace both the brakes and the timing belt now.",
+        "Wait until Monday to collect the car with all repairs done.",
+        "Have the timing belt replaced first because it is more urgent."
+       ],
+       "answer": 0,
+       "why": "金曜朝に車が必要＋600ドルまで → ブレーキ（380ドル・木曜に完成）だけ頼む。両方だと830ドルで、しかも月曜になる。ベルトは急がない。明日の正午までに電話しないと木曜に間に合わない。"
+      }
+     ]
+    },
+    {
+     "id": "L3-003",
+     "script": "Good afternoon, and welcome to the Halston Science Museum. Here is some information about today's planetarium shows. Our regular show, Journey to the Stars, begins at 1:30, 3:00, and 4:30. Each show lasts forty minutes. Please note that this show is not suitable for children under seven because of its loud sound effects and long periods of darkness. For younger visitors, we offer a special family show, Moon Friends, at 2:00 and 3:30. This show lasts twenty-five minutes, and children must be accompanied by an adult. Tickets for all planetarium shows can be purchased at the information desk on the ground floor, but family show tickets are also available at the machine outside the planetarium entrance on the second floor. Please be aware that the machine accepts card payments only. Doors close five minutes before each show begins, and latecomers cannot be admitted.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Situation: You are visiting a science museum with your five-year-old son. You want to see the planetarium show together and leave by 3 p.m.\nQuestion: What should you do?",
+       "choices": [
+        "Get tickets for the 2:00 Moon Friends show.",
+        "Get tickets for the 1:30 Journey to the Stars show.",
+        "Get tickets for the 3:30 Moon Friends show.",
+        "Get tickets for the 3:00 Journey to the Stars show."
+       ],
+       "answer": 0,
+       "why": "5歳の子は7歳未満なので Journey to the Stars は不向き → 家族向け Moon Friends。3時までに出たいので2:00の回（2:25終了）。3:30の回では間に合わない。"
+      }
+     ]
+    },
+    {
+     "id": "L3-004",
+     "script": "Welcome, everyone, to new student orientation. I'd like to explain how course registration works this semester. First-year students can register online starting today through the student portal. If you are a transfer student, however, the process is slightly different. Before you can register for any courses, the credits you earned at your previous university need to be reviewed. To start this process, please bring your official transcript to the Office of Academic Records in Martin Hall. Once your credits have been approved, which usually takes about three days, you'll receive an email from your academic advisor. Transfer students who wish to take second-year courses must then meet with their advisor to have their course plan signed. After that, you can register online like everyone else. Please don't try to register before your credits are approved, as the system will automatically cancel your registration.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Situation: You are a transfer student at a university. You want to register for second-year courses this semester. You are listening to an orientation talk.\nQuestion: What should you do first?",
+       "choices": [
+        "Register for courses through the student portal.",
+        "Make an appointment with your academic advisor.",
+        "Take your transcript to the Office of Academic Records.",
+        "Wait for an email from the university about your schedule."
+       ],
+       "answer": 2,
+       "why": "編入生は登録の前に単位の審査が必要 → まず成績証明書を Martin Hall の記録課へ。アドバイザーとの面談は承認の後。先にネット登録すると自動で取り消される。メールは書類を出した後に来る。"
+      }
+     ]
+    },
+    {
+     "id": "L3-005",
+     "script": "Thank you for calling Homeline Furniture customer service. Please listen carefully, as our menu options have recently changed. If you would like to place a new order, press 1. If your order has not yet been shipped and you would like to change the delivery address or date, press 2. If your order has already been shipped and you would like to change the delivery date, please visit our website and use the tracking number in your confirmation email. Changes made online are free of charge. If your order has already been shipped and you would like to collect it yourself from our warehouse, press 3 to speak to a delivery coordinator. Please note that a handling fee of fifteen dollars applies. For questions about returns or refunds, press 4. To hear these options again, press 9.",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "Situation: You ordered a desk online. It has already been shipped, but you will be away from home on the delivery date. You want to pick up the desk yourself.\nQuestion: What should you do?",
+       "choices": [
+        "Press 2.",
+        "Press 3.",
+        "Use the tracking number on the website.",
+        "Press 4."
+       ],
+       "answer": 1,
+       "why": "発送済み＋自分で倉庫に取りに行きたい → 3を押して配送担当と話す（手数料15ドル）。2は未発送の場合。ウェブは発送済みで日付を変える場合。4は返品。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L4",
+   "title": "リスニング Part 4 Interview",
+   "kind": "listening",
+   "desc": "約580語のインタビューを聞き、質問2つの答えを4つから選ぶ。放送は1回",
+   "tip": "インタビューは質問ごとに話題が変わるので、司会の質問を見出しにしてメモを取る。答えは「多くの人は～と思うが、実は…」の後半にある。選択肢の言い換え（strict bans → remove permanently）に注意。",
+   "secPerItem": 30,
+   "intro": "Listen to the interview and the questions that follow. Then choose the best answer to each question from the four printed choices. The interview will be played only once.",
+   "sets": [
+    {
+     "id": "L4-001",
+     "script": "W: Today I'm talking with Dr. Owen Brooks, a sleep researcher who has spent the last fifteen years studying teenagers. Dr. Brooks, thank you for joining us.\nM: It's my pleasure. It's a topic that matters to almost every family with teenage children.\nW: Let's start with a basic question. Why do teenagers seem to have so much trouble getting up in the morning?\nM: Well, many parents assume it's simply laziness or staying up too late on their phones. Those things can certainly make the problem worse. But the main cause is biological. During adolescence, the body's internal clock shifts. The hormone that makes us feel sleepy, melatonin, starts to be released later in the evening. So a typical sixteen-year-old may not feel tired until eleven or even midnight, no matter how early they go to bed.\nW: But they still have to get up for school.\nM: Exactly, and that's the heart of the problem. Most teenagers need around eight to ten hours of sleep. If they can't fall asleep until midnight and have to be up at six thirty, they're losing several hours every night. Over a week, that adds up to a serious sleep deficit.\nW: What are the consequences of that?\nM: They're more wide-ranging than people realize. The obvious one is difficulty concentrating in class, especially in the first few periods. But chronic lack of sleep also affects mood. Sleep-deprived teenagers are more likely to feel irritable and anxious, and they find it harder to control their emotions. There's also evidence that it increases the risk of accidents, particularly among young drivers.\nW: Do teenagers themselves realize they're not getting enough sleep?\nM: Often not. Many of them have been tired for so long that they think it's normal. When we ask students to keep sleep diaries for two weeks, they're frequently shocked by how little they actually sleep.\nW: Some schools have responded by starting classes later. Has that made a difference?\nM: In the schools we've studied, yes. When one district moved its starting time from seven forty-five to eight thirty, students got on average about forty minutes more sleep per night. Attendance improved, and teachers reported that students were more alert. That said, changing school schedules isn't easy. It affects bus routes, after-school sports, and parents' work schedules, so there's often resistance.\nW: What about families? Is there anything parents can do?\nM: Quite a lot, actually. The most important thing is consistency. Teenagers often sleep until noon on weekends to make up for lost sleep, but that shifts their internal clock even later and makes Monday mornings worse. I'd recommend that they get up no more than an hour or two later on weekends than on school days. Getting bright light in the morning helps too, as it signals to the brain that the day has started.\nW: And what about screens? Should parents ban phones in the bedroom?\nM: I'm generally not in favor of strict bans, because they tend to lead to conflict and teenagers find ways around them. What seems to work better is agreeing on a time, perhaps an hour before bed, when devices go onto a charger in the kitchen. The light from screens isn't the only issue. Messages and videos keep the brain active and alert when it should be winding down. If parents follow the same rule themselves, teenagers are much more likely to accept it.\nW: Dr. Brooks, thank you so much for your insights.\nM: Thank you for having me.\nQuestion 1: What does Dr. Brooks say is the main reason teenagers have trouble getting up early?\nQuestion 2: What advice does Dr. Brooks give to parents about devices?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "What does Dr. Brooks say is the main reason teenagers have trouble getting up early?",
+       "choices": [
+        "Changes in their bodies make them feel sleepy later at night.",
+        "They spend too much time using their phones in bed.",
+        "They are generally less motivated than younger children.",
+        "They tend to eat dinner too late in the evening."
+       ],
+       "answer": 0,
+       "why": "主な原因は生物学的なもので、思春期に体内時計がずれ、眠気のホルモンが夜遅く出るようになる。スマホは悪化させる要因で主因ではない。怠けや夕食の時間は否定・言及なし。"
+      },
+      {
+       "type": "mcq",
+       "q": "What advice does Dr. Brooks give to parents about devices?",
+       "choices": [
+        "Remove all phones from teenagers' bedrooms permanently.",
+        "Allow teenagers to use devices freely on weekends only.",
+        "Make sure screens are set to a low brightness at night.",
+        "Agree on a time for devices to be put away and follow the rule themselves."
+       ],
+       "answer": 3,
+       "why": "厳しい禁止には反対で、寝る1時間前などに台所で充電する時間を決め、親も同じルールを守るとよい、と言う。永久に禁止は反対の立場。週末の自由・画面の明るさは言っていない。"
+      }
+     ]
+    },
+    {
+     "id": "L4-002",
+     "script": "M: My guest today is Akiko Lindqvist, who works as a video game translator. Akiko, welcome to the program.\nW: Thanks, it's great to be here.\nM: How did you get into this line of work? It's not exactly a career most people plan for.\nW: No, definitely not. I studied literature at university, and I was planning to translate novels. But while I was a student, I took a part-time job testing games for a small studio. My job was just to find bugs, but I kept noticing that the English text in the Japanese games was awkward, sometimes even incomprehensible. I started sending suggestions to the producer, and eventually she asked me to rewrite all the dialogue for one of their games. That was twelve years ago, and I've been doing it ever since.\nM: What makes translating games different from translating books?\nW: In many ways, it's more technical. With a novel, you have the whole text in front of you, in order. With a game, you often receive thousands of separate lines in a spreadsheet, with no pictures and very little context. A single word like \"fire\" could be a command to shoot, a type of magic, or an item on a menu, and if you guess wrong, it can confuse players. There are also strict space limits. If a line in a menu can only hold twelve characters, I have to find a way to say everything within those twelve characters.\nM: I imagine humor is especially difficult.\nW: It's the hardest part, and also my favorite. Jokes in games often depend on wordplay, or on references to television shows or local customs that players in another country wouldn't recognize. If I translated them literally, the joke would disappear. So instead, I try to understand what the scene is supposed to achieve. Is the character supposed to seem clumsy, or arrogant, or kind? Then I write a new joke that creates the same effect for an English-speaking player. Sometimes the new joke has nothing in common with the original except the feeling it creates.\nM: Do the original creators mind when you change things that much?\nW: Some are nervous at first. But most of the game directors I work with understand that a literal translation can actually be less faithful, because players won't react the way the creators intended. I always explain my changes and why I made them. Building that trust is a big part of the job.\nM: What was the most challenging project you've worked on?\nW: Probably a fantasy game in which one group of characters spoke an invented language. The creators had made up hundreds of words, and I had to keep them consistent across more than half a million words of text. I ended up building my own dictionary just to keep track.\nM: How do you see the field changing? Many people are talking about machine translation.\nW: Machine translation is already useful for things like technical descriptions or very repetitive text, and it saves us time. But I don't think it can handle the creative side yet. A machine can translate the words of a joke, but it doesn't know whether players will laugh. I suspect my job will shift toward editing and reviewing machine output for routine text, while human translators focus more on characters and story.\nM: Any advice for people who want to follow in your footsteps?\nW: Play lots of games, obviously, but also read widely in your own language. People often think the most important skill is knowing the foreign language, but in my experience, the hardest part is writing natural, lively dialogue in your native language.\nM: Akiko, thank you very much.\nQuestion 1: How did Akiko first become a game translator?\nQuestion 2: What does Akiko say about translating humor?",
+     "questions": [
+      {
+       "type": "mcq",
+       "q": "How did Akiko first become a game translator?",
+       "choices": [
+        "She was hired after translating several well-known novels.",
+        "She began offering improvements to translations while working in another role.",
+        "She studied game design at university before joining a studio.",
+        "She won a competition held by a large game company."
+       ],
+       "answer": 1,
+       "why": "学生時代にバグを探すテストの仕事をしていて、英語の文の改善案を送るうちに台本の書き直しを任された。小説の翻訳はしていない（予定だった）。大学は文学専攻。コンテストの話は無い。"
+      },
+      {
+       "type": "mcq",
+       "q": "What does Akiko say about translating humor?",
+       "choices": [
+        "She tries to translate jokes as literally as possible.",
+        "She usually removes jokes that refer to local customs.",
+        "She sometimes creates entirely new jokes that have the same effect as the original.",
+        "She asks the game directors to write new jokes for her."
+       ],
+       "answer": 2,
+       "why": "直訳すると笑いが消えるので、場面の狙いを理解し、英語の読者に同じ効果を生む新しい冗談を書く。直訳は逆。削除する・監督に書いてもらう、は言っていない。"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S1",
+   "title": "二次試験 面接（スピーチ・質疑応答）",
+   "kind": "speaking",
+   "desc": "カードの5つのトピックから1つ選び、2分間スピーチ。続く質問2つに答える（自由会話は省略）",
+   "tip": "準備の1分は「立場1行＋理由3つのキーワード」だけメモ。スピーチは序論・本論・結論の型で、理由ごとに具体例を1つ。質疑では反論を一度受け止めてから（That's a fair point, but …）自分の考えに戻す。",
+   "secPerItem": 120,
+   "intro": "Choose one of the five topics on the card. You will have one minute to prepare, then speak for two minutes. Afterward, answer the examiner's questions.",
+   "sets": [
+    {
+     "id": "S1-001",
+     "tasks": [
+      {
+       "type": "Speech",
+       "prompt": "Choose one of these topics and speak about it for two minutes.\n\n1. Are people becoming too dependent on smartphones?\n2. Should artificial intelligence be used to help make decisions in hospitals?\n3. Agree or disagree: Social media has weakened people's ability to concentrate\n4. Can technology help reduce inequality in education?\n5. Should children be taught computer programming from elementary school?",
+       "timeSec": 120,
+       "ja": "1分で1つ選んで準備。序論（立場）→ 理由2〜3つ（具体例つき）→ 結論。2分を使い切る。"
+      },
+      {
+       "type": "Q&A 1",
+       "prompt": "In your speech, you took a clear position. What do you think is the strongest argument against it, and how would you respond?",
+       "timeSec": 45,
+       "ja": "スピーチの内容についての質問。反対意見を認めつつ、自分の立場を理由で守る。"
+      },
+      {
+       "type": "Q&A 2",
+       "prompt": "Do you think new technologies are often introduced before their effects on society are fully understood?",
+       "timeSec": 45,
+       "ja": "同じ分野の少し広い質問。立場 → 理由 → 例の順で、短く言い切る。"
+      }
+     ]
+    },
+    {
+     "id": "S1-002",
+     "tasks": [
+      {
+       "type": "Speech",
+       "prompt": "Choose one of these topics and speak about it for two minutes.\n\n1. Should air travel be taxed more heavily to protect the environment?\n2. Can the actions of individuals make a real difference to climate change?\n3. Agree or disagree: Cities should ban private cars from their central areas\n4. Should single-use plastic packaging be phased out completely?\n5. Is eating less meat an effective way to help the environment?",
+       "timeSec": 120,
+       "ja": "1分で1つ選んで準備。序論（立場）→ 理由2〜3つ（具体例つき）→ 結論。2分を使い切る。"
+      },
+      {
+       "type": "Q&A 1",
+       "prompt": "Some people would say your opinion is unrealistic. How would you answer them?",
+       "timeSec": 45,
+       "ja": "スピーチの内容についての質問。反対意見を認めつつ、自分の立場を理由で守る。"
+      },
+      {
+       "type": "Q&A 2",
+       "prompt": "Who should bear the greatest responsibility for protecting the environment: governments, companies, or individuals?",
+       "timeSec": 45,
+       "ja": "同じ分野の少し広い質問。立場 → 理由 → 例の順で、短く言い切る。"
+      }
+     ]
+    },
+    {
+     "id": "S1-003",
+     "tasks": [
+      {
+       "type": "Speech",
+       "prompt": "Choose one of these topics and speak about it for two minutes.\n\n1. Will the traditional nine-to-five job disappear in the future?\n2. Should companies be required to publish the salaries of all their employees?\n3. Agree or disagree: Job security is more important than a high salary\n4. Is it a good idea to raise the retirement age?\n5. Should working hours be strictly limited by law to protect employees' health?",
+       "timeSec": 120,
+       "ja": "1分で1つ選んで準備。序論（立場）→ 理由2〜3つ（具体例つき）→ 結論。2分を使い切る。"
+      },
+      {
+       "type": "Q&A 1",
+       "prompt": "You gave several reasons in your speech. Which one do you think is the most important, and why?",
+       "timeSec": 45,
+       "ja": "スピーチの内容についての質問。反対意見を認めつつ、自分の立場を理由で守る。"
+      },
+      {
+       "type": "Q&A 2",
+       "prompt": "How do you think the way people work in Japan will change over the next twenty years?",
+       "timeSec": 45,
+       "ja": "同じ分野の少し広い質問。立場 → 理由 → 例の順で、短く言い切る。"
+      }
+     ]
+    },
+    {
+     "id": "S1-004",
+     "tasks": [
+      {
+       "type": "Speech",
+       "prompt": "Choose one of these topics and speak about it for two minutes.\n\n1. Should university entrance examinations be abolished?\n2. Is homework necessary for elementary school students?\n3. Agree or disagree: Schools should place more emphasis on practical life skills\n4. Should all university students be required to spend time studying abroad?\n5. Can online learning ever fully replace classroom education?",
+       "timeSec": 120,
+       "ja": "1分で1つ選んで準備。序論（立場）→ 理由2〜3つ（具体例つき）→ 結論。2分を使い切る。"
+      },
+      {
+       "type": "Q&A 1",
+       "prompt": "What would someone who disagrees with you say, and how would you convince them?",
+       "timeSec": 45,
+       "ja": "スピーチの内容についての質問。反対意見を認めつつ、自分の立場を理由で守る。"
+      },
+      {
+       "type": "Q&A 2",
+       "prompt": "In the age of the internet, what do you think is the most important role of a teacher?",
+       "timeSec": 45,
+       "ja": "同じ分野の少し広い質問。立場 → 理由 → 例の順で、短く言い切る。"
+      }
+     ]
+    },
+    {
+     "id": "S1-005",
+     "tasks": [
+      {
+       "type": "Speech",
+       "prompt": "Choose one of these topics and speak about it for two minutes.\n\n1. Should more support be given to people who care for elderly family members?\n2. Is it important to preserve traditional festivals and crafts?\n3. Agree or disagree: Professional athletes are paid too much\n4. Should tourism to fragile natural areas be restricted?\n5. Are people today lonelier than people in the past?",
+       "timeSec": 120,
+       "ja": "1分で1つ選んで準備。序論（立場）→ 理由2〜3つ（具体例つき）→ 結論。2分を使い切る。"
+      },
+      {
+       "type": "Q&A 1",
+       "prompt": "Is there any situation in which your opinion might change? Please explain.",
+       "timeSec": 45,
+       "ja": "スピーチの内容についての質問。反対意見を認めつつ、自分の立場を理由で守る。"
+      },
+      {
+       "type": "Q&A 2",
+       "prompt": "Do you think local communities are becoming weaker or stronger in modern society? Why?",
+       "timeSec": 45,
+       "ja": "同じ分野の少し広い質問。立場 → 理由 → 例の順で、短く言い切る。"
+      }
+     ]
+    },
+    {
+     "id": "S1-006",
+     "tasks": [
+      {
+       "type": "Speech",
+       "prompt": "Choose one of these topics and speak about it for two minutes.\n\n1. Is space exploration a good use of public money?\n2. Is it acceptable to use animals in medical research?\n3. Agree or disagree: Sugary drinks should be taxed to improve public health\n4. Should English become a second official language in Japan?\n5. Will automation create more jobs than it destroys?",
+       "timeSec": 120,
+       "ja": "1分で1つ選んで準備。序論（立場）→ 理由2〜3つ（具体例つき）→ 結論。2分を使い切る。"
+      },
+      {
+       "type": "Q&A 1",
+       "prompt": "In your speech, you mentioned some examples. Can you give another example that supports your opinion?",
+       "timeSec": 45,
+       "ja": "スピーチの内容についての質問。反対意見を認めつつ、自分の立場を理由で守る。"
+      },
+      {
+       "type": "Q&A 2",
+       "prompt": "Should scientists be held responsible for how their discoveries are used by others?",
+       "timeSec": 45,
+       "ja": "同じ分野の少し広い質問。立場 → 理由 → 例の順で、短く言い切る。"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "modes": {
+  "ten": {
+   "minutes": 10,
+   "pick": [
+    {
+     "part": "G1",
+     "items": 8
+    },
+    {
+     "part": "G3A",
+     "sets": 1
+    },
+    {
+     "part": "L1",
+     "items": 3
+    }
+   ]
+  },
+  "challenge": {
+   "minutes": 30,
+   "pick": [
+    {
+     "part": "G1",
+     "items": 10
+    },
+    {
+     "part": "G2",
+     "sets": 1
+    },
+    {
+     "part": "G3A",
+     "sets": 1
+    },
+    {
+     "part": "L1",
+     "items": 5
+    },
+    {
+     "part": "L3",
+     "items": 2
+    },
+    {
+     "part": "W1",
+     "sets": 1
+    }
+   ]
+  }
+ }
+}

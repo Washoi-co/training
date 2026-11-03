@@ -398,3 +398,37 @@ a{color:inherit}
 .toast a{color:var(--brand);font-weight:700}
 .toast.ok{color:var(--ok)} .toast.ng{color:var(--ng)}
 .toast button{margin-left:8px;background:var(--soft);color:var(--brand);border-radius:99px;padding:4px 12px;font-size:13px;font-weight:700}
+
+/* ================= パソコンとスマホで見た目を分ける（2026-11-03 kimi） =================
+   パソコン（幅 1024px 以上）：下のタブ → 左のサイドバー、本文は幅いっぱい（余白を作らない）
+   スマホ：見出しとカードを少し締める */
+@media (max-width:1023px){
+  .large{font-size:30px}
+  .screen{gap:10px}
+}
+@media (min-width:1024px){
+  body{padding-left:232px}
+  .tabbar{top:0;bottom:0;left:0;right:auto;width:232px;padding:88px 14px 24px;box-shadow:.5px 0 0 var(--line2);background:var(--card)}
+  .tabbar div{display:flex;flex-direction:column;gap:4px;max-width:none}
+  .tab{grid-auto-flow:column;justify-content:start;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;font-size:15px;letter-spacing:0}
+  .tab svg{width:22px;height:22px}
+  .tab[aria-selected="true"]{background:var(--soft)}
+  .tab:hover{background:var(--soft)}
+  .screen{max-width:none;padding-left:48px;padding-right:48px;padding-bottom:56px;gap:14px}
+  .nav{margin:0 -48px -4px;padding:12px 48px 8px}
+  .large{font-size:40px}
+  .sub{font-size:16px}
+  /* カードの一覧は横に並べる */
+  .shl{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:10px}
+  .shl h3{grid-column:1/-1}
+}
+@media (min-width:1600px){
+  .screen{padding-left:72px;padding-right:72px}
+  .nav{margin:0 -72px -4px;padding:12px 72px 8px}
+}
+/* 「アプリにする」の帯：大きなボタンをやめて、細い1行に */
+.inst.slim{display:flex;align-items:center;gap:10px;background:var(--soft);border-radius:14px;padding:8px 8px 8px 14px}
+.inst.slim .t{flex:1;font-size:13px;line-height:1.4;color:var(--ink)}
+.inst.slim .pill{background:var(--brand);color:var(--on);font-size:13px;padding:7px 12px;white-space:nowrap}
+.inst.slim .inst-x{width:30px;height:30px;font-size:18px}
+@media (min-width:1024px){.inst.slim{display:none}}   /* パソコンには出さない */

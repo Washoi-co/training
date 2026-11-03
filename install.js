@@ -218,6 +218,7 @@
     try { if (sessionStorage.getItem(K + "pill")) return; } catch (e) {}
     css();
     var w = document.createElement("div");
+    w.className = "api-pill";   /* 模擬テストを解いている間は隠す（exam.html の body.testing） */
     w.style.cssText = "position:fixed;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 92px);z-index:25;display:flex;align-items:center;gap:2px;background:var(--brand,#1D4ED8);color:#fff;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.2);font:600 13px/1 -apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif";
     var b = document.createElement("button"), x = document.createElement("button");
     b.textContent = INAPP ? "Safariで開く" : "ホーム画面に追加";
