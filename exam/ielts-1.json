@@ -1,0 +1,95 @@
+{
+  "id": "ielts-1",
+  "exam": "ielts",
+  "examName": "IELTS Academic",
+  "title": "IELTS 模擬テスト 1",
+  "minutes": 24,
+  "scale": { "min": 0, "max": 9, "step": 0.5 },
+  "note": "Listening 5分 → Reading 10分 → Writing 5分 → Speaking 3タスク（30秒・1分・1分）。全部で約24分。音声は1回だけ流れます。イヤホンがあると聞きやすいです。",
+  "bands": { "L": [3.5, 4.0, 4.5, 5.5, 6.0, 7.0, 8.0], "R": [3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 8.0] },
+  "sections": [
+    {
+      "id": "L", "kind": "listening", "title": "Listening", "minutes": 5, "desc": "Part 2 相当：1人の説明を聞いて6問",
+      "voice": "en-GB",
+      "intro": "A member of staff is welcoming new volunteers at a community library. Read the questions first, then press play. The recording plays once.",
+      "script": "Good morning, everyone, and welcome to Greenfield Community Library. My name is Sarah, and I coordinate the volunteer programme here. Before we start the tour, let me explain how the programme works. The library is open six days a week, but volunteers are only needed from Tuesday to Saturday, because Monday is our quietest day and the paid staff can manage on their own. Most of you will do one shift a week, and a shift lasts three hours. You can choose a morning shift, which runs from nine to twelve, or an afternoon shift, from one to four. We no longer offer evening shifts, as the building closes at five. Now, what will you actually do? There are four main roles. The first is shelving: putting returned books back in the right place. It sounds simple, but it is the job that saves us the most time. The second is the welcome desk, where you greet visitors and help them find things. You do not need to know everything; you just need to know who to ask. The third role is the children's story hour, which happens every Wednesday and Saturday morning. If you enjoy reading aloud, this is for you. And the fourth is the computer corner, where you help older visitors with email and online forms. We also have a small cafe, but that is run by a separate company, so volunteers do not work there. A few practical points. Please wear your name badge whenever you are in the building. Lunch is not provided, but you are welcome to use the staff kitchen, which has a fridge and a kettle. If you cannot come to a shift, please send a text message to the number on your badge at least a day before. Finally, after you have completed ten shifts, you will receive a certificate, and after twenty, we will give you a free library card for a friend or family member. Right, if everyone is ready, let's begin the tour on the ground floor.",
+      "start": 1,
+      "questions": [
+        { "type": "multi", "pick": 2, "q": "Which TWO things does Sarah say about volunteer shifts?", "choices": ["Volunteers are needed on Mondays.", "A shift is three hours long.", "There are evening shifts.", "Volunteers usually work once a week.", "The building closes at four."], "answers": [1, 3], "why": "one shift a week / a shift lasts three hours" },
+        { "type": "mcq", "q": "Which role does Sarah say saves the library the most time?", "choices": ["the welcome desk", "shelving", "the computer corner"], "answer": 1, "why": "shelving … the job that saves us the most time" },
+        { "type": "mcq", "q": "When does the children's story hour take place?", "choices": ["Tuesday and Thursday mornings", "Wednesday and Saturday mornings", "every weekday afternoon"], "answer": 1, "why": "every Wednesday and Saturday morning" },
+        { "type": "mcq", "q": "What does Sarah say about the cafe?", "choices": ["Volunteers may work there after ten shifts.", "It is run by another company.", "It is closed at the moment."], "answer": 1, "why": "run by a separate company, so volunteers do not work there" },
+        { "type": "mcq", "q": "If volunteers cannot come to a shift, they should", "choices": ["phone the library.", "tell Sarah at the next shift.", "send a text message a day before."], "answer": 2, "why": "send a text message … at least a day before" },
+        { "type": "mcq", "q": "After twenty shifts, volunteers receive", "choices": ["a certificate.", "a free library card for someone else.", "a free lunch."], "answer": 1, "why": "after twenty, a free library card for a friend or family member" }
+      ]
+    },
+    {
+      "id": "R", "kind": "reading", "title": "Reading", "minutes": 10, "desc": "1パッセージ（約450語）・8問",
+      "intro": "Read the passage and answer Questions 7–14. For Questions 7–10, choose ONE WORD ONLY from the passage. For Questions 11–14, choose TRUE, FALSE or NOT GIVEN.",
+      "passage": "The return of the beaver\n\nFor four hundred years there were no beavers in Britain. The animals had been hunted to extinction by the sixteenth century, mainly for their fur and for a substance called castoreum, which was used in medicine and perfume. Then, in 2009, a small number of beavers from Norway were released in a remote part of western Scotland. It was the first time a mammal had been officially reintroduced to the United Kingdom, and the project was watched closely by scientists, farmers and conservationists alike.\n\nBeavers are often described as ecosystem engineers. Using their strong front teeth, they fell young trees and drag the branches into streams to build dams. Behind each dam, a pond forms. These ponds slow the flow of water, trap sediment and create wetlands that support frogs, dragonflies, fish and birds. A study in Devon, in the south-west of England, found that a single family of beavers had built thirteen dams along one stream over six years, and that the number of plant species on the site had almost doubled.\n\nThe animals also appear to help with two problems that worry many British communities: flooding and drought. During heavy rain, water is held back in the ponds and released slowly, so villages downstream are less likely to flood. In dry summers, the same ponds keep the land around them moist. Researchers measured the water leaving the Devon site after a storm and found that the peak flow was roughly a third lower than at a similar stream without beavers.\n\nNot everyone welcomes the beavers' return, however. Some farmers have complained that dams flood productive fields and that fallen trees block drainage channels. Anglers have raised concerns that dams may stop salmon and trout from swimming upstream to breed, although the evidence on this question is mixed. In response, the Scottish government introduced a licensing system in 2019 that allows landowners to move or, in some cases, remove beavers that cause serious damage.\n\nSupporters argue that most conflicts can be managed with simple tools. A pipe placed through a dam, for example, lets excess water escape and keeps the pond at a safe level. Wire mesh around the base of a valuable tree stops the animals from cutting it down. In Devon, a local group pays for such measures from a fund supported by tourism, since visitors now travel to the area specifically in the hope of seeing a beaver at dusk.\n\nBy 2023, wild beavers were living in at least fifteen river systems across Britain, and the government in England had begun to accept applications for further releases. The animals' comeback is still small in scale, but it has changed the way many people think about the countryside. Instead of asking only how land can be protected from water, planners are beginning to ask how water, and the creatures that shape it, might protect the land.",
+      "start": 7,
+      "questions": [
+        { "type": "gap", "limit": "ONE WORD", "q": "Beavers were hunted for their fur and for castoreum, which was used in perfume and ____.", "answer": ["medicine"], "why": "第1段落：used in medicine and perfume" },
+        { "type": "gap", "limit": "ONE WORD", "q": "Behind a beaver dam, a ____ forms, which slows the water and traps sediment.", "answer": ["pond"], "why": "第2段落：Behind each dam, a pond forms" },
+        { "type": "gap", "limit": "ONE WORD", "q": "At the Devon site, the number of plant ____ almost doubled.", "answer": ["species"], "why": "第2段落：the number of plant species … had almost doubled" },
+        { "type": "gap", "limit": "ONE WORD", "q": "Anglers worry that dams may prevent salmon and trout from swimming upstream to ____.", "answer": ["breed"], "why": "第4段落：swimming upstream to breed" },
+        { "type": "tfng", "q": "The 2009 release in Scotland was the first official reintroduction of a mammal to the UK.", "answer": "TRUE", "why": "第1段落：the first time a mammal had been officially reintroduced" },
+        { "type": "tfng", "q": "After a storm, the peak water flow at the Devon site was about half that of a stream without beavers.", "answer": "FALSE", "why": "第3段落：roughly a third lower（半分ではない）" },
+        { "type": "tfng", "q": "The Scottish licensing system has been used to remove more than a hundred beavers.", "answer": "NOT GIVEN", "why": "第4段落：制度の説明はあるが、何頭かは書かれていない" },
+        { "type": "tfng", "q": "In Devon, money from tourism helps pay for measures that reduce conflicts with beavers.", "answer": "TRUE", "why": "第5段落：a fund supported by tourism" }
+      ]
+    },
+    {
+      "id": "W", "kind": "writing", "title": "Writing", "minutes": 5, "desc": "Task 2 の短縮版：5分で 80〜120語",
+      "intro": "Write a short response to the question. Give your opinion, one reason and one example. You have 5 minutes.",
+      "tasks": [
+        { "type": "Short essay (Task 2 style)", "prompt": "Some people think that children should start learning a foreign language at primary school. Others believe it is better to start at secondary school. Which view do you agree with, and why?", "minWords": 80, "maxWords": 120, "note": "立場を1つ決めて、理由1つと具体例1つ。" },
+        { "type": "Short essay (Task 2 style)", "prompt": "In many cities, people are using cars less and bicycles more. Is this a positive or a negative development?", "minWords": 80, "maxWords": 120, "note": "立場を1つ決めて、理由1つと具体例1つ。" },
+        { "type": "Short essay (Task 2 style)", "prompt": "Some employers allow staff to work from home several days a week. Do the advantages of this outweigh the disadvantages?", "minWords": 80, "maxWords": 120, "note": "立場を1つ決めて、理由1つと具体例1つ。" },
+        { "type": "Short essay (Task 2 style)", "prompt": "Many people prefer to read news online rather than in printed newspapers. Why is this? Is it a good thing?", "minWords": 80, "maxWords": 120, "note": "理由を1つ説明してから、自分の考えを1つ。" },
+        { "type": "Short essay (Task 2 style)", "prompt": "Some people believe that museums should be free for everyone. Others think visitors should pay. Discuss both views and give your opinion.", "minWords": 80, "maxWords": 120, "note": "両方に1文ずつ触れてから、自分の立場。" }
+      ]
+    },
+    {
+      "id": "S", "kind": "speaking", "title": "Speaking", "minutes": 0, "desc": "3タスク：30秒・1分・1分（録音）",
+      "intro": "3つの質問に声で答えます。録音ボタンを押すと始まり、時間が来ると自動で止まります。発音は採点に含めません（内容・語彙・文法の目安です）。",
+      "sets": [
+        [
+          { "type": "Part 1", "prompt": "Let's talk about your home town. Where is it, and what do you like about living there?", "timeSec": 30 },
+          { "type": "Part 2", "prompt": "Describe a skill you learned recently.\nYou should say:\n- what the skill is\n- how you learned it\n- why you wanted to learn it\nand explain how useful it has been.", "timeSec": 60 },
+          { "type": "Part 3", "prompt": "Do you think schools should teach practical skills, such as cooking or managing money, as well as academic subjects? Why or why not?", "timeSec": 60 }
+        ],
+        [
+          { "type": "Part 1", "prompt": "Do you prefer to spend your free time indoors or outdoors? Why?", "timeSec": 30 },
+          { "type": "Part 2", "prompt": "Describe a place in your country that you would recommend to a visitor.\nYou should say:\n- where it is\n- what people can do there\n- when is the best time to go\nand explain why you recommend it.", "timeSec": 60 },
+          { "type": "Part 3", "prompt": "Some people say tourism damages local culture. Do you agree? What can be done about it?", "timeSec": 60 }
+        ],
+        [
+          { "type": "Part 1", "prompt": "How do you usually travel to work or school? Is that the best way for you?", "timeSec": 30 },
+          { "type": "Part 2", "prompt": "Describe a person who has influenced you.\nYou should say:\n- who the person is\n- how you know them\n- what they did\nand explain why they influenced you.", "timeSec": 60 },
+          { "type": "Part 3", "prompt": "Do you think famous people have a responsibility to be good role models? Why or why not?", "timeSec": 60 }
+        ],
+        [
+          { "type": "Part 1", "prompt": "What kind of food do you like to eat? Has that changed since you were a child?", "timeSec": 30 },
+          { "type": "Part 2", "prompt": "Describe a time when you had to wait for something.\nYou should say:\n- what you were waiting for\n- how long you waited\n- what you did while waiting\nand explain how you felt about it.", "timeSec": 60 },
+          { "type": "Part 3", "prompt": "Why do you think people today are less patient than in the past? Is technology part of the reason?", "timeSec": 60 }
+        ],
+        [
+          { "type": "Part 1", "prompt": "Do you like to plan your day in advance, or do you prefer to decide as you go?", "timeSec": 30 },
+          { "type": "Part 2", "prompt": "Describe an app or website you use often.\nYou should say:\n- what it is\n- what you use it for\n- how you found out about it\nand explain why you use it so often.", "timeSec": 60 },
+          { "type": "Part 3", "prompt": "Some people think we rely too much on our phones. What are the advantages and disadvantages of always being connected?", "timeSec": 60 }
+        ]
+      ]
+    }
+  ],
+  "messages": {
+    "4": "まず「聞いて分かる」「読んで分かる」量を増やす段階。単語と毎日のシャドーイングから。",
+    "4.5": "基礎はできています。Reading の言い換え（同じ意味の別の語）に慣れると伸びます。",
+    "5": "5.0 の目安。理由と例を1つずつ入れる練習を、毎日10分のライティングで。",
+    "5.5": "5.5 の目安。文法の同じミスを無くすだけで 6.0 が見えてきます。",
+    "6": "6.0 の目安。留学・仕事で求められる線に乗っています。語彙の幅を広げる段階。",
+    "6.5": "6.5 の目安。複雑な文を正確に使えるようになると 7.0 へ。",
+    "7": "7.0 の目安。ここから先は、話題ごとの語彙と、意見を支える具体例の質で決まります。",
+    "7.5": "7.5 以上の目安。本番の形式に慣れる練習を増やしましょう。"
+  }
+}

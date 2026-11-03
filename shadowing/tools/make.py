@@ -26,9 +26,9 @@ LESSONS = {
     "L2-1": dict(level=2, source="voa", title="When Do I Start?", url="https://learningenglish.voanews.com/a/lets-learn-english-lesson-19-when-do-you-start/3357760.html", dur=(120, 180)),
     "L2-2": dict(level=2, source="voa", title="Yesterday Was Amazing!", url="https://learningenglish.voanews.com/a/lets-learn-english-lesson-24-yesterday-was-amazing/3439164.html", dur=(120, 180)),
     "L2-3": dict(level=2, source="voa", title="Have You Ever ...?", url="https://learningenglish.voanews.com/a/lets-learn-english-lesson-48-have-you-ever/3753664.html", dur=(120, 180)),
-    "L3-1": dict(level=3, source="nasa", title="Northward Shift of Boreal Tree Cover", url="https://svs.gsfc.nasa.gov/14965/"),
-    "L3-2": dict(level=3, source="nasa", title="Webb Spies Rain Clouds, New Molecule on Titan", url="https://svs.gsfc.nasa.gov/14843/"),
-    "L3-3": dict(level=3, source="voa", title="The Ransom of Red Chief", url="https://learningenglish.voanews.com/a/the-ransom-of-red-chief-by-o-henry/4656557.html", dur=(270, 330), story=True),
+    "L3-1": dict(level=5, source="nasa", title="Northward Shift of Boreal Tree Cover", url="https://svs.gsfc.nasa.gov/14965/"),
+    "L3-2": dict(level=5, source="nasa", title="Webb Spies Rain Clouds, New Molecule on Titan", url="https://svs.gsfc.nasa.gov/14843/"),
+    "L3-3": dict(level=5, source="voa", title="The Ransom of Red Chief", url="https://learningenglish.voanews.com/a/the-ransom-of-red-chief-by-o-henry/4656557.html", dur=(270, 330), story=True),
 }
 
 
