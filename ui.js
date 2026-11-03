@@ -42,7 +42,7 @@
   if (!at) return;
   var d = document.createElement("div");
   d.className = "inst slim";   /* 2026-11-03：細い1行に（パソコンでは出さない） */
-  d.innerHTML = '<span class="t">📲 アプリにすると、通知が届いて1回で開けます</span><button class="pill primary">アプリにする</button><button class="inst-x" aria-label="閉じる">×</button>';   /* 押すとアプリに（Android＝インストール／iPhone＝手順） */
+  d.innerHTML = '<span class="t">📲 アプリにすると通知が届きます</span><button class="pill primary">アプリにする</button><button class="inst-x" aria-label="閉じる">×</button>';   /* 押すとアプリに（Android＝インストール／iPhone＝手順） */
   at.parentNode.insertBefore(d, at.nextSibling);
   d.querySelector(".inst-x").onclick = function () { d.remove(); try { localStorage.setItem("ui-inst-closed", "1"); } catch (e) {} };
   d.querySelector(".primary").onclick = function () { if (window.APInstall) window.APInstall.open(); };
