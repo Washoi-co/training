@@ -15,7 +15,7 @@
 
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>模擬テスト｜A-PUSH</title>
+<title>テスト｜A-PUSH</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
@@ -59,21 +59,44 @@ textarea.essay{width:100%;min-height:200px;font-size:16px;line-height:1.55;font-
 .spin{display:inline-block;width:18px;height:18px;border:2.5px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
 </style>
+<style>
+/* 2026-11-03 追加：試験の入口（3つのモード・パート一覧）と、読み上げの選択肢 */
+.modes{display:grid;gap:10px}
+.mode{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;color:var(--ink);background:var(--card);border-radius:18px;padding:16px}
+.mode b{display:block;font-size:17px}.mode small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.mode .go{font-family:var(--en);font-weight:900;color:var(--brand);white-space:nowrap}
+.mode.main{background:var(--brand);color:var(--on)}.mode.main small,.mode.main .go{color:var(--on)}
+.qplay{align-self:flex-start;background:var(--soft);color:var(--brand);border-radius:99px;padding:6px 14px;font-weight:700;font-size:14px}
+.opts.spoken button{justify-content:center;font-weight:900}
+.script{font-family:var(--en);font-size:13.5px;line-height:1.55;white-space:pre-line;color:var(--mute);background:var(--soft);border-radius:10px;padding:10px}
+.read{font-family:var(--en);font-size:16px;line-height:1.6;background:var(--soft);border-radius:12px;padding:12px;margin:8px 0 0}
+.h3{margin:18px 2px 6px;font-size:13px;font-weight:700;color:var(--mute);letter-spacing:.04em}
+</style>
 </head>
 <body data-tab="me">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="aplogo" viewBox="0 0 228.41 58.35"><polygon points="21.57 0 0 57.45 16.22 57.45 25.48 57.45 25.48 45.57 20.25 45.57 29.37 18.69 38.55 45.57 33.35 45.57 33.35 57.45 42.61 57.45 59.18 57.45 37.53 0 21.57 0"/><path d="M93.35.33h-20.4v28.56h-15v12.25h15v16.31h14.61v-16.31h5.63c12.49-.16,22.44-6.95,22.44-20.66v-.33C115.62,7.34,106.81.33,93.35.33ZM100.94,21.05c0,4.81-3.1,7.83-8.24,7.83h-5.14v-16h5.06c5.3,0,8.32,2.69,8.32,7.92v.25Z"/><path d="M215.36,12.4c-5.63,0-9.22,3.18-11.67,6.69V.33h-14.36v43.41c0-7.51-5.39-10.77-13.38-13.79-4.32-1.79-6.53-2.69-6.53-4.32v-.16c0-1.22,1.06-2.28,3.35-2.28,3.18,0,7.34,1.55,10.85,3.75l5.22-9.71c-4.9-3.18-10.69-4.73-16.16-4.73-9.63,0-16.4,5.3-16.4,14.2v.16c0,8,5.71,11.1,13.47,13.95,4.41,1.71,6.45,2.53,6.45,4.24v.16c0,1.39-1.14,2.45-3.59,2.45-3.92,0-8.49-1.79-12.81-4.81l-4.66,8.26V13.3h-14.36v26.03c0,4.08-2.2,6.28-5.3,6.28s-5.06-2.2-5.06-6.28V13.3h-14.36v30.44c0,8.98,4.81,14.61,13.06,14.61,5.63,0,9.22-3.18,11.67-6.69v5.79h14.36v-4.55c5.54,3.86,11.77,5.44,17.56,5.44,9.96,0,16.65-5.22,16.65-14.44v13.55h14.36v-26.03c0-4.08,2.2-6.28,5.3-6.28s5.06,2.2,5.06,6.28v26.03h14.36v-30.44c0-8.98-4.81-14.61-13.06-14.61Z"/></symbol></svg>
 
 <main class="screen">
-  <div class="nav"><span class="navl"><svg class="aplogo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><span class="mini">模擬テスト</span></span><div class="navr"><a class="pill" href="/mine/" style="text-decoration:none">戻る</a></div></div>
+  <div class="nav"><span class="navl"><svg class="aplogo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><span class="mini" id="x-mini">テスト</span></span><div class="navr"><a class="pill" id="x-back" href="/mine/" style="text-decoration:none">戻る</a></div></div>
   <p class="eyebrow" id="x-exam"></p>
-  <h1 class="large" id="x-title">模擬テスト</h1>
+  <h1 class="large" id="x-title">読み込み中…</h1>
   <p class="sub" id="x-sub"></p>
+
+  <!-- 試験の入口：3つのモードとパート一覧（?exam=toeic） -->
+  <section id="v-hub" hidden>
+    <div class="modes">
+      <a class="mode main" id="h-ten"><span><b>10分トレーニング</b><small id="h-ten-d"></small></span><span class="go">START →</span></a>
+      <a class="mode" id="h-ch"><span><b>ショートタイムチャレンジ</b><small id="h-ch-d"></small></span><span class="go">→</span></a>
+    </div>
+    <p class="h3">チャプター別トレーニング</p>
+    <div class="modes" id="h-parts"></div>
+  </section>
 
   <!-- はじめ -->
   <section id="v-start" class="card" hidden><div class="cin">
     <p class="tip" id="s-note"></p>
     <div class="list" id="s-parts"></div>
-    <p class="note">結果は目安です。公式のスコアではありません。採点にはAIを使います（文章と声だけを送り、名前は送りません）。</p>
+    <p class="note" id="s-ai">結果は目安です。公式のスコアではありません。採点にはAIを使います（文章と声だけを送り、名前は送りません）。</p>
     <div class="acts"><button class="primary" id="s-go">はじめる</button></div>
     <div id="s-last" hidden><p class="note" id="s-lastnote"></p><div class="acts"><button class="ghost" id="s-show">前回の結果を見る</button></div></div>
   </div></section>
@@ -88,53 +111,135 @@ textarea.essay{width:100%;min-height:200px;font-size:16px;line-height:1.55;font-
 
   <!-- 結果 -->
   <section id="v-result" hidden>
-    <div class="res"><div><b id="r-overall">–</b><small>総合の目安</small></div><div><p class="say" style="text-align:left;margin:0" id="r-msg"></p></div></div>
+    <div class="res"><div><b id="r-overall">–</b><small id="r-label">総合の目安</small></div><div><p class="say" style="text-align:left;margin:0" id="r-msg"></p></div></div>
     <div id="r-parts" style="display:flex;flex-direction:column;gap:12px;margin-top:12px"></div>
-    <p class="note" style="margin-top:12px">目安であり公式スコアではありません。各試験名は各運営団体の登録商標で、本テストは団体の承認を受けたものではありません。</p>
-    <div class="acts" style="margin-top:12px"><button class="ghost" id="r-again">もう一度</button><a class="primary" href="/mine/" style="text-decoration:none;text-align:center">戻る</a></div>
+    <p class="note" style="margin-top:12px">目安であり公式スコアではありません。各試験名は各運営団体の登録商標で、本アプリは団体の承認を受けたものではありません。</p>
+    <div class="acts" style="margin-top:12px"><button class="ghost" id="r-again">もう一度</button><a class="primary" id="r-back" href="/mine/" style="text-decoration:none;text-align:center">戻る</a></div>
   </section>
 </main>
 
 <script src="/activity.js"></script>
 <script>
 "use strict";
+/* 模擬テスト・トレーニングの共通エンジン（2026-11-03）。
+   ?id=ielts-1            … 決まった模擬テスト（/exam/ielts-1.json。無料版）
+   ?exam=toeic            … 試験の入口（10分トレーニング・ショートタイムチャレンジ・チャプター別）
+   ?exam=toeic&mode=ten   … 10分トレーニング／mode=challenge … ショートタイムチャレンジ
+   ?exam=toeic&part=P5    … チャプター別トレーニング
+   問題バンクの形は ~/apush/exam-src/bank/SCHEMA.md。採点（ライティング・スピーキング）は kanri の assess。 */
 const $=id=>document.getElementById(id);
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const SITE=window.SITE||{}, ID=new URLSearchParams(location.search).get("id")||((SITE.exams||[])[0]||{}).id;
-let X=null;            // テストの定義
-let I=0;               // 今のセクション
-const A={};            // 答え  A[secId]={...}
-const R={};            // 結果  R[secId]={...}
+const P=new URLSearchParams(location.search);
+const SITE=window.SITE||{};
+const LEGACY=P.get("id"), BANK=P.get("exam"), MODE=P.get("mode"), PART=P.get("part");
+let X=null;            // 今のテスト（sections を持つ）
+let B=null;            // 問題バンク（?exam= の時）
+let I=0;
+const A={}, R={};
 let timer=null, endAt=0;
+const KEY=LEGACY||[BANK,MODE||("part:"+PART)].join("/");
 const store={get(){try{return JSON.parse(localStorage.getItem("exam:v1"))||{};}catch(e){return{};}},set(f){try{const s=store.get();f(s);localStorage.setItem("exam:v1",JSON.stringify(s));}catch(e){}}};
-function view(k){["start","sec","result"].forEach(n=>{$("v-"+n).hidden=n!==k;});window.scrollTo(0,0);}
-const fmtBand=(v,sc)=>sc&&sc.step>=1?String(v):(Number(v).toFixed(1));
+function view(k){["hub","start","sec","result"].forEach(n=>{$("v-"+n).hidden=n!==k;});window.scrollTo(0,0);}
+const fmtBand=(v,sc)=>v==null?"–":(sc&&sc.step>=1?String(v):Number(v).toFixed(1));
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const seed=Math.floor(Date.now()/864e5);
+const pick=(arr,k)=>arr[(seed+(k||0))%arr.length];
 
 /* ---------- 読み込み ---------- */
-fetch("/exam/"+encodeURIComponent(ID||"")+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(x=>{X=x;paintStart();}).catch(()=>{
-  $("x-title").textContent="テストが見つかりません";$("x-sub").textContent="「戻る」から選び直してください。";});
+const fail=()=>{$("x-title").textContent="テストが見つかりません";$("x-sub").textContent="「戻る」から選び直してください。";};
+if(LEGACY){
+  fetch("/exam/"+encodeURIComponent(LEGACY)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(x=>{X=x;paintStart();}).catch(fail);
+}else if(BANK){
+  fetch("/exam/"+encodeURIComponent(BANK)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(b=>{B=b;
+    if(MODE&&b.modes&&b.modes[MODE]){X=fromPicks(b,MODE);paintStart();}
+    else if(PART&&b.parts.some(p=>p.id===PART)){X=fromPart(b,PART);paintStart();}
+    else paintHub();
+  }).catch(fail);
+}else fail();
+
+/* ---------- 試験の入口 ---------- */
+const SCALE={ielts:{min:0,max:9,step:.5},eiken:{min:0,max:4,step:1},toefl:{min:0,max:5,step:.5},toeic:{min:0,max:990,step:5}};
+function hubHref(q){return "/exam/?exam="+encodeURIComponent(B.exam)+q;}
+function paintHub(){
+  $("x-mini").textContent=B.group;$("x-exam").textContent=B.group;$("x-title").textContent=B.examName;
+  $("x-sub").textContent="毎日の10分・短い模擬テスト・パートごとの集中練習";
+  const m=B.modes||{};
+  const desc=k=>m[k]?("約"+m[k].minutes+"分 ・ "+m[k].pick.map(pk=>(B.parts.find(p=>p.id===pk.part)||{}).title||pk.part).join("・")):"準備中";
+  $("h-ten").href=hubHref("&mode=ten");$("h-ten-d").textContent=desc("ten");$("h-ten").hidden=!m.ten;
+  $("h-ch").href=hubHref("&mode=challenge");$("h-ch-d").textContent=desc("challenge")+(m.challenge?" ・ 目安スコアと添削つき":"");$("h-ch").hidden=!m.challenge;
+  const last=store.get();
+  $("h-parts").innerHTML=B.parts.map(p=>{const n=p.sets.length,L=last[B.exam+"/part:"+p.id];
+    return '<a class="mode" href="'+hubHref("&part="+encodeURIComponent(p.id))+'"><span><b>'+esc(p.title)+'</b><small>'+esc(p.desc)+' ・ '+n+(p.kind==="writing"||p.kind==="speaking"?"題":"セット")+(L&&L.pct!=null?' ・ 前回 '+Math.round(L.pct*100)+'%':"")+'</small></span><span class="go">→</span></a>';}).join("");
+  $("x-back").href="/mine/";
+  view("hub");
+}
+
+/* ---------- バンク → テスト（sections） ---------- */
+function partSection(b,p,sets,label){
+  const base={id:p.id+"-"+Math.random().toString(36).slice(2,7),part:p.id,kind:p.kind,title:label||p.title,intro:p.intro,voice:b.voice};
+  if(p.kind==="writing")return Object.assign(base,{tasks:sets});
+  if(p.kind==="speaking")return Object.assign(base,{sets:sets.map(s=>s.tasks)});
+  // 本文の無いセット（Part 5・Part 2 など）は1つの画面にまとめる。本文・音声のあるセットは1セット1画面
+  if(sets.every(s=>!s.passage&&!s.script)||sets.every(s=>s.script&&s.questions.length===1&&!s.passage))
+    return [Object.assign(base,{questions:[].concat(...sets.map(s=>s.questions.map(q=>Object.assign({},q,{script:s.script,set:s.id}))))})];
+  return sets.map((s,i)=>Object.assign({},base,{id:base.id+i,passage:s.passage,script:s.script,questions:s.questions.map(q=>Object.assign({},q,{set:s.id})),title:sets.length>1?base.title+"（"+(i+1)+"/"+sets.length+"）":base.title}));
+}
+function fromPicks(b,mode){
+  const m=b.modes[mode], secs=[];
+  m.pick.forEach(pk=>{const p=b.parts.find(x=>x.id===pk.part);if(!p)return;
+    const n=pk.sets||pk.items||1, sets=shuffle(p.sets.slice()).slice(0,n);
+    const s=partSection(b,p,sets);[].concat(s).forEach(x=>secs.push(x));});
+  // 制限時間：モードの分数を、各セクションの目安秒数の比で分ける
+  // 聞く問題は、読み上げの時間（1秒に約2.3語）も足す
+  const wc=t=>String(t||"").split(/\s+/).filter(Boolean).length;
+  const audio=s=>s.kind!=="listening"?0:s.script?wc(s.script):s.questions.reduce((a,q)=>a+wc(q.script)+(q.spoken?wc(q.choices.join(" ")):0),0);
+  const per=s=>(b.parts.find(p=>p.id===s.part)||{}).secPerItem||30;
+  // 書く・話すは決めた時間のまま。ただし書く問題は全体の35%まで（本番の20分を25分のチャレンジに入れない）
+  const fixed=s=>s.kind==="writing"?Math.round(Math.min(per(s)||300,m.minutes*60*.35)/30)*30:s.kind==="speaking"?150:0;
+  const est=secs.map(s=>fixed(s)?0:(audio(s)/2.3+s.questions.length*per(s)));
+  const tot=est.reduce((a,v)=>a+v,0)||1, avail=Math.max(60,m.minutes*60-secs.reduce((a,s)=>a+fixed(s),0));
+  secs.forEach((s,i)=>{s.sec=s.kind==="speaking"?0:s.kind==="writing"?fixed(s):Math.max(60,Math.round(est[i]/tot*avail/30)*30);});
+  return {bank:true,exam:b.exam,examName:b.examName,assess:b.assess,score:b.score,scale:SCALE[(b.score||{}).kind]||SCALE.ielts,
+    title:mode==="ten"?"10分トレーニング":"ショートタイムチャレンジ",minutes:m.minutes,
+    note:mode==="ten"?"毎日やる10分。各パートを少しずつ。終わると答え合わせと解説が出ます。":"約"+m.minutes+"分の短い模擬テスト。パートごとの目安と、ライティング・スピーキングの添削が出ます。",sections:secs};
+}
+function fromPart(b,pid){
+  const p=b.parts.find(x=>x.id===pid);
+  const n=p.kind==="writing"||p.kind==="speaking"?1:(p.sets.every(s=>!s.passage&&!s.script)||p.sets.every(s=>s.script&&s.questions.length===1&&!s.passage))?10:(p.sets[0].questions.length>=8?1:3);
+  const sets=shuffle(p.sets.slice()).slice(0,n);
+  const secs=[].concat(partSection(b,p,sets));
+  secs.forEach(s=>{s.sec=0;});   // 練習は時間で切らない
+  return {bank:true,part:pid,exam:b.exam,examName:b.examName,assess:b.assess,score:b.score,scale:SCALE[(b.score||{}).kind]||SCALE.ielts,
+    title:p.title,minutes:Math.max(1,Math.round(secs.reduce((a,s)=>a+(s.questions?s.questions.length*(p.secPerItem||30):300),0)/60)),
+    note:(p.tip||"")+"　時間は切りません。終わると答え合わせと解説が出ます。",sections:secs};
+}
 
 function paintStart(){
-  $("x-exam").textContent=X.examName||X.exam.toUpperCase();$("x-title").textContent=X.title;$("x-sub").textContent="約"+X.minutes+"分 ・ "+X.sections.length+"パート";
+  $("x-mini").textContent=X.examName;$("x-exam").textContent=X.examName;$("x-title").textContent=X.title;
+  $("x-sub").textContent="約"+X.minutes+"分 ・ "+X.sections.length+"パート";
   $("s-note").textContent=X.note||"";
-  $("s-parts").innerHTML=X.sections.map(s=>'<div class="li"><span>'+esc(s.title)+'<br><small class="note">'+esc(s.desc||"")+'</small></span><span class="e">'+(s.minutes?"約"+s.minutes+"分":"")+'</span></div>').join("");
-  const last=store.get()[X.id];
-  if(last&&last.R){$("s-last").hidden=false;$("s-lastnote").textContent="前回："+last.at.slice(0,10)+"　総合の目安 "+fmtBand(last.overall,X.scale);$("s-show").onclick=()=>{Object.assign(R,last.R);showResult(false);};}
+  const usesAI=X.sections.some(s=>s.kind==="writing"||s.kind==="speaking");$("s-ai").hidden=!usesAI&&!X.bank;
+  if(!usesAI)$("s-ai").textContent="結果は目安です。公式のスコアではありません。";
+  $("s-parts").innerHTML=X.sections.map(s=>'<div class="li"><span>'+esc(s.title)+'<br><small class="note">'+esc(s.desc||(s.questions?s.questions.length+"問":s.kind==="writing"?"1題":"3つの質問"))+'</small></span><span class="e">'+(s.minutes?"約"+s.minutes+"分":s.sec?"約"+Math.round(s.sec/60)+"分":"")+'</span></div>').join("");
+  if(BANK){$("x-back").href=hubHref("");$("r-back").href=hubHref("");}
+  const last=store.get()[KEY];
+  if(last&&last.R&&LEGACY){$("s-last").hidden=false;$("s-lastnote").textContent="前回："+last.at.slice(0,10)+"　総合の目安 "+fmtBand(last.overall,X.scale);$("s-show").onclick=()=>{Object.assign(R,last.R);showResult(false);};}
   view("start");
 }
 $("s-go").onclick=()=>{I=0;Object.keys(A).forEach(k=>delete A[k]);Object.keys(R).forEach(k=>delete R[k]);openSec();};
-$("r-again").onclick=()=>paintStart();
+$("r-again").onclick=()=>{ if(B){ X=MODE?fromPicks(B,MODE):fromPart(B,PART); } paintStart(); };
 
 /* ---------- セクション ---------- */
 function openSec(){
   const S=X.sections[I]; if(!S){showResult(true);return;}
-  $("t-name").textContent=S.title+(S.minutes?"　制限 "+S.minutes+"分":"");
+  const lim=S.minutes?S.minutes*60:(S.sec||0);
+  $("t-name").textContent=S.title+(lim?"　制限 "+Math.round(lim/60)+"分":"");
   $("sec-next").textContent=I===X.sections.length-1?"終わって結果を見る":"次のパートへ";
-  $("sec-next").disabled=false;
+  $("sec-next").disabled=false;$("sec-next").hidden=false;
   A[S.id]=A[S.id]||{};
   ({listening:paintLR,reading:paintLR,writing:paintWriting,speaking:paintSpeaking}[S.kind])(S);
   view("sec");
-  startTimer(S.minutes?S.minutes*60:0,()=>finishSec(true));
+  startTimer(lim,()=>finishSec(true));
 }
 function startTimer(sec,onEnd){
   clearInterval(timer);$("t-bar").hidden=!sec;$("t-fill").parentNode.hidden=!sec;if(!sec)return;
@@ -157,31 +262,36 @@ async function finishSec(byTime){
 }
 
 /* ---------- Listening / Reading ---------- */
+const LETTERS="ABCDEFGH";
 function paintLR(S){
-  const b=$("sec-body");
+  const b=$("sec-body"), perQ=S.kind==="listening"&&!S.script;   // 1問ずつ音声がある（Part 2 など）
   let h="";
   if(S.kind==="listening"){
     h+='<p class="tip">'+esc(S.intro||"音声は1回だけ流れます。聞きながら答えてください。")+'</p>';
-    h+='<div class="acts"><button class="primary" id="l-play">▶ 音声を流す</button><button class="ghost" id="l-again" hidden>もう一度（本番は1回）</button></div>';
+    if(!perQ)h+='<div class="acts"><button class="primary" id="l-play">▶ 音声を流す</button><button class="ghost" id="l-again" hidden>もう一度（本番は1回）</button></div>';
   }else{
     if(S.intro)h+='<p class="tip">'+esc(S.intro)+'</p>';
-    h+='<div class="passage">'+esc(S.passage)+'</div>';
+    if(S.passage)h+='<div class="passage">'+esc(S.passage)+'</div>';
   }
-  h+='<div id="qs">'+S.questions.map((q,n)=>qHtml(q,n,S)).join("")+'</div>';
+  h+='<div id="qs">'+S.questions.map((q,n)=>qHtml(q,n,S,perQ)).join("")+'</div>';
   b.innerHTML=h;
   S.questions.forEach((q,n)=>bindQ(q,n,S));
-  if(S.kind==="listening"){
-    const play=()=>{speakAll(S.script,S.voice||"en-GB");$("l-play").disabled=true;$("l-play").textContent="▶ 再生中…";$("l-again").hidden=false;};
-    $("l-play").onclick=play;$("l-again").onclick=()=>{try{speechSynthesis.cancel();}catch(e){}speakAll(S.script,S.voice||"en-GB");};
+  if(S.kind==="listening"&&!perQ){
+    const play=()=>{speakAll(S.script,S.voice||X.voice||"en-US");$("l-play").disabled=true;$("l-play").textContent="▶ 再生中…";$("l-again").hidden=false;};
+    $("l-play").onclick=play;$("l-again").onclick=()=>{try{speechSynthesis.cancel();}catch(e){}speakAll(S.script,S.voice||"en-US");};
   }
+  if(perQ)b.querySelectorAll(".qplay").forEach(bt=>bt.onclick=()=>{const q=S.questions[+bt.dataset.q];try{speechSynthesis.cancel();}catch(e){}
+    speakAll(q.script+(q.spoken?"\n"+q.choices.map((c,i)=>LETTERS[i]+". "+c).join("\n"):""),S.voice||"en-US");bt.textContent="▶ もう一度";});
 }
-function qHtml(q,n,S){
+function qHtml(q,n,S,perQ){
   const num=(S.start||1)+n;
   let body="";
   if(q.type==="gap")body='<input class="gap" data-q="'+n+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="'+esc(q.limit||"ONE WORD")+'">';
-  else if(q.type==="tfng")body='<div class="opts" data-q="'+n+'">'+["TRUE","FALSE","NOT GIVEN"].map((o,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b></b>'+o+'</button>').join("")+'</div>';
-  else body='<div class="opts" data-q="'+n+'">'+q.choices.map((o,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b>'+"ABCDEFGH"[i]+'</b><span>'+esc(o)+'</span></button>').join("")+'</div>';
-  return '<div class="q"><span class="n">'+num+(q.type==="multi"?"　（"+q.pick+"つ選ぶ）":"")+'</span><p class="stem">'+esc(q.q)+'</p>'+(q.ja?'<p class="ja">'+esc(q.ja)+'</p>':"")+body+'</div>';
+  else if(q.type==="tfng"||q.type==="ynng"){const o=q.type==="tfng"?["TRUE","FALSE","NOT GIVEN"]:["YES","NO","NOT GIVEN"];body='<div class="opts" data-q="'+n+'">'+o.map((x,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b></b>'+x+'</button>').join("")+'</div>';}
+  else if(q.spoken)body='<div class="opts spoken" data-q="'+n+'">'+q.choices.map((o,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b>'+LETTERS[i]+'</b></button>').join("")+'</div>';
+  else body='<div class="opts" data-q="'+n+'">'+q.choices.map((o,i)=>'<button type="button" data-i="'+i+'" aria-pressed="false"><b>'+LETTERS[i]+'</b><span>'+esc(o)+'</span></button>').join("")+'</div>';
+  const stem=q.spoken?"":'<p class="stem">'+esc(q.q)+'</p>';
+  return '<div class="q"><span class="n">'+num+(q.type==="multi"?"　（"+q.pick+"つ選ぶ）":"")+'</span>'+(perQ?'<button type="button" class="qplay" data-q="'+n+'">▶ 音声を流す</button>':"")+stem+(q.ja?'<p class="ja">'+esc(q.ja)+'</p>':"")+body+'</div>';
 }
 function bindQ(q,n,S){
   const a=A[S.id];
@@ -195,59 +305,72 @@ function bindQ(q,n,S){
   });
 }
 const norm=s=>String(s||"").toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' -]/g,"").trim().replace(/\s+/g," ");
+const JUDGE={tfng:["TRUE","FALSE","NOT GIVEN"],ynng:["YES","NO","NOT GIVEN"]};
 function isRight(q,ans){
   if(q.type==="gap")return (q.answer||[]).some(x=>norm(x)===norm(ans));
-  if(q.type==="tfng")return ["TRUE","FALSE","NOT GIVEN"][ans]===q.answer;
+  if(JUDGE[q.type])return JUDGE[q.type][ans]===q.answer;
   if(q.type==="multi")return Array.isArray(ans)&&ans.length===q.pick&&q.answers.every(x=>ans.indexOf(x)>=0);
   return ans===q.answer;
 }
+function keyText(q){return q.type==="gap"?q.answer[0]:JUDGE[q.type]?q.answer:q.type==="multi"?q.answers.map(i=>LETTERS[i]).join(", "):LETTERS[q.answer];}
+function ansText(q,a){if(a==null||(Array.isArray(a)&&!a.length))return "（無答）";if(Array.isArray(a))return a.map(i=>LETTERS[i]).join(", ");if(JUDGE[q.type])return JUDGE[q.type][a];return typeof a==="number"?LETTERS[a]:a;}
 function gradeLR(S){
   const a=A[S.id]; let ok=0;
-  const detail=S.questions.map((q,n)=>{const r=isRight(q,a[n]);if(r)ok++;return {n:(S.start||1)+n,ok:r,ans:a[n],key:q.type==="gap"?q.answer[0]:q.type==="tfng"?q.answer:q.type==="multi"?q.answers.map(i=>"ABCDEFGH"[i]).join(", "):"ABCDEFGH"[q.answer],why:q.why||""};});
+  const detail=S.questions.map((q,n)=>{const r=isRight(q,a[n]);if(r)ok++;
+    return {n:(S.start||1)+n,ok:r,ans:ansText(q,a[n]),key:keyText(q),why:q.why||"",q:q.spoken?"":q.q,
+      script:q.script?q.script+(q.spoken?"\n"+q.choices.map((c,i)=>LETTERS[i]+". "+c).join("\n"):""):""};});
   const bands=X.bands&&X.bands[S.id];
-  R[S.id]={kind:S.kind,title:S.title,ok,total:S.questions.length,band:bands?bands[Math.min(ok,bands.length-1)]:null,detail};
+  R[S.id]={kind:S.kind,part:S.part,title:S.title,ok,total:S.questions.length,band:bands?bands[Math.min(ok,bands.length-1)]:null,detail,script:S.script||""};
 }
-/* 読み上げ：文ごとに区切って順に。声は lang に合う物があればそれ */
+/* 読み上げ：行ごと。行頭の M: W: で声を変える（無ければ1つの声） */
+function voicesFor(lang){const vs=speechSynthesis.getVoices().filter(x=>x.lang.replace("_","-").indexOf(lang.slice(0,2))===0);const exact=vs.filter(x=>x.lang.replace("_","-")===lang);return (exact.length?exact:vs);}
 function speakAll(text,lang){
   if(!("speechSynthesis" in window)){alert("この端末では読み上げができません。");return;}
-  const vs=speechSynthesis.getVoices(),v=vs.find(x=>x.lang===lang)||vs.find(x=>x.lang.indexOf(lang.slice(0,2))===0);
-  String(text).split(/(?<=[.!?])\s+/).forEach(s=>{const u=new SpeechSynthesisUtterance(s);u.lang=lang;u.rate=.95;if(v)u.voice=v;speechSynthesis.speak(u);});
+  const vs=voicesFor(lang); const who={};
+  String(text).split(/\n+/).forEach(line=>{
+    const m=/^\s*([A-Z][A-Za-z0-9]{0,5}):\s*(.*)$/.exec(line); let tag="", body=line;
+    if(m&&!/^(Question|Questions|Q)$/.test(m[1])){tag=m[1];body=m[2];}
+    if(!body.trim())return;
+    if(tag&&!(tag in who))who[tag]=Object.keys(who).length;
+    String(body).split(/(?<=[.!?])\s+/).forEach(s=>{const u=new SpeechSynthesisUtterance(s);u.lang=lang;u.rate=.95;
+      const k=tag?who[tag]:0;if(vs.length)u.voice=vs[(k*Math.max(1,Math.floor(vs.length/3)))%vs.length];
+      if(tag&&/^W/.test(tag))u.pitch=1.15;else if(tag)u.pitch=.9;speechSynthesis.speak(u);});
+  });
 }
 try{speechSynthesis.getVoices();}catch(e){}
 
 /* ---------- Writing ---------- */
-const pick=(arr,seed)=>arr[(seed||0)%arr.length];
-const seed=Math.floor(Date.now()/864e5);   // 日ごとに違うお題
 function paintWriting(S){
-  const t=S.task=pick(S.tasks,seed+I);
-  $("sec-body").innerHTML='<p class="tip">'+esc(S.intro||"")+'</p><p class="stem" style="font-family:var(--en);font-size:16px;line-height:1.5;margin:0"><b>'+esc(t.type||"")+'</b><br>'+esc(t.prompt)+'</p>'+
-    (t.minWords?'<p class="note">目安 '+t.minWords+'〜'+t.maxWords+' 語。'+(t.note||"")+'</p>':"")+
+  const t=S.task=S.tasks.length===1?S.tasks[0]:pick(S.tasks,I);
+  $("sec-body").innerHTML='<p class="tip">'+esc(S.intro||"")+'</p>'+(t.source?'<div class="passage">'+esc(t.source)+'</div>':"")+'<p class="stem" style="font-family:var(--en);font-size:16px;line-height:1.5;margin:0"><b>'+esc(t.type||"")+'</b><br>'+esc(t.prompt).replace(/\n/g,"<br>")+'</p>'+
+    (t.minWords?'<p class="note">目安 '+t.minWords+'〜'+t.maxWords+' 語。'+esc(t.note||"")+'</p>':"")+
     '<textarea class="essay" id="w-text" placeholder="Write here in English…" autocapitalize="sentences"></textarea><div class="wc" id="w-wc">0 words</div>';
   const ta=$("w-text");ta.oninput=()=>{$("w-wc").textContent=words(ta.value)+" words";A[S.id].text=ta.value;};
 }
 const words=t=>String(t||"").trim().split(/\s+/).filter(w=>/[A-Za-z]/.test(w)).length;
+const assessTask=t=>({type:t.type,prompt:(t.source?"Summarize this passage:\n"+t.source+"\n\n":"")+t.prompt,minWords:t.minWords,maxWords:t.maxWords,timeSec:t.timeSec});
 async function gradeWriting(S){
   const text=(A[S.id].text||"").trim();
   if(!text){R[S.id]={kind:"writing",title:S.title,skipped:true};return;}
   busy("採点しています…");
-  try{const res=await window.APushSync.call("assess",{kind:"writing",exam:X.exam,task:S.task,text});R[S.id]=Object.assign({kind:"writing",title:S.title,text,task:S.task},res.data);}
+  try{const res=await window.APushSync.call("assess",{kind:"writing",exam:X.assess||X.exam,task:assessTask(S.task),text});R[S.id]=Object.assign({kind:"writing",title:S.title,text,task:S.task},res.data);}
   catch(e){R[S.id]={kind:"writing",title:S.title,text,task:S.task,err:errJa(e)};}
 }
 const errJa=e=>(e&&/^functions\//.test(e.code||"")&&e.code!=="functions/internal"&&e.message)||"採点できませんでした。電波の良い所でもう一度お試しください。";
 function busy(msg){$("sec-body").innerHTML='<p class="say"><span class="spin"></span>'+esc(msg)+'</p>';$("sec-next").disabled=true;}
 
-/* ---------- Speaking：3タスクを順に録音 → 採点 ---------- */
+/* ---------- Speaking：タスクを順に録音 → 採点 ---------- */
 let rec=null,recStream=null,recTick=null,recT=0;
 function paintSpeaking(S){
-  const set=S.set=pick(S.sets,seed+I); A[S.id].clips=[]; S._k=0;
-  $("sec-body").innerHTML='<p class="tip">'+esc(S.intro||"3つの質問に、声で答えます。録音ボタンを押すと始まり、時間が来ると自動で止まります。")+'</p><div id="sp-task"></div>';
+  S.set=S.sets.length===1?S.sets[0]:pick(S.sets,I); A[S.id].clips=[]; S._k=0;
+  $("sec-body").innerHTML='<p class="tip">'+esc(S.intro||"質問に声で答えます。録音ボタンを押すと始まり、時間が来ると自動で止まります。発音は採点に含めません（内容・語彙・文法の目安です）。")+'</p><div id="sp-task"></div>';
   $("sec-next").hidden=true;
   paintTask(S);
 }
 function paintTask(S){
   const t=S.set[S._k]; if(!t){$("sec-next").hidden=false;$("sec-next").click();return;}
   $("sp-task").innerHTML='<p class="n" style="font-family:var(--en);color:var(--brand);font-weight:900;font-size:13px;margin:0">TASK '+(S._k+1)+' / '+S.set.length+'　'+esc(t.type||"")+'　'+t.timeSec+'秒</p>'+
-    '<p class="stem" style="font-family:var(--en);font-size:16px;line-height:1.5;margin:6px 0 0">'+esc(t.prompt).replace(/\n/g,"<br>")+'</p>'+(t.ja?'<p class="ja">'+esc(t.ja)+'</p>':"")+
+    '<p class="stem" style="font-family:var(--en);font-size:16px;line-height:1.5;margin:6px 0 0">'+esc(t.prompt).replace(/\n/g,"<br>")+'</p>'+(t.readAloud?'<p class="read">'+esc(t.readAloud)+'</p>':"")+(t.ja?'<p class="ja">'+esc(t.ja)+'</p>':"")+
     '<div class="rec"><button class="mic" id="sp-mic" aria-label="録音">🎤</button><small id="sp-note">押すと録音が始まります（'+t.timeSec+'秒で自動で止まります）</small></div>';
   $("sp-mic").onclick=()=>{rec?stopRec():startRec(S,t);};
 }
@@ -268,7 +391,8 @@ async function gradeSpeaking(S){
   for(let k=0;k<clips.length;k++){
     const c=clips[k]; if(!c.blob||c.sec<1){out.push({task:c.task,skipped:true});continue;}
     busy("スピーキング "+(k+1)+" / "+clips.length+" を採点しています…");
-    try{const audio=await b64(c.blob);const res=await window.APushSync.call("assess",{kind:"speaking",exam:X.exam,task:c.task,audio,mime:c.blob.type,sec:Math.round(c.sec)});out.push(Object.assign({task:c.task},res.data));}
+    const task=Object.assign({},c.task); if(task.readAloud)task.prompt=task.prompt+"\nPassage: "+task.readAloud;
+    try{const audio=await b64(c.blob);const res=await window.APushSync.call("assess",{kind:"speaking",exam:X.assess||X.exam,task,audio,mime:c.blob.type,sec:Math.round(c.sec)});out.push(Object.assign({task:c.task},res.data));}
     catch(e){out.push({task:c.task,err:errJa(e)});}
   }
   const sc=out.filter(o=>o.overall!=null);
@@ -276,31 +400,75 @@ async function gradeSpeaking(S){
   $("sec-next").hidden=false;
 }
 
+/* ---------- 目安スコア（読む・聞くの正答率から） ---------- */
+const IELTS_RAW=[[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[7,3.5],[0,3]];
+function lrBand(pct){
+  const k=(X.score||{}).kind||X.exam;
+  if(k==="ielts"){const raw=Math.round(pct*40);return IELTS_RAW.find(x=>raw>=x[0])[1];}
+  return null;
+}
+function headline(parts){
+  const k=(X.score||{}).kind;
+  const lr=parts.filter(p=>p.total);
+  const pct=list=>{const t=list.reduce((a,p)=>a+p.total,0);return t?list.reduce((a,p)=>a+p.ok,0)/t:null;};
+  if(!X.bank)return null;   // 決まった模擬テストは今まで通り
+  const all=pct(lr);
+  // チャプター別の練習は問題が少ないので、スコアには換算しない
+  if(X.part&&lr.length)return {value:all==null?"–":Math.round(all*100)+"%",label:"正答率",pct:all};
+  if(k==="toeic"){
+    const L=pct(lr.filter(p=>p.kind==="listening")),Rr=pct(lr.filter(p=>p.kind==="reading"));
+    const est=v=>v==null?null:Math.max(5,Math.min(495,Math.round((5+490*v)/5)*5));
+    const l=est(L),r=est(Rr);
+    return {value:(l!=null&&r!=null)?String(l+r):(l!=null?"L "+l:r!=null?"R "+r:"–"),label:l!=null&&r!=null?"990点中の目安（L "+l+" ／ R "+r+"）":"495点中の目安",pct:all};
+  }
+  if(k==="eiken"){
+    const pass=(X.score||{}).passRate||.62;
+    return {value:all==null?"–":Math.round(all*100)+"%",label:"正答率（合格ラインの目安 "+Math.round(pass*100)+"%）",pct:all,
+      msg:all==null?"":all>=pass?"合格ラインの目安を越えています。ライティングと二次も同じ調子で。":"合格ラインの目安まで、あと "+Math.ceil((pass-all)*100)+"ポイント。間違えた問題の解説から見直しましょう。"};
+  }
+  if(k==="toefl"){   // 2026年1月からの新形式：各セクション 1〜6（0.5刻み）
+    const band=v=>v==null?null:Math.round((1+5*v)*2)/2;
+    const L=pct(lr.filter(p=>p.kind==="listening")),Rr=pct(lr.filter(p=>p.kind==="reading"));
+    const t=[Rr!=null?"Reading "+band(Rr).toFixed(1):"",L!=null?"Listening "+band(L).toFixed(1):""].filter(Boolean).join(" ／ ");
+    return {value:all==null?"–":band(all).toFixed(1),label:"1〜6 のバンドの目安"+(t?"（"+t+"）":""),pct:all};
+  }
+  // ielts：パートのバンドと W・S の平均
+  const vals=parts.map(p=>p.total?lrBand(p.ok/p.total):p.overall).filter(v=>v!=null);
+  return {value:vals.length?fmtBand(Math.floor(vals.reduce((a,v)=>a+v,0)/vals.length/.5)*.5,X.scale):"–",label:"総合バンドの目安",pct:all};
+}
+
 /* ---------- 結果 ---------- */
 function showResult(save){
   const sc=X.scale, parts=X.sections.map(s=>R[s.id]).filter(Boolean);
-  const vals=parts.map(p=>p.band!=null?p.band:p.overall).filter(v=>v!=null);
-  const overall=vals.length?Math.floor(vals.reduce((a,v)=>a+v,0)/vals.length/sc.step)*sc.step:null;
-  $("r-overall").textContent=overall==null?"–":fmtBand(overall,sc);
-  $("r-msg").textContent=overall==null?"採点できたパートがありませんでした。":(X.messages||{})[String(overall)]||(vals.length<X.sections.length?"採点できなかったパートは平均に入れていません。":"おつかれさまでした。下に、パートごとの結果と次の一手があります。");
+  if(X.bank)parts.forEach(p=>{if(p.total&&p.band==null)p.band=lrBand(p.ok/p.total);});
+  const H=headline(parts);
+  let overall=null;
+  if(H){$("r-overall").textContent=H.value;$("r-label").textContent=H.label;$("r-msg").textContent=H.msg||(X.part?"下の解説で、間違えた理由を確かめましょう。もう一度やると、別の問題が出ます。":"おつかれさまでした。下に、パートごとの結果と解説があります。");overall=H.pct;}
+  else{
+    const vals=parts.map(p=>p.band!=null?p.band:p.overall).filter(v=>v!=null);
+    overall=vals.length?Math.floor(vals.reduce((a,v)=>a+v,0)/vals.length/sc.step)*sc.step:null;
+    $("r-overall").textContent=overall==null?"–":fmtBand(overall,sc);$("r-label").textContent="総合の目安";
+    $("r-msg").textContent=overall==null?"採点できたパートがありませんでした。":(X.messages||{})[String(overall)]||(vals.length<X.sections.length?"採点できなかったパートは平均に入れていません。":"おつかれさまでした。下に、パートごとの結果と次の一手があります。");
+  }
   $("r-parts").innerHTML=parts.map(p=>partHtml(p,sc)).join("");
-  if(save&&overall!=null)store.set(s=>{s[X.id]={at:new Date().toISOString(),overall,R};});
+  if(save)store.set(s=>{s[KEY]=X.bank?{at:new Date().toISOString(),pct:H&&H.pct}:{at:new Date().toISOString(),overall,R};});
   if(save)try{(window.aps=window.aps||[]).push(["mark","exam",1]);}catch(e){}
   view("result");
 }
 function partHtml(p,sc){
   let h='<div class="card"><div class="cin">';
   if(p.kind==="listening"||p.kind==="reading"){
-    h+='<div class="res"><div><b>'+(p.band!=null?fmtBand(p.band,sc):"–")+'</b><small>'+esc(p.title)+'</small></div><div>正解 '+p.ok+' / '+p.total+'</div></div>';
-    h+='<details><summary class="note">答え合わせ</summary><ol class="ded">'+p.detail.map(d=>'<li>'+(d.ok?'<span class="ok-t">○</span>':'×')+' '+d.n+'　正解 <b>'+esc(d.key)+'</b>'+(d.ok?"":'　<i>あなた：'+esc(Array.isArray(d.ans)?d.ans.map(i=>"ABCDEFGH"[i]).join(", "):d.ans==null?"（無答）":typeof d.ans==="number"?"ABCDEFGH"[d.ans]:d.ans)+'</i>')+(d.why?'<br><i>'+esc(d.why)+'</i>':"")+'</li>').join("")+'</ol></details>';
+    h+='<div class="res"><div><b>'+(p.band!=null?fmtBand(p.band,sc):Math.round(p.ok/p.total*100)+"%")+'</b><small>'+esc(p.title)+'</small></div><div>正解 '+p.ok+' / '+p.total+'</div></div>';
+    h+='<details'+(X.part?" open":"")+'><summary class="note">答え合わせと解説</summary><ol class="ded">'+p.detail.map(d=>'<li>'+(d.ok?'<span class="ok-t">○</span>':'×')+' '+d.n+'　正解 <b>'+esc(d.key)+'</b>'+(d.ok?"":'　<i>あなた：'+esc(d.ans)+'</i>')+(d.q?'<br><i>'+esc(d.q)+'</i>':"")+(d.why?'<br>'+esc(d.why):"")+(d.script?'<div class="script">'+esc(d.script)+'</div>':"")+'</li>').join("")+'</ol>'+(p.script?'<p class="ask">音声のスクリプト</p><div class="script">'+esc(p.script)+'</div>':"")+'</details>';
   }else if(p.kind==="writing"){
-    h+=assessHtml(p,sc,p.title);
+    h+=assessHtml(p,assessScale(),p.title);
   }else if(p.kind==="speaking"){
-    h+='<div class="res"><div><b>'+(p.overall!=null?fmtBand(p.overall,sc):"–")+'</b><small>'+esc(p.title)+'</small></div><div class="note">'+esc(p.note||"")+'</div></div>';
-    h+=(p.tasks||[]).map((t,i)=>'<details'+(i===0?" open":"")+'><summary class="note">TASK '+(i+1)+'　'+esc((t.task||{}).type||"")+(t.overall!=null?'　目安 '+fmtBand(t.overall,sc):"")+'</summary>'+assessHtml(t,sc,null)+'</details>').join("");
+    h+='<div class="res"><div><b>'+(p.overall!=null?fmtBand(p.overall,assessScale()):"–")+'</b><small>'+esc(p.title)+'</small></div><div class="note">'+esc(p.note||"")+'</div></div>';
+    h+=(p.tasks||[]).map((t,i)=>'<details'+(i===0?" open":"")+'><summary class="note">TASK '+(i+1)+'　'+esc((t.task||{}).type||"")+(t.overall!=null?'　目安 '+fmtBand(t.overall,assessScale()):"")+'</summary>'+assessHtml(t,assessScale(),null)+'</details>').join("");
   }
   return h+'</div></div>';
 }
+const assessScale=()=>SCALE[X.assess||X.exam]||X.scale;
 function assessHtml(p,sc,title){
   if(p.skipped)return (title?'<p class="note">'+esc(title)+'：':'<p class="note">')+'答えがなかったので採点していません。</p>';
   if(p.err)return (title?'<p class="note">'+esc(title)+'：':'<p class="note">')+esc(p.err)+'</p>'+(p.text?'<div class="corr">'+esc(p.text)+'</div>':"");
