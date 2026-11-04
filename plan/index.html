@@ -175,7 +175,7 @@ function paintToday(a){
   $("h-msg").innerHTML=!rows.length?"下の「計画」で、1日のゴールを決めてください":met===rows.length?"今日のゴール達成。おつかれさま！":"今日のゴール<br>あと "+rows.filter(r=>!r.done).map(r=>r.t.t).join("・");
   ring(rows.length?rows.reduce((s,r)=>s+Math.min(1,r.n/r.g),0)/rows.length:0);
   $("today").innerHTML=rows.map(r=>
-    '<a class="row'+(r.done?" done":"")+'" href="'+r.t.href+'"><span class="ic" aria-hidden="true">'+r.t.ic+'</span><span><b>'+r.t.t+'</b><small>今日 '+r.n+' / '+r.g+' '+r.t.u+(r.t.k==="chunk"&&spT()?'　'+spT().label:'')+'</small></span><span class="chev">'+(r.done?"✓ できた":"やる ›")+'</span></a>'
+    '<a class="row'+(r.done?" done":"")+'" href="'+r.t.href+'"><span class="ic" aria-hidden="true">'+r.t.ic+'</span><span><b>'+r.t.t+'</b><small>今日 '+r.n+' / '+r.g+' '+r.t.u+(r.t.k==="chunk"&&spT()?'　'+String(spT().label).replace(/[&<>"]/g,c=>"&#"+c.charCodeAt(0)+";"):'')+'</small></span><span class="chev">'+(r.done?"✓ できた":"やる ›")+'</span></a>'
   ).join("")||'<a class="row" href="#g-words"><span class="ic" aria-hidden="true">📅</span><span><b>1日のゴールを決める</b><small>この下の「計画」</small></span><span class="chev">›</span></a>';
   // 添削した文の復習（話すのページの ap_adrev）。ゴールの輪には数えない。並べるだけ
   const rv=revN();

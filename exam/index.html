@@ -204,11 +204,26 @@ const seed=Math.floor(Date.now()/864e5);
 const pick=(arr,k)=>arr[(seed+(k||0))%arr.length];
 
 /* ---------- 読み込み ---------- */
+/* 本コース：plus のセット（本生徒だけの問題）は exam/<id>.plus に暗号で置いてある。鍵（ap_pk）はログインの時に data.enc から受け取る（2026-11-04 監査 M1）。
+   鍵が無い・開けない時は、plus なしでそのまま進む */
+let PLUS_AUD={};
+async function addPlus(b){
+  try{
+    const pk=SITE.login&&JSON.parse(localStorage.getItem("ap_pk")||"null");if(!pk)return b;
+    const r=await fetch("/exam/"+encodeURIComponent(BANK)+".plus",{cache:"no-store"});if(!r.ok)return b;
+    const box=await r.json(),u=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+    const key=await crypto.subtle.importKey("raw",u(pk),"AES-GCM",false,["decrypt"]);
+    const x=JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:u(box.i)},key,u(box.c))));
+    for(const p of b.parts){for(const [i,set] of (x.parts[p.id]||[]))p.sets.splice(i,0,set);}   // 元の順番に戻す
+    PLUS_AUD=x.aud||{};
+  }catch(e){}
+  return b;
+}
 const fail=()=>{$("x-title").textContent="テストが見つかりません";$("x-sub").textContent="「戻る」から選び直してください。";};
 if(LEGACY){
   fetch("/exam/"+encodeURIComponent(LEGACY)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(x=>{X=x;paintStart();}).catch(fail);
 }else if(BANK){
-  fetch("/exam/"+encodeURIComponent(BANK)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(b=>{B=b;loadMp3(b.exam);
+  fetch("/exam/"+encodeURIComponent(BANK)+".json",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(addPlus).then(b=>{B=b;loadMp3(b.exam);
     {const nm=/^eiken/.test(b.exam)?"英検":String(b.exam).toUpperCase();window.AP_LOCK_HEAD=nm+(b.exam==="toeic"?"対策も本コースで":"対策も本コースでみっちり");}   /* 鍵の案内の一言 */
     if(MODE&&b.modes&&b.modes[MODE]){X=fromPicks(b,MODE,PAT);paintStart();}
     else if(PART&&FREE){paintHub();apLock&&apLock("チャプター別トレーニング");}
@@ -461,13 +476,13 @@ function speakAll(text,lang){
 try{speechSynthesis.getVoices();}catch(e){}
 /* 録音した音声（ElevenLabs の mp3・study に置く）。一覧 index.json に無いセットは、端末の読み上げに戻る */
 const AUD=((window.SITE||{}).free?"https://study.apush.jp":"")+"/exam/audio/";
-let MP3=new Set(), curAudio=null;
-function loadMp3(exam){fetch(AUD+encodeURIComponent(exam)+"/index.json",{cache:"no-store"}).then(r=>r.ok?r.json():[]).then(a=>{MP3=new Set(a);}).catch(()=>{});}
+let MP3=new Map(), curAudio=null;
+function loadMp3(exam){MP3=new Map(Object.entries(PLUS_AUD));fetch(AUD+encodeURIComponent(exam)+"/index.json",{cache:"no-store"}).then(r=>r.ok?r.json():[]).then(a=>{a.forEach(id=>MP3.set(id,id));}).catch(()=>{});}   // セット → mp3 の名前（plus は鍵の中にある名前）
 function stopAudio(){try{speechSynthesis.cancel();}catch(e){}if(curAudio){curAudio.pause();curAudio=null;}}
 function playSet(set,text,lang){
   stopAudio();
   if(!(set&&X.exam&&MP3.has(set))){speakAll(text,lang);return;}
-  const a=curAudio=new Audio(AUD+encodeURIComponent(X.exam)+"/"+encodeURIComponent(set)+".mp3");let fell=false;
+  const a=curAudio=new Audio(AUD+encodeURIComponent(X.exam)+"/"+encodeURIComponent(MP3.get(set))+".mp3");let fell=false;
   const back=()=>{if(fell||curAudio!==a)return;fell=true;curAudio=null;speakAll(text,lang);};
   a.onerror=back;a.play().catch(back);
 }
