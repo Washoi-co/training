@@ -86,10 +86,14 @@
   function signIn() {
     if (signing) return signing;
     signing = (window.firebase && window.firebase.functions ? Promise.resolve() :
-      js(SDK + "firebase-app-compat.js").then(function () { return Promise.all([js(SDK + "firebase-auth-compat.js"), js(SDK + "firebase-firestore-compat.js"), js(SDK + "firebase-functions-compat.js")]); }))
+      js(SDK + "firebase-app-compat.js").then(function () { return Promise.all([js(SDK + "firebase-auth-compat.js"), js(SDK + "firebase-firestore-compat.js"), js(SDK + "firebase-functions-compat.js"),
+        cfg().appCheck ? js(SDK + "firebase-app-check-compat.js").catch(warn) : null]); }))
       .then(function () {
-        var F = window.firebase;
-        fb = (F.apps || []).filter(function (a) { return a.name === "aps"; })[0] || F.initializeApp(cfg(), "aps");
+        var F = window.firebase, had = (F.apps || []).filter(function (a) { return a.name === "aps"; })[0];
+        fb = had || F.initializeApp(cfg(), "aps");
+        /* App Check（2026-11-04 監査 P1・L7）：添削・採点をブラウザ以外から呼べないようにする印。鍵（reCAPTCHA Enterprise のサイトキー）が config.js に無い間は何もしない。
+           自動更新は切る＝呼ぶ時だけ取る（reCAPTCHA の回数＝料金を減らす） */
+        if (!had && cfg().appCheck && F.appCheck) fb.appCheck().activate(new F.appCheck.ReCaptchaEnterpriseProvider(cfg().appCheck), false);
         db = fb.firestore();
         var auth = fb.auth();
         return auth.currentUser ? { user: auth.currentUser } : auth.signInAnonymously();
