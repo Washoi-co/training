@@ -10,6 +10,30 @@ window.apMark = function (k, n) {
   } catch (e) {}
 };
 
+/* 単語帳を1つ読む → Promise（{id, title, words}。無い・開けない時は null）。単語・レベルチェック・テスト・単語ミックスが使う。
+   本コースは words/courses/<id>.enc（AES-GCM。club-kit/build.py の write_words が作る）。鍵 ap_pk はログインの時に data.enc から（2026-11-04 監査 M1）。
+   無料版はそのまま <id>.js（window.APW_COURSE） */
+window.apWords = function (id) {
+  var S = window.SITE || {}, base = "/words/" + ((S.words || {}).dir || "") + id;
+  if (!/^[a-z0-9_]+$/.test(id || "")) return Promise.resolve(null);
+  if (S.login) {
+    var pk = null; try { pk = JSON.parse(localStorage.getItem("ap_pk") || "null"); } catch (e) {}
+    if (!pk) return Promise.resolve(null);
+    var u = function (s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); }, box;
+    return fetch(base + ".enc").then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (b) { box = b; return crypto.subtle.importKey("raw", u(pk), "AES-GCM", false, ["decrypt"]); })
+      .then(function (k) { return crypto.subtle.decrypt({ name: "AES-GCM", iv: u(box.i) }, k, u(box.c)); })
+      .then(function (b) { var C = JSON.parse(new TextDecoder().decode(b)); return C.id === id ? C : null; })
+      .catch(function () { return null; });
+  }
+  return new Promise(function (done) {
+    var s = document.createElement("script"); s.src = base + ".js";
+    s.onload = function () { var C = window.APW_COURSE; done(C && C.id === id ? C : null); };
+    s.onerror = function () { done(null); };
+    document.head.appendChild(s);
+  });
+};
+
 /* ---- A-PUSH 共通の記録（kanri.apush.jp）につなぐ。2026-10-16 ----
    本コース（study）・無料版（training）・団体のサイトで、同じデータの形・同じ流れ（名前＋同意 → 練習した日を送る → お知らせ・既読）。
    生徒が同意した時だけ送る。kanri の config.js が未設定の間は何もしない。 */

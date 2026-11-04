@@ -380,7 +380,7 @@ var LIMITED=["土木"];   // 専門の生徒だけのグループ（下のコー
   if(!APW_COURSES.length)APW_COURSES=all;   /* 専門のコースがこのサイトに無い時は、全部出す（空にして止まらない） */
 })();
 
-// コースは ?c=gen1 か、前に選んだもの。ファイルはここで読み込む
+// コースは ?c=gen1 か、前に選んだもの。ファイルは下で apWords（activity.js）が読む
 (function(){
   var c=new URLSearchParams(location.search).get("c"), last=null;
   try{ last=localStorage.getItem("apush-words-course"); }catch(e){}
@@ -389,13 +389,12 @@ var LIMITED=["土木"];   // 専門の生徒だけのグループ（下のコー
   else if(!ok(c) && !ok(last)){ if(SITE.words.check){ location.replace("check.html"); return; } c=SITE.words["default"]||APW_COURSES[0].id; }  // 初めてなら、レベルチェック（無料版は決まった単語帳）
   if(!ok(c)) c = last;
   try{ localStorage.setItem("apush-words-course", c); }catch(e){}
-  document.write('<script src="'+SITE.words.dir+c+'.js"><\/script>');
+  window.APW_C=c;
 })();
 </script>
 <script>
-(function(){
+apWords(window.APW_C).then(function(C){
 "use strict";
-var C = window.APW_COURSE;
 // 単語帳のファイルが無い・読めない時は、決まった単語帳にもどす（1回だけ）
 if(!C||!C.words){ var fb=SITE.words["default"]||(APW_COURSES[0]||{}).id, want=null; try{ want=localStorage.getItem("apush-words-course"); }catch(e){}
   if(fb&&want!==fb){ try{ localStorage.setItem("apush-words-course",fb); }catch(e){} location.replace("?c="+fb); } return; }
@@ -803,7 +802,7 @@ $("sy-leave").addEventListener("click",function(){
 })();
 
 GO ? goNext() : renderHome();
-})();
+});
 </script>
 <script src="/say.js"></script><script src="/lock.js"></script><script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
 <script src="/ui.js" defer></script>

@@ -242,9 +242,7 @@ function todayWords(){
   return new Promise(done=>{
     let id=null;try{id=localStorage.getItem("apush-words-course");}catch(e){}
     if(!id||!/^[a-z0-9]+$/.test(id))return done([]);
-    const sc=document.createElement("script");sc.src="/words/courses/"+id+".js";
-    sc.onerror=()=>done([]);
-    sc.onload=()=>{const C=window.APW_COURSE;if(!C||C.id!==id)return done([]);
+    apWords(id).then(C=>{if(!C)return done([]);
       let S=null;try{S=JSON.parse(localStorage.getItem("apush-words-"+id+"-v1"));}catch(e){}
       if(!S||!S.cards)return done([]);
       const ymd=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
@@ -253,8 +251,7 @@ function todayWords(){
       add((days[t]&&days[t].batch)||[]);
       add(Object.keys(S.cards).filter(k=>S.cards[k].box<=5&&S.cards[k].due<=t).map(k=>k.split(":")[0]));
       if(!out.length){const d=Object.keys(days).filter(d=>d<=t&&days[d].batch&&days[d].batch.length).sort().pop();if(d)add(days[d].batch);}
-      done(out.slice(0,3).map(wi=>{const w=C.words[wi];return {en:w[0],ja:w[1].map(x=>x[0]).join("・")};}));};
-    document.head.appendChild(sc);
+      done(out.slice(0,3).map(wi=>{const w=C.words[wi];return {en:w[0],ja:w[1].map(x=>x[0]).join("・")};}));});
   });
 }
 function dailyTest(kind,ws){
