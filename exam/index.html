@@ -468,7 +468,7 @@ function speakAll(text,lang){
     if(m&&!/^(Question|Questions|Q)$/.test(m[1])){tag=m[1];body=m[2];}
     if(!body.trim())return;
     if(tag&&!(tag in who))who[tag]=Object.keys(who).length;
-    String(body).split(/(?<=[.!?])\s+/).forEach(s=>{const u=new SpeechSynthesisUtterance(s);u.lang=lang;u.rate=.95;
+    String(body).replace(/([.!?])\s+/g,"$1\n").split("\n").forEach(s=>{const u=new SpeechSynthesisUtterance(s);u.lang=lang;u.rate=.95;
       const k=tag?who[tag]:0;if(vs.length)u.voice=vs[(k*Math.max(1,Math.floor(vs.length/3)))%vs.length];
       if(tag&&/^W/.test(tag))u.pitch=1.15;else if(tag)u.pitch=.9;speechSynthesis.speak(u);});
   });
