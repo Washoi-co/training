@@ -13,6 +13,7 @@
     ".aplk .tri li::before{content:counter(t);position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:50%;background:#FF2D16;color:#fff;font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center}"+
     ".aplk .tri li b{font-weight:800;margin-right:4px}"+
     ".aplk a.go{display:block;text-align:center;text-decoration:none;background:#06C755;color:#fff;border-radius:14px;padding:15px;font-weight:800;font-size:17px}"+
+    ".aplk a.code{display:block;text-align:center;margin-top:12px;color:var(--ink,#141a2e);font-weight:700;font-size:14px}"+
     ".aplk button{display:block;width:100%;margin-top:10px;background:transparent;color:var(--mute,#6b7385);font-size:14px;padding:10px}"+
     "@keyframes aplkf{from{opacity:0}}@keyframes aplku{from{transform:translateY(40px);opacity:0}}"+
     ".lk{display:inline-block;margin-left:6px;font-size:.9em;filter:grayscale(1);opacity:.75}"+
@@ -48,6 +49,8 @@
     w.innerHTML='<div class="aplk" role="dialog" aria-modal="true" aria-label="本コース生徒のみアクセス可能です">'+
       '<p class="lt">🔒 本コース生徒のみアクセス可能です</p><h2>'+esc(headOf(what))+'</h2>'+
       '<a class="go" href="'+BOOK+'" target="_blank" rel="noopener">LINE で面談を予約する</a>'+
+      /* 体験コード（2026-11-09 の名刺。11/30 まで受け付け・2週間）は本コースの入口で入れる。12/14 を過ぎたらこの行は消してよい */
+      '<a class="code" href="https://study.apush.jp/">体験コードをお持ちの方はこちら</a>'+
       '<div class="tri"><b class="h">A-PUSHの三角システム</b><ol>'+
         '<li><b>コーチ</b>モチベーションを保ち、学習法を改善します</li>'+
         '<li><b>ネイティブ</b>毎週ネイティブと話す日がある。だから毎週、そこに向けて準備します</li>'+
