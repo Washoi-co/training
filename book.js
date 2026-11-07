@@ -1,13 +1,13 @@
 /* A-PUSH：コーチに相談（予約）。「計画」の一番上のバナー → 下から出るシートで、空いている時間から選んで予約する（2026-11-08）
    使い方：<div id="ap-book"></div> と APushBook.mount(要素, {call: (関数の名前, データ) => Promise<{data}>, lessons: 本コースなら true})
    空き・予約は kanri の booking 関数 → LINE 予約と同じ Apps Script（同じ台帳・同じカレンダー・同じ二重予約の防止）。
-   見た目は apush-design（赤は「予約する」ボタンの1か所だけ）。色の変数は --apb- で、サイトの変数とまざらない。 */
+   見た目は apush-design（赤は「予約する」ボタンの1か所だけ）。色の変数は --apb- で、サイトの変数とまざらない。
+   ダークにはしない：4つのサイトは明るい表示だけ（color-scheme:light）。端末がダークでもサイトに合わせる */
 (function () {
   "use strict";
   var CSS = [
     ".apb{--apb-red:#ff2d16;--apb-red-strong:#d41b06;--apb-red-text:#d41b06;--apb-ink:#0b0b0c;--apb-paper:#fff;--apb-paper-2:#f4f4f5;--apb-muted:#5c5c64;--apb-line:rgba(11,11,12,.12);--apb-on-ink:#fff;",
     "--apb-display:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',sans-serif;--apb-text:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;--apb-en:Archivo,'Helvetica Neue',Arial,sans-serif}",
-    "@media (prefers-color-scheme:dark){.apb{--apb-red-text:#ff5a47;--apb-ink:#fff;--apb-paper:#0b0b0c;--apb-paper-2:#1a1a1c;--apb-muted:#a1a1aa;--apb-line:rgba(255,255,255,.14);--apb-on-ink:#0b0b0c}}",
     ".apb-banner{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;margin:0 0 16px;padding:16px 18px;border:0;border-radius:3px;background:var(--apb-ink);color:var(--apb-on-ink);text-align:left;cursor:pointer;font:inherit;transition:transform .22s cubic-bezier(.2,1.5,.4,1)}",
     ".apb-banner:active{transform:scale(.97);transition-duration:.1s}",
     ".apb-banner:focus-visible,.apb button:focus-visible,.apb a:focus-visible,.apb input:focus-visible,.apb select:focus-visible{outline:2px solid var(--apb-ink);outline-offset:2px}",
