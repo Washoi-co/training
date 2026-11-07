@@ -60,6 +60,7 @@ a.row{text-decoration:none;color:var(--ink)}
 
   <hr class="hr">
   <h2 class="sect">計画</h2>
+  <div id="ap-book"></div>  <!-- コーチと気楽に英語学習の相談をする（book.js。2026-11-08） -->
   <div class="calbox">
     <div class="calhd"><button id="prev" aria-label="前の月">‹</button><b id="month"></b><button id="next" aria-label="次の月">›</button></div>
     <div class="cal" id="cal"></div>
@@ -323,5 +324,6 @@ addEventListener("ap-today",paint);   // つながって今日の話すが届い
 <script src="/activity.js"></script>  <!-- つないで、今日の話す（ap_today）を受け取る -->
 <script src="/say.js"></script><script src="/lock.js"></script><script src="/install.js" defer></script>  <!-- ホーム画面に追加の案内・LINEから来た人・記録の引き継ぎ（2026-10-16） -->
 <script src="/ui.js" defer></script>
+<script src="/book.js" defer onload="APushBook.mount(document.getElementById('ap-book'),{lessons:SITE.id==='honka',call:function(n,d){return window.APushSync?APushSync.call(n,d):Promise.reject(new Error('no sync'))}})"></script>
 </body>
 </html>
