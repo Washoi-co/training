@@ -7,7 +7,7 @@
        fixed(it)       … 添削した文を3回言えた（今日＆計画に数えるなど。省略可）
        reviewStart()   … 「今日の復習」を始める前（タイマーを止めるなど。省略可）
        reviewDone(list)… 今日の復習がおわった（結果の画面へ）
-     Adlib.show({tag, n, frame, frameJa, words:[{en,ja,pic}], word, meaning, pattern}) … アドリブ1問（型＋単語3つ）を画面に出す
+     Adlib.show({tag, n, frame, frameJa, words:[{en,ja,pic}], word, meaning, pattern}) … アドリブ1問（型＋単語2つ）を画面に出す
        word・meaning は words を " / " で繋いだ物（添削・復習の互換）。words が無ければ word 1つ
    ページにある物を使う：speak(文)・view(画面名)・window.APushSync.call（sync.js。ログインしてから review を呼ぶ）
    添削の相手（口座）はサーバーがログインの印から決める。画面からは英文・型・単語・意味・声だけ送る */
@@ -78,7 +78,7 @@ function adSend(blob,sec){   /* 声（blob）か、打った文で添削を頼�
 }
 $("a-next").addEventListener("click",()=>adSend(null));
 
-/* ---- 添削（sync.js の call → ログインしてから Cloud Functions の review）。送るのは英文・型・単語（word と words＝英語3つ）・意味と声だけ ---- */
+/* ---- 添削（sync.js の call → ログインしてから Cloud Functions の review）。送るのは英文・型・単語（word と words＝英語2つ）・意味と声だけ ---- */
 const jaErr=e=>(e&&/^functions\//.test(e.code||"")&&e.code!=="functions/internal"&&e.message)||"添削できませんでした。電波の良い所で「もう一度」を押してください。";
 function review(it){
   it.r=null;it.err=null;

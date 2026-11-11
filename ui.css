@@ -116,8 +116,12 @@ a{color:inherit}
 .seg:has(> .sl:not([hidden])) [aria-pressed="true"]{background:none}   /* 板（.sl）がある時は板が黒を運ぶ */
 .seg [aria-pressed="true"] small{color:inherit;opacity:.72}
 .seg a{text-decoration:none;text-align:center}
-.seg.sp-kind{margin:0 0 14px;padding:3px}
-.seg.sp-kind a{padding:10px 12px;font-size:14px;letter-spacing:.02em}
+/* 話すの種類（A-PUSHメソッド｜シャドーイング）：下の切り替えと見分けがつくよう、白い枠の大きなタブ＋絵文字＋ひとこと（2026-11-12 kimi） */
+.seg.sp-kind{margin:0 0 14px;padding:4px;background:var(--card);box-shadow:0 0 0 1px var(--line2) inset}
+.seg.sp-kind a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 10px 9px;font-size:15px;font-weight:800;letter-spacing:.02em;line-height:1.2}
+.seg.sp-kind a .ic{font-size:20px;line-height:1;margin-bottom:2px}
+.seg.sp-kind a small{font-size:11px;font-weight:500;opacity:.75;letter-spacing:0}
+.seg.sp-kind a[aria-pressed="true"] small{opacity:.8}
 .seg.lv button{display:flex;flex-direction:column;align-items:center;padding:6px 4px}
 .seg.lv b{font-family:var(--en);font-weight:900;font-size:17px}
 .seg.lv small{font-size:11px;color:var(--mute);font-weight:500}

@@ -182,8 +182,8 @@ img{max-width:100%}
         <style>#a-en{justify-content:center;flex-wrap:wrap}#a-en .chip{font-family:var(--en);font-size:18px;color:var(--brand)}</style>
         <div class="adw"><div class="chips" id="a-en"></div><button class="tsay" id="a-say" aria-label="単語を聞く">🔊</button></div>
         <p class="say" id="a-ja"></p>
-        <p class="say">この3つの単語を全部使って、この型で1つの文を作り、声に出して言ってみよう。🎤を押して話し、言えたらもう一度押すと次へ進みます</p>
-        <p class="say">例：should ＋ ready / hiking / mountain → <span class="en">I should be ready for hiking on the mountain in the early morning.</span></p>
+        <p class="say">この2つの単語を両方使って、この型で1つの文を作り、声に出して言ってみよう。🎤を押して話し、言えたらもう一度押すと次へ進みます</p>
+        <p class="say">例：should ＋ ready / hiking → <span class="en">I should be ready for hiking in the early morning.</span></p>
         <button class="mic" id="a-mic">🎤 話す</button>
         <p class="say" id="a-live" aria-live="polite"></p>
         <div id="a-type" hidden>
@@ -380,8 +380,8 @@ img{max-width:100%}
 </div>
 <div class="hw" role="group" aria-roledescription="スライド">
   <span class="hw-k">05 アドリブ</span>
-  <h3>章の型＋単語3つで、<em>自分の1文</em>。</h3>
-  <p class="hw-x"><b>型・単語：should &amp; ready ／ hiking ／ mountain</b>I should be ready for hiking on the mountain in the early morning.</p>
+  <h3>章の型＋単語2つで、<em>自分の1文</em>。</h3>
+  <p class="hw-x"><b>型・単語：should &amp; ready ／ hiking</b>I should be ready for hiking in the early morning.</p>
   <p>思いついた1文を、🎤で言うだけ。</p>
 </div>
 <div class="hw" role="group" aria-roledescription="スライド">
@@ -600,19 +600,19 @@ async function startAdlib(){
   add(aw.map(w=>({en:w.word,ja:w.meaning||"",emo:""})));add(wordsNow());
   if(!ws.length){toast('今日の単語がまだありません。<a href="/words/">単語</a>で今日の単語を始めると、ここでアドリブができます');setTimeout(()=>$("toast").hidden=true,6000);return;}
   AD=true;clearInterval(timer);Adlib.reset();
-  const used=ws.slice(0,15).map(w=>w.en),rest=aw.filter(w=>!used.includes(w.word));
+  const used=ws.slice(0,10).map(w=>w.en),rest=aw.filter(w=>!used.includes(w.word));
   try{rest.length?localStorage.setItem("ap_adlib_words",JSON.stringify({day:A.day,words:rest})):aw.length&&localStorage.removeItem("ap_adlib_words");}catch(e){}
-  queue=Array.from({length:5},(_,n)=>({ad:true,words:[0,1,2].map(j=>ws[(n*3+j)%ws.length]).filter((w,j,a)=>a.indexOf(w)===j),frame:frameOf()}));   // 1問＝単語3つ。少なければ、くり返す
+  queue=Array.from({length:5},(_,n)=>({ad:true,words:[0,1].map(j=>ws[(n*2+j)%ws.length]).filter((w,j,a)=>a.indexOf(w)===j),frame:frameOf()}));   // 1問＝単語2つ。少なければ、くり返す
   qi=0;score=0;log=[];adl=[];
   openAd();
   $("v-adlib").closest(".card").scrollIntoView({behavior:"smooth",block:"start"});
 }
-/* いつもアドリブ：ONなら、話すは毎回アドリブ5問（今日の単語3つ × 今の型） */
+/* いつもアドリブ：ONなら、話すは毎回アドリブ5問（今日の単語2つ × 今の型） */
 let MIX=false;
 try{ MIX=localStorage.getItem("apush-training-mix")==="1"; }catch(e){}
 function paintMix(){
   $("mix").setAttribute("aria-checked",String(MIX));
-  $("mix-note").textContent=MIX?"ON：今日の単語3つでアドリブ":"OFF：決まった文だけ";
+  $("mix-note").textContent=MIX?"ON：今日の単語2つでアドリブ":"OFF：決まった文だけ";
 }
 $("mix").addEventListener("click",()=>{
   MIX=!MIX; try{ localStorage.setItem("apush-training-mix",MIX?"1":"0"); }catch(e){}

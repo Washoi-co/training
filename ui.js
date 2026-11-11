@@ -16,7 +16,7 @@
   /* 「話す」の中の切り替え：A-PUSHメソッド（/）とシャドーイング（/shadowing/）。2026-11-03 にタブを4つにした時、シャドーイングは話すの中へ */
   if (here === "sp") { var h1 = document.querySelector(".screen .large"); if (h1) {
     var sh = /^\/shadowing\//.test(location.pathname);
-    h1.insertAdjacentHTML("afterend", '<div class="seg sp-kind" role="group" aria-label="話すの種類"><a href="/" aria-pressed="' + !sh + '">A-PUSHメソッド</a><a href="/shadowing/" aria-pressed="' + sh + '">シャドーイング</a></div>');
+    h1.insertAdjacentHTML("afterend", '<div class="seg sp-kind" role="group" aria-label="話すの種類"><a href="/" aria-pressed="' + !sh + '"><span class="ic" aria-hidden="true">🎤</span>A-PUSHメソッド<small>話して添削</small></a><a href="/shadowing/" aria-pressed="' + sh + '"><span class="ic" aria-hidden="true">🎧</span>シャドーイング<small>動画に重ねて言う</small></a></div>');
   } }
   document.querySelectorAll(".tabbar .tab").forEach(function (a) {
     var on = a.getAttribute("data-tab") === here;
