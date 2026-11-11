@@ -7,7 +7,8 @@
        fixed(it)       … 添削した文を3回言えた（今日＆計画に数えるなど。省略可）
        reviewStart()   … 「今日の復習」を始める前（タイマーを止めるなど。省略可）
        reviewDone(list)… 今日の復習がおわった（結果の画面へ）
-     Adlib.show({tag, n, frame, frameJa, pic, word, meaning, pattern}) … アドリブ1問を画面に出す
+     Adlib.show({tag, n, frame, frameJa, words:[{en,ja,pic}], word, meaning, pattern}) … アドリブ1問（型＋単語3つ）を画面に出す
+       word・meaning は words を " / " で繋いだ物（添削・復習の互換）。words が無ければ word 1つ
    ページにある物を使う：speak(文)・view(画面名)・window.APushSync.call（sync.js。ログインしてから review を呼ぶ）
    添削の相手（口座）はサーバーがログインの印から決める。画面からは英文・型・単語・意味・声だけ送る */
 function toast(html,cls){document.getElementById("toast").innerHTML=html;document.getElementById("toast").className="toast "+(cls||"");document.getElementById("toast").hidden=false;}
@@ -23,18 +24,20 @@ let cur=null,FIX=null,REDO=null;   /* REDO：添削に失敗して「言い直�
 
 /* ---- アドリブ1問を出す ---- */
 function show(o){
-  cur={word:o.word,meaning:o.meaning||"",pattern:o.pattern};
+  const ws=o.words&&o.words.length?o.words:[{en:o.word,ja:o.meaning||"",pic:o.pic||""}];
+  cur={word:o.word||ws.map(w=>w.en).join(" / "),meaning:o.meaning||"",pattern:o.pattern,words:ws};
   $("a-tag").textContent=o.tag||"アドリブ";$("a-n").textContent=o.n||"";
   $("a-frame").innerHTML=o.frame?esc(o.frame).replace("＿＿",'<span class="blank">＿＿</span>'):"";$("a-frame").hidden=!o.frame;
   $("a-fja").textContent=o.frameJa||"";$("a-fja").hidden=!o.frameJa;
-  $("a-pic").textContent=o.pic||"";$("a-pic").hidden=!o.pic;
-  $("a-en").textContent=o.word;$("a-ja").textContent=o.meaning||"";
+  const pic=ws.map(w=>w.pic).filter(Boolean).join(" ");
+  $("a-pic").textContent=pic;$("a-pic").hidden=!pic;
+  $("a-en").innerHTML=ws.map(w=>'<span class="chip">'+esc(w.en)+'</span>').join("");$("a-ja").textContent=o.meaning||"";
   micStop();$("a-in").value="";$("a-live").textContent="";
   if(!CAN_REC||micOff)adType(true,false);else{$("a-mic").hidden=false;$("a-type").hidden=true;}
   view("adlib");
-  speak(o.word);
+  speak(ws.map(w=>w.en).join(", "));
 }
-$("a-say").addEventListener("click",()=>speak($("a-en").textContent));
+$("a-say").addEventListener("click",()=>speak(cur.words.map(w=>w.en).join(", ")));
 
 /* ---- 声：録音 → 添削のときにサーバーで文字にする。押す→話す→もう一度押すと、送って次へ（待たない）。録音できない端末は打って入力 ---- */
 const CAN_REC=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);
@@ -75,12 +78,12 @@ function adSend(blob,sec){   /* 声（blob）か、打った文で添削を頼�
 }
 $("a-next").addEventListener("click",()=>adSend(null));
 
-/* ---- 添削（sync.js の call → ログインしてから Cloud Functions の review）。送るのは英文・型・単語・意味と声だけ ---- */
+/* ---- 添削（sync.js の call → ログインしてから Cloud Functions の review）。送るのは英文・型・単語（word と words＝英語3つ）・意味と声だけ ---- */
 const jaErr=e=>(e&&/^functions\//.test(e.code||"")&&e.code!=="functions/internal"&&e.message)||"添削できませんでした。電波の良い所で「もう一度」を押してください。";
 function review(it){
   it.r=null;it.err=null;
   const b64=it.audio?new Promise(ok=>{const f=new FileReader();f.onload=()=>ok(String(f.result).split(",")[1]||"");f.readAsDataURL(it.audio);}):Promise.resolve("");
-  it.p=b64.then(audio=>window.APushSync.call("review",Object.assign({sentence:it.you,pattern:it.pattern,word:it.word,meaning:it.meaning},audio?{audio,mime:it.audio.type,sec:it.sec}:{})))
+  it.p=b64.then(audio=>window.APushSync.call("review",Object.assign({sentence:it.you,pattern:it.pattern,word:it.word,words:(it.words||[]).map(w=>w.en),meaning:it.meaning},audio?{audio,mime:it.audio.type,sec:it.sec}:{})))
     .then(res=>{
       const r=res&&res.data;
       if(!r||!String(r.corrected||"").trim())throw new Error("empty");
@@ -130,13 +133,13 @@ $("f-retry").addEventListener("click",()=>{if(!FIX)return;review(FIX.list[FIX.i]
 $("f-redo").addEventListener("click",()=>{   /* 言い直す：アドリブの画面に戻って、🎤でも打ち込みでも */
   if(!FIX||FIX.review)return;
   const it=REDO=FIX.list[FIX.i];
-  show({tag:$("f-tag").textContent,n:$("f-n").textContent,frame:it.pattern,frameJa:"",pic:"",word:it.word,meaning:it.meaning,pattern:it.pattern});
+  show({tag:$("f-tag").textContent,n:$("f-n").textContent,frame:it.pattern,frameJa:"",words:it.words,word:it.word,meaning:it.meaning,pattern:it.pattern});
   $("a-type").hidden=false;$("a-nomic").hidden=true;$("a-again").hidden=!CAN_REC||micOff;$("a-in").value=it.you||"";
 });
 function fixNext(){
   if(FIX.review)revDone(FIX.list[FIX.i].id);
   if(++FIX.i<FIX.list.length){paintFix();return;}
-  if(FIX.review){const L=FIX.list;FIX=null;paintRev();H.reviewDone(L);}else{FIX=null;H.done();}
+  if(FIX.review){const L=FIX.list;FIX=null;H.reviewDone(L);}else{FIX=null;H.done();}
 }
 $("f-skip").addEventListener("click",()=>{if(FIX)fixNext();});
 $("f-next").addEventListener("click",()=>{if(!FIX)return;if(FIX.taps<3)fixTap();else fixNext();});
@@ -149,7 +152,7 @@ const setAdrev=L=>{try{localStorage.setItem("ap_adrev",JSON.stringify(L));}catch
 const revList=()=>adrev().filter(x=>x&&x.en&&RV[x.step]!==undefined&&revDue(x)<=dayAgo(0));
 function saveRev(it){
   const L=adrev();
-  L.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),en:it.r.corrected,you:it.you,note:it.r.note,word:it.word,made:dayAgo(0),step:0});
+  L.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),en:it.r.corrected,you:it.you,note:it.r.note,word:it.word,words:it.words,made:dayAgo(0),step:0});
   setAdrev(L);
 }
 function revDone(id){
@@ -157,16 +160,14 @@ function revDone(id){
   x.step++;x.last=dayAgo(0);
   setAdrev(x.step>=RV.length?L.filter(y=>y!==x):L);
 }
-function paintRev(){const n=revList().length;$("rev-card").hidden=!n;$("rev-n").textContent=n;return n;}
 function openReview(){
   const L=revList();
-  if(!L.length){paintRev();toast("今日の復習（添削した文）は、ありません");setTimeout(()=>$("toast").hidden=true,4000);return false;}
+  if(!L.length){toast("今日の復習（添削した文）は、ありません");setTimeout(()=>$("toast").hidden=true,4000);return false;}
   micStop();H.reviewStart();
   FIX={list:L,i:0,review:true};paintFix();view("fix");
   $("v-fix").closest(".card").scrollIntoView({behavior:"smooth",block:"start"});
   return true;
 }
-$("rev-go").addEventListener("click",openReview);
 
-return {setup(h){Object.assign(H,h);},show,fix,reset(){FIX=null;REDO=null;micStop();},micStop,micRelease,review,openReview,paintRev,revList};
+return {setup(h){Object.assign(H,h);},show,fix,reset(){FIX=null;REDO=null;micStop();},micStop,micRelease,review,openReview,revList};
 })();

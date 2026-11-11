@@ -23,6 +23,9 @@
   /* サイトの記録の名前 → 共通の名前（団体のサイトと同じ sp/wd/sh/wn） */
   var KIND = { chunk: ["sp"], sp: ["sp"], speak: ["sp"], words: ["wd", "wn"], wordsTest: ["wd"], wd: ["wd"], mix: ["wd"], shadow: ["sh"], sh: ["sh"] };
 
+  /* 何の画面か → 練習の名前（時間を分けて数える。団体のサイト engine.js と同じ wd/sp/sh/ad） */
+  var LASTK = { chunk: "sp", words: "wd", wordsTest: "wd", shadow: "sh", adlib: "ad" };
+
   var O = null, S = null, KEY = "", fb = null, db = null, uid = null, ready = false, timer = null, asked = false, MSGS = [], unsub = null;
 
   function pad(n) { return (n < 10 ? "0" : "") + n; }
@@ -48,16 +51,55 @@
     (window.FB_CONFIG ? Promise.resolve() : js(BASE + "config.js")).then(function () {
       if (cfg() && S.consent === true && S.sid) connect();
     }).catch(function () {});
+    if (o.org === "honka") setInterval(tick, 5000);   /* 時間は本コースだけ（無料版の同意の文は「練習した日・回数だけ」なので送らない） */
+  }
+
+  /* ---------- 練習の時間（本コース・2026-11-05 kimi。団体のサイト engine.js と同じ形）----------
+     画面が見えていて、2分以内に触っている間だけ秒を数える。ページで分ける：話す（アドリブ・添削の画面は AI添削）・単語・シャドーイング。
+     S.days[日].s＝{all,wd,sp,sh,ad}（秒）・first＝その日に最初に開いた時刻・last＝練習ごとに最後にやった所。
+     送るのは3分に1回と、ページを離れた時だけ。練習した日だけ（開いただけの日は「やった日」にしない） */
+  var lastAct = Date.now(), lastTick = Date.now();
+  ["pointerdown", "keydown", "scroll", "touchstart"].forEach(function (e) { window.addEventListener(e, function () { lastAct = Date.now(); }, { passive: true, capture: true }); });
+  function practiced(x) { return !!(x && (x.sp || x.wd || x.sh || x.wn)); }
+  function screenKind() {
+    var p = location.pathname, v = function (id) { var e = document.getElementById(id); return e && !e.hidden; };
+    if (/^\/words\//.test(p)) return "wd";
+    if (/^\/shadowing\//.test(p)) return "sh";
+    if (/^\/(index\.html)?$/.test(p)) return v("v-adlib") || v("v-fix") ? "ad" : "sp";
+    return "";   /* 今日＆計画・試験など：滞在にだけ入る */
+  }
+  function tick() {
+    var now = Date.now(), dt = Math.min(now - lastTick, 10000) / 1000; lastTick = now;   /* スマホが寝ていた間は足さない */
+    if (document.visibilityState !== "visible" || now - lastAct > 120000) return;
+    var d = today(), x = S.days[d] = S.days[d] || { sp: 0, wd: 0, sh: 0, wn: 0 }, s = x.s = x.s || { all: 0 }, k = screenKind();
+    if (!x.first) { var t = new Date(); x.first = pad(t.getHours()) + ":" + pad(t.getMinutes()); }
+    s.all += dt; if (k) s[k] = (s[k] || 0) + dt;
+    if (now - (S.tsent || 0) > 180000) sendTime(); else save();
+  }
+  function sendTime() {
+    var d = today();
+    if (!practiced(S.days[d]) || S.consent !== true) return save();
+    S.tsent = Date.now(); S.q[d] = 1; save(); later();
+  }
+  /* 送る1日の形：数 {sp,wd,sh,wn}＋時間 {min 滞在（分）, first, mins:{wd,sp,sh,ad}（分）, last:{…}}。firestore.rules が形と大きさを見る */
+  function timeDoc(x, doc) {
+    var s = x.s, m = function (v) { return Math.min(1440, Math.round(v / 60)); };
+    if (s) { doc.min = m(s.all); doc.mins = {}; ["wd", "sp", "sh", "ad"].forEach(function (k) { if (s[k] >= 30) doc.mins[k] = m(s[k]); }); }
+    if (x.first) doc.first = x.first;
+    if (x.last) doc.last = x.last;
+    return doc;
   }
 
   /* 会員番号が決まっている生徒（本コース）：同意は聞かずに送る。今までの分もまとめて送る（kimi 2026-10-30）。設定の「送らない」は今までどおり効く */
   function auto() { S.consent = true; Object.keys(S.days).forEach(function (k) { S.q[k] = 1; }); save(); }
 
   /* 練習した */
-  function mark(k, n) {
+  function mark(k, n, what) {
     if (!O) return;
+    var d = today();
+    if (what && LASTK[k] && O.org === "honka") { var x0 = S.days[d] = S.days[d] || { sp: 0, wd: 0, sh: 0, wn: 0 }; (x0.last = x0.last || {})[LASTK[k]] = String(what).slice(0, 40); save(); }   /* その練習で、今日最後にやった所 */
     var ks = KIND[k]; if (!ks) return;
-    var d = today(); n = Math.max(0, Math.min(500, Number(n) || 1));
+    n = Math.max(0, Math.min(500, Number(n) || 1));
     var x = S.days[d] = S.days[d] || { sp: 0, wd: 0, sh: 0, wn: 0 };
     ks.forEach(function (key) { x[key] = (x[key] || 0) + n; });
     S.q[d] = 1;
@@ -120,7 +162,7 @@
     connecting = signIn()
       .then(function () { return S.linked === uid ? null : link({ sid: S.sid, name: S.name }); })
       .then(function () { ready = true; return pull(); })
-      .then(function () { saveMe(); watchInbox(); sendPlan(); pushNudge(); return push(); })
+      .then(function () { saveMe(); watchInbox(); sendPlan(); sendCleared(); pushNudge(); return push(); })
       .catch(function (e) { connecting = null; if (/permission-denied/.test(e && e.code)) { S.linked = ""; save(); } warn(e); });   /* 名簿の uids が消えていた（契約の写し・取り込み）＝次はつなぎ直す */
     return connecting;
   }
@@ -132,6 +174,7 @@
     /* 今日の話す（functions の speakDaily が毎晩書く・本コースだけ）。今日＆計画と話すのページが ap_today を読む */
     me().get().then(function (d) {
       var t = d.get("spToday") || null;
+      cleared(d.get("cleared"));   /* 前の端末で章クリアした分も足す（名簿の cleared は足し合わせだけ＝減らさない） */
       try { localStorage.setItem("ap_today", JSON.stringify(t)); } catch (e) {}
       window.dispatchEvent(new Event("ap-today"));
     }).catch(warn);
@@ -140,6 +183,10 @@
       snap.forEach(function (d) {
         var v = d.data(), x = S.days[d.id] = S.days[d.id] || { sp: 0, wd: 0, sh: 0, wn: 0 };
         ["sp", "wd", "sh", "wn"].forEach(function (k) { x[k] = Math.max(x[k] | 0, v[k] | 0); });
+        /* 時間も大きい方（同じ日に2台で使った時は足さない） */
+        if (v.min != null) { var s = x.s = x.s || { all: 0 }; s.all = Math.max(s.all, v.min * 60); Object.keys(v.mins || {}).forEach(function (k) { s[k] = Math.max(s[k] || 0, v.mins[k] * 60); }); }
+        if (v.first && (!x.first || v.first < x.first)) x.first = v.first;
+        if (v.last) x.last = Object.assign({}, v.last, x.last);
         got[d.id] = { sp: v.sp | 0, wd: v.wd | 0, sh: v.sh | 0, wn: v.wn | 0 };
       });
       save();
@@ -156,6 +203,7 @@
     return Promise.all(ds.map(function (d) {
       var x = S.days[d] || {};
       var doc = { sp: x.sp | 0, wd: x.wd | 0, sh: x.sh | 0, wn: x.wn | 0, at: TS() };
+      if (O.org === "honka") timeDoc(x, doc);
       if (S.ww && S.ww[d] && S.ww[d].length) doc.ww = S.ww[d];
       return me().collection("days").doc(d).set(doc)
         .then(function () { delete S.q[d]; }).catch(warn);
@@ -166,7 +214,11 @@
     });
   }
   window.addEventListener("online", function () { if (ready) push(); });
-  document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden" && ready) push(); });
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState !== "hidden") { lastTick = lastAct = Date.now(); return; }
+    if (O && O.org === "honka") { tick(); sendTime(); }   /* ページを離れる：今日の時間も入れて送る（間に合わなければ次のページで送る） */
+    if (ready) push();
+  });
 
   /* ---------- お知らせ箱（幹部・講師 → 生徒。開くと既読） ---------- */
   function watchInbox() {
@@ -362,7 +414,7 @@
      「ログインしてから」（permission-denied）が返ったら、名簿の uids が消えていた＝つなぎ直して1回だけやり直す（2026-10-30） */
   function call(name, data) {
     var mustLink = function () { return O && O.org === "honka" && O.tok && S.sid && S.name; };
-    var go = function () { return fb.functions(REGION).httpsCallable(name)(data); };
+    var go = function () { return fb.functions(REGION).httpsCallable(name, name === "assess" ? { timeout: 300000 } : undefined)(data); };   /* assess は7分の話で長い。SDK の既定70秒で切らない（サーバーは300秒） */
     return (window.FB_CONFIG ? Promise.resolve() : js(BASE + "config.js")).then(function () {
       if (!cfg()) throw new Error("no firebase config");
       return signIn();
@@ -398,7 +450,24 @@
     var j = JSON.stringify(S.plan);
     me().update({ plan: S.plan, updatedAt: TS() }).then(function () { S.planSent = j; save(); }).catch(warn);
   }
-  var API = { start: start, mark: mark, words: words, plan: plan, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
+  /* 章クリア（本コース：章の問題＋アドリブ3問）{b:[1,2], i:[…], z:[…]}。名簿の cleared に送る（管理サイト・先生用の入口の「マスターした章」。2026-11-05 kimi：録音の代わり）
+     ponytail: 前の端末の分は名簿には足すが、話すのページの ✓（done_b など）には戻さない */
+  function cleared(c) {
+    if (!O || !c || typeof c !== "object") return;
+    var cur = S.cleared || {}, next = {};
+    ["b", "i", "z"].forEach(function (k) {
+      var a = (cur[k] || []).concat(Array.isArray(c[k]) ? c[k] : []).map(Number).filter(function (n) { return n > 0 && n <= 60 && n === Math.floor(n); });
+      next[k] = a.filter(function (n, i) { return a.indexOf(n) === i; }).sort(function (x, y) { return x - y; });
+    });
+    S.cleared = next; save();
+    if (ready) sendCleared();
+  }
+  function sendCleared() {
+    if (!S.cleared || JSON.stringify(S.cleared) === S.clearedSent) return;
+    var j = JSON.stringify(S.cleared);
+    me().update({ cleared: S.cleared, updatedAt: TS() }).then(function () { S.clearedSent = j; save(); }).catch(warn);
+  }
+  var API = { start: start, mark: mark, words: words, plan: plan, cleared: cleared, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
   function run(a) { try { if (a && API[a[0]]) API[a[0]].apply(null, a.slice(1)); } catch (e) { warn(e); } }
   var q = window.aps || [];
   window.aps = { push: run };

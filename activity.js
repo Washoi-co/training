@@ -62,5 +62,5 @@ window.apWords = function (id) {
   try { var g = JSON.parse(localStorage.getItem("ap_goals") || "null"); if (g) window.aps.push(["plan", g]); } catch (e) {}
   var s = document.createElement("script"); s.src = "/sync.js";   /* 2026-10-19：型に焼き込み（club-kit/template/pages/sync.js）。外から読まない */ s.defer = true; document.head.appendChild(s);
   var mark0 = window.apMark;
-  window.apMark = function (k, n) { mark0(k, n); window.aps.push(["mark", k, n || 1]); };
+  window.apMark = function (k, n, what) { mark0(k, n); window.aps.push(["mark", k, n || 1, what]); };   /* what：どこまでやったか（本コースは管理サイトに出る） */
 })();
