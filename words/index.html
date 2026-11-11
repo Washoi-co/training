@@ -386,7 +386,11 @@ var LIMITED=["土木"];   // 専門の生徒だけのグループ（下のコー
   try{ last=localStorage.getItem("apush-words-course"); }catch(e){}
   var ok=function(id){ return APW_COURSES.some(function(x){ return x.id===id; }); };
   if(!ok(c) && !ok(last) && LIMITED.indexOf(APW_COURSES[0].g)>=0) c=APW_COURSES[0].id;   // 専門ON：専門の最初のコースから（レベルチェックは飛ばす）
-  else if(!ok(c) && !ok(last)){ if(SITE.words.check){ location.replace("check.html"); return; } c=SITE.words["default"]||APW_COURSES[0].id; }  // 初めてなら、レベルチェック（無料版は決まった単語帳）
+  else if(!ok(c) && !ok(last)){   // 初めてなら、レベルチェック（無料版は決まった単語帳）
+    var lc=null; try{ lc=JSON.parse(localStorage.getItem("ap_levelcheck")); }catch(e){}
+    if(lc&&ok(lc.id)) c=lc.id;   // 2026-11-12：チェック済みなら、その結果のコース（結果の画面で「始める」を押さずに離れると、毎回チェックに飛ばされて単語帳が出なかった）
+    else if(SITE.words.check){ location.replace("check.html"); return; }
+    else c=SITE.words["default"]||APW_COURSES[0].id; }
   if(!ok(c)) c = last;
   try{ localStorage.setItem("apush-words-course", c); }catch(e){}
   window.APW_C=c;
@@ -397,7 +401,10 @@ apWords(window.APW_C).then(function(C){
 "use strict";
 // 単語帳のファイルが無い・読めない時は、決まった単語帳にもどす（1回だけ）
 if(!C||!C.words){ var fb=SITE.words["default"]||(APW_COURSES[0]||{}).id, want=null; try{ want=localStorage.getItem("apush-words-course"); }catch(e){}
-  if(fb&&want!==fb){ try{ localStorage.setItem("apush-words-course",fb); }catch(e){} location.replace("?c="+fb); } return; }
+  if(fb&&want!==fb){ try{ localStorage.setItem("apush-words-course",fb); }catch(e){} location.replace("?c="+fb); }
+  else if(SITE.login){ try{ localStorage.removeItem("ap_pk"); }catch(e){} location.replace("/"); }   // 鍵が古くて開けない：トップで保存したパスワードから鍵を入れ直す（2026-11-12）
+  else{ var m=document.getElementById("msg"); if(m){ m.hidden=false; m.textContent="単語帳を読み込めませんでした。ページを開き直してください。"; } }   // 真っ白のままにしない
+  return; }
 var W = C.words;
 var KEY = "apush-words-" + C.id + "-v1";
 document.getElementById("title").textContent = C.title;
