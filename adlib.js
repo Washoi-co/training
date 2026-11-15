@@ -25,10 +25,12 @@ let cur=null,FIX=null,REDO=null;   /* REDO：添削に失敗して「言い直�
 /* ---- アドリブ1問を出す ---- */
 function show(o){
   const ws=o.words&&o.words.length?o.words:[{en:o.word,ja:o.meaning||"",pic:o.pic||""}];
-  cur={word:o.word||ws.map(w=>w.en).join(" / "),meaning:o.meaning||"",pattern:o.pattern,words:ws};
+  cur={word:o.word||ws.map(w=>w.en).join(" / "),meaning:o.meaning||"",pattern:o.pattern,words:ws,say:o.say||"",model:o.model||""};
   $("a-tag").textContent=o.tag||"アドリブ";$("a-n").textContent=o.n||"";
   $("a-frame").innerHTML=o.frame?esc(o.frame).replace("＿＿",'<span class="blank">＿＿</span>'):"";$("a-frame").hidden=!o.frame;
   $("a-fja").textContent=o.frameJa||"";$("a-fja").hidden=!o.frameJa;
+  $("a-sayja").innerHTML=o.say?"<b>言うこと</b>"+esc(o.say):"";$("a-sayja").hidden=!o.say;   /* 何について言うか（2026-11-12） */
+  $("a-model").textContent=o.model||"";$("a-model").hidden=true;$("a-mbtn").hidden=!o.model;   /* お手本は押すと見える */
   const pic=ws.map(w=>w.pic).filter(Boolean).join(" ");
   $("a-pic").textContent=pic;$("a-pic").hidden=!pic;
   $("a-en").innerHTML=ws.map(w=>'<span class="chip">'+esc(w.en)+'</span>').join("");$("a-ja").textContent=o.meaning||"";
@@ -37,6 +39,7 @@ function show(o){
   view("adlib");
   speak(ws.map(w=>w.en).join(", "));
 }
+$("a-mbtn").addEventListener("click",()=>{$("a-model").hidden=false;$("a-mbtn").hidden=true;speak(cur.model);});
 $("a-say").addEventListener("click",()=>speak(cur.words.map(w=>w.en).join(", ")));
 
 /* ---- 声：録音 → 添削のときにサーバーで文字にする。押す→話す→もう一度押すと、送って次へ（待たない）。録音できない端末は打って入力 ---- */
@@ -133,7 +136,7 @@ $("f-retry").addEventListener("click",()=>{if(!FIX)return;review(FIX.list[FIX.i]
 $("f-redo").addEventListener("click",()=>{   /* 言い直す：アドリブの画面に戻って、🎤でも打ち込みでも */
   if(!FIX||FIX.review)return;
   const it=REDO=FIX.list[FIX.i];
-  show({tag:$("f-tag").textContent,n:$("f-n").textContent,frame:it.pattern,frameJa:"",words:it.words,word:it.word,meaning:it.meaning,pattern:it.pattern});
+  show({tag:$("f-tag").textContent,n:$("f-n").textContent,frame:it.pattern==="＿＿"?"":it.pattern,frameJa:"",say:it.say,model:it.model,words:it.words,word:it.word,meaning:it.meaning,pattern:it.pattern});
   $("a-type").hidden=false;$("a-nomic").hidden=true;$("a-again").hidden=!CAN_REC||micOff;$("a-in").value=it.you||"";
 });
 function fixNext(){

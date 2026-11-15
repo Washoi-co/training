@@ -179,11 +179,13 @@ img{max-width:100%}
         <p class="stem" id="a-frame"></p>
         <p class="say" id="a-fja"></p>
         <div class="pic" id="a-pic" aria-hidden="true"></div>
-        <style>#a-en{justify-content:center;flex-wrap:wrap}#a-en .chip{font-family:var(--en);font-size:18px;color:var(--brand)}</style>
+        <style>#a-en{justify-content:center;flex-wrap:wrap}#a-en .chip{font-family:var(--en);font-size:18px;color:var(--brand)}.sayja{margin:0;text-align:center;font-size:16px;font-weight:700;line-height:1.5}.sayja b{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--mute)}#a-mbtn{align-self:center}.model{margin:0;text-align:center;font-size:16px;font-weight:600;background:var(--soft);border-radius:12px;padding:10px 12px}</style>
+        <p class="sayja" id="a-sayja" hidden></p>
         <div class="adw"><div class="chips" id="a-en"></div><button class="tsay" id="a-say" aria-label="単語を聞く">🔊</button></div>
         <p class="say" id="a-ja"></p>
-        <p class="say">この2つの単語を両方使って、この型で1つの文を作り、声に出して言ってみよう。🎤を押して話し、言えたらもう一度押すと次へ進みます</p>
-        <p class="say">例：should ＋ ready / hiking → <span class="en">I should be ready for hiking in the early morning.</span></p>
+        <p class="say" id="a-how">型と単語を使って、言うことを1文で。🎤を押して話し、言えたらもう一度押すと次へ進みます</p>
+        <button class="pill" id="a-mbtn" hidden>お手本を見る</button>
+        <p class="model en" id="a-model" hidden></p>
         <button class="mic" id="a-mic">🎤 話す</button>
         <p class="say" id="a-live" aria-live="polite"></p>
         <div id="a-type" hidden>
@@ -380,9 +382,9 @@ img{max-width:100%}
 </div>
 <div class="hw" role="group" aria-roledescription="スライド">
   <span class="hw-k">05 アドリブ</span>
-  <h3>章の型＋単語2つで、<em>自分の1文</em>。</h3>
-  <p class="hw-x"><b>型・単語：should &amp; ready ／ hiking</b>I should be ready for hiking in the early morning.</p>
-  <p>思いついた1文を、🎤で言うだけ。</p>
+  <h3>型と「言うこと」で、<em>自分の1文</em>。</h3>
+  <p class="hw-x"><b>型：I usually ＿＿ on weekends.　言うこと：週末にいつもすること　単語：play ／ tennis</b>I usually play tennis on weekends.</p>
+  <p>迷ったら「お手本を見る」。まねして言うのも練習です。</p>
 </div>
 <div class="hw" role="group" aria-roledescription="スライド">
   <span class="hw-k">06 AI添削と復習</span>
@@ -600,19 +602,19 @@ async function startAdlib(){
   add(aw.map(w=>({en:w.word,ja:w.meaning||"",emo:""})));add(wordsNow());
   if(!ws.length){toast('今日の単語がまだありません。<a href="/words/">単語</a>で今日の単語を始めると、ここでアドリブができます');setTimeout(()=>$("toast").hidden=true,6000);return;}
   AD=true;clearInterval(timer);Adlib.reset();
-  const used=ws.slice(0,10).map(w=>w.en),rest=aw.filter(w=>!used.includes(w.word));
+  const used=ws.slice(0,5).map(w=>w.en),rest=aw.filter(w=>!used.includes(w.word));
   try{rest.length?localStorage.setItem("ap_adlib_words",JSON.stringify({day:A.day,words:rest})):aw.length&&localStorage.removeItem("ap_adlib_words");}catch(e){}
-  queue=Array.from({length:5},(_,n)=>({ad:true,words:[0,1].map(j=>ws[(n*2+j)%ws.length]).filter((w,j,a)=>a.indexOf(w)===j),frame:frameOf()}));   // 1問＝単語2つ。少なければ、くり返す
+  queue=Array.from({length:5},(_,n)=>({ad:true,words:[ws[n%ws.length]],frame:frameOf()}));   // 1問＝単語1つ（作りやすく。2026-11-12 kimi）。少なければ、くり返す
   qi=0;score=0;log=[];adl=[];
   openAd();
   $("v-adlib").closest(".card").scrollIntoView({behavior:"smooth",block:"start"});
 }
-/* いつもアドリブ：ONなら、話すは毎回アドリブ5問（今日の単語2つ × 今の型） */
+/* いつもアドリブ：ONなら、話すは毎回アドリブ5問（今日の単語1つ × 今の型） */
 let MIX=false;
 try{ MIX=localStorage.getItem("apush-training-mix")==="1"; }catch(e){}
 function paintMix(){
   $("mix").setAttribute("aria-checked",String(MIX));
-  $("mix-note").textContent=MIX?"ON：今日の単語2つでアドリブ":"OFF：決まった文だけ";
+  $("mix-note").textContent=MIX?"ON：今日の単語でアドリブ":"OFF：決まった文だけ";
 }
 $("mix").addEventListener("click",()=>{
   MIX=!MIX; try{ localStorage.setItem("apush-training-mix",MIX?"1":"0"); }catch(e){}
@@ -622,7 +624,7 @@ const restart=()=>AD||MIX?startAdlib():startRound();   // アドリブ中に型�
 function openAd(){
   const q=queue[qi];
   clearInterval(timer);$("tbar").style.width="100%";$("tbar").classList.remove("low");
-  Adlib.show({tag:"アドリブ",n:(qi+1)+" / "+queue.length,frame:q.frame.en,frameJa:q.frame.ja,pattern:q.frame.en,
+  Adlib.show({tag:"アドリブ",n:(qi+1)+" / "+queue.length,frame:q.frame.en,frameJa:q.frame.ja,pattern:q.frame.en,say:"この型で、この単語を使って自分のことを1文",
     words:q.words.map(w=>({en:w.en,ja:w.ja,pic:w.emo})),word:q.words.map(w=>w.en).join(" / "),meaning:q.words.map(w=>w.ja).join(" / ")});
 }
 /* アドリブの流れ（🎤・添削・3回・復習は /adlib.js）。ここはこのページの分だけ */
