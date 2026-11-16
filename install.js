@@ -41,8 +41,8 @@
     if (cssDone) return; cssDone = true;
     var s = document.createElement("style");
     s.textContent =
-      ".api-scrim{position:fixed;inset:0;z-index:2147483100;background:rgba(15,30,61,.42);display:flex;align-items:flex-end;justify-content:center;animation:api-f .2s}" +
-      ".api-sheet{--b:var(--brand,#1D4ED8);width:100%;max-width:520px;max-height:92dvh;overflow:auto;background:#fff;color:#0F1E3D;border-radius:22px 22px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom,0px));" +
+      ".api-scrim{position:fixed;inset:0;z-index:2147483100;background:rgba(11,11,12,.42);display:flex;align-items:flex-end;justify-content:center;animation:api-f .2s}" +
+      ".api-sheet{--b:var(--brand,#FF2D16);width:100%;max-width:520px;max-height:92dvh;overflow:auto;background:#fff;color:#0B0B0C;border-radius:22px 22px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom,0px));" +
       "font:16px/1.6 -apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',system-ui,sans-serif;box-shadow:0 -8px 30px rgba(0,0,0,.15);animation:api-u .32s cubic-bezier(.2,.8,.2,1)}" +
       "@media (min-width:640px){.api-scrim{align-items:center}.api-sheet{border-radius:22px}}" +
       ".api-grab{width:38px;height:5px;border-radius:3px;background:rgba(127,127,127,.35);margin:0 auto 14px}" +
@@ -50,13 +50,13 @@
       ".api-sheet h2{margin:0 0 8px;font-size:24px;line-height:1.3;letter-spacing:-.015em}.api-sheet p{margin:0 0 12px;font-size:14.5px;opacity:.82}" +
       ".api-warn{background:rgba(217,119,6,.12);border-radius:12px;padding:10px 12px;font-size:13.5px;margin:0 0 14px}" +
       ".api-steps{display:grid;gap:8px;margin:0 0 16px;padding:0;list-style:none;counter-reset:s}" +
-      ".api-step{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;background:#F2F4F8;border-radius:14px;padding:10px 12px;font-size:15px;counter-increment:s}" +
+      ".api-step{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;background:#F4F4F5;border-radius:14px;padding:10px 12px;font-size:15px;counter-increment:s}" +
       ".api-step::before{content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--b);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}" +
       ".api-step svg{width:26px;height:26px;color:var(--b)}" +
-      ".api-row{display:flex;gap:10px;flex-wrap:wrap}.api-btn{flex:1 1 140px;font:inherit;font-weight:700;border:0;border-radius:16px;padding:15px;cursor:pointer;background:rgba(29,78,216,.1);color:var(--b);text-align:center;text-decoration:none}" +
+      ".api-row{display:flex;gap:10px;flex-wrap:wrap}.api-btn{flex:1 1 140px;font:inherit;font-weight:700;border:0;border-radius:16px;padding:15px;cursor:pointer;background:rgba(255,45,22,.1);color:var(--b);text-align:center;text-decoration:none}" +
       ".api-btn.p{background:var(--b);color:#fff}.api-btn:active{transform:scale(.97)}.api-btn:disabled{opacity:.4}" +
       ".api-link{display:block;margin:12px auto 0;background:none;border:0;color:var(--b);font:inherit;font-size:14px;font-weight:600;cursor:pointer}" +
-      ".api-code{width:100%;box-sizing:border-box;min-height:96px;font:12px/1.4 ui-monospace,Menlo,monospace;border:0;border-radius:12px;background:#F2F4F8;color:inherit;padding:10px;margin:0 0 12px;resize:vertical;word-break:break-all}" +
+      ".api-code{width:100%;box-sizing:border-box;min-height:96px;font:12px/1.4 ui-monospace,Menlo,monospace;border:0;border-radius:12px;background:#F4F4F5;color:inherit;padding:10px;margin:0 0 12px;resize:vertical;word-break:break-all}" +
       "@keyframes api-f{from{opacity:0}}@keyframes api-u{from{transform:translateY(40px);opacity:.6}}" +
       "@media (prefers-reduced-motion:reduce){.api-scrim,.api-sheet{animation:none}}";
     document.head.appendChild(s);
@@ -197,7 +197,7 @@
       if (IOS && !get("imported") && !hasRecords()) {
         var bar = document.createElement("button");
         css(); bar.className = "api-btn"; bar.textContent = "Safariで練習していた人：引き継ぎコードを貼る";
-        bar.style.cssText = "position:fixed;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 92px);z-index:2147482100;flex:none;background:var(--brand,#1D4ED8);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18);font-size:14px;padding:13px";
+        bar.style.cssText = "position:fixed;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 92px);z-index:2147482100;flex:none;background:var(--brand,#FF2D16);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18);font-size:14px;padding:13px";
         bar.onclick = function () { bar.remove(); importSheet(); };
         document.body.appendChild(bar);
         setTimeout(function () { if (bar.parentNode) bar.remove(); }, 20000);
@@ -219,7 +219,7 @@
     css();
     var w = document.createElement("div");
     w.className = "api-pill";   /* 模擬テストを解いている間は隠す（exam.html の body.testing） */
-    w.style.cssText = "position:fixed;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 92px);z-index:25;display:flex;align-items:center;gap:2px;background:var(--brand,#1D4ED8);color:#fff;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.2);font:600 13px/1 -apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif";
+    w.style.cssText = "position:fixed;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 92px);z-index:25;display:flex;align-items:center;gap:2px;background:var(--brand,#FF2D16);color:#fff;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.2);font:600 13px/1 -apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif";
     var b = document.createElement("button"), x = document.createElement("button");
     b.textContent = INAPP ? "Safariで開く" : "ホーム画面に追加";
     x.textContent = "×"; x.setAttribute("aria-label", "閉じる");

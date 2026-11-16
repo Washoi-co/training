@@ -267,7 +267,7 @@
     css();
     var bar = document.createElement("div");
     bar.className = "aps-pushbar"; bar.setAttribute("role", "dialog");
-    bar.style.cssText = "--b:var(--brand,#1D4ED8);position:fixed;left:0;right:0;top:0;z-index:2147483000;min-height:20vh;box-sizing:border-box;padding:calc(env(safe-area-inset-top) + 18px) 20px 18px;" +
+    bar.style.cssText = "--b:var(--brand,#FF2D16);position:fixed;left:0;right:0;top:0;z-index:2147483000;min-height:20vh;box-sizing:border-box;padding:calc(env(safe-area-inset-top) + 18px) 20px 18px;" +
       "background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.18);display:flex;flex-direction:column;justify-content:center;gap:12px;font-size:16px;line-height:1.5";
     bar.innerHTML = '<b style="font-size:18px">通知を受け取りますか？</b><span>その日に復習する章などを、スマホの通知でお知らせします。「はい」の後に出る確認で「許可」を押してください。</span>' +
       '<div class="aps-row"><button class="aps-btn p" id="aps-yes">はい</button><button class="aps-btn" id="aps-no">いいえ</button></div>';
@@ -284,24 +284,24 @@
     if (cssDone) return; cssDone = true;
     var s = document.createElement("style");
     s.textContent =
-      ".aps-scrim{position:fixed;inset:0;z-index:2147483000;background:rgba(15,30,61,.38);display:flex;align-items:flex-end;justify-content:center;animation:aps-f .2s}" +
-      ".aps-sheet{--b:var(--brand,#1D4ED8);width:100%;max-width:520px;max-height:86dvh;overflow:auto;background:#fff;color:#0F1E3D;border-radius:22px 22px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom,0px));" +
+      ".aps-scrim{position:fixed;inset:0;z-index:2147483000;background:rgba(11,11,12,.38);display:flex;align-items:flex-end;justify-content:center;animation:aps-f .2s}" +
+      ".aps-sheet{--b:var(--brand,#FF2D16);width:100%;max-width:520px;max-height:86dvh;overflow:auto;background:#fff;color:#0B0B0C;border-radius:22px 22px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom,0px));" +
       "font:16px/1.6 -apple-system,BlinkMacSystemFont,'Hiragino Sans','Noto Sans JP',system-ui,sans-serif;box-shadow:0 -8px 30px rgba(0,0,0,.15);animation:aps-u .3s cubic-bezier(.2,.8,.2,1)}" +
       ".aps-grab{width:38px;height:5px;border-radius:3px;background:rgba(127,127,127,.35);margin:0 auto 14px}" +
       "@media (min-width:640px){.aps-scrim{align-items:center}.aps-sheet{border-radius:22px}}" +
       ".aps-eb{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--b);margin:0 0 2px}" +
       ".aps-sheet h2{margin:0 0 8px;font-size:24px;line-height:1.3;letter-spacing:-.015em}.aps-sheet p{margin:0 0 12px;font-size:14.5px;opacity:.8}" +
       ".aps-lb{display:block;font-size:13px;font-weight:700;margin:0 0 4px}" +
-      ".aps-in{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:13px 14px;border-radius:14px;border:1px solid rgba(15,30,61,.16);background:#F2F4F8;color:inherit;margin:0 0 12px}" +
+      ".aps-in{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:13px 14px;border-radius:14px;border:1px solid rgba(11,11,12,.16);background:#F4F4F5;color:inherit;margin:0 0 12px}" +
       ".aps-note{font-size:13.5px;margin:2px 0 16px;opacity:.8}" +
-      ".aps-row{display:flex;gap:10px}.aps-btn{flex:1;font:inherit;font-weight:700;border:0;border-radius:16px;padding:15px;cursor:pointer;background:rgba(29,78,216,.1);color:var(--b)}" +
+      ".aps-row{display:flex;gap:10px}.aps-btn{flex:1;font:inherit;font-weight:700;border:0;border-radius:16px;padding:15px;cursor:pointer;background:rgba(255,45,22,.1);color:var(--b)}" +
       ".aps-btn.p{background:var(--b);color:#fff}.aps-btn:disabled{opacity:.4;cursor:default}.aps-btn:active{transform:scale(.97)}" +
       ".aps-lk{display:block;width:100%;background:none;border:0;font:inherit;font-size:14px;font-weight:700;color:var(--b);padding:10px 0 0;cursor:pointer}" +
       ".aps-err{color:#BE123C;font-size:13.5px;font-weight:700;margin:-4px 0 12px}" +
-      ".aps-id{font:800 34px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-align:center;background:#F2F4F8;border-radius:16px;padding:16px;margin:4px 0 12px;user-select:all}" +
+      ".aps-id{font:800 34px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-align:center;background:#F4F4F5;border-radius:16px;padding:16px;margin:4px 0 12px;user-select:all}" +
       ".aps-bell{position:fixed;z-index:2147482000;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 96px);border:0;border-radius:999px;padding:10px 16px;" +
-      "background:var(--brand,#1D4ED8);color:#fff;font:700 14px/1 -apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.18);cursor:pointer;animation:aps-f .3s}" +
-      ".aps-m{padding:12px 0;border-top:1px solid rgba(15,30,61,.1)}.aps-m small{opacity:.6;font-size:12.5px}.aps-m div{white-space:pre-wrap;font-size:15px;margin-top:2px}" +
+      "background:var(--brand,#FF2D16);color:#fff;font:700 14px/1 -apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.18);cursor:pointer;animation:aps-f .3s}" +
+      ".aps-m{padding:12px 0;border-top:1px solid rgba(11,11,12,.1)}.aps-m small{opacity:.6;font-size:12.5px}.aps-m div{white-space:pre-wrap;font-size:15px;margin-top:2px}" +
       ".aps-new{display:inline-block;background:#E11D48;color:#fff;font-size:11px;border-radius:6px;padding:1px 6px;margin-left:6px}" +
       "@keyframes aps-f{from{opacity:0}}@keyframes aps-u{from{transform:translateY(40px);opacity:.6}}" +
       "@media (prefers-reduced-motion:reduce){.aps-scrim,.aps-sheet,.aps-bell{animation:none}}";
