@@ -5,8 +5,8 @@
        send(it)  … 1問送ったあと（it に添削の結果が後から入る）。次の問題へ進むか、最後なら Adlib.fix(list) を呼ぶ
        done()    … 添削を全部見終わった
        fixed(it) … 添削した文を3回言えた（省略可）
-     Adlib.show({tag, n, title, situation, sitJa, question, qja, how, frame, frameJa, words:[{en,ja,pic}], word, meaning, pattern, model}) … 1問を画面に出す
-       question・model の [ ] は太字で見せて、添削には外して送る。model は添削を3回言った後に「モデル解答を見る」で出す（STEP 3 だけ）
+     Adlib.show({situation, sitJa, question, qja, words:[{en,ja}], word, meaning, pattern, model}) … 1問を画面に出す（見せるのは状況・問題・和訳だけ。単語・意味・型は添削に送る）
+       question・model の [ ] は太字で見せて、添削には外して送る。model は添削を3回言った後にそのまま1行で出す（STEP 3 だけ）
    ページにある物を使う：speak(文)・view(画面名)・window.APushSync.call（sync.js。ログインしてから review を呼ぶ）
    添削の相手（口座）はサーバーがログインの印から決める。画面からは英文・質問・状況・型・単語・意味と声だけ送る */
 var Adlib=(function(){
@@ -19,37 +19,30 @@ const H={send(){},done(){},fixed(){}};
 let cur=null,FIX=null,REDO=null;   /* REDO：添削に失敗して「言い直す」中の文（同じ場所に入れ替える） */
 
 /* ---- 1問を出す ---- */
-const sayOf=o=>o.question?plain(o.question):(o.words||[]).map(w=>w.en).join(", ");
+const sayOf=o=>o.situation?o.situation:o.question?plain(o.question):(o.words||[]).map(w=>w.en).join(", ");
 function show(o){
   const ws=o.words&&o.words.length?o.words:o.word?[{en:o.word,ja:o.meaning||"",pic:o.pic||""}]:[];
   cur=Object.assign({},o,{word:o.word!=null?o.word:ws.map(w=>w.en).join(" / "),meaning:o.meaning||"",words:ws});
-  $("a-tag").textContent=o.tag||"アドリブ";$("a-n").textContent=o.n||"";
-  $("a-title").textContent=o.title||"";$("a-title").hidden=!o.title;
   $("a-sit").textContent=o.situation||"";$("a-sit").hidden=!o.situation;
   $("a-sitja").textContent=o.sitJa||"";$("a-sitja").hidden=!o.sitJa;
-  $("a-q").innerHTML=o.question?bold(o.question):"";$("a-qrow").hidden=!o.question;
-  $("a-qja").textContent=o.qja||"";$("a-qja").hidden=!o.qja;
-  $("a-frame").innerHTML=o.frame?esc(o.frame).replace("＿＿",'<span class="blank">＿＿</span>'):"";$("a-frame").hidden=!o.frame;
-  $("a-fja").textContent=o.frameJa||"";$("a-fja").hidden=!o.frameJa;
-  const pic=ws.map(w=>w.pic).filter(Boolean).join(" ");
-  $("a-pic").textContent=pic;$("a-pic").hidden=!pic;
-  $("a-en").innerHTML=ws.map(w=>'<span class="chip">'+esc(w.en)+'</span>').join("");$("a-ja").textContent=cur.meaning;
-  $("a-words").hidden=!ws.length;$("a-ja").hidden=!cur.meaning;
-  $("a-how").textContent=o.how||"🎤を押して話し、言えたらもう一度押すと次へ進みます";
+  $("a-q").innerHTML=o.question?bold(o.question):"";$("a-qrow").hidden=!o.question||!!o.situation;   /* 状況（STEP 3）の時は英語のやることを出さず、和訳（qja）だけ */
+  $("a-qja").textContent=o.situation?"":o.qja||"";$("a-qja").hidden=!$("a-qja").textContent;   /* STEP 2：質問の和訳（Question の下） */
+  $("a-ans").innerHTML=o.situation?esc(o.qja||""):ws.length?ws.map(w=>"<b>"+esc(w.en)+"</b>").join(" / ")+" を使って答える":"";   /* Answer：STEP 3＝何を言うか（taskJa）・STEP 2＝使う単語 */
+  $("a-abox").hidden=!$("a-ans").innerHTML;
   micStop();$("a-in").value="";$("a-live").textContent="";
   if(!CAN_REC||micOff)adType(true,false);else{$("a-mic").hidden=false;$("a-type").hidden=true;}
   view("adlib");
   speak(sayOf(cur));
 }
-$("a-say").addEventListener("click",()=>speak(cur.words.map(w=>w.en).join(", ")));
-$("a-qsay").addEventListener("click",()=>speak(plain(cur.question)));
+$("a-q").addEventListener("click",()=>speak(plain(cur.question)));   /* 問題を押すと、もう一度聞ける */
+$("a-sit").addEventListener("click",()=>speak(cur.situation));   /* STEP 3：状況文も押すと聞ける */
 
 /* ---- 声：録音 → 添削のときにサーバーで文字にする。押す→話す→もう一度押すと、送って次へ（待たない）。録音できない端末は打って入力 ---- */
 const CAN_REC=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);
 let rec=null,recStream=null,micOff=false,recT=0,recTick=0;
 function micStop(){   /* 録音を捨てて止める */
   if(rec){rec.ondataavailable=rec.onstop=null;try{rec.stop();}catch(e){}rec=null;}
-  clearInterval(recTick);$("a-mic").classList.remove("on");$("a-mic").textContent="🎤 話す";$("a-live").textContent="";
+  clearInterval(recTick);$("a-mic").classList.remove("on");$("a-mic").setAttribute("aria-label","話す");$("a-live").textContent="";
 }
 function micRelease(){micStop();if(recStream){recStream.getTracks().forEach(t=>t.stop());recStream=null;}}
 function adType(note,again){
@@ -65,9 +58,9 @@ async function micStart(){
   r.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
   r.onstop=()=>{rec=null;adSend(new Blob(chunks,{type:r.mimeType||"audio/mp4"}),(Date.now()-recT)/1000);};
   r.start();recT=Date.now();
-  $("a-mic").hidden=false;$("a-type").hidden=true;$("a-mic").classList.add("on");
+  $("a-mic").hidden=false;$("a-type").hidden=true;$("a-mic").classList.add("on");$("a-mic").setAttribute("aria-label","止めて次へ");
   const max=cur.situation?60:30;   /* 状況で言う（STEP 3）は長くなるので60秒まで */
-  const tick=()=>{const t=Math.floor((Date.now()-recT)/1000);$("a-mic").textContent="● 録音中 "+t+"秒（押すと送って次へ）";if(t>=max&&rec)rec.stop();};
+  const tick=()=>{const t=Math.floor((Date.now()-recT)/1000);$("a-live").textContent=t+"秒";if(t>=max&&rec)rec.stop();};
   tick();recTick=setInterval(tick,500);
 }
 $("a-mic").addEventListener("click",()=>{if(rec){clearInterval(recTick);rec.stop();}else micStart();});
@@ -109,40 +102,36 @@ function fix(list){micRelease();REDO=null;FIX={list,i:0};paintFix();view("fix");
 const fixEn=it=>it.r&&it.r.corrected;
 function paintFix(){
   const it=FIX.list[FIX.i],en=fixEn(it);
-  $("f-n").textContent=(FIX.i+1)+" / "+FIX.list.length;
-  $("f-q").innerHTML=it.question?bold(it.question):"";$("f-q").hidden=!it.question;
   $("f-you").textContent=it.you||(it.audio&&!it.r&&!it.err?"（聞き取っています…）":"（何も言っていません）");
   $("f-wait").hidden=!!(en||it.err);
   $("f-err").hidden=!!en||!it.err;$("f-msg").textContent=it.err||"";
   $("f-ok").hidden=!en;
   $("f-en").textContent=en||"";
-  $("f-badge").hidden=!(it.r&&it.r.ok);
   $("f-note").textContent=it.r&&it.r.note||"";$("f-note").hidden=!$("f-note").textContent;
-  $("f-model").innerHTML=it.model?bold(it.model):"";$("f-model").hidden=true;$("f-mbtn").hidden=true;
+  $("f-model").innerHTML=it.model?bold(it.model):"";$("f-model").hidden=true;
   FIX.taps=0;$("f-dots").querySelectorAll(".dot").forEach(d=>d.classList.remove("on"));
   fixLabel();
   if(en)speak(en);
 }
-$("f-say").addEventListener("click",()=>speak($("f-en").textContent));
-$("f-mbtn").addEventListener("click",()=>{$("f-model").hidden=false;$("f-mbtn").hidden=true;speak(plain(FIX.list[FIX.i].model));});
+$("f-en").addEventListener("click",()=>speak($("f-en").textContent));   /* 直した文を押すと鳴る */
 function fixLabel(){
   const last=FIX.i===FIX.list.length-1;
-  $("f-next").disabled=!fixEn(FIX.list[FIX.i]);
-  $("f-next").textContent=FIX.taps>=3?(last?"おわり":"次へ"):"言えた（"+FIX.taps+"/3）";
+  $("f-next").disabled=!fixEn(FIX.list[FIX.i]);$("f-next").hidden=FIX.taps<3;   /* 3回言えたら「→」だけ出す */
+  $("f-next").setAttribute("aria-label",last?"おわり":"次へ");
 }
-function fixTap(){   /* 3回言う：点でも「言えた」ボタンでも数える。3回で「次へ」になる */
+function fixTap(){   /* 3回言う：点を押して数える。3回で「→」が出る */
   if(!FIX||FIX.taps>=3||!fixEn(FIX.list[FIX.i]))return;
   $("f-dots").querySelectorAll(".dot")[FIX.taps].classList.add("on");FIX.taps++;
   if(FIX.taps<3)speak($("f-en").textContent);
   fixLabel();
-  if(FIX.taps>=3){const it=FIX.list[FIX.i];$("f-mbtn").hidden=!it.model;if(!it.marked){it.marked=true;H.fixed(it);}}
+  if(FIX.taps>=3){const it=FIX.list[FIX.i];$("f-model").hidden=!it.model;if(it.model)speak(plain(it.model));if(!it.marked){it.marked=true;H.fixed(it);}}
 }
 $("f-dots").addEventListener("click",e=>{if(e.target.closest("[data-f]"))fixTap();});
 $("f-retry").addEventListener("click",()=>{if(!FIX)return;review(FIX.list[FIX.i]);paintFix();});
 $("f-redo").addEventListener("click",()=>{   /* 言い直す：問題の画面に戻って、🎤でも打ち込みでも */
   if(!FIX)return;
   const it=REDO=FIX.list[FIX.i];
-  show(Object.assign({},it,{n:$("f-n").textContent}));
+  show(it);
   $("a-type").hidden=false;$("a-nomic").hidden=true;$("a-again").hidden=!CAN_REC||micOff;$("a-in").value=it.you||"";
 });
 function fixNext(){

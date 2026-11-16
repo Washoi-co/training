@@ -23,48 +23,88 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="/ui.css">
 <style>
-/* 単語ページだけの見た目（doboku の色・形に合わせる） */
+/* 単語ページだけの見た目（2026-11-17 見本 round2：白地・押せるかたまり・赤は主な行動の1か所） */
+html,body{background:var(--card)}
 .screen>section{display:flex;flex-direction:column;gap:12px}
 .en{font-family:var(--en)}
-.seg button[aria-pressed="true"]{background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.13),0 0 0 .5px rgba(0,0,0,.04)}
-.filters .note b{font-family:var(--en);font-weight:900;color:var(--ink)}
-
-/* 箱の様子 */
-.boxes{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
-.boxes div{background:var(--bg);border-radius:10px;padding:7px 2px 6px;text-align:center}
-.boxes span{display:block;font-size:10.5px;color:var(--mute);font-weight:700}
-.boxes b{display:block;font-family:var(--en);font-size:17px;font-weight:900}
-.boxes .m{background:var(--soft)} .boxes .m b{color:var(--brand)}
-.boxnote{font-size:11.5px;color:var(--mute);margin:0;line-height:1.6}
-
-/* 今日のタスク（row の形） */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:14px 16px;border-radius:var(--r);background:var(--card);box-shadow:0 0 0 .5px var(--line2) inset;text-align:left;color:var(--ink)}
-.tile .tl{font-size:13px;font-weight:700;color:var(--mute)}
-.tile b{font-family:var(--en);font-size:30px;font-weight:900;line-height:1.15}.tile b small{font-size:13px;font-weight:700;margin-left:2px}
-.tile .ts{font-size:12.5px;font-weight:700;color:var(--brand)}
-.tile.next{background:var(--brand);box-shadow:none}.tile.next .tl,.tile.next b,.tile.next .ts{color:var(--on)}
-.tile.done .ts{color:var(--ok)}.tile:disabled{cursor:default}
-.setrow{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:10px;padding:13px 16px;border-radius:var(--r);background:var(--card);box-shadow:0 0 0 .5px var(--line2) inset;font-size:14.5px;font-weight:600;color:var(--ink)}
-.setrow span{font-size:13px;color:var(--mute);font-weight:500}
-.task:disabled{cursor:default;opacity:.5}
-.task .chev{color:var(--brand)} .task.done .chev{color:var(--ok)} .task:disabled .chev{color:var(--mute)}
-.task.next{box-shadow:0 0 0 2px var(--brand) inset}
-
-/* 覚える・テスト */
-.pics{display:flex;justify-content:center;gap:18px;font-size:clamp(54px,15vw,68px);line-height:1;padding:4px 0}
-.word{margin:0;text-align:center;font-family:var(--en);font-size:clamp(30px,8vw,38px);font-weight:900;letter-spacing:-.025em;line-height:1.2;padding:6px 0 0}
-.lsay{align-self:center;background:var(--soft);color:var(--brand);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:600}
-.senses{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
-.senses li{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:10px 12px;font-weight:700}
-.senses li i{font-style:normal;font-size:22px;width:1.3em;text-align:center}
+.nav{justify-content:flex-start}.navl{margin-right:auto}.nav .navr:has(#btn-set){order:2}   /* 無料版の「本コース」（ui.js）は歯車の左 */
+.wic{width:44px;height:44px;display:grid;place-items:center;flex:none}
+.wic svg{width:24px;height:24px}
+#btn-set{margin-right:-10px}
+.large{font-size:32px;letter-spacing:.01em;margin-top:12px}
+/* 単語帳の種類・レベル：つながったタブ（選んだ物だけ黒）。横に流れる */
+.wseg{position:relative;display:flex;gap:4px;padding:4px;background:var(--bg);border-radius:8px;overflow-x:auto;scrollbar-width:none}
+.wseg::-webkit-scrollbar{display:none}
+.wseg button{flex:1 0 auto;min-height:40px;padding:0 14px;border-radius:5px;font-family:var(--fd);font-weight:900;font-size:14px;color:var(--mute);white-space:nowrap}
+.wseg button.en{font-family:var(--en)}
+.wseg button[aria-pressed="true"]{background:var(--ink);color:var(--on)}
+.wseg button[data-lock]{opacity:.7;font-weight:700}
+.wseg i{font-style:normal;font-family:var(--en);font-weight:700;font-size:11px;margin-left:5px;opacity:.7}
+#w-groups{margin-top:12px}#w-decks{margin-top:-4px}
+/* 2つの入口：次にやる物＝赤／もう1つ＝黒／済み・お休み＝灰 */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;height:150px;padding:18px;border-radius:6px;text-align:left;background:var(--ink);color:var(--on)}
+.tile b{font-family:var(--fd);font-weight:900;font-size:20px;line-height:1}
+.tile .n{font-family:var(--en);font-weight:900;font-size:52px;line-height:1;letter-spacing:-.03em}
+.tile .n small{font-family:var(--fd);font-size:16px;letter-spacing:0;margin-left:3px}
+.tile .arr{position:absolute;right:16px;bottom:20px;width:22px;height:22px}
+.tile .st{position:absolute;right:16px;bottom:18px;font-size:13px;font-weight:700}
+.tile.go{background:var(--accent);box-shadow:0 10px 30px -10px rgba(255,45,22,.45)}
+.tile.off{background:var(--bg);color:var(--mute);cursor:default}
+/* 押せる行（灰色のかたまり） */
+.wrows{display:grid;gap:6px;margin-top:24px}
+.wrow{position:relative;display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:0 16px 0 18px;background:var(--bg);border-radius:6px;font-family:var(--fd);font-weight:900;font-size:16px;text-align:left;color:var(--ink);text-decoration:none}
+.wrow small{margin-left:auto;font-family:var(--en);font-weight:700;font-size:14px;color:var(--mute)}
+.wrow small b{color:var(--ink);font-weight:900}
+.wrow .chev{width:18px;height:18px;flex:none;margin-left:auto;color:var(--ink)}.wrow small+.chev,.wrow select+.chev{margin-left:0}
+.wrow select{margin-left:auto;appearance:none;-webkit-appearance:none;background:none;border:0;min-height:44px;padding:0 4px;font-family:var(--en);font-weight:700;font-size:14px;color:var(--mute);text-align:right;cursor:pointer}
+.wback{display:flex;align-items:center;gap:6px;min-height:44px;font-family:var(--fd);font-weight:900;font-size:18px;color:var(--ink)}
+.wback svg{width:20px;height:20px}
+/* 練習中・テスト：上に ×・数、下に 3回言う・次へ */
+body:is([data-v="learn"],[data-v="test"],[data-v="set"]) .nav,body:is([data-v="learn"],[data-v="test"],[data-v="set"]) .large{display:none}
+body[data-v="learn"] .screen{min-height:100dvh}
+#v-learn{flex:1}
+.wtop{display:flex;align-items:center;justify-content:space-between;height:56px;margin:0 -10px}
+.wtr{display:flex;align-items:center;gap:8px;padding-right:10px}
+.wcnt{font-family:var(--en);font-weight:700;font-size:14px;color:var(--mute)}
+#l-mode button{font-size:13px;font-weight:700;color:var(--mute);background:var(--bg);border-radius:5px;padding:6px 10px}
+#l-mode [aria-pressed="true"]{display:none}
+.lcard{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:8px}
+#l-back{flex:1;display:flex;flex-direction:column;align-items:center;width:100%}
+.pics{display:flex;justify-content:center;gap:20px;font-size:60px;line-height:1}
+.word{margin:24px 0 0;font-family:var(--en);font-size:clamp(34px,11vw,44px);font-weight:900;letter-spacing:-.025em;line-height:1.05;overflow-wrap:anywhere}
+.wsay{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:14px;padding:0 18px;background:var(--bg);border-radius:6px;font-family:var(--fd);font-weight:900;font-size:14px}
+.wsay svg{width:20px;height:20px}
+.senses{list-style:none;margin:24px 0 0;padding:0;font-family:var(--fd);font-size:20px;font-weight:900;line-height:1.75}
+.senses i{font-style:normal;font-size:17px;margin-right:8px}
+.ex{margin:22px 0 0;max-width:330px}
+.ex b{display:block;font-family:var(--en);font-weight:700;font-size:16px;line-height:1.5;text-wrap:balance}
+.ex span{display:block;font-size:13px;color:var(--mute);margin-top:4px;line-height:1.6;text-wrap:balance}
+.reps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;margin-top:auto;padding-top:28px}
+.rep{display:flex;align-items:center;justify-content:center;height:60px;border-radius:6px;background:var(--bg);color:var(--mute);font-family:var(--en);font-weight:900;font-size:18px}
+.rep span{display:flex;align-items:center;gap:6px}
+.rep svg{width:22px;height:22px}
+.rep.on{background:var(--ink);color:var(--on)}
+.rep.on span,.rep:not(.on)>.ok{display:none}
+.wnext{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:58px;margin:10px 0 8px;border-radius:6px;background:var(--accent);color:var(--on);font-family:var(--fd);font-weight:900;font-size:19px;box-shadow:0 10px 30px -10px rgba(255,45,22,.45)}
+.wnext::after{content:"";width:22px;height:22px;background:currentColor;-webkit-mask:var(--arr) center/contain no-repeat;mask:var(--arr) center/contain no-repeat}
+.wnext:disabled{background:var(--bg);color:var(--soft2);box-shadow:none;cursor:default}
+:root{--arr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6'/%3E%3C/svg%3E")}
+#v-test .choices{width:100%;margin-top:16px}
+#v-test .ask{margin-top:16px}
+#t-cat{margin-bottom:20px}   /* 絵文字は line-height:1 から上にはみ出すので、札との間を広めに */
+#v-test .verdict{margin-top:14px}
 .ask{text-align:center}
 .verdict small{display:block;font-weight:600;font-size:12.5px;color:var(--mute);margin-top:4px}
 .recap div{display:flex;gap:10px;align-items:center;padding:9px 0;border-top:.5px solid var(--line2);font-size:14px}
 .recap .en{font-weight:800;color:var(--brand)}
+.wh{font-family:var(--fd);font-weight:900;font-size:32px;line-height:1.2;margin:8px 0 0}
+#v-set .wrows{margin-top:16px}
+#v-set .foot{margin-top:28px;padding:0;font-size:11.5px;line-height:1.75}
+@media (prefers-reduced-motion:reduce){.press,.press:active{transition:none;transform:none}}
 
 /* 設定・登録 */
 .fld input[type="text"],.fld input:not([type]){text-align:left;width:60%}
@@ -126,40 +166,41 @@
 .pts li::before{content:"";position:absolute;left:2px;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--brand)}
 .pts .rd{color:var(--brand)}
 
-.crow{display:flex;gap:8px;align-items:center}
-.course{flex:1;min-width:0;appearance:none;-webkit-appearance:none;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235C5C64'/%3E%3C/svg%3E") no-repeat right 12px center;border:0;border-radius:12px;padding:10px 30px 10px 12px;font-size:15px;font-weight:700;color:var(--ink)}
-.crow .pill{flex:none;text-decoration:none}
-.ex{margin:6px 0 10px;padding:10px 12px;border-radius:12px;background:var(--soft);font-size:14px;line-height:1.5}
-.ex b{display:block;font-family:var(--en);font-weight:600}
-.ex span{display:block;color:var(--mute);font-size:13px}
 </style>
 </head>
 <body data-tab="wd">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="aplogo" viewBox="0 0 228.41 58.35"><polygon points="21.57 0 0 57.45 16.22 57.45 25.48 57.45 25.48 45.57 20.25 45.57 29.37 18.69 38.55 45.57 33.35 45.57 33.35 57.45 42.61 57.45 59.18 57.45 37.53 0 21.57 0"/><path d="M93.35.33h-20.4v28.56h-15v12.25h15v16.31h14.61v-16.31h5.63c12.49-.16,22.44-6.95,22.44-20.66v-.33C115.62,7.34,106.81.33,93.35.33ZM100.94,21.05c0,4.81-3.1,7.83-8.24,7.83h-5.14v-16h5.06c5.3,0,8.32,2.69,8.32,7.92v.25Z"/><path d="M215.36,12.4c-5.63,0-9.22,3.18-11.67,6.69V.33h-14.36v43.41c0-7.51-5.39-10.77-13.38-13.79-4.32-1.79-6.53-2.69-6.53-4.32v-.16c0-1.22,1.06-2.28,3.35-2.28,3.18,0,7.34,1.55,10.85,3.75l5.22-9.71c-4.9-3.18-10.69-4.73-16.16-4.73-9.63,0-16.4,5.3-16.4,14.2v.16c0,8,5.71,11.1,13.47,13.95,4.41,1.71,6.45,2.53,6.45,4.24v.16c0,1.39-1.14,2.45-3.59,2.45-3.92,0-8.49-1.79-12.81-4.81l-4.66,8.26V13.3h-14.36v26.03c0,4.08-2.2,6.28-5.3,6.28s-5.06-2.2-5.06-6.28V13.3h-14.36v30.44c0,8.98,4.81,14.61,13.06,14.61,5.63,0,9.22-3.18,11.67-6.69v5.79h14.36v-4.55c5.54,3.86,11.77,5.44,17.56,5.44,9.96,0,16.65-5.22,16.65-14.44v13.55h14.36v-26.03c0-4.08,2.2-6.28,5.3-6.28s5.06,2.2,5.06,6.28v26.03h14.36v-30.44c0-8.98-4.81-14.61-13.06-14.61Z"/></symbol></svg>
 
 <main class="screen">
-  <div class="nav"><span class="navl"><svg class="aplogo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><span class="mini">単語</span></span><span class="navr"><button class="pill press" id="btn-set">設定</button><button class="pill press" id="btn-howto">やり方</button></span></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-say" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  </svg>
+  <div class="nav"><span class="navl"><svg class="aplogo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><span class="mini">単語</span></span><span class="navr"><button class="wic press" id="btn-set" aria-label="設定"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></span></div>
   <h1 class="large">単語</h1>
   <p class="sub" id="title" hidden></p>
 
-  <!-- ホーム -->
+  <!-- ホーム（2026-11-17 見本 round2）：種類・レベルのタブ → テスト／トレーニングの2つ → 覚えた単語・レベルチェック・単語の設定。注意書きは設定の奥 -->
   <section id="v-home">
-    <div class="chips" id="w-groups" role="group" aria-label="単語帳の種類"></div>
-    <div class="crow"><div class="chips" id="w-decks" role="group" aria-label="レベル" style="flex:1;min-width:0"></div></div>
+    <div class="wseg" id="w-groups" role="group" aria-label="単語帳の種類"></div>
+    <div class="wseg" id="w-decks" role="group" aria-label="レベル"></div>
     <div class="inst"><span class="inst-ic" aria-hidden="true">📚</span><p><b>有料版</b>　IELTS 8.5・TOEFL 110・TOEIC 950・英検®1級＋2,500語</p><a class="pill" href="/course/">見る</a></div>
-    <div class="filters">
-      <span class="note">覚えた単語 <b id="p-learn">0</b> / <span id="p-total" class="en">0</span> 語</span>
-      <div class="seg" id="w-mode" role="group" aria-label="見せ方">
-        <button id="w-mode-card" aria-pressed="true">カード</button>
-        <button id="w-mode-list" aria-pressed="false">一覧</button>
+    <div id="w-card">
+      <div class="duo" id="tasks"></div>
+      <div class="msg" id="msg" hidden></div>
+      <div class="wrows">
+        <button class="wrow press" id="w-mode-list">覚えた単語<small><b id="p-learn">0</b> / <span id="p-total">0</span></small><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        
+        <button class="wrow press" id="w-set">単語の設定<small id="w-set-v"></small><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
       </div>
     </div>
-    <div id="w-card" class="cin" style="padding:0">
-      <div class="duo" id="tasks"></div>
-      <button class="setrow press" id="w-set">単語の設定<span id="w-set-v"></span></button>
-      <div class="msg" id="msg" hidden></div>
-    </div>
     <div id="w-listwrap" class="cin" style="padding:0" hidden>
+      <button class="wback press" id="w-mode-card"><svg aria-hidden="true"><use href="#i-back"/></svg>覚えた単語</button>
       <input class="search" id="w-q" type="search" placeholder="日本語か英語でさがす" aria-label="さがす" enterkeyhint="search" autocapitalize="none" autocorrect="off">
       <div class="list" id="w-list"></div>
     </div>
@@ -194,45 +235,45 @@
     </div>
   </section>
 
-  <!-- 朝：覚える ／ 夜：もう一度 -->
+  <!-- 朝：覚える ／ 夜：もう一度（見本 after_b：× と 1/20、絵・単語・発音・意味・例文、3回言う、赤い「次の単語へ」） -->
   <section id="v-learn" hidden>
-    <div class="seg" id="l-mode" role="group" aria-label="見せ方" style="margin-bottom:10px"><button data-lm="card" aria-pressed="true">カード</button><button data-lm="list" aria-pressed="false">一覧</button></div>
-    <div id="l-listwrap" class="card" hidden><div class="cin">
+    <div class="wtop"><button class="wic press" id="l-quit" aria-label="やめる"><svg aria-hidden="true"><use href="#i-x"/></svg></button><span class="wtr"><span id="l-mode" role="group" aria-label="見せ方"><button data-lm="card" aria-pressed="true">カード</button><button data-lm="list" aria-pressed="false">一覧</button></span><span class="wcnt" id="l-count"></span></span></div>
+    <div id="l-listwrap" hidden><div class="cin" style="padding:0">
       <p class="say" id="l-listnote"></p>
       <div class="list" id="l-list"></div>
       <div class="acts"><button class="primary" id="l-listdone"></button></div>
     </div></div>
-    <div class="card" id="l-cardwrap"><div class="cin">
-      <div class="wcount"><span id="l-count"></span><span class="wcat" id="l-label"></span></div>
-      <div class="pics" id="l-pics"></div>
+    <div class="lcard" id="l-cardwrap">
+      <span id="l-label" hidden></span>
+      <div class="pics" id="l-pics" aria-hidden="true"></div>
       <p class="word" id="l-word"></p>
-      <button class="lsay press" id="l-say">🔊 発音を聞く</button>
-      <div id="l-front" hidden>
-        <div class="acts"><button class="primary" id="l-flip">意味を見る</button></div>
+      <button class="wsay press" id="l-say"><svg aria-hidden="true"><use href="#i-say"/></svg>発音</button>
+      <div id="l-front" hidden style="width:100%;margin-top:auto">
+        <button class="wnext press" id="l-flip">意味を見る</button>
       </div>
-      <div id="l-back" class="cin" style="padding:0">
+      <div id="l-back">
         <ul class="senses" id="l-senses"></ul>
         <p class="ex" id="l-ex" hidden></p>   <!-- 例文（単語データの3つ目 ["英文","和訳"]。native・slang から。2026-11-03） -->
-        <p class="say" id="l-repsnote">声に出して3回。言うたびに押してください。</p>
-        <div class="dots" id="l-reps"><button class="dot" aria-label="1回目">1</button><button class="dot" aria-label="2回目">2</button><button class="dot" aria-label="3回目">3</button></div>
-        <div class="acts"><button class="primary" id="l-next" disabled>次の単語へ</button></div>
+        <div class="reps" id="l-reps" role="group" aria-label="声に出して3回"><button class="rep press" aria-label="1回目"><span><svg aria-hidden="true"><use href="#i-mic"/></svg>1</span><svg class="ok" aria-hidden="true"><use href="#i-ok"/></svg></button><button class="rep press" aria-label="2回目"><span><svg aria-hidden="true"><use href="#i-mic"/></svg>2</span><svg class="ok" aria-hidden="true"><use href="#i-ok"/></svg></button><button class="rep press" aria-label="3回目"><span><svg aria-hidden="true"><use href="#i-mic"/></svg>3</span><svg class="ok" aria-hidden="true"><use href="#i-ok"/></svg></button></div>
+        <button class="wnext press" id="l-next" disabled>次の単語へ</button>
       </div>
-    </div></div>
+    </div>
   </section>
 
   <!-- テスト・復習 -->
   <section id="v-test" hidden>
-    <div class="card"><div class="cin">
-      <div class="wcount"><span id="t-label">テスト・復習</span><span id="t-count"></span></div>
+    <div class="wtop"><button class="wic press" id="t-quit" aria-label="やめる"><svg aria-hidden="true"><use href="#i-x"/></svg></button><span class="wtr"><span class="wcnt" id="t-count"></span></span></div>
+    <span id="t-label" hidden>テスト・復習</span>
+    <div class="lcard">
       <span class="wcat" id="t-cat"></span>
       <div class="pics" id="t-pics"></div>
       <p class="word" id="t-word"></p>
-      <button class="lsay press" id="t-say" hidden>🔊 発音を聞く</button>
+      <button class="wsay press" id="t-say" hidden><svg aria-hidden="true"><use href="#i-say"/></svg>発音</button>
       <p class="ask" id="t-ask"></p>
       <div class="choices" id="t-choices"></div>
       <p class="verdict" id="t-verdict" hidden></p>
-      <div class="acts"><button class="primary" id="t-next" hidden>次へ</button></div>
-    </div></div>
+      <button class="wnext press" id="t-next" hidden>次へ</button>
+    </div>
   </section>
 
   <!-- 結果 -->
@@ -333,31 +374,27 @@
     </div></div>
   </section>
 
-  <!-- 設定 -->
+  <!-- 設定（歯車・単語の設定から）：1日の数（変えたらすぐ保存）・記録の登録・やり方・記録を消す・注意書き -->
   <section id="v-set" hidden>
-    <div class="group">
-      <label class="fld">毎日の新しい単語の数
-        <select id="s-per"><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>40</option><option>50</option></select>
-      </label>
+    <div class="wtop"><button class="wic press" id="s-cancel" aria-label="戻る"><svg aria-hidden="true"><use href="#i-back"/></svg></button></div>
+    <h2 class="wh">単語の設定</h2>
+    <div class="wrows">
+      <label class="wrow">1日の数<select id="s-per"><option value="10">10語</option><option value="15">15語</option><option value="20">20語</option><option value="25">25語</option><option value="30">30語</option><option value="40">40語</option><option value="50">50語</option></select><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></label>
       <div hidden>
       <label class="fld">朝（新しい単語）<input type="time" id="s-am"></label>
       <label class="fld">昼（テスト・復習）<input type="time" id="s-noon"></label>
       <label class="fld">夜（もう一度）<input type="time" id="s-pm"></label>
       </div>
+      <button class="wrow press" id="s-sync">別の端末でも続ける<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <button class="wrow press" id="btn-howto">やり方<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <button class="wrow press" id="s-reset">記録を消す<svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
     </div>
-    <button class="setrow press" id="s-sync">別の端末でも続ける（記録の登録）<span>›</span></button>
-    <div class="acts">
-      <button class="ghost" id="s-cancel">戻る</button>
-      <button class="primary" id="s-save">保存する</button>
-    </div>
-    <div class="acts"><button class="ghost danger" id="s-reset">記録をすべて消す</button></div>
-  </section>
-
-  <p class="foot">
+    <p class="foot">
     ※ 単語の選定・訳は A-PUSH が独自に行ったものです（市販の単語帳の転載ではありません）。目標の点数・バンドを目安にした単語で、スコアを保証するものではありません。<br>
     ※ TOEIC・TOEFL は ETS の登録商標、IELTS は British Council・IDP・Cambridge の登録商標です。本ツールはこれらの団体により承認・推奨されたものではありません。<br>
     ※ 記録は、お使いの端末のブラウザに保存されます。「単語の設定」の「記録の登録」でニックネームを登録した場合は、IDと学習の記録だけを A-PUSH のサーバー（Google スプレッドシート）にも保存し、別の端末から続きを学習できるようにします。
   </p>
+  </section>
 </main>
 
 <script src="/activity.js"></script>
@@ -410,8 +447,10 @@ document.getElementById("title").textContent = C.title;
   var el=document.getElementById("w-groups");
   /* 無料版：本コースにしか無い種類は、鍵付きで並べる（押すと「本生徒のみ」のシート） */
   var lgs=[]; (SITE.words.locked||[]).forEach(function(x){ if(gs.indexOf(x.g)<0&&lgs.indexOf(x.g)<0) lgs.push(x.g); });
-  el.innerHTML=gs.map(function(x){ return '<button class="chip" data-g="'+x+'" aria-pressed="'+(x===g)+'">'+(GS[x]||x)+'</button>'; }).join("")+
-    lgs.map(function(x){ return '<button class="chip" data-lock="この単語帳" style="opacity:.7">🔒 '+(GS[x]||x)+'</button>'; }).join("");
+  var en=function(t){ return /^[A-Za-z]/.test(t)?' class="en"':''; };
+  el.innerHTML=gs.map(function(x){ return '<button'+en(GS[x]||x)+' data-g="'+x+'" aria-pressed="'+(x===g)+'">'+(GS[x]||x)+'</button>'; }).join("")+
+    lgs.map(function(x){ return '<button data-lock="この単語帳">🔒 '+(GS[x]||x)+'</button>'; }).join("");
+  segShow(el);
   el.addEventListener("click",function(e){
     var b=e.target.closest("[data-g]"); if(!b||b.dataset.g===g) return;
     var id=null; try{ id=localStorage.getItem("apush-wg-"+b.dataset.g); }catch(e){}
@@ -419,6 +458,7 @@ document.getElementById("title").textContent = C.title;
     location.search="?c="+id;
   });
 })();
+function segShow(el){ var b=el.querySelector('[aria-pressed="true"]'); if(b&&b.offsetLeft+b.offsetWidth>el.clientWidth) el.scrollLeft=b.offsetLeft-(el.clientWidth-b.offsetWidth)/2; }   // 選んだタブが隠れている時だけ、見える所まで横に流す
 var CAP = 40;                                   // 1日の復習の上限（これを超えたら新しい単語はお休み）
 var INT = {1:1, 2:3, 3:7, 4:14, 5:30};          // 箱ごとの次の出題までの日数
 var $ = function(id){ return document.getElementById(id); };
@@ -486,7 +526,7 @@ function grade(id, right){
 function speak(t){ if(window.apSay) return apSay(t); try{ if(!("speechSynthesis" in window)) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.9; speechSynthesis.speak(u); }catch(e){} }
 
 function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
-function view(k){ ["home","learn","test","result","set","sync","howto"].forEach(function(n){ $("v-"+n).hidden=(n!==k); }); window.scrollTo(0,0); }
+function view(k){ ["home","learn","test","result","set","sync","howto"].forEach(function(n){ $("v-"+n).hidden=(n!==k); }); document.body.setAttribute("data-v",k); window.scrollTo(0,0); }
 
 /* ---------- ホーム ---------- */
 function renderHome(){
@@ -517,9 +557,9 @@ function renderHome(){
 
   var nextIdx = tasks.findIndex(function(x){ return x.on; });
   $("tasks").innerHTML = tasks.map(function(x,i){
-    return '<button class="tile'+(x.done?' done':'')+(i===nextIdx?' next':'')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'
-      +'<span class="tl">'+x.t+'</span><b>'+x.n+'<small>'+x.u+'</small></b><span class="ts">'+(x.done?'✓ ':'')+x.st+(x.on?' ›':'')+'</span></button>'; }).join("");
-  $("w-set-v").textContent="1日 "+per+"語 ›";
+    return '<button class="tile press '+(!x.on?'off':i===nextIdx?'go':'on')+'" data-t="'+x.id+'"'+(x.on?'':' disabled')+'>'   // 次にやる物だけ赤
+      +'<b>'+x.t+'</b><span class="n">'+x.n+'<small>'+x.u+'</small></span>'+(x.on?'<svg class="arr" aria-hidden="true"><use href="#i-arr"/></svg>':'<span class="st">'+(x.done?'✓ ':'')+x.st+'</span>')+'</button>'; }).join("");
+  $("w-set-v").textContent="1日 "+per+"語";
   $("msg").hidden=!msg; $("msg").textContent=msg;
   // doboku の形：単語帳・1日の新しい単語・今日の数
   renderDecks(tn);
@@ -538,8 +578,9 @@ function renderDecks(tn){  // 同じ種類のコース（TOEIC なら 700・800�
   $("w-decks").innerHTML=APW_COURSES.filter(function(x){ return x.g===g; }).map(function(x){
     var on=x.id===C.id, n=on?S.next:0;
     if(!on){ try{ n=(JSON.parse(localStorage.getItem("apush-words-"+x.id+"-v1"))||{}).next||0; }catch(e){} }
-    return '<button class="chip" data-c="'+x.id+'" aria-pressed="'+on+'">'+x.t+(on&&tn?'<span class="n">'+tn+'</span>':'')+'</button>';
-  }).join("")+(SITE.words.locked||[]).filter(function(x){ return x.g===g; }).map(function(x){ return '<button class="chip" data-lock="この単語帳" style="opacity:.7">🔒 '+x.t+'</button>'; }).join("");
+    return '<button class="en" data-c="'+x.id+'" aria-pressed="'+on+'">'+x.t+(on&&tn?'<i>'+tn+'</i>':'')+'</button>';
+  }).join("")+(SITE.words.locked||[]).filter(function(x){ return x.g===g; }).map(function(x){ return '<button data-lock="この単語帳">🔒 '+x.t+'</button>'; }).join("");
+  segShow($("w-decks"));
 }
 $("w-decks").addEventListener("click",function(e){ var b=e.target.closest("[data-c]"); if(b && b.getAttribute("aria-pressed")!=="true") location.search="?c="+b.dataset.c; });
 function setMode(m){
@@ -618,7 +659,9 @@ function paintReps(){
 }
 $("l-flip").addEventListener("click",function(){ $("l-front").hidden=true; $("l-back").hidden=false; $("l-pics").hidden=false; });
 $("l-say").addEventListener("click",function(){ speak(W[L.list[L.i]][0]); });
-$("l-reps").addEventListener("click",function(e){ if(e.target.tagName!=="BUTTON") return; if(L.reps<3){ L.reps++; paintReps(); } });
+$("l-reps").addEventListener("click",function(e){ if(!e.target.closest("button")) return; if(L.reps<3){ L.reps++; paintReps(); } });
+$("l-quit").addEventListener("click",renderHome);   // やめる：今日の単語は残る（もう一度押すと最初から）
+$("t-quit").addEventListener("click",renderHome);   // やめる：答えた分は記録に残る
 $("l-next").addEventListener("click",function(){
   if(L.i<L.list.length-1){ L.i++; showLearn(); return; }
   var d=day();
@@ -706,9 +749,9 @@ $("btn-set").addEventListener("click",function(){
   $("s-per").value=String(S.settings.per); $("s-am").value=S.settings.am; $("s-noon").value=S.settings.noon; $("s-pm").value=S.settings.pm;
   view("set");
 });
-$("s-save").addEventListener("click",function(){
+$("s-per").addEventListener("change",function(){
   S.settings={per:+$("s-per").value, am:$("s-am").value||"07:30", noon:$("s-noon").value||"12:30", pm:$("s-pm").value||"21:00"};
-  save(); renderHome();
+  save();
 });
 $("s-cancel").addEventListener("click",renderHome);
 $("w-set").addEventListener("click",function(){ $("btn-set").click(); });
