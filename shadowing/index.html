@@ -342,6 +342,10 @@ $("#pp").onclick = () => v.paused ? v.play() : v.pause();
 v.addEventListener("play", () => { $("#pp").innerHTML = icon("pause"); $("#pp").setAttribute("aria-label", "止める"); });
 v.addEventListener("pause", () => { $("#pp").innerHTML = icon("play"); $("#pp").setAttribute("aria-label", "再生"); });
 v.addEventListener("loadedmetadata", () => $("#seek").max = v.duration);
+/* 最初の音楽・番組の前置きは飛ばして、話し始め（L.start_at 秒）から。ファイルは切らない（NASA は加工しない約束）。2026-11-17 kimi */
+const skipIntro = () => { if (L && L.start_at && v.currentTime < L.start_at - 0.2) v.currentTime = L.start_at; };
+v.addEventListener("loadedmetadata", skipIntro);
+v.addEventListener("play", skipIntro);
 v.addEventListener("timeupdate", () => { $("#seek").value = v.currentTime; $("#tm").textContent = fmt(v.currentTime); });
 $("#seek").oninput = e => { v.currentTime = +e.target.value; };
 v.onclick = () => $("#pp").click();
