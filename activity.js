@@ -1,5 +1,6 @@
 /* その日に何をやったかを、全部のページで同じ所（ap_activity）に記録する。📅 計画のカレンダーとゴールが読む。
-   {"2026-10-14": {"chunk": 1, "words": 20, "wordsTest": 1, "wordsPm": 1, "shadow": 1, "mix": 4}} */
+   {"2026-10-14": {"rec": 1, "words": 20, "wordsTest": 1, "wordsPm": 1, "shadow": 1, "exam": 1}}
+   rec＝本コースの「今日の復習（録音）」で録音した章の数（2026-11-16 kimi）。chunk・adlib・mix は前の「話す」の分（古い記録に残る） */
 window.apMark = function (k, n) {
   try {
     var d = new Date(), p = function (x) { return (x < 10 ? "0" : "") + x; };
@@ -46,10 +47,11 @@ window.apWords = function (id) {
       if (sid && nm) { o.sid = sid; o.name = nm; }   /* 本コースは会員番号＝生徒ID。名前も決まっている＝聞かない */
     } catch (e) {}
   }
-  /* スマホを替えて生徒IDで入り直した時：前の記録を、このページの記録（ap_activity）に戻す。数は大きい方 */
+  /* スマホを替えて生徒IDで入り直した時：前の記録を、このページの記録（ap_activity）に戻す。数は大きい方。
+     本コースの sp は録音した章（rec。sync.js が rec を sp で送る） */
   o.restore = function (days) {
     try {
-      var a = JSON.parse(localStorage.getItem("ap_activity") || "{}"), map = { sp: "chunk", wd: "words", sh: "shadow" };
+      var a = JSON.parse(localStorage.getItem("ap_activity") || "{}"), map = { sp: honka ? "rec" : "chunk", wd: "words", sh: "shadow" };
       Object.keys(days).forEach(function (t) {
         a[t] = a[t] || {};
         Object.keys(map).forEach(function (k) { if (days[t][k]) a[t][map[k]] = Math.max(a[t][map[k]] || 0, days[t][k]); });

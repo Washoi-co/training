@@ -1,6 +1,6 @@
 /* A-PUSH 共通の見た目（doboku・club-kit と同じ。2026-10-17）。club-kit/template/shell.html の style から作った。白基調だけ。 */
 
-/* 型：iPhoneのアプリに近い形。下に4つのタブ（今日＆計画・話す・シャドーイング・単語）、上は大きな見出し→スクロールですりガラスのバー。
+/* 型：iPhoneのアプリに近い形。下に4つのタブ（計画・シャドーイング・単語・テスト。2026-11-16）、上は大きな見出し→スクロールですりガラスのバー。
    お知らせと通知は「今日＆計画」から。色は黒・白＋赤1か所（A-PUSH）。文字は端末の文字（iPhoneならヒラギノ）。 */
 :root{
   /* A-PUSH の赤・黒・白（2026-11-11）。選ぶ・強調は黒（--brand＝--ink）。赤（--accent）は主なボタン（.primary）と大きな数字（.big）とロゴだけ */
@@ -116,12 +116,6 @@ a{color:inherit}
 .seg:has(> .sl:not([hidden])) [aria-pressed="true"]{background:none}   /* 板（.sl）がある時は板が黒を運ぶ */
 .seg [aria-pressed="true"] small{color:inherit;opacity:.72}
 .seg a{text-decoration:none;text-align:center}
-/* 話すの種類（A-PUSHメソッド｜シャドーイング）：下の切り替えと見分けがつくよう、白い枠の大きなタブ＋絵文字＋ひとこと（2026-11-12 kimi） */
-.seg.sp-kind{margin:0 0 14px;padding:4px;background:var(--card);box-shadow:0 0 0 1px var(--line2) inset}
-.seg.sp-kind a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 10px 9px;font-size:15px;font-weight:800;letter-spacing:.02em;line-height:1.2}
-.seg.sp-kind a .ic{font-size:20px;line-height:1;margin-bottom:2px}
-.seg.sp-kind a small{font-size:11px;font-weight:500;opacity:.75;letter-spacing:0}
-.seg.sp-kind a[aria-pressed="true"] small{opacity:.8}
 .seg.lv button{display:flex;flex-direction:column;align-items:center;padding:6px 4px}
 .seg.lv b{font-family:var(--en);font-weight:900;font-size:17px}
 .seg.lv small{font-size:11px;color:var(--mute);font-weight:500}
@@ -386,26 +380,11 @@ a{color:inherit}
 .why-play:active{transform:scale(.95)}
 .why-ex small{font-size:12px;color:rgba(255,255,255,.6)}
 
-/* ---- アドリブ → 🎤 → AI添削 → 3回 → 復習（無料版・本コース共通。部品は _adlib.html、動きは adlib.js）2026-10-20 ---- */
-.stem .blank{color:var(--brand);border-bottom:3px solid var(--brand);padding:0 .35em}
-.adw{display:flex;justify-content:center;align-items:center;gap:10px}
+/* ---- ▶ の丸ボタン（本コースの録音のページ）・🎤（テスト exam.html が上書きして使う） ---- */
 .tsay{flex:none;width:36px;height:36px;border-radius:50%;background:var(--soft);color:var(--brand);font-size:13px;display:grid;place-items:center}
 .mic{align-self:center;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:var(--on);border-radius:99px;padding:16px 36px;font-size:19px;font-weight:800;transition:transform .1s ease-out}
 .mic:active{transform:scale(.97)}
 .mic.on{background:var(--ng)} .mic[hidden]{display:none}
-#a-type{display:flex;flex-direction:column;gap:9px}
-#a-type[hidden],#f-err[hidden],#f-ok[hidden]{display:none}
-#a-in{width:100%;border:0;background:var(--bg);border-radius:12px;padding:13px 14px;font-family:var(--en);font-size:17px}
-#a-live{font-family:var(--en);font-size:16px;color:var(--ink);min-height:1.3em}
-.say.priv{font-size:11.5px}
-.you{margin:0;font-family:var(--en);font-size:16px;text-align:center;color:var(--mute);line-height:1.4}
-.okb{align-self:center;font-size:12px;font-weight:700;background:var(--ok);color:#fff;border-radius:99px;padding:2px 10px}
-#f-err,#f-ok{display:flex;flex-direction:column;gap:10px}
-#f-msg{color:var(--ng);font-size:13px;margin:0;text-align:center}
-.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:calc(100% - 32px);max-width:420px;margin:0;background:var(--card);border-radius:14px;padding:12px 14px;font-size:14px;text-align:center;z-index:20;box-shadow:0 8px 30px rgba(11,11,12,.14)}
-.toast a{color:var(--brand);font-weight:700}
-.toast.ok{color:var(--ok)} .toast.ng{color:var(--ng)}
-.toast button{margin-left:8px;background:var(--soft);color:var(--brand);border-radius:99px;padding:4px 12px;font-size:13px;font-weight:700}
 
 /* ================= パソコンとスマホで見た目を分ける（2026-11-03 kimi） =================
    パソコン（幅 1024px 以上）：下のタブ → 左のサイドバー、本文は幅いっぱい（余白を作らない）

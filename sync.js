@@ -1,7 +1,7 @@
 /* A-PUSH 共通の記録（kanri.apush.jp/sync.js）
    本コース（study.apush.jp）と無料版（training.apush.jp）が読む。団体のサイト（club-kit）と同じデータの形・同じ流れ：
      orgs/{場所}/members/{生徒ID}          … 名前・チーム・班（チームと班は幹部が決める）・lastDay・uids（この生徒として入った端末）
-     orgs/{場所}/members/{ID}/days/{日付}  … その日の数 {sp 話す, wd 単語, sh シャドーイング, wn 新しい単語}
+     orgs/{場所}/members/{ID}/days/{日付}  … その日の数 {sp 話す（本コースは今日の復習で録音した章＝rec）, wd 単語, sh シャドーイング, wn 新しい単語}
      orgs/{場所}/members/{ID}/inbox/{id}   … お知らせ（配るのは functions）。開くと read:true ＝ 既読
    場所：honka＝本コース／free＝無料版（団体は club-kit が直接書く）
 
@@ -20,11 +20,12 @@
   var SDK = "https://www.gstatic.com/firebasejs/11.0.2/";
   var REGION = "asia-northeast1";
   var BASE = (function () { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^\/]*$/, "") : "/"; })();
-  /* サイトの記録の名前 → 共通の名前（団体のサイトと同じ sp/wd/sh/wn） */
-  var KIND = { chunk: ["sp"], sp: ["sp"], speak: ["sp"], words: ["wd", "wn"], wordsTest: ["wd"], wd: ["wd"], mix: ["wd"], shadow: ["sh"], sh: ["sh"] };
+  /* サイトの記録の名前 → 共通の名前（団体のサイトと同じ sp/wd/sh/wn）。
+     rec（本コースの今日の復習＝章の録音・2026-11-16）は sp で送る：kanri の firestore.rules は days のキーを決まった物だけ通す＝新しいキーを足すと1日の記録ごと弾かれる */
+  var KIND = { rec: ["sp"], chunk: ["sp"], sp: ["sp"], speak: ["sp"], words: ["wd", "wn"], wordsTest: ["wd"], wd: ["wd"], mix: ["wd"], shadow: ["sh"], sh: ["sh"] };
 
   /* 何の画面か → 練習の名前（時間を分けて数える。団体のサイト engine.js と同じ wd/sp/sh/ad） */
-  var LASTK = { chunk: "sp", words: "wd", wordsTest: "wd", shadow: "sh", adlib: "ad" };
+  var LASTK = { rec: "sp", chunk: "sp", words: "wd", wordsTest: "wd", shadow: "sh", adlib: "ad" };
 
   var O = null, S = null, KEY = "", fb = null, db = null, uid = null, ready = false, timer = null, asked = false, MSGS = [], unsub = null;
 
@@ -171,7 +172,7 @@
   function saveMe() { if (ready) me().update({ lastSeen: TS(), updatedAt: TS() }).catch(warn); }
   /* 前の端末の記録を、この端末に戻す（数は大きい方を取る） */
   function pull() {
-    /* 今日の話す（functions の speakDaily が毎晩書く・本コースだけ）。今日＆計画と話すのページが ap_today を読む */
+    /* 今日の復習（録音）の章 {day, lv, ch:[…], label}（functions の speakDaily が毎晩書く・本コースだけ）。計画と録音のページ（/）が ap_today を読む */
     me().get().then(function (d) {
       var t = d.get("spToday") || null;
       cleared(d.get("cleared"));   /* 前の端末で章クリアした分も足す（名簿の cleared は足し合わせだけ＝減らさない） */
