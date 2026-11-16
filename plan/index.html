@@ -141,11 +141,11 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>"&#"+c.charCodeAt(0)+";");
 const activity=()=>get("ap_activity",{});
 const DEF={words:20,shadow:1,exam:SITE.free?1:0,monthText:"",monthWords:600,m3Text:"",m3Words:1800,m3Start:TODAY};
 let G=Object.assign({},DEF,get("ap_goals",{}));
-// 本コースは「今日の復習（録音）」が一番上（2026-11-16 kimi：話す・アドリブを外して、章ごとの録音で毎日復習）
+// 本コースは「今日の章の振り返り」が一番上（2026-11-16 kimi：章ごとに STEP 1 録音・2 アドリブ・3 状況。数えるのは STEP 1 の録音）
 const TASKS=[
-  ...(SITE.free?[]:[{k:"rec",ic:"🎤",t:"今日の復習（録音）",u:"章",
+  ...(SITE.free?[]:[{k:"rec",ic:"🎤",t:"今日の章の振り返り",u:"章",
     href:()=>{const t=spT();return t?"/?lv="+encodeURIComponent(t.lv)+"&ch="+t.ch.map(encodeURIComponent).join(","):"/";},
-    sub:()=>{const t=spT();return t?String(t.label||"").replace(/\s*の復習$/,"")+" を録音する":"章を選んで録音する";}}]),
+    sub:()=>{const t=spT();return t?String(t.label||"").replace(/\s*の復習$/,"")+" を振り返る":"章を選んで振り返る";}}]),
   {k:"words",ic:"📚",t:"新しい単語＋復習",u:"語",href:"/words/?go=1"},
   {k:"shadow",ic:"🎧",t:"今日のシャドーイング",u:"本",href:"/shadowing/?today=1"},
   {k:"exam",ic:"📝",t:"テスト",u:"回",href:"/mine/"},
