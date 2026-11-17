@@ -163,7 +163,7 @@
     connecting = signIn()
       .then(function () { return S.linked === uid ? null : link({ sid: S.sid, name: S.name }); })
       .then(function () { ready = true; return pull(); })
-      .then(function () { saveMe(); watchInbox(); sendPlan(); sendCleared(); pushNudge(); return push(); })
+      .then(function () { saveMe(); watchInbox(); sendPlan(); sendVocab(); sendCleared(); pushNudge(); return push(); })
       .catch(function (e) { connecting = null; if (/permission-denied/.test(e && e.code)) { S.linked = ""; save(); } warn(e); });   /* 名簿の uids が消えていた（契約の写し・取り込み）＝次はつなぎ直す */
     return connecting;
   }
@@ -440,7 +440,10 @@
   function plan(g) {
     if (!O || !g || typeof g !== "object") return;
     var p = { words: +g.words || 0, chunk: +g.chunk || 0, shadow: +g.shadow || 0, monthText: String(g.monthText || "").slice(0, 200), monthWords: +g.monthWords || 0,
-      m3Text: String(g.m3Text || "").slice(0, 200), m3Words: +g.m3Words || 0, m3Start: /^\d{4}-\d{2}-\d{2}$/.test(g.m3Start || "") ? g.m3Start : "" };
+      m3Text: String(g.m3Text || "").slice(0, 200), m3Words: +g.m3Words || 0, m3Start: /^\d{4}-\d{2}-\d{2}$/.test(g.m3Start || "") ? g.m3Start : "",
+      /* 自分の計画（2026-11-17）：なぜ・目的（business/general/exam/special）・試験・1日の時間（時間）・いつ（HH:MM。LINE の今日のPUSH） */
+      why: String(g.why || "").slice(0, 200), purpose: String(g.purpose || "").slice(0, 20), exam: String(g.target || "").slice(0, 20),   /* 試験名（ap_goals.target。exam は1日のテスト回数） */
+      hours: +g.hours || 0, at: /^\d{2}:\d{2}$/.test(g.at || "") ? g.at : "" };
     var j = JSON.stringify(p);
     if (j === S.planSent) return;
     S.plan = p; save();
@@ -450,6 +453,21 @@
     if (!S.plan || JSON.stringify(S.plan) === S.planSent) return;
     var j = JSON.stringify(S.plan);
     me().update({ plan: S.plan, updatedAt: TS() }).then(function () { S.planSent = j; save(); }).catch(warn);
+  }
+  /* 単語力（レベルテスト 100問の結果。2026-11-17）：{scores:{帳:正答率}, est 推定の語数, start 始める帳, path 順番, versant, at} → 名簿の vocab */
+  function vocab(v) {
+    if (!O || !v || typeof v !== "object") return;
+    var sc = {}; Object.keys(v.scores || {}).slice(0, 40).forEach(function (k) { sc[String(k).slice(0, 20)] = Math.max(0, Math.min(1, +v.scores[k] || 0)); });
+    var p = { scores: sc, est: Math.max(0, Math.min(50000, +v.est || 0)), start: String(v.start || "").slice(0, 20),
+      path: (Array.isArray(v.path) ? v.path : []).slice(0, 60).map(function (x) { return String(x).slice(0, 20); }), at: String(v.at || "").slice(0, 10) };
+    if (typeof v.versant === "boolean") p.versant = v.versant;
+    S.vocab = p; save();
+    if (ready) sendVocab();
+  }
+  function sendVocab() {
+    if (!S.vocab || JSON.stringify(S.vocab) === S.vocabSent) return;
+    var j = JSON.stringify(S.vocab);
+    me().update({ vocab: S.vocab, updatedAt: TS() }).then(function () { S.vocabSent = j; save(); }).catch(warn);
   }
   /* 章クリア（本コース：章の問題＋アドリブ3問）{b:[1,2], i:[…], z:[…]}。名簿の cleared に送る（管理サイト・先生用の入口の「マスターした章」。2026-11-05 kimi：録音の代わり）
      ponytail: 前の端末の分は名簿には足すが、話すのページの ✓（done_b など）には戻さない */
@@ -468,7 +486,7 @@
     var j = JSON.stringify(S.cleared);
     me().update({ cleared: S.cleared, updatedAt: TS() }).then(function () { S.clearedSent = j; save(); }).catch(warn);
   }
-  var API = { start: start, mark: mark, words: words, plan: plan, cleared: cleared, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
+  var API = { start: start, mark: mark, words: words, plan: plan, vocab: vocab, cleared: cleared, profile: profile, settings: settings, inbox: openInbox, login: function () { if (O && cfg()) ask(true); }, call: call };
   function run(a) { try { if (a && API[a[0]]) API[a[0]].apply(null, a.slice(1)); } catch (e) { warn(e); } }
   var q = window.aps || [];
   window.aps = { push: run };

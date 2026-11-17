@@ -45,6 +45,10 @@ window.apWords = function (id) {
     try {
       var sid = JSON.parse(localStorage.getItem("ap_sid") || "null"), nm = JSON.parse(localStorage.getItem("ap_name") || "null");
       if (sid && nm) { o.sid = sid; o.name = nm; }   /* 本コースは会員番号＝生徒ID。名前も決まっている＝聞かない */
+      /* 自分の計画（2026-11-17 kimi）：入っていて、まだ「なぜ」を答えていない人は、どのページを開いても /start/ へ（半強制。生徒に考えさせない） */
+      var g0 = JSON.parse(localStorage.getItem("ap_goals") || "{}");
+      var inok = !!JSON.parse(localStorage.getItem("ap_pass") || "null");   /* ログアウト中は飛ばさない（/start/ のログインの守りと往復しないように） */
+      if (sid && nm && inok && !g0.why && !/^\/(start\/|words\/check)/.test(location.pathname)) location.replace("/start/");
     } catch (e) {}
   }
   /* スマホを替えて生徒IDで入り直した時：前の記録を、このページの記録（ap_activity）に戻す。数は大きい方。
