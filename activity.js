@@ -47,7 +47,7 @@ window.apWords = function (id) {
       if (sid && nm) { o.sid = sid; o.name = nm; }   /* 本コースは会員番号＝生徒ID。名前も決まっている＝聞かない */
       /* 自分の計画（2026-11-17 kimi）：入っていて、まだ「なぜ」を答えていない人は、どのページを開いても /start/ へ（半強制。生徒に考えさせない） */
       var g0 = JSON.parse(localStorage.getItem("ap_goals") || "{}");
-      var inok = !!JSON.parse(localStorage.getItem("ap_pass") || "null");   /* ログアウト中は飛ばさない（/start/ のログインの守りと往復しないように） */
+      var inok = !!JSON.parse(localStorage.getItem("ap_pass") || "null") || !!JSON.parse(localStorage.getItem("ap_tcode") || "null");   /* ログアウト中は飛ばさない（/start/ のログインの守りと往復しないように）。体験コード（training の full access）の人も初回は通す（2026-11-17 kimi） */
       if (sid && nm && inok && !g0.why && !/^\/(start\/|words\/check)/.test(location.pathname)) location.replace("/start/");
     } catch (e) {}
   }

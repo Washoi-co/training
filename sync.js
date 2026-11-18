@@ -176,6 +176,19 @@
     me().get().then(function (d) {
       var t = d.get("spToday") || null;
       cleared(d.get("cleared"));   /* 前の端末で章クリアした分も足す（名簿の cleared は足し合わせだけ＝減らさない） */
+      /* 別の端末で入り直した時（2026-11-17）：自分の計画（plan）と単語テストの結果（vocab）も戻す＝もう一度聞かない。この端末に無い時だけ */
+      try {
+        var p = d.get("plan"), v = d.get("vocab"), g = JSON.parse(localStorage.getItem("ap_goals") || "{}"), moved = false;
+        if (p && p.why && !g.why) {
+          Object.assign(g, { why: p.why, purpose: p.purpose || "", target: p.exam || "", words: +p.words || +g.words || 20, hours: +p.hours || 0, at: p.at || "", m3Text: g.m3Text || p.m3Text || p.why });
+          localStorage.setItem("ap_goals", JSON.stringify(g)); moved = true;
+        }
+        if (v && v.start && !localStorage.getItem("ap_vocab")) {
+          localStorage.setItem("ap_vocab", JSON.stringify(v)); localStorage.setItem("ap_path", JSON.stringify(v.path || []));
+          localStorage.setItem("ap_levelcheck", JSON.stringify({ g: "General", id: v.start, scores: [], date: v.at || "" })); localStorage.setItem("apush-words-course", v.start); moved = true;
+        }
+        if (moved && /^\/start\//.test(location.pathname) && g.why) location.replace(localStorage.getItem("ap_vocab") ? "/" : "/words/check.html?full=1");   /* 計画のページに飛ばされていた：戻した物に合わせて先へ */
+      } catch (e) {}
       try { localStorage.setItem("ap_today", JSON.stringify(t)); } catch (e) {}
       window.dispatchEvent(new Event("ap-today"));
     }).catch(warn);
