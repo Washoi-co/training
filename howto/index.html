@@ -38,12 +38,12 @@
 .hw-btn{align-self:flex-start;margin-top:1.4cqi;background:var(--accent2);color:var(--on);text-decoration:none;font-weight:900;font-size:clamp(15px,3.8cqi,24px);border-radius:3px;padding:.7em 1.1em;min-height:44px;display:inline-flex;align-items:center}
 .hw-btn:active{transform:scale(.97)}
 /* 1枚目：左上に A-PUSH のロゴ、右上に写真（2026-11-20 kimi）。社会人＝会議で発言（speaking）、学生＝留学（abroad）。どちらも Unsplash（無料の写真） */
-/* 1枚目（2026-11-20 kimi）：白い地の2列。左＝上に小さい赤ロゴ・下に文、右＝写真（上・右・下の端までぴったり） */
-.hw.first{display:grid;grid-template-columns:1fr 42%;padding:0;gap:0}
-.hw-l{display:flex;flex-direction:column;justify-content:space-between;gap:6cqi;padding:6cqi 4cqi 6cqi 7cqi}
-.hw-logo{width:15cqi;height:auto;color:var(--accent)}
-.hw.first h3{font-size:clamp(16px,5cqi,40px);line-height:1.35}
-.hw-mtg{width:100%;height:100%;min-height:100%;object-fit:cover;display:block}
+/* 1枚目（2026-11-20 kimi）：白い地。左上に小さい赤ロゴ、右上に写真（切らずに元の形・上と右の端にぴったり）、左下に2行の文 */
+.hw.first{position:relative;justify-content:space-between;gap:0;padding:6cqi 7cqi}
+.hw-l{display:contents}
+.hw-logo{width:14cqi;height:auto;color:var(--accent);position:relative;z-index:1}
+.hw.first h3{font-size:clamp(17px,5.6cqi,44px);line-height:1.35;position:relative;z-index:1}
+.hw-mtg{position:absolute;top:0;right:0;width:58%;height:auto;display:block;border-radius:0 6px 0 3cqi}
 .hw-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqi}
 .hw-3 div{border-top:2px solid var(--ink);padding-top:1.6cqi;font-size:clamp(10px,2.8cqi,19px);line-height:1.45;color:var(--mute)}
 .hw-3 b{display:block;font-weight:900;font-size:clamp(14px,4.4cqi,34px);color:var(--ink);line-height:1.2;margin-bottom:.3em}
@@ -54,7 +54,7 @@
 .hw.sp>div{display:flex;flex-direction:column;gap:2.6cqi}
 .hw.sp h3{font-size:clamp(16px,4.9cqi,42px)}
 .hw-ph{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border:1px solid var(--line2);border-radius:3cqi}
-.hw-ph.pe{aspect-ratio:3/4;object-position:50% 25%;border:0}
+.hw-ph.pe{aspect-ratio:auto;height:auto;border:0}   /* 人の写真は切らずに元の形（2026-11-20 kimi） */
 </style>
 </head>
 <body data-tab="how">
@@ -65,11 +65,11 @@
   <h1 class="large">使い方</h1>
   <div class="slides">
     <!-- 0. 1枚目（2026-11-20 kimi）：全員 -->
-    <div class="hw first" data-for="biz"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、<br>英語が話せると、<br><em>世界</em>が<br>商談相手になる。</h3></div><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div>
-    <div class="hw first" data-for="gen"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、<br>英語が話せると、<br><em>選べる仕事</em>が<br>増える。</h3></div><img class="hw-mtg" src="/howto/img/speaking.webp" alt="" loading="lazy"></div>
-    <div class="hw first" data-for="student"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、<br>英語が話せると、<br><em>留学</em>も外資系も<br>選べる。</h3></div><img class="hw-mtg" src="/howto/img/abroad.webp" alt="" loading="lazy"></div>
+    <div class="hw first" data-for="biz"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、英語で<br><em>世界</em>が商談相手になる</h3></div><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div>
+    <div class="hw first" data-for="gen"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、英語で<br><em>選べる仕事</em>が増える</h3></div><img class="hw-mtg" src="/howto/img/speaking.webp" alt="" loading="lazy"></div>
+    <div class="hw first" data-for="student"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、英語で<br><em>留学</em>も外資系も選べる</h3></div><img class="hw-mtg" src="/howto/img/abroad.webp" alt="" loading="lazy"></div>
     <div class="hw" data-for="biz gen student"><span class="hw-k"></span><h3><em>シャドーイング</em>だけ<br>やればいい。</h3><p>とりあえず、1ヶ月。</p></div>
-    <div class="hw first" data-for="study"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>英語を<br>伸ばしたいなら、<br>とりあえず1ヶ月、<br><em>シャドーイング</em>を<br>やってください！</h3></div><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div>
+    <div class="hw first" data-for="study"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>英語を伸ばしたいなら、<br>とりあえず1ヶ月<em>シャドーイング</em></h3></div><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div>
     <!-- 1. テーマ -->
     <div class="hw" data-for="biz"><span class="hw-k"></span><h3>話せると、ビジネスの<br><em>チャンス</em>が広がる。</h3><p>取引先も、投資家も、仲間も。<br>出会える相手が、世界中に広がります。<br>通訳を待たずに、その場で決められる。</p></div>
     <div class="hw dk" data-for="study"><span class="hw-k"></span><h3>英語は、<em>毎日</em>の積み重ね。</h3><p>レッスンの日だけでは、口は慣れません。<br>短くても、毎日。</p></div>
