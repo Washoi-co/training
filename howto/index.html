@@ -44,6 +44,31 @@
 .hw-logo{width:14cqi;height:auto;color:var(--accent);position:relative;z-index:1}
 .hw.first h3{font-size:clamp(17px,5.6cqi,44px);line-height:1.35;position:relative;z-index:1}
 .hw-mtg{position:absolute;top:0;right:0;width:58%;height:auto;display:block;border-radius:0 6px 0 3cqi}
+/* コースについて詳しく：details を開くと、そのコースのスライド */
+.crs-wrap{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.crs>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 18px;border-radius:6px;background:var(--card);font-weight:900;font-size:15px}
+.crs>summary::-webkit-details-marker{display:none}
+.crs>summary::after{content:"＋";font-weight:900}
+.crs[open]>summary::after{content:"−"}
+.crs>.slides{margin-top:14px}
+.hw-toc{margin:0;padding:0 0 0 1.6em;columns:2;column-gap:5cqi;font-size:clamp(10px,2.6cqi,16px);line-height:1.55;color:var(--mute)}
+.hw-toc li{break-inside:avoid}
+.hw-3.two{grid-template-columns:repeat(2,1fr)}
+.hw-days{display:flex;align-items:baseline;gap:4cqi;font-family:var(--en);font-weight:900;font-size:clamp(28px,10cqi,80px);color:var(--accent);line-height:1}
+.hw-days small{font-family:var(--fd);font-size:.3em;color:var(--mute)}
+.hw-s{font-family:var(--en);font-weight:900;font-size:clamp(12px,3cqi,20px);letter-spacing:.06em}
+.hw-ex{word-break:auto-phrase;display:flex;flex-direction:column;gap:1.2cqi;background:var(--bg);border-radius:4px;padding:3.6cqi 4cqi;font-size:clamp(12px,3.2cqi,20px);line-height:1.5}
+.hw-ex b{font-family:var(--en);font-weight:700}
+.hw-ex span{font-family:var(--en)}
+.hw-ex small{font-size:.85em;color:var(--mute);font-weight:500}
+/* コースの1枚目（2026-11-20 kimi）：本編の1枚目と同じ形。白い地・左上に赤ロゴ・右上に教材の表紙・左下にコース名と1行 */
+.hw.first.crs1{display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr);align-items:center;padding:6cqi 7cqi}
+.crs1 .hw-l{display:block}
+.crs1 .hw-logo{position:absolute;top:6cqi;left:7cqi}
+.crs1 .hw-l>div{padding-top:4cqi}
+.hw-mtg.cv{position:static;justify-self:center;width:30cqi;border-radius:2px;box-shadow:0 0 0 1px var(--line2)}
+.hw.first.crs1 h3{font-size:clamp(14px,4.4cqi,36px)}
+.crs1 p{margin-top:1.4cqi;color:var(--ink);font-weight:700}
 .hw-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqi}
 .hw-3 div{border-top:2px solid var(--ink);padding-top:1.6cqi;font-size:clamp(10px,2.8cqi,19px);line-height:1.45;color:var(--mute)}
 .hw-3 b{display:block;font-weight:900;font-size:clamp(14px,4.4cqi,34px);color:var(--ink);line-height:1.2;margin-bottom:.3em}
@@ -110,6 +135,57 @@
     <!-- 6. 無料面談（2026-11-20 kimi）：全員の最後の1枚。ボタンは本コースページと同じ予約の画面（book.js → kanri の booking。面談＝「面談 Taro」の枠）。JS が無い時だけ LINE に「予約」 -->
     <div class="hw"><span class="hw-k"></span><h3>私たちと本気で<br>英語やりませんか？</h3><p>無料面談で詳しくお話ししましょう。</p><a class="hw-btn" id="hw-book" href="https://line.me/R/oaMessage/@431enzow/?%E4%BA%88%E7%B4%84" target="_blank" rel="noopener">無料面談を申し込む</a><div id="ap-book" hidden></div></div>
   </div>
+  <!-- 7. コースについて詳しく（2026-11-20 kimi）：押すと、そのコースのスライドが下に開く -->
+  <div class="crs-wrap">
+  <details class="crs">
+    <summary>ビジネスコースを詳しく</summary>
+    <div class="slides">
+    <div class="hw first crs1"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><div><h3>ビジネスコース</h3><p>AI時代、英語で<br>世界が商談相手になる</p></div></div><img class="hw-mtg cv" src="/howto/img/cover-business.webp" alt="ビジネスコースの教材" loading="lazy"></div>
+    <div class="hw"><span class="hw-k"></span><h3>交渉の場で、<br>意見を<em>はっきり</em>伝えられる。</h3><p>そして、相手の国の文化を学ぶ。</p></div>
+    <div class="hw"><span class="hw-k"></span><h3>カリキュラム（全41章）</h3><ol class="hw-toc"><li>会議を進める</li><li>報告会を進める</li><li>謝罪をする</li><li>問題と解決</li><li>可能性とリスク</li><li>目標と計画</li><li>仕事の流れ</li><li>海外の取引先と初めて会う</li><li>会社を紹介して信頼を得る</li><li>雑談で距離を縮める</li><li>電話・オンライン会議で聞き返す・確かめる</li><li>本部に進み具合を報告する</li><li>数字を比べて話す</li><li>本部に目標未達を説明する</li><li>本部に予算・人・承認をお願いする</li><li>本部の決定を伝える・押し返す</li><li>提案して相手を動かす</li><li>選択肢を示して選ばせる</li><li>質問で相手の本音を聞き出す</li><li>相手の反論に答える</li><li>最初の条件を出す</li><li>交換条件で譲る</li><li>条件をしぼる</li><li>仮の提案で相手を探る</li><li>納期と生産量を交渉する</li><li>支払い条件と契約の中身を詰める</li><li>価格だけでなく全体で交渉する</li><li>ていねいに反対する</li><li>断って代わりを出す</li><li>大事な点を強める</li><li>圧力をかわす</li><li>引き下がる選択肢を見せる</li><li>行き詰まりを破る</li><li>合意をその場で口頭で確認する</li><li>取引先と問題の原因を探る</li><li>取れなかった案件を振り返る</li><li>契約の見直し・再交渉</li><li>国際会議を回す</li><li>任せる・手配する</li><li>日本の商習慣を説明する</li><li>総まとめ：交渉をひと通り</li></ol></div>
+    <div class="hw"><span class="hw-k"></span><h3>1つの章は、<em>3つ</em>のステップ。</h3>
+      <div class="hw-3"><div><b>STEP 1</b>ビジネスの型を、ネイティブと一緒に覚える</div><div><b>STEP 2</b>単語をもとに、自分で文を考えて伝える</div><div><b>STEP 3</b>文章を読んで、指示・説明・交渉をする</div></div></div>
+    <div class="hw"><span class="hw-k"></span><span class="hw-s">STEP 1</span><h3>ビジネスの<em>型</em>を、<br>ネイティブと一緒に覚える。</h3>
+      <div class="hw-ex"><small>第22章 交換条件で譲る　型：If you …, we will …</small><b>When a buyer asks for a discount, what do you do?</b><span>I never give it for free. If they pay upfront, we'll take two percent off.</span><small>バイヤーに値引きを頼まれたら？</small><small>ただでは渡しません。前払いなら2%引きます。</small></div></div>
+    <div class="hw"><span class="hw-k"></span><span class="hw-s">STEP 2</span><h3>単語をもとに、<br><em>自分で</em>文を考えて伝える。</h3>
+      <div class="hw-ex"><small>単語：concession（譲歩）</small><b>What concession will you make if a client doubles their order?</b><small>お客さんが注文を倍にしてくれたら、どんな譲歩をしますか？</small><small>→ 自分の会社のことで答える。</small><small>答えはネイティブが直す。</small></div></div>
+    <div class="hw"><span class="hw-k"></span><span class="hw-s">STEP 3</span><h3>文章を読んで、<br>指示・説明・<em>交渉</em>をする。</h3>
+      <div class="hw-ex"><small>場面：Five Percent Off?</small><span>Mr. Weber, your buyer in Germany, asks for five percent off his next order of eight hundred units. You can lower the price a little, but only if you get something back.</span><b>Don't say yes for free. Trade the discount for something.</b><small>ただでイエスと言わない。値引きを何かと交換する。</small></div></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>レッスン</em>で、<br>毎週話す。</h3><p>ネイティブとマンツーマン。<br>教材の章を、<br>先生と実際に使う。</p></div><img class="hw-ph pe" src="/howto/img/native.webp" alt="ネイティブの先生" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>コーチ</em>が、<br>3ヶ月を伴走する。</h3><p>目標と進め方を、<br>一緒に決める。<br>LINE で報告と PUSH。</p></div><img class="hw-ph pe" src="/howto/img/coach.webp" alt="英語コーチ" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>アプリ</em>で、<br>毎日続ける。</h3><p>シャドーイング・単語・<br>レッスンの復習。<br>レッスンの外も、<br>英語に触れる。</p></div><img class="hw-ph" src="/howto/img/app-plan.webp" alt="アプリの「計画」の画面" loading="lazy"></div>
+    <div class="hw dk"><span class="hw-k"></span><h3><em>3ヶ月</em>で、<br>変化を感じる。</h3><p>会議で、自分から話せる。<br>交渉で、言いたいことが言える。</p></div>
+    </div>
+  </details>
+  <details class="crs">
+    <summary>ビギナーコースを詳しく</summary>
+    <div class="slides">
+    <div class="hw first crs1"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><div><h3>ビギナーコース</h3><p>Be動詞から、<br>質問して答えられるまで</p></div></div><img class="hw-mtg cv" src="/howto/img/cover-beginner.webp" alt="ビギナーコースの教材" loading="lazy"></div>
+    <div class="hw"><span class="hw-k"></span><p>Be動詞すらわからない、、、ところから</p><h3>質問ができて、<br><em>答えられる</em>。</h3><p>5W1H＋現在形・過去形・未来形まで、<br>自由に使えるのが目標！</p></div>
+    <div class="hw"><span class="hw-k"></span><h3>カリキュラム（全24章）</h3><ol class="hw-toc"><li>What is this? / What is that?</li><li>What colour is this?</li><li>How many?</li><li>Who is this?</li><li>Whose is this?</li><li>Occupations</li><li>Adjectives (big, small, hot, cold)</li><li>Present Progressive</li><li>Simple Present (I / You / We / They)</li><li>Simple Present (He / She / It)</li><li>Frequency Adverbs</li><li>5W1H — What / Who</li><li>5W1H — Where / When</li><li>5W1H — Why</li><li>5W1H — How</li><li>Simple Past</li><li>Where? (Past)</li><li>Past Progressive</li><li>Past Simple vs Past Progressive</li><li>Will (Future)</li><li>Be Going To</li><li>Will vs Be Going To</li><li>Tense Review</li><li>Open Questions Review</li></ol></div>
+    <div class="hw"><span class="hw-k"></span><h3>1つの章は、<em>2つ</em>のステップ。</h3>
+      <div class="hw-3 two"><div><b>STEP 1</b>教材を見ながら、文を3回ずつ声に出して録音</div><div><b>STEP 2</b>先生の質問に、声で答える。答えはネイティブが直す</div></div></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>レッスン</em>で、<br>毎週話す。</h3><p>ネイティブとマンツーマン。<br>教材の章を、<br>先生と実際に使う。</p></div><img class="hw-ph pe" src="/howto/img/native.webp" alt="ネイティブの先生" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>コーチ</em>が、<br>3ヶ月を伴走する。</h3><p>目標と進め方を、<br>一緒に決める。<br>LINE で報告と PUSH。</p></div><img class="hw-ph pe" src="/howto/img/coach.webp" alt="英語コーチ" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>アプリ</em>で、<br>毎日続ける。</h3><p>シャドーイング・単語・<br>レッスンの復習。<br>レッスンの外も、<br>英語に触れる。</p></div><img class="hw-ph" src="/howto/img/app-plan.webp" alt="アプリの「計画」の画面" loading="lazy"></div>
+    <div class="hw dk"><span class="hw-k"></span><h3><em>3ヶ月</em>で、<br>変化を感じる。</h3><p>簡単な会話なら、<br>迷わず口から出てくる。</p></div>
+    </div>
+  </details>
+  <details class="crs">
+    <summary>インターメディエイトコースを詳しく</summary>
+    <div class="slides">
+    <div class="hw first crs1"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><div><h3>インターメディエイト<br>コース</h3><p>自分の考えを、<br>はっきり伝える</p></div></div><img class="hw-mtg cv" src="/howto/img/cover-intermediate.webp" alt="インターメディエイトコースの教材" loading="lazy"></div>
+    <div class="hw"><span class="hw-k"></span><h3>自分の考えを、<br><em>はっきり</em>、<br>しっかり伝える。</h3></div>
+    <div class="hw"><span class="hw-k"></span><h3>カリキュラム（全26章）</h3><ol class="hw-toc"><li>現在完了（経験・完了）・東京を訪ねる</li><li>現在完了（継続）・東京を訪ねる</li><li>接続詞 and / but</li><li>現在完了と過去形 ・テスト勉強</li><li>比較級 ・選手を比べる</li><li>接続詞 so / because</li><li>助動詞 should ・先生に質問する</li><li>助動詞 must / have to ・1週間の予定</li><li>must not と don&#x27;t have to ・禁止と「しなくていい」</li><li>接続詞 although / though</li><li>助動詞 can ・天気と遊び</li><li>最上級 ・かばんとりんご</li><li>接続詞 if / whether</li><li>関係代名詞 who ・まわりの人たち</li><li>接続詞 when / while</li><li>関係代名詞 which ・本屋の通り</li><li>接続詞 before / after</li><li>関係代名詞 that ・仕事をする人たち</li><li>接続詞 as soon as / as long as</li><li>不定詞 パート1 ・毎日の予定</li><li>接続詞 in case / even if</li><li>不定詞 パート2 ・天気予報</li><li>動名詞 ・大阪の見どころ</li><li>接続詞 ・町の地図</li><li>接続詞の復習 パート1</li><li>接続詞の復習 パート2</li></ol></div>
+    <div class="hw"><span class="hw-k"></span><h3>1つ1つの文法を、<br><em>イメージ</em>で<br>使えるようにする。</h3>
+      <div class="hw-3 two"><div><b>STEP 1</b>先生と一緒に、文章で型を覚える</div><div><b>STEP 2</b>絵だけで、自由に表現する</div></div></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>レッスン</em>で、<br>毎週話す。</h3><p>ネイティブとマンツーマン。<br>教材の章を、<br>先生と実際に使う。</p></div><img class="hw-ph pe" src="/howto/img/native.webp" alt="ネイティブの先生" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>コーチ</em>が、<br>3ヶ月を伴走する。</h3><p>目標と進め方を、<br>一緒に決める。<br>LINE で報告と PUSH。</p></div><img class="hw-ph pe" src="/howto/img/coach.webp" alt="英語コーチ" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>アプリ</em>で、<br>毎日続ける。</h3><p>シャドーイング・単語・<br>レッスンの復習。<br>レッスンの外も、<br>英語に触れる。</p></div><img class="hw-ph" src="/howto/img/app-plan.webp" alt="アプリの「計画」の画面" loading="lazy"></div>
+    <div class="hw dk"><span class="hw-k"></span><h3><em>3ヶ月</em>で、<br>変化を感じる。</h3><p>自分の考えを、<br>理由をつけて話せる。</p></div>
+    </div>
+  </details>
+  </div>
 </main>
 <script>
 /* 相手を決めて、その相手のスライドだけ残す（data-for が無い枚は全員）。番号は残った枚に振る */
@@ -118,11 +194,14 @@
   var m = /[?&]for=(biz|gen|study|student)\b/.exec(location.search);
   var role = { founder: "biz", worker: "gen", student: "student" }[(get("ap_goals") || {}).role];   /* /start/ の「あなたは？」（2026-11-20 kimi） */
   var who = m ? m[1] : role || (get("ap_shadow") === "business" ? "biz" : get("ap_pass") ? "study" : "gen");
-  var n = 0;
-  document.querySelectorAll(".hw").forEach(function (s) {
-    var f = s.getAttribute("data-for");
-    if (f && f.split(" ").indexOf(who) < 0) { s.remove(); return; }
-    s.querySelector(".hw-k").textContent = String(++n).padStart(2, "0");
+  document.querySelectorAll(".slides").forEach(function (box) {   /* 番号は箱ごと（本編・各コース） */
+    var n = 0;
+    [].slice.call(box.children).forEach(function (s) {
+      if (!s.classList.contains("hw")) return;
+      var f = s.getAttribute("data-for");
+      if (f && f.split(" ").indexOf(who) < 0) { s.remove(); return; }
+      s.querySelector(".hw-k").textContent = String(++n).padStart(2, "0");
+    });
   });
 })();
 </script>
