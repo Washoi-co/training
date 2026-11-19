@@ -40,12 +40,11 @@
 /* 写真の枚：上に写真（端まで）、下に文 */
 .hw-im{display:block;width:calc(100% + 14cqi);margin:-5cqi -7cqi 1.4cqi;aspect-ratio:16/9;object-fit:cover}
 /* 画面・人の枚：左に文、右にアプリの画面か写真 */
-.hw.sp{display:grid;grid-template-columns:1fr 38%;align-items:center;column-gap:5cqi}
+.hw.sp{display:grid;grid-template-columns:1fr 34%;align-items:center;column-gap:5cqi}
 .hw.sp>div{display:flex;flex-direction:column;gap:2.6cqi}
-.hw.sp h3{font-size:clamp(18px,5.6cqi,46px)}
+.hw.sp h3{font-size:clamp(16px,4.9cqi,42px)}
 .hw-ph{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border:1px solid var(--line2);border-radius:3cqi}
 .hw-ph.pe{aspect-ratio:3/4;object-position:50% 25%;border:0}
-@container (max-width:560px){.hw.sp p br{display:none}}   /* スマホ：横の文は狭いので、改行は任せる */
 </style>
 </head>
 <body data-tab="how">
@@ -57,31 +56,31 @@
   <div class="slides">
     <!-- 1. テーマ -->
     <div class="hw dk" data-for="biz"><span class="hw-k"></span><h3>AI の時代は、<em>言葉</em>の時代。</h3><p>調べる・書く・訳すは、AI がやる。<br>最後に残るのは、人と人が話す力。</p></div>
-    <div class="hw" data-for="biz"><img class="hw-im" src="/howto/img/meeting.webp" alt="" loading="lazy"><span class="hw-k"></span><h3>話せると、ビジネスの<em>チャンス</em>が広がる。</h3><p>取引先も、投資家も、仲間も。<br>出会える相手が、世界中に広がります。<br>通訳を待たずに、その場で決められる。</p></div>
+    <div class="hw" data-for="biz"><img class="hw-im" src="/howto/img/meeting.webp" alt="" loading="lazy"><span class="hw-k"></span><h3>話せると、ビジネスの<br><em>チャンス</em>が広がる。</h3><p>取引先も、投資家も、仲間も。<br>出会える相手が、世界中に広がります。<br>通訳を待たずに、その場で決められる。</p></div>
     <div class="hw" data-for="biz"><span class="hw-k"></span><h3>海外に挑む人の、<em>英語</em>。</h3><p>海外挑戦・海外事業を考える方へ。<br>会議・商談・プレゼン。<br>仕事で使う場面から練習します。</p></div>
-    <div class="hw dk" data-for="gen"><span class="hw-k"></span><h3>日本人は、英語を<em>話して</em>いない。</h3><p>中学・高校で、6年。<br>それでも、英語を話す場面はほとんどない。</p></div>
+    <div class="hw dk" data-for="gen"><span class="hw-k"></span><h3>日本人は、英語を<br><em>話して</em>いない。</h3><p>中学・高校で、6年。<br>それでも、英語を話す場面は<br>ほとんどない。</p></div>
     <div class="hw" data-for="gen"><span class="hw-k"></span><h3>勉強は、<em>入れる</em>ばかり。</h3><p>単語帳、文法、リスニング。<br>覚えて、解いて、また覚える。<br>口から出す時間は、ほとんどない。</p></div>
     <div class="hw dk" data-for="study"><span class="hw-k"></span><h3>英語は、<em>毎日</em>の積み重ね。</h3><p>レッスンの日だけでは、口は慣れません。<br>短くても、毎日。</p></div>
-    <div class="hw sp" data-for="study"><div><span class="hw-k"></span><h3><em>続けた</em>人が、話せるようになる。</h3><p>英語学習の一番の秘訣は、続けること。<br>毎日少しずつ、口を動かす。<br>その積み重ねが、話せる自分をつくる。</p></div><img class="hw-ph pe" src="/howto/img/student.webp" alt="A-PUSH の受講生" loading="lazy"></div>
+    <div class="hw sp" data-for="study"><div><span class="hw-k"></span><h3><em>続けた</em>人が、<br>話せるようになる。</h3><p>英語学習の一番の秘訣は、<br>続けること。<br>毎日少しずつ、口を動かす。</p></div><img class="hw-ph pe" src="/howto/img/student.webp" alt="A-PUSH の受講生" loading="lazy"></div>
     <!-- 2. Output -->
-    <div class="hw"><video class="hw-im" src="/howto/img/lesson.mp4" poster="/howto/img/lesson.webp" controls playsinline preload="none"></video><span class="hw-k"></span><h3>英語は、<em>すでに</em>頭の中にある。</h3><p>日本人は、実はかなり英語の知識がある。<br>文法・読解・単語力。かなりレベルが高いです。</p><span class="hw-n ja">でも、、、</span></div>
-    <div class="hw"><span class="hw-k"></span><span class="hw-n xl">OUTPUT</span><h3>足りないのは、知識を<em>出す</em>こと。</h3><p>知識を溜め込むだけで、口から出していない。<br>聞いて、まねて、声に出す。<br>知っている英語を、使える英語に。</p></div>
+    <div class="hw"><video class="hw-im" src="/howto/img/lesson.mp4" poster="/howto/img/lesson.webp" controls playsinline preload="none"></video><span class="hw-k"></span><h3>英語は、<em>すでに</em>頭の中にある。</h3><p>日本人は、実はかなり英語の知識がある。<br>文法・読解・単語力。<br>かなりレベルが高いです。</p><span class="hw-n ja">でも、、、</span></div>
+    <div class="hw"><span class="hw-k"></span><span class="hw-n xl">OUTPUT</span><h3>足りないのは、<br>知識を<em>出す</em>こと。</h3><p>知識を溜め込むだけで、<br>口から出していない。<br>聞いて、まねて、声に出す。<br>知っている英語を、使える英語に。</p></div>
     <!-- 3. 3つのシステム（コーチ・ネイティブ・アプリ）：まとめ1枚＋1つずつ3枚 -->
     <div class="hw"><span class="hw-k"></span><h3>A-PUSH は、<em>3つ</em>で支えます。</h3>
       <div class="hw-3"><div><b>コーチ</b>やる気を保つ</div><div><b>ネイティブ</b>毎週、話す</div><div><b>アプリ</b>毎日、続ける</div></div></div>
-    <div class="hw sp"><div><span class="hw-k"></span><h3><em>コーチ</em>が、一人にしない。</h3><p>目標と進め方を、一緒に決める。<br>LINE で、学習の報告と PUSH。<br>続かない理由を、一緒になくす。</p></div><img class="hw-ph pe" src="/howto/img/coach.webp" alt="英語コーチ" loading="lazy"></div>
-    <div class="hw sp"><div><span class="hw-k"></span><h3><em>ネイティブ</em>と、毎週話す。</h3><p>マンツーマンのレッスン。<br>レッスンは、あなたが話す時間。<br>話す場があるから、がんばれる。</p></div><img class="hw-ph pe" src="/howto/img/native.webp" alt="ネイティブの先生" loading="lazy"></div>
-    <div class="hw sp"><div><span class="hw-k"></span><h3><em>アプリ</em>で、レッスンの外も毎日。</h3><p>英語学習は、継続が命。<br>レッスンがある日だけだと、伸びない。<br>だから、毎日アプリで英語に触れる。</p></div><img class="hw-ph" src="/howto/img/app-plan.webp" alt="アプリの「計画」の画面" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>コーチ</em>が、<br>一人にしない。</h3><p>目標と進め方を、<br>一緒に決める。<br>LINE で報告と PUSH。<br>続かない理由を、<br>一緒になくす。</p></div><img class="hw-ph pe" src="/howto/img/coach.webp" alt="英語コーチ" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>ネイティブ</em>と、<br>毎週話す。</h3><p>マンツーマンで、<br>あなたが話す時間。<br>話す場があるから、<br>がんばれる。</p></div><img class="hw-ph pe" src="/howto/img/native.webp" alt="ネイティブの先生" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>アプリ</em>で、<br>レッスンの外も毎日。</h3><p>英語学習は、継続が命。<br>レッスンがある日だけだと、<br>伸びない。<br>だから、毎日アプリで<br>英語に触れる。</p></div><img class="hw-ph" src="/howto/img/app-plan.webp" alt="アプリの「計画」の画面" loading="lazy"></div>
     <!-- 4. アプリでやること -->
-    <div class="hw sp" data-for="biz"><div><span class="hw-k"></span><h3><em>シャドーイング</em>は、ビジネスの動画で。</h3><p>経営者が話す、本物の英語。<br>3回聞いて、まねて、声に出す。<br>最後に、内容の質問に答える。</p></div><img class="hw-ph" src="/howto/img/app-shadowing.webp" alt="アプリのシャドーイングの画面" loading="lazy"></div>
-    <div class="hw sp" data-for="study gen"><div><span class="hw-k"></span><h3><em>シャドーイング</em>は、毎日1本。</h3><p>動画を3回聞いて、まねて、声に出す。<br>最後に、内容の質問に答える。<br>レベルは5段階から選べる。</p></div><img class="hw-ph" src="/howto/img/app-shadowing-general.webp" alt="アプリのシャドーイングの画面" loading="lazy"></div>
-    <div class="hw sp"><div><span class="hw-k"></span><h3><em>単語</em>は、声に出して3回。</h3><p>音を聞いて、マイクで3回言う。<br>話すための単語を、毎日少しずつ。<br>1日の数は、自分で決める。</p></div><img class="hw-ph" src="/howto/img/app-words.webp" alt="アプリの単語の画面" loading="lazy"></div>
-    <div class="hw" data-for="biz study"><span class="hw-k"></span><h3>レッスンの<em>復習</em>も、アプリで。</h3><p>受けた章を、もう一度声に出す。<br>先生の質問に、声で答える。<br>答えは、AI が直してくれる。</p></div>
-    <div class="hw sp" data-for="gen"><div><span class="hw-k"></span><h3><em>テスト</em>で、力を試す。</h3><p>話す・書くの練習と、<br>TOEIC・IELTS・TOEFL・英検®。<br>毎日の練習の成果を、ここで確かめる。</p></div><img class="hw-ph" src="/howto/img/app-test.webp" alt="アプリのテストの画面" loading="lazy"></div>
+    <div class="hw sp" data-for="biz"><div><span class="hw-k"></span><h3><em>シャドーイング</em>は、<br>ビジネスの動画で。</h3><p>経営者が話す、本物の英語。<br>3回聞いて、まねて言う。<br>最後に、質問に答える。</p></div><img class="hw-ph" src="/howto/img/app-shadowing.webp" alt="アプリのシャドーイングの画面" loading="lazy"></div>
+    <div class="hw sp" data-for="study gen"><div><span class="hw-k"></span><h3><em>シャドーイング</em>は、<br>毎日1本。</h3><p>動画を3回聞いて、<br>まねて言う。<br>最後に、質問に答える。<br>レベルは5段階。</p></div><img class="hw-ph" src="/howto/img/app-shadowing-general.webp" alt="アプリのシャドーイングの画面" loading="lazy"></div>
+    <div class="hw sp"><div><span class="hw-k"></span><h3><em>単語</em>は、<br>声に出して3回。</h3><p>音を聞いて、マイクで3回。<br>話す単語を、毎日少しずつ。<br>1日の数は、自分で決める。</p></div><img class="hw-ph" src="/howto/img/app-words.webp" alt="アプリの単語の画面" loading="lazy"></div>
+    <div class="hw" data-for="biz study"><span class="hw-k"></span><h3>レッスンの<em>復習</em>も、<br>アプリで。</h3><p>受けた章を、もう一度声に出す。<br>先生の質問に、声で答える。<br>答えは、AI が直してくれる。</p></div>
+    <div class="hw sp" data-for="gen"><div><span class="hw-k"></span><h3><em>テスト</em>で、<br>力を試す。</h3><p>話す・書くの練習。<br>TOEIC・IELTS・<br>TOEFL・英検®。<br>毎日の成果を確かめる。</p></div><img class="hw-ph" src="/howto/img/app-test.webp" alt="アプリのテストの画面" loading="lazy"></div>
     <!-- 5. 英語が話せると -->
-    <div class="hw dk" data-for="biz"><span class="hw-k"></span><h3>英語が話せると、<em>世界</em>が商談の相手になる。</h3><p>会議で、自分の考えを言える。<br>海外の相手と、直接話して決められる。<br>次の一歩を、世界で。</p></div>
-    <div class="hw dk" data-for="gen"><span class="hw-k"></span><h3>英語が話せると、<em>キャリア</em>の幅が広がる。</h3><p>海外とのやりとり、外資系、転職。<br>選べる仕事が、増えていく。<br>次の一歩を、英語で。</p></div>
-    <div class="hw dk" data-for="study"><span class="hw-k"></span><h3>英語が話せると、<em>世界</em>とつながる。</h3><p>旅先で、迷わずたずねられる。<br>海の向こうに、友だちができる。<br>毎日の積み重ねが、その日をつくる。</p></div>
+    <div class="hw dk" data-for="biz"><span class="hw-k"></span><h3>英語が話せると、<br><em>世界</em>が商談の相手になる。</h3><p>会議で、自分の考えを言える。<br>海外の相手と、直接話して決められる。<br>次の一歩を、世界で。</p></div>
+    <div class="hw dk" data-for="gen"><span class="hw-k"></span><h3>英語が話せると、<br><em>キャリア</em>の幅が広がる。</h3><p>海外とのやりとり、外資系、転職。<br>選べる仕事が、増えていく。<br>次の一歩を、英語で。</p></div>
+    <div class="hw dk" data-for="study"><span class="hw-k"></span><h3>英語が話せると、<br><em>世界</em>とつながる。</h3><p>旅先で、迷わずたずねられる。<br>海の向こうに、友だちができる。<br>毎日の積み重ねが、その日をつくる。</p></div>
   </div>
 </main>
 <script>
