@@ -412,9 +412,8 @@ var LIMITED=["土木"];   // 専門の生徒だけのグループ（下のコー
   if(!APW_COURSES.length)APW_COURSES=all;   /* 専門のコースがこのサイトに無い時は、全部出す（空にして止まらない） */
   /* レベルテストの後は、決めた順番（ap_path）の帳だけを、その順に出す（2026-11-17 kimi：生徒に選ばせない。やり直すと順番も変わる） */
   var path=null;try{path=JSON.parse(localStorage.getItem("ap_path"));}catch(e){}
-  /* 2026-11-20 kimi「単語に IELTS, TOEIC, 英検, TOEFL の内容が入ってない」：試験の帳は順番に無くても後ろのタブに残す（毎日の帳は ap_path の順のまま） */
-  var EXAM=["TOEIC","IELTS","TOEFL iBT","TOEFL","英検®"];
-  if(path&&path.length){var by={};APW_COURSES.forEach(function(x){by[x.id]=x;});var pc=path.map(function(id){return by[id];}).filter(Boolean);if(pc.length)APW_COURSES=pc.concat(APW_COURSES.filter(function(x){ return EXAM.indexOf(x.g)>=0&&pc.indexOf(x)<0; }));}
+  /* 2026-11-20 kimi「単語に IELTS, TOEIC, 英検, TOEFL の内容が入ってない」「Native がなくなってる」：順番に無い帳も消さず、後ろに元の並びで残す（毎日の帳は ap_path の順のまま先頭） */
+  if(path&&path.length){var by={};APW_COURSES.forEach(function(x){by[x.id]=x;});var pc=path.map(function(id){return by[id];}).filter(Boolean);if(pc.length)APW_COURSES=pc.concat(APW_COURSES.filter(function(x){ return pc.indexOf(x)<0; }));}
 })();
 
 // コースは ?c=gen1 か、前に選んだもの。ファイルは下で apWords（activity.js）が読む
