@@ -216,7 +216,22 @@
 (function () {
   var el = document.getElementById("ap-book"), btn = document.getElementById("hw-book");
   if (!el || !btn || !window.APushBook) return;
-  window.APushBook.mount(el, { call: function (n, d) { return window.APushSync ? window.APushSync.call(n, d) : Promise.reject(new Error("no sync")); }, lessons: false });
+  /* 先読み（2026-11-20 kimi「時間かかるのどうにかできないかな」）：はじめの1回は仕組みが起きるまで約3.6秒。
+     開いて少ししたら空き時間を1回読んでおき、押した時はその答えを使う（5分以内）。2回目からは約0.3秒 */
+  var pre = null, preAt = 0;
+  function warm() {
+    if (pre) return;
+    if (!window.APushSync) { setTimeout(warm, 500); return; }
+    preAt = Date.now();
+    pre = window.APushSync.call("booking", { action: "days", kind: "meeting" });
+    pre.catch(function () { pre = null; });
+  }
+  setTimeout(warm, 4000);   /* 開いて4秒後に裏で1回（だれでもスライドを見ている間に済む） */
+  btn.addEventListener("pointerdown", warm);
+  window.APushBook.mount(el, { call: function (n, d) {
+    if (n === "booking" && d && d.action === "days" && d.kind === "meeting" && pre && Date.now() - preAt < 300000) { var p = pre; pre = null; return p; }
+    return window.APushSync ? window.APushSync.call(n, d) : Promise.reject(new Error("no sync"));
+  }, lessons: false });
   var banner = el.querySelector(".apb-banner");
   if (banner) btn.addEventListener("click", function (e) { e.preventDefault(); banner.click(); });
 })();
