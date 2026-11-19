@@ -37,6 +37,10 @@
 .hw-n.xl{font-size:clamp(64px,21cqi,180px)}
 .hw-btn{align-self:flex-start;margin-top:1.4cqi;background:var(--accent2);color:var(--on);text-decoration:none;font-weight:900;font-size:clamp(15px,3.8cqi,24px);border-radius:3px;padding:.7em 1.1em;min-height:44px;display:inline-flex;align-items:center}
 .hw-btn:active{transform:scale(.97)}
+/* 1枚目：左上に A-PUSH のロゴ、右上に会議の写真（2026-11-20 kimi） */
+.hw-top{display:flex;justify-content:space-between;align-items:flex-start;gap:4cqi;margin-bottom:2cqi}
+.hw-logo{width:24cqi;height:auto;color:inherit}
+.hw-mtg{width:40%;aspect-ratio:16/10;object-fit:cover;border-radius:2cqi}
 .hw-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqi}
 .hw-3 div{border-top:2px solid var(--ink);padding-top:1.6cqi;font-size:clamp(10px,2.8cqi,19px);line-height:1.45;color:var(--mute)}
 .hw-3 b{display:block;font-weight:900;font-size:clamp(14px,4.4cqi,34px);color:var(--ink);line-height:1.2;margin-bottom:.3em}
@@ -58,14 +62,13 @@
   <h1 class="large">使い方</h1>
   <div class="slides">
     <!-- 0. 1枚目（2026-11-20 kimi）：全員 -->
-    <div class="hw dk" data-for="biz"><span class="hw-k"></span><h3>AI時代、<br>英語が話せると、<br><em>世界</em>が商談相手になる。</h3></div>
-    <div class="hw dk" data-for="gen"><span class="hw-k"></span><h3>AI時代、<br>英語が話せると、<br><em>選べる仕事</em>が増える。</h3></div>
-    <div class="hw dk" data-for="student"><span class="hw-k"></span><h3>AI時代、<br>英語が話せると、<br><em>留学</em>も外資系も選べる。</h3></div>
+    <div class="hw dk" data-for="biz"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div><h3>AI時代、<br>英語が話せると、<br><em>世界</em>が商談相手になる。</h3></div>
+    <div class="hw dk" data-for="gen"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div><h3>AI時代、<br>英語が話せると、<br><em>選べる仕事</em>が増える。</h3></div>
+    <div class="hw dk" data-for="student"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div><h3>AI時代、<br>英語が話せると、<br><em>留学</em>も外資系も選べる。</h3></div>
     <div class="hw" data-for="biz gen student"><span class="hw-k"></span><h3><em>シャドーイング</em>だけ<br>やればいい。</h3><p>とりあえず、1ヶ月。</p></div>
-    <div class="hw" data-for="study"><span class="hw-k"></span><h3>英語を伸ばしたいなら、<br>とりあえず1ヶ月、<br><em>シャドーイング</em>を<br>やってください！</h3></div>
+    <div class="hw" data-for="study"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div><h3>英語を伸ばしたいなら、<br>とりあえず1ヶ月、<br><em>シャドーイング</em>を<br>やってください！</h3></div>
     <!-- 1. テーマ -->
     <div class="hw" data-for="biz"><img class="hw-im" src="/howto/img/meeting.webp" alt="" loading="lazy"><span class="hw-k"></span><h3>話せると、ビジネスの<br><em>チャンス</em>が広がる。</h3><p>取引先も、投資家も、仲間も。<br>出会える相手が、世界中に広がります。<br>通訳を待たずに、その場で決められる。</p></div>
-    <div class="hw" data-for="biz"><span class="hw-k"></span><h3>海外に挑む人の、<em>英語</em>。</h3><p>海外挑戦・海外事業を考える方へ。<br>会議・商談・プレゼン。<br>仕事で使う場面から練習します。</p></div>
     <div class="hw dk" data-for="study"><span class="hw-k"></span><h3>英語は、<em>毎日</em>の積み重ね。</h3><p>レッスンの日だけでは、口は慣れません。<br>短くても、毎日。</p></div>
     <div class="hw sp" data-for="study"><div><span class="hw-k"></span><h3><em>続けた</em>人が、<br>話せるようになる。</h3><p>英語学習の一番の秘訣は、<br>続けること。<br>毎日少しずつ、口を動かす。</p></div><img class="hw-ph pe" src="/howto/img/student.webp" alt="A-PUSH の受講生" loading="lazy"></div>
     <!-- 2. Output -->
