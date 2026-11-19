@@ -38,9 +38,12 @@
 .hw-btn{align-self:flex-start;margin-top:1.4cqi;background:var(--accent2);color:var(--on);text-decoration:none;font-weight:900;font-size:clamp(15px,3.8cqi,24px);border-radius:3px;padding:.7em 1.1em;min-height:44px;display:inline-flex;align-items:center}
 .hw-btn:active{transform:scale(.97)}
 /* 1枚目：左上に A-PUSH のロゴ、右上に写真（2026-11-20 kimi）。社会人＝会議で発言（speaking）、学生＝留学（abroad）。どちらも Unsplash（無料の写真） */
-.hw-top{display:flex;justify-content:space-between;align-items:flex-start;gap:4cqi;margin-bottom:2cqi}
-.hw-logo{width:24cqi;height:auto;color:inherit}
-.hw-mtg{width:40%;aspect-ratio:16/10;object-fit:cover;border-radius:2cqi}
+/* 1枚目（2026-11-20 kimi）：白い地の2列。左＝上に小さい赤ロゴ・下に文、右＝写真（上・右・下の端までぴったり） */
+.hw.first{display:grid;grid-template-columns:1fr 42%;padding:0;gap:0}
+.hw-l{display:flex;flex-direction:column;justify-content:space-between;gap:6cqi;padding:6cqi 4cqi 6cqi 7cqi}
+.hw-logo{width:15cqi;height:auto;color:var(--accent)}
+.hw.first h3{font-size:clamp(16px,5cqi,40px);line-height:1.35}
+.hw-mtg{width:100%;height:100%;min-height:100%;object-fit:cover;display:block}
 .hw-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqi}
 .hw-3 div{border-top:2px solid var(--ink);padding-top:1.6cqi;font-size:clamp(10px,2.8cqi,19px);line-height:1.45;color:var(--mute)}
 .hw-3 b{display:block;font-weight:900;font-size:clamp(14px,4.4cqi,34px);color:var(--ink);line-height:1.2;margin-bottom:.3em}
@@ -62,11 +65,11 @@
   <h1 class="large">使い方</h1>
   <div class="slides">
     <!-- 0. 1枚目（2026-11-20 kimi）：全員 -->
-    <div class="hw dk" data-for="biz"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div><h3>AI時代、<br>英語が話せると、<br><em>世界</em>が商談相手になる。</h3></div>
-    <div class="hw dk" data-for="gen"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/speaking.webp" alt="" loading="lazy"></div><h3>AI時代、<br>英語が話せると、<br><em>選べる仕事</em>が増える。</h3></div>
-    <div class="hw dk" data-for="student"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/abroad.webp" alt="" loading="lazy"></div><h3>AI時代、<br>英語が話せると、<br><em>留学</em>も外資系も選べる。</h3></div>
+    <div class="hw first" data-for="biz"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、<br>英語が話せると、<br><em>世界</em>が<br>商談相手になる。</h3></div><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div>
+    <div class="hw first" data-for="gen"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、<br>英語が話せると、<br><em>選べる仕事</em>が<br>増える。</h3></div><img class="hw-mtg" src="/howto/img/speaking.webp" alt="" loading="lazy"></div>
+    <div class="hw first" data-for="student"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>AI時代、<br>英語が話せると、<br><em>留学</em>も外資系も<br>選べる。</h3></div><img class="hw-mtg" src="/howto/img/abroad.webp" alt="" loading="lazy"></div>
     <div class="hw" data-for="biz gen student"><span class="hw-k"></span><h3><em>シャドーイング</em>だけ<br>やればいい。</h3><p>とりあえず、1ヶ月。</p></div>
-    <div class="hw" data-for="study"><span class="hw-k" hidden></span><div class="hw-top"><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div><h3>英語を伸ばしたいなら、<br>とりあえず1ヶ月、<br><em>シャドーイング</em>を<br>やってください！</h3></div>
+    <div class="hw first" data-for="study"><div class="hw-l"><span class="hw-k" hidden></span><svg class="hw-logo" viewBox="0 0 228.41 58.35" fill="currentColor" role="img" aria-label="A-PUSH"><use href="#aplogo"/></svg><h3>英語を<br>伸ばしたいなら、<br>とりあえず1ヶ月、<br><em>シャドーイング</em>を<br>やってください！</h3></div><img class="hw-mtg" src="/howto/img/meeting.webp" alt="" loading="lazy"></div>
     <!-- 1. テーマ -->
     <div class="hw" data-for="biz"><span class="hw-k"></span><h3>話せると、ビジネスの<br><em>チャンス</em>が広がる。</h3><p>取引先も、投資家も、仲間も。<br>出会える相手が、世界中に広がります。<br>通訳を待たずに、その場で決められる。</p></div>
     <div class="hw dk" data-for="study"><span class="hw-k"></span><h3>英語は、<em>毎日</em>の積み重ね。</h3><p>レッスンの日だけでは、口は慣れません。<br>短くても、毎日。</p></div>
@@ -77,7 +80,7 @@
     <div data-for="gen study student" class="hw"><span class="hw-k"></span><span class="hw-n xl">OUTPUT</span><h3>足りないのは、<br>知識を<em>出す</em>こと。</h3><p>知識を溜め込むだけで、<br>口から出していない。<br>聞いて、まねて、声に出す。<br>知っている英語を、使える英語に。</p></div>
     <div class="hw" data-for="biz"><span class="hw-k"></span><span class="hw-n xl">OUTPUT</span><h3>足りないのは、<br>知識を<em>出す</em>こと。</h3><p>会議で、とっさに言えない。<br>商談で、言いたいことが出てこない。<br>だから、口から出す練習をする。</p></div>
     <!-- 2.5 シャドーイング（2026-11-20 kimi）：とは → 変わるあなた → アプリで → 模擬テスト → 話せるあなたに、コミット -->
-    <div class="hw"><span class="hw-k"></span><h3><em>シャドーイング</em>とは。</h3><p>英語を聞きながら、<br>少し遅れて、そのまま声に出す。<br>影（shadow）のように、<br>音についていく練習です。</p></div>
+    <div class="hw"><span class="hw-k"></span><h3><em>シャドーイング</em>とは。</h3><p>英語を聞きながら、<br>少し遅れて、そのまま声に出す。<br>英語を何度も聞いて口に出すことで、<br>英語の音を覚える。<br>すると少しずつ英語が<br>バラバラに分かれて<br>聞こえるようになってくる。</p></div>
     <div class="hw"><span class="hw-k"></span><h3>シャドーイングで<br><em>変わる</em>あなた。</h3>
       <div class="hw-3"><div><b>耳</b>速い英語が聞き取れる</div><div><b>口</b>英語の音で口が動く</div><div><b>頭</b>考える前に言葉が出る</div></div></div>
     <div class="hw sp" data-for="biz"><div><span class="hw-k"></span><h3><em>シャドーイング</em>は、<br>ビジネスの動画で。</h3><p>経営者が話す、本物の英語。<br>3回聞いて、まねて言う。<br>最後に、質問に答える。</p></div><img class="hw-ph" src="/howto/img/app-shadowing.webp" alt="アプリのシャドーイングの画面" loading="lazy"></div>
