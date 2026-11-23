@@ -207,7 +207,7 @@ const TIMES = 3;
 const $ = s => document.querySelector(s);
 const v = $("#v");
 let DB, L, step = 0, subs = "en", stopAt = null, loopSeg = null, lv = 0, cat = "general";   // lv＝一覧で見ているレベル・cat＝General／Business
-/* Business（2026-11-18 kimi）：本コースだけ。students.json の shadowing:"business" の生徒（ログインで ap_shadow）は Business だけ、ほかは General と Business の2つのタブ */
+/* Business（2026-11-18 kimi）：本コースだけ。students.json の shadowing:"business" の生徒（ログインで ap_shadow）は Business・Tech・Health（General は出さない。11/23）、ほかは全部のタブ */
 const BIZ_ONLY = (() => { try { return JSON.parse(localStorage.getItem("ap_shadow")) === "business"; } catch (e) { return false; } })();
 const CATS = {general: "General", business: "Business", tech: "Tech", health: "Health"};   // 上のタブの順番
 const catOf = x => CATS[x.cat] ? x.cat : "general";
@@ -241,8 +241,8 @@ function nextLesson() {
 if ((window.SITE || {}).free) fetch("data/locked.json").then(r => r.ok ? r.json() : []).then(l => { window.SH_LOCKED = l; if (typeof DB !== "undefined" && DB && !location.hash.slice(1)) home(); }).catch(() => {});
 fetch("data/lessons.json").then(r => r.json()).then(d => {
   DB = d; DB.lessons = DB.lessons.filter(x => x.active && !((window.SITE || {}).free && catOf(x) !== "general"));   // 無料版に Business・Tech は出さない
-  if (BIZ_ONLY && DB.lessons.some(x => x.cat === "business")) DB.lessons = DB.lessons.filter(x => x.cat === "business");
-  cat = DB.lessons.some(x => catOf(x) === store.get().cat) ? store.get().cat : catOf(DB.lessons[0] || {});
+  if (BIZ_ONLY && DB.lessons.some(x => x.cat === "business")) DB.lessons = DB.lessons.filter(x => catOf(x) !== "general");   // Business・Tech・Health（2026-11-23 kimi「health&tech も」。General だけ出さない）
+  cat = DB.lessons.some(x => catOf(x) === store.get().cat) ? store.get().cat : BIZ_ONLY && DB.lessons.some(x => x.cat === "business") ? "business" : catOf(DB.lessons[0] || {});
   if (/[?&]today=1/.test(location.search)) {   /* 今日＆計画の「今日のシャドーイング」から */
     const x = nextLesson();
     history.replaceState(null, "", location.pathname + (x ? "#" + x.id : ""));
