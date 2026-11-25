@@ -20,7 +20,9 @@ let cur=null,FIX=null,REDO=null;   /* REDO：添削に失敗して「言い直�
 
 /* ---- 1問を出す ---- */
 const sayOf=o=>o.situation?o.situation:o.question?plain(o.question):(o.words||[]).map(w=>w.en).join(", ");
+let warmed=false;
 function show(o){
+  if(!warmed&&window.APushSync){warmed=true;window.APushSync.call("review",{warm:1}).catch(()=>{});}   /* 1問目で添削のサーバーを起こしておく（答えを送る頃には温まっている） */
   const ws=o.words&&o.words.length?o.words:o.word?[{en:o.word,ja:o.meaning||"",pic:o.pic||""}]:[];
   cur=Object.assign({},o,{word:o.word!=null?o.word:ws.map(w=>w.en).join(" / "),meaning:o.meaning||"",words:ws});
   $("a-sit").textContent=o.situation||"";$("a-sit").hidden=!o.situation;

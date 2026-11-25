@@ -485,12 +485,16 @@ function playSet(set,text,lang){
 }
 
 /* ---------- Writing ---------- */
+/* 採点のサーバーを温める（2026-11-25）。書いている・話している間に起こしておき、出した時に待たせない。長く書く時は冷えないよう、入力中も5分に1回 */
+let warmAt=0;
+const warm=()=>{if(Date.now()-warmAt<3e5||!window.APushSync)return;warmAt=Date.now();window.APushSync.call("assess",{warm:1}).catch(()=>{});};
 function paintWriting(S){
+  warm();
   const t=S.task=S.tasks.length===1?S.tasks[0]:pick(S.tasks,I);
   $("sec-body").innerHTML='<p class="tip">'+esc(S.intro||"")+'</p>'+(t.source?'<div class="passage">'+esc(t.source)+'</div>':"")+'<p class="stem" style="font-family:var(--en);font-size:16px;line-height:1.5;margin:0"><b>'+esc(t.type||"")+'</b><br>'+esc(t.prompt).replace(/\n/g,"<br>")+'</p>'+
     (t.minWords?'<p class="note">目安 '+t.minWords+'〜'+t.maxWords+' 語。'+esc(t.note||"")+'</p>':"")+
     '<div id="w-tw">'+wordsHtml(t.words,"")+'</div><textarea class="essay" id="w-text" placeholder="Write here in English…" autocapitalize="sentences"></textarea><div class="wc" id="w-wc">0 words</div>';
-  const ta=$("w-text");ta.oninput=()=>{$("w-wc").textContent=words(ta.value)+" words";A[S.id].text=ta.value;if(t.words&&t.words.length)$("w-tw").innerHTML=wordsHtml(t.words,ta.value);};
+  const ta=$("w-text");ta.oninput=()=>{$("w-wc").textContent=words(ta.value)+" words";A[S.id].text=ta.value;warm();if(t.words&&t.words.length)$("w-tw").innerHTML=wordsHtml(t.words,ta.value);};
 }
 const words=t=>String(t||"").trim().split(/\s+/).filter(w=>/[A-Za-z]/.test(w)).length;
 const assessTask=t=>({type:t.type,prompt:(t.source?"Summarize this passage:\n"+t.source+"\n\n":"")+t.prompt,minWords:t.minWords,maxWords:t.maxWords,timeSec:t.timeSec});
@@ -524,21 +528,25 @@ async function startRec(S,t){
   catch(e){$("sp-note").textContent="マイクが使えませんでした。この質問は飛ばします。";A[S.id].clips.push({task:t,blob:null,sec:0});setTimeout(()=>{S._k++;paintTask(S);},1200);return;}
   const chunks=[],r=rec=new MediaRecorder(recStream,{audioBitsPerSecond:48000});   // 7分でも送れる大きさに
   r.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
-  r.onstop=()=>{rec=null;clearInterval(recTick);A[S.id].clips.push({task:t,blob:new Blob(chunks,{type:r.mimeType||"audio/mp4"}),sec:(Date.now()-recT)/1000});S._k++;paintTask(S);};
-  r.start();recT=Date.now();$("sp-mic").classList.add("on");$("sp-mic").textContent="■";
+  r.onstop=()=>{rec=null;clearInterval(recTick);const c={task:t,blob:new Blob(chunks,{type:r.mimeType||"audio/mp4"}),sec:(Date.now()-recT)/1000};if(c.sec>=1)c.p=gradeClip(c);A[S.id].clips.push(c);S._k++;paintTask(S);};
+  warm();r.start();recT=Date.now();$("sp-mic").classList.add("on");$("sp-mic").textContent="■";
   const tick=()=>{const s=Math.floor((Date.now()-recT)/1000);$("sp-note").textContent="● 録音中 "+s+" / "+t.timeSec+"秒"+(t.minSec&&s<t.minSec?"（"+t.minSec+"秒までは止まりません）":"（押すと止めて次へ）");if(s>=t.timeSec&&rec)stopRec();};
   tick();recTick=setInterval(tick,400);
 }
 function stopRec(){if(rec)rec.stop();}
 const b64=blob=>new Promise(ok=>{const f=new FileReader();f.onload=()=>ok(String(f.result).split(",")[1]||"");f.readAsDataURL(blob);});
+/* 1問の録音を止めたら、すぐ採点を始める（次の質問を話している間に AI が動く。2026-11-25：前は全部話し終えてから1問ずつ順に待っていた） */
+function gradeClip(c){
+  const task=Object.assign({},c.task); if(task.readAloud)task.prompt=task.prompt+"\nPassage: "+task.readAloud;
+  return b64(c.blob).then(audio=>window.APushSync.call("assess",{kind:"speaking",exam:X.assess||X.exam,task,audio,mime:c.blob.type,sec:Math.round(c.sec)}))
+    .then(res=>Object.assign({task:c.task},res.data),e=>({task:c.task,err:errJa(e)}));
+}
 async function gradeSpeaking(S){
   const clips=A[S.id].clips||[]; const out=[];
   for(let k=0;k<clips.length;k++){
     const c=clips[k]; if(!c.blob||c.sec<1){out.push({task:c.task,skipped:true});continue;}
     busy("スピーキング "+(k+1)+" / "+clips.length+" を採点しています…");
-    const task=Object.assign({},c.task); if(task.readAloud)task.prompt=task.prompt+"\nPassage: "+task.readAloud;
-    try{const audio=await b64(c.blob);const res=await window.APushSync.call("assess",{kind:"speaking",exam:X.assess||X.exam,task,audio,mime:c.blob.type,sec:Math.round(c.sec)});out.push(Object.assign({task:c.task},res.data));}
-    catch(e){out.push({task:c.task,err:errJa(e)});}
+    out.push(await (c.p||gradeClip(c)));
   }
   const sc=out.filter(o=>o.overall!=null);
   R[S.id]={kind:"speaking",title:S.title,tasks:out,overall:sc.length?Math.floor(sc.reduce((a,o)=>a+o.overall,0)/sc.length/X.scale.step)*X.scale.step:null,note:(sc[0]||{}).note||""};
